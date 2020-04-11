@@ -1,10 +1,154 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Java/src/login/Account.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/AccountModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/AccountModelImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/Character.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/DM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/DiceRoll.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/Group.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/Run.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/Start.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/Subject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/model/ModelFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/model/ViewHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/model/ViewModelFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/views/Account.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/views/AccountController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/views/AccountViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/views/ChangePassword.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/views/ChangePasswordController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/views/ChangePasswordViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/views/CreateAccount.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/views/CreateAccountController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/views/CreateAccountViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/views/DMAccount.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/views/DMAccountController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/views/DMAccountViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/views/Login.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/views/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/views/LoginViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/views/OpenSystem.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/views/OpenSystemController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/views/OpenSystemViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/views/PasswordRecovery.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/views/PasswordRecoveryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/views/PasswordRecoveryViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/views/PlayerAccount.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/views/PlayerAccountController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/views/PlayerAccountViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/Java.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Java/Java.iml" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1XkNw7BvC3whQ4rXm7gHqlbnXNo" />
   <component name="PropertiesComponent">
     <property name="jdk.selected.JAVA_MODULE" value="13" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Java/src" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15332031" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="account" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src" />
+      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\account" />
+      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\model" />
+      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\views" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Start (1)">
+    <configuration name="Start (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="login.Start" />
+      <module name="Java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="login.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Start" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="account.Start" />
+      <module name="Java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="account.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Start (1)" />
+        <item itemvalue="Application.Start" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="" />
+      <created>1585730812033</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585730812033</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

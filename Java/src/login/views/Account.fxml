@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="666.0" prefWidth="754.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.views.AccountController">
+  <tabs>
+      <Tab text="Account">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="logoutButton" layoutX="292.0" layoutY="495.0" mnemonicParsing="false" onAction="#logout" prefHeight="78.0" prefWidth="170.0" text="Logout" />
+                  <Button fx:id="changePasswordButton" layoutX="292.0" layoutY="372.0" mnemonicParsing="false" onAction="#changePassword" prefHeight="78.0" prefWidth="170.0" text="Change Password" />
+                  <Button fx:id="buttonDM" layoutX="292.0" layoutY="123.0" mnemonicParsing="false" onAction="#changeToDM" prefHeight="78.0" prefWidth="170.0" text="Play as DM" />
+                  <Button fx:id="buttonPlayer" layoutX="292.0" layoutY="248.0" mnemonicParsing="false" onAction="#changeToPlayer" prefHeight="78.0" prefWidth="170.0" text="Play as Player" />
+               </children></AnchorPane>
+        </content>
+      </Tab>
+  </tabs>
+</TabPane>
