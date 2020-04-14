@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Java/src/login/AccountsForTesting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/login/AccountModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/AccountModelImpl.java" afterDir="false" />
-    </list>
+    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +38,7 @@
       <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\views" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
       <recent name="testing" />
       <recent name="login" />
     </key>
@@ -113,7 +110,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586642627073</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="created a test class">
+      <created>1586900209110</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1586900209110</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -131,6 +135,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="So it begins.&#10;added basic login part without any client server stuff," />
-    <option name="LAST_COMMIT_MESSAGE" value="So it begins.&#10;added basic login part without any client server stuff," />
+    <MESSAGE value="created a test class" />
+    <option name="LAST_COMMIT_MESSAGE" value="created a test class" />
   </component>
 </project>
