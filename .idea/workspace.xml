@@ -2,47 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Java/src/login/Account.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/AccountModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/AccountModelImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/Character.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/DM.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/DiceRoll.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/Group.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/Run.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/Start.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/Subject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/model/ModelFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/model/ViewHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/model/ViewModelFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/views/Account.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/views/AccountController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/views/AccountViewModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/views/ChangePassword.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/views/ChangePasswordController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/views/ChangePasswordViewModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/views/CreateAccount.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/views/CreateAccountController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/views/CreateAccountViewModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/views/DMAccount.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/views/DMAccountController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/views/DMAccountViewModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/views/Login.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/views/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/views/LoginViewModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/views/OpenSystem.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/views/OpenSystemController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/views/OpenSystemViewModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/views/PasswordRecovery.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/views/PasswordRecoveryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/views/PasswordRecoveryViewModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/views/PlayerAccount.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/views/PlayerAccountController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/views/PlayerAccountViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/AccountsForTesting.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/Java.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Java/Java.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/login/AccountModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/AccountModelImpl.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,21 +24,29 @@
   </component>
   <component name="ProjectId" id="1XkNw7BvC3whQ4rXm7gHqlbnXNo" />
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="jdk.selected.JAVA_MODULE" value="13" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Java/src" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15332031" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="account" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src" />
       <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\account" />
       <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\model" />
       <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\views" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="testing" />
+      <recent name="login" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="account" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -136,6 +106,14 @@
       <option name="presentableId" value="Default" />
       <updated>1585730812033</updated>
     </task>
+    <task id="LOCAL-00001" summary="So it begins.&#10;added basic login part without any client server stuff,">
+      <created>1586642627073</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1586642627073</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -150,5 +128,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="So it begins.&#10;added basic login part without any client server stuff," />
+    <option name="LAST_COMMIT_MESSAGE" value="So it begins.&#10;added basic login part without any client server stuff," />
   </component>
 </project>
