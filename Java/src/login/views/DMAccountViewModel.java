@@ -23,12 +23,11 @@ public class DMAccountViewModel
     groupListDM = FXCollections.observableArrayList();
     textField.setValue("");
 
-    model.addListener("GroupCreatedByDm",this::startGameWithGroup);
+    model.addListener("GroupCreatedByDm",this::addGroupToList);   // listener if a new group is created by you.
   }
-
-  private void startGameWithGroup(PropertyChangeEvent propertyChangeEvent)
-  {ArrayList<Group> temp= new ArrayList<>();
-    temp.add((Group) propertyChangeEvent.getNewValue());
+// adds the new group to the group list.
+  private void addGroupToList(PropertyChangeEvent propertyChangeEvent)
+  {
     groupListDM.add(((Group)propertyChangeEvent.getNewValue()).toString());
   }
 
@@ -41,6 +40,9 @@ public class DMAccountViewModel
     return textField;
   }
 
+  // this method creates the grouplist  when the scene is opened
+  // the getGroups method returns the groups the DM already created.
+  // all of them are added to an arraylist<string> and that list is added to the observablelist and returned to the accountcontroller and view.
   public ObservableList<String> getGroupList()
   { ArrayList<String> groupsInString= new ArrayList<>();
     ArrayList<Group> temp = model.getGroups();
@@ -51,15 +53,15 @@ public class DMAccountViewModel
     groupListDM.addAll(groupsInString);
     return groupListDM;
   }
-
-  public String  createGroup()
+// method for creating a group checks whether the field is empty and calls the method createGroup if not. if yes, sets error.
+  public void  createGroup()
   { String temp = "Error";
     if(textField.getValue()==null || textField.getValue().equals(""))
 
       {error.setValue("Choose a name for your group");}
       else
   {temp = model.createGroup(textField.getValue());}
-    return temp;
+   error.setValue(temp);
   }
 
 }

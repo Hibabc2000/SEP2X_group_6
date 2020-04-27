@@ -19,7 +19,7 @@ public class AccountViewModel
   public void changeToPlayer()
   {model.changeToPlayer();
   }
-
+// need to discuss this.
   public void removeAccount()
   {
     model.removeAccount();

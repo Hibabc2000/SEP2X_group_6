@@ -27,7 +27,8 @@ public class PlayerAccountViewModel
 
 
   }
-
+ // here we go through the grouplist and check whether the "oldgroup" variable equals one of the groups that are in the list right now.
+  // if yes then  we will take that and change it to the new group which has been updated with your name in it.
   private void addPlayerToGroup(PropertyChangeEvent propertyChangeEvent)
   {
   for(int i =0; i<groupList.size();i++)
@@ -38,13 +39,14 @@ public class PlayerAccountViewModel
 
   }
   }
-
+// this adds a new group to the group list.
   private void addToGroupList(PropertyChangeEvent propertyChangeEvent)
-    {ArrayList<Group> temp= new ArrayList<>();
-    temp.add((Group) propertyChangeEvent.getNewValue());
+    {
       groupList.add(((Group)propertyChangeEvent.getNewValue()).toString());
     }
-
+// this method creates the grouplist  when the scene is opened
+  // the getGroups method returns the groups the player already knows or is part of.
+  // all of them are added to an arraylist<string> and that list is added to the observablelist and returned to the accountcontroller and view.
     public ObservableList<String> getGroupList()
   { ArrayList<String> groupsInString= new ArrayList<>();
     ArrayList<Group> temp = model.getGroups();
@@ -64,17 +66,20 @@ public class PlayerAccountViewModel
     return error;
   }
 
+  // I parse the group ID string into integer so I can work with it. + also a numberformatexception is needed.
   public void addGroup(String text)
   {  try {
     int temp = Integer.parseInt(text);error.setValue(model.searchGroup(temp));}
     catch(NumberFormatException e)
     {
-      System.out.println("wtF?");; error.setValue("Incorrect ID");}
+       error.setValue("Incorrect ID");}
 
   }
-
+// if nothing was selected in view then it just shows an error.
+  // else it call a method on accoutmodel to join the group and also at the same time sets the error value because that method also gives back a string.
   public void joinGroupAsPlayer(String groupname)
-  {
+  {   if(groupname.equals("")) {error.setValue("Select a group from the list");}
+  else
      error.setValue(model.joinGroupAsPlayer(groupname));
   }
 

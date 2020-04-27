@@ -19,6 +19,7 @@ public class AccountController
   @FXML private TextField groupName;
 
 
+
   public void init(AccountViewModel accountVM, ViewHandler viewHandler)
   {
     avm= accountVM;
@@ -29,9 +30,9 @@ public class AccountController
 
   public void logout(ActionEvent actionEvent)
   {
-    avm.removeAccount();
+
     System.exit(1);  //I wanted to make it so it goes back to the login screen, but then if I login back with a different account
-                           //information about groups and etc. stay the same... Somehow I need to reset everything, almost everything,  I have no idea how to do it..
+                           //information about groups and etc. stay the same... Somehow I need to reset everything, almost everything, i not sure how to do it efficiently
   }
 
   public void changePassword(ActionEvent actionEvent)
@@ -49,5 +50,10 @@ public class AccountController
   {
     avm.changeToPlayer();
     vh.openAccountPlayer();
+  }
+
+  public void changeEmail(ActionEvent actionEvent)
+  {
+    vh.openChangeEmail();
   }
 }

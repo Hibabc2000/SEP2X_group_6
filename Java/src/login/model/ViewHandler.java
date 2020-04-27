@@ -18,10 +18,12 @@ private Scene accountDM;
 private Scene openSystem;
 private Scene passwordRecovery;
 private Scene passwordChange;
+private Scene emailChange;
 private Stage stage;
 private ViewModelFactory vmd;
 private  Stage stage2;
 private Stage stage3;
+private Stage stage4;
 
   public ViewHandler(ViewModelFactory vmf)
   {
@@ -29,6 +31,7 @@ private Stage stage3;
     stage = new Stage();
     stage2 = new Stage();
     stage3 = new Stage();
+    stage4 = new Stage();
 
   }
 
@@ -127,6 +130,7 @@ stage.show();
     stage2.close();
   }
   public void closeStage3() {stage3.close();}
+  public void closeStage4() {stage4.close(); }
   public void openCreateAccount()
   {
     FXMLLoader loader = new FXMLLoader();
@@ -176,6 +180,22 @@ stage.show();
     stage3.setScene(passwordChange);
     stage3.show();
   }
+  public void openChangeEmail()
+  {
+
+    FXMLLoader loader = new FXMLLoader();
+    if (emailChange == null)
+    {
+      Parent root = getRootByPath("../views/ChangeEmail.fxml",
+          loader);
+      ChangeEmailController controller = loader.getController();
+      controller.init(vmd.getCEVM(),this);
+      emailChange= new Scene(root);
+    }
+    stage4.setTitle("DnDAS");
+    stage4.setScene(emailChange);
+    stage4.show();
+  }
 
 
 
@@ -195,4 +215,6 @@ stage.show();
     }
     return root;
   }
+
+
 }

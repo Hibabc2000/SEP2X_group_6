@@ -9,12 +9,7 @@ public class DM implements User
     nameDM=name;
 
   }
-  public void createGroup(String name)
-  {
-    groupDM= new Group(name, 1111);
 
-
-  }
   public String getName()
   {
     return nameDM;

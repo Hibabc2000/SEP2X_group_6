@@ -25,6 +25,9 @@ public class CreateAccountViewModel
     password2.setValue("");
     email.setValue("");
   }
+
+  // calls the checkmethod on model, and after that resets the fields and gives the error for it if there is one, and passes the string to the view
+  // to checks if its ready or not.
 public String checkFieldsForReg()
 {
 

@@ -18,4 +18,5 @@ public interface AccountModel extends Subject
   ArrayList<Group> getGroups();
 
  String joinGroupAsPlayer(String groupname);
+  String checkEmailChangeInformation(String value, String value1, String value2);
 }

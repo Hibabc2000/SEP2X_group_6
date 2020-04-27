@@ -4,31 +4,20 @@ import java.util.ArrayList;
 
 public class Player implements User
 {
-  private ArrayList<Character> characterList;
-  private ArrayList<Group> groupList;
+  private Character character;
+
   private String playerName;
-  private Group playerGroups;
-  public Player(String name)
+  private Group playerGroup;
+  public Player(String name)                   // more information needed about player class
   {  playerName=name;
-    characterList =new ArrayList<>();
-    groupList = new ArrayList<>();
+
+
   }
-  public void  addCharacter(Character ch)
-  {
-    characterList.add(ch);
+  public void  createCharacter()    //
+  { if ( character==null)
+    character = new Character();
   }
-  public ArrayList<Character> getCharacterList()
-  {
-    return characterList;
-  }
-  public Character getCharacter(int i)
-  {
-    return characterList.get(i);
-  }
-  public Group getGroup(int i)
-  {
-    return groupList.get(i);
-  }
+
   public String getName()
   {
     return playerName;

@@ -2,7 +2,7 @@ package login;
 
 import java.util.ArrayList;
 
-public class AccountsForTesting
+public class AccountsForTesting           // just testcl
 {
   private ArrayList<Group> tempGroups;
   private ArrayList<Group> groupsForDm;
@@ -17,7 +17,7 @@ public class AccountsForTesting
     groupsForDm = new ArrayList<>();
     tempAccounts = new ArrayList<>();
     findingUnknownGroupsGroup = new ArrayList<>();
-    usersAccount = new Account("You", "7", "7"); // for testing where i am alraedy having  a previous group as a DM.
+
 
     tempAccounts
         .add(new Account("Kristof", "kecskepásztor123", "kristof@gmail.com"));
@@ -63,7 +63,7 @@ public class AccountsForTesting
     tempGroups.add(group1);
     findingUnknownGroupsGroup.add(secretGroup);
     findingUnknownGroupsGroup.add(group1);
-    findingUnknownGroupsGroup.add(group1);
+
 
     Account player0 = new Account("Obama", "obamaprism", "barack@gmail.com");
     Account player1 = new Account("Trump", "wallbuilder", "fakehair@gmail.com");
@@ -71,8 +71,8 @@ public class AccountsForTesting
         "belikewater@gmail.com");
     Account player3 = new Account("Michael Jackson", "ilikechildren",
         "goodchildren@gmail.com");
-    usersAccount.setUserToDm();
-    player0.setUserToPlayer();
+     player0.setUserToDm();
+
     player1.setUserToPlayer();
     player2.setUserToPlayer();
     player3.setUserToPlayer();
@@ -81,12 +81,14 @@ public class AccountsForTesting
     tempAccounts.add(player2);
     tempAccounts.add(player3);
     Group groupdm = new Group("Reeeeeeeee", 2222);
-    groupdm.addDM(usersAccount.getDM());
-    groupdm.addPlayer(player0.getPlayer());
+
+    groupdm.addDM(player0.getDM());
     groupdm.addPlayer(player1.getPlayer());
     groupdm.addPlayer(player2.getPlayer());
     groupdm.addPlayer(player3.getPlayer());
-    groupsForDm.add(groupdm);
+
+
+    findingUnknownGroupsGroup.add(groupdm);
   }
 
   public Account getAcc()

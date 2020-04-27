@@ -48,7 +48,8 @@ public class ChangePasswordViewModel
   {
     return passwordNewAgain;
   }
-
+  // calls the checkmethod on model, and after that resets the fields and gives the error for it if there is one, and passes the string to the view
+  // to checks if its ready or not.
   public String checkPasswordChangeInformation()
   {
     String temp = model.checkPasswordChangeInformation(username.getValue(),passwordOld.getValue(),passwordNew.getValue(),passwordNewAgain.getValue());

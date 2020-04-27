@@ -13,6 +13,7 @@ public class ViewModelFactory
   private DMAccountViewModel dmavm;
   private PlayerAccountViewModel pavm;
   private ChangePasswordViewModel cpvm;
+  private ChangeEmailViewModel cevm;
 
   public ViewModelFactory(ModelFactory mf)
   {
@@ -25,12 +26,14 @@ public class ViewModelFactory
     dmavm= new DMAccountViewModel(model.getAccountModel());
     pavm= new PlayerAccountViewModel(model.getAccountModel());
     cpvm = new ChangePasswordViewModel(model.getAccountModel());
+    cevm = new ChangeEmailViewModel(model.getAccountModel());
   }
 
   public AccountViewModel getAccountVM()
   {
     return accountModel;
   }
+  public ChangeEmailViewModel getCEVM(){return cevm;}
   public CreateAccountViewModel getCreateAccountVM()
   {
     return createAccountModel;

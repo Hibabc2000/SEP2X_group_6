@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="" />
+    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Java/src/login/views/ChangeEmail.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/views/ChangeEmailController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/login/views/ChangeEmailViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/AccountModelImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/GroupTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/login/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/login/AccountModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/AccountModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/login/AccountModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/AccountModelImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/login/AccountsForTesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/AccountsForTesting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/login/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/login/DM.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/DM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/login/DiceRoll.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/DiceRoll.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/login/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/Group.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/login/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/login/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/login/model/ViewHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/model/ViewHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/login/model/ViewModelFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/model/ViewModelFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/login/views/Account.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/views/Account.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/login/views/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/views/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/login/views/AccountViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/views/AccountViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/login/views/ChangePasswordViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/views/ChangePasswordViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/login/views/CreateAccountViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/views/CreateAccountViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/login/views/DMAccountViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/views/DMAccountViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/login/views/PlayerAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/views/PlayerAccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/login/views/PlayerAccountViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/views/PlayerAccountViewModel.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,6 +38,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -26,24 +54,24 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="jdk.selected.JAVA_MODULE" value="13" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Java/src" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15332031" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src" />
-      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\account" />
-      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\model" />
-      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\views" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="account" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
       <recent name="testing" />
       <recent name="login" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="account" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src" />
+      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\account" />
+      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\model" />
+      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\views" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -85,9 +113,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AccTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SEP2X_group_6" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AccTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GroupTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SEP2X_group_6" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GroupTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Start (1)" />
+        <item itemvalue="JUnit.GroupTest" />
+        <item itemvalue="JUnit.AccTest" />
         <item itemvalue="Application.Start" />
       </list>
     </recent_temporary>
@@ -117,7 +165,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586900209110</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="created a test class">
+      <created>1586900216711</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1586900216711</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

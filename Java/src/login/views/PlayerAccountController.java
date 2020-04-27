@@ -24,15 +24,16 @@ public class PlayerAccountController
 
 
   }
-
+// in thismethod I take the text in the addgroup field, and call addgroup method on it to parse it into integer
   public void addGroup(ActionEvent actionEvent)
   {
     pavm.addGroup(addGroup.getText());
   }
 
+  // This method takes the selected group and calls the joingroupAsplayer method to it, if nothing is selected then shows error.
   public void joinGroupAsPlayer(ActionEvent actionEvent)
   { if(groupListPlayer.getSelectionModel().getSelectedItems().isEmpty()){
-    errorMessagePlayer.setText("Select a group from the list");
+    pavm.joinGroupAsPlayer("");
   }else
   {
     String group =  groupListPlayer.getSelectionModel().getSelectedItems().get(0);
@@ -41,7 +42,7 @@ public class PlayerAccountController
   }
 
 
-
+// just opens the account scene
   public void backToAccount(ActionEvent actionEvent)
   {
    ;vh.openAccount();
