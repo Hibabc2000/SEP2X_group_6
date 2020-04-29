@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.views.login.changeEmail.ChangeEmailController">
+   <children>
+      <PasswordField fx:id="passwordField" layoutX="168.0" layoutY="101.0" prefHeight="35.0" prefWidth="167.0" />
+      <Label layoutX="72.0" layoutY="105.0" prefHeight="26.0" prefWidth="94.0" text="Password :" />
+      <TextField fx:id="emailField" layoutX="167.0" layoutY="164.0" prefHeight="35.0" prefWidth="167.0" />
+      <TextField fx:id="usernameField" layoutX="168.0" layoutY="41.0" prefHeight="35.0" prefWidth="167.0" />
+      <Label layoutX="72.0" layoutY="45.0" prefHeight="26.0" prefWidth="94.0" text="Username :" />
+      <Label layoutX="42.0" layoutY="168.0" prefHeight="26.0" prefWidth="124.0" text="New email address" />
+      <Label fx:id="errorMessage" layoutX="72.0" layoutY="235.0" prefHeight="50.0" prefWidth="462.0" text="Error" />
+      <Button fx:id="proceedButton" layoutX="80.0" layoutY="308.0" mnemonicParsing="false" onAction="#proceedWithEmailChange" prefHeight="70.0" prefWidth="124.0" text="Proceed" />
+      <Button fx:id="cancelButton" layoutX="347.0" layoutY="308.0" mnemonicParsing="false" onAction="#cancelEmailChange" prefHeight="70.0" prefWidth="124.0" text="Cancel" />
+   </children>
+</AnchorPane>

@@ -1,8 +1,8 @@
 
-import login.Account;
-import login.DM;
-import login.Player;
-import login.User;
+import system.Account;
+import system.DM;
+import system.Player;
+import system.User;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

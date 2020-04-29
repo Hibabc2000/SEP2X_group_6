@@ -1,6 +1,6 @@
-import login.Account;
-import login.AccountsForTesting;
-import login.Group;
+import system.Account;
+import system.AccountsForTesting;
+import system.Group;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,8 +8,6 @@ import org.junit.jupiter.api.Test;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
