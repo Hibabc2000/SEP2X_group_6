@@ -1,5 +1,9 @@
 package system.core;
 
+import system.model.characterCreation.CharacterCreationModel;
+import system.model.characterSheet.CharacterSheetModel;
+import system.views.characterCreation.CharacterCreationViewModel;
+import system.views.characterSheet.CharacterSheetViewModel;
 import system.views.login.account.AccountViewModel;
 import system.views.login.changeEmail.ChangeEmailViewModel;
 import system.views.login.changePassword.ChangePasswordViewModel;
@@ -12,6 +16,7 @@ import system.views.login.playerAccount.PlayerAccountViewModel;
 
 public class ViewModelFactory
 {
+//  LOGIN
   private ModelFactory model;
   private AccountViewModel accountModel;
   private CreateAccountViewModel createAccountModel;
@@ -22,6 +27,13 @@ public class ViewModelFactory
   private PlayerAccountViewModel pavm;
   private ChangePasswordViewModel cpvm;
   private ChangeEmailViewModel cevm;
+
+//  characterSheet
+  private CharacterSheetViewModel characterSheetViewModel;
+  private CharacterSheetModel characterSheetModel;
+//  characterCreation
+  private CharacterCreationViewModel characterCreationViewModel;
+  private CharacterCreationModel characterCreationModel;
 
   public ViewModelFactory(ModelFactory mf)
   {
@@ -35,6 +47,8 @@ public class ViewModelFactory
     pavm= new PlayerAccountViewModel(model.getAccountModel());
     cpvm = new ChangePasswordViewModel(model.getAccountModel());
     cevm = new ChangeEmailViewModel(model.getAccountModel());
+
+
   }
 
   public AccountViewModel getAccountVM()
