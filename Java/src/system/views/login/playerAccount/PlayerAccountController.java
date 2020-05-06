@@ -45,6 +45,6 @@ public class PlayerAccountController
 // just opens the account scene
   public void backToAccount(ActionEvent actionEvent)
   {
-   ;vh.openAccount();
+    vh.openAccount();
   }
 }

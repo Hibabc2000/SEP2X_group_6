@@ -18,7 +18,6 @@ public class AccountsForTesting           // just testcl
     tempAccounts = new ArrayList<>();
     findingUnknownGroupsGroup = new ArrayList<>();
 
-
     tempAccounts
         .add(new Account("Kristof", "kecskepásztor123", "kristof@gmail.com"));
     tempAccounts
@@ -64,14 +63,13 @@ public class AccountsForTesting           // just testcl
     findingUnknownGroupsGroup.add(secretGroup);
     findingUnknownGroupsGroup.add(group1);
 
-
     Account player0 = new Account("Obama", "obamaprism", "barack@gmail.com");
     Account player1 = new Account("Trump", "wallbuilder", "fakehair@gmail.com");
     Account player2 = new Account("Bruce Lee", "martialarts123",
         "belikewater@gmail.com");
     Account player3 = new Account("Michael Jackson", "ilikechildren",
         "goodchildren@gmail.com");
-     player0.setUserToDm();
+    player0.setUserToDm();
 
     player1.setUserToPlayer();
     player2.setUserToPlayer();
@@ -86,7 +84,6 @@ public class AccountsForTesting           // just testcl
     groupdm.addPlayer(player1.getPlayer());
     groupdm.addPlayer(player2.getPlayer());
     groupdm.addPlayer(player3.getPlayer());
-
 
     findingUnknownGroupsGroup.add(groupdm);
   }
@@ -110,6 +107,9 @@ public class AccountsForTesting           // just testcl
   {
     return findingUnknownGroupsGroup;
   }
+
   public ArrayList<Account> getTempAccounts()
-  {return tempAccounts;}
+  {
+    return tempAccounts;
+  }
 }

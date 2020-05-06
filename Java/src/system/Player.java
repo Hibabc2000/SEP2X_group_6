@@ -6,14 +6,18 @@ public class Player implements User
 
   private String playerName;
   private Group playerGroup;
-  public Player(String name)                   // more information needed about player class
-  {  playerName=name;
 
+  public Player(
+      String name)                   // more information needed about player class
+  {
+    playerName = name;
 
   }
-  public void  createCharacter()    //
-  { if ( character==null)
-    character = new Character();
+
+  public void createCharacter()    //
+  {
+    if (character == null)
+      character = new Character();
   }
 
   public String getName()
@@ -21,12 +25,10 @@ public class Player implements User
     return playerName;
   }
 
-
   @Override public int rollDice(int diceType, int diceCount)
   {
     DiceRoll roll = new DiceRoll();
-    return  roll.RollDice(diceType,diceCount);
+    return roll.RollDice(diceType, diceCount);
   }
-
 
 }
