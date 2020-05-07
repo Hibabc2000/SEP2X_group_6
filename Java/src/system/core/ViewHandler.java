@@ -89,7 +89,7 @@ public class ViewHandler
     FXMLLoader loader = new FXMLLoader();
     if (account == null)
     {
-      Parent root = getRootByPath("../views/login/openAccount/Account.fxml", loader);
+      Parent root = getRootByPath("../views/login/account/Account.fxml", loader);
       AccountController ac = loader.getController();
       ac.init(vmd.getAccountVM(), this);
       account = new Scene(root);

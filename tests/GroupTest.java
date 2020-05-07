@@ -33,16 +33,21 @@ public class GroupTest
   @Test void testGetGroupDM()
 { DM m= gr.getDM();
   assertTrue(m instanceof DM && m.getName().equals("alma"));
+  assertEquals(m,gr.getDM());
 }
   @Test void testAddGroupDM()
   { String k = "béla";
-    gr.addDM(new DM(k));
+  DM m = new DM(k);
+    gr.addDM(m);
     assertTrue(gr.getDM() instanceof DM && gr.getDM().getName().equals("béla"));
+    assertEquals(m, gr.getDM());
+
   }
   @Test void testGetGroupPlayer()
   { Player pl = gr.getPlayer("kecske");
 
-    assertTrue(pl.getName().equals("kecske") && pl instanceof Player && pl.equals(gr.getPlayer("kecske")));
+    assertTrue(
+        pl.getName().equals("kecske") && pl.equals(gr.getPlayer("kecske")));
   }
   @Test void testAddGroupPlayer()
   { Player pl = new Player("medve");
@@ -54,6 +59,7 @@ public class GroupTest
   { String m = gr.toString();
 
     assertTrue(m instanceof String);
+    assertEquals(m, gr.toString());
   }
   @Test void testIsPlayerPartOfGroup()
   { Player pl = new Player("mol");

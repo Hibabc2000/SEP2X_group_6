@@ -47,7 +47,7 @@ public class AccountModelImpl implements AccountModel
   // fire propchange to update the viewmodel and view with the new group,
   @Override public String createGroup(String name)
   {
-    String temp = "Group cannot be created";
+    String temp ;
     DiceRoll roll = new DiceRoll();
     ArrayList<Integer> ids= new ArrayList<>();
     for(int i=0;i<findingUnknownGroupsGroup.size();i++)
@@ -164,11 +164,16 @@ public class AccountModelImpl implements AccountModel
     else if (email.equals("") || email == null)
     {
       temp = "Fill out all the fields";
+    }else if(pass1.length()<6)
+    {
+      temp= "Password must be longer than 6 characters";
     }
+    else if(username.length()>4) {temp = "Username must be longer than 4 characters";}
     else if (!(pass1.equals(pass2)))
     {
       temp = "Passwords don't match";
     }
+
     else
       for (int i = 0; i < tempAccounts.size(); i++)
       {
@@ -205,6 +210,7 @@ public class AccountModelImpl implements AccountModel
     {
       temp = "Fill out all the fields";
     }
+
     else
       for (int i = 0; i < tempAccounts.size(); i++)
       {
@@ -225,7 +231,7 @@ public class AccountModelImpl implements AccountModel
     return temp;
 
   }
-// checking the email for password recovery
+// checking the email for password recovery whether the email is in the system
 
   @Override public String checkEmail(String value)
   {
@@ -363,7 +369,7 @@ public class AccountModelImpl implements AccountModel
         }
         if ((tempAccounts.get(i).getEmail().equals(email)))
         {
-          temp = "This email is already regisered.";
+          temp = "This email is already registered.";
           break;
         }
         else
@@ -392,4 +398,25 @@ public class AccountModelImpl implements AccountModel
   {
     support.removePropertyChangeListener(eventName, listener);
   }
+
+  //everything under this is for testing  since I have no idea how to test these things.
+ public Account getAccount()
+ { return usersAccount;}
+ public ArrayList<Account> getTempAccounts()
+ {
+   return tempAccounts;
+ }
+  public ArrayList<Group> getFindingUnknownGroupsGroup()
+  {
+    return findingUnknownGroupsGroup;
+  }
+  public ArrayList<Group> getTempGroups()
+  {
+    return tempGroups;
+  }
+  public ArrayList<Group> getGroupsForDm()
+  {
+    return groupsForDm;
+  }
+
 }

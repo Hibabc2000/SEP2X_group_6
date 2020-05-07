@@ -60,10 +60,7 @@ public class Account
     email = newMail;
   }
 
-  public void changePassword(String newPass)
-  {
-    password = newPass;
-  }
+
 
   public Player getPlayer()
   {

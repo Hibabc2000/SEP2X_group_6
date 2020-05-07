@@ -1,33 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Java/src/login/views/ChangeEmail.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/views/ChangeEmailController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/login/views/ChangeEmailViewModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/AccountModelImplTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/GroupTest.java" afterDir="false" />
+    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="commented almost everything,&#10;finished groupTest,&#10;changed some things here and there,&#10;added email change option">
+      <change afterPath="$PROJECT_DIR$/Java/src/system/Client/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/system/Client/ClientSocketHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/system/Client/SocketClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/login/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/login/AccountModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/AccountModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/login/AccountModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/AccountModelImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/login/AccountsForTesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/AccountsForTesting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/login/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/login/DM.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/DM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/login/DiceRoll.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/DiceRoll.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/login/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/Group.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/login/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/login/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/login/model/ViewHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/model/ViewHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/login/model/ViewModelFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/model/ViewModelFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/login/views/Account.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/views/Account.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/login/views/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/views/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/login/views/AccountViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/views/AccountViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/login/views/ChangePasswordViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/views/ChangePasswordViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/login/views/CreateAccountViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/views/CreateAccountViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/login/views/DMAccountViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/views/DMAccountViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/login/views/PlayerAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/views/PlayerAccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/login/views/PlayerAccountViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/login/views/PlayerAccountViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/core/ViewHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/core/ViewHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/AccTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/AccTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/AccountModelImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/AccountModelImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/GroupTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/GroupTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,6 +23,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -86,7 +71,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Start (1)">
+  <component name="RunManager" selected="Application.Start (2)">
     <configuration name="Start (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="login.Start" />
       <module name="Java" />
@@ -100,12 +85,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Start" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="account.Start" />
+    <configuration name="Start (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="system.Start" />
       <module name="Java" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="account.*" />
+          <option name="PATTERN" value="system.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -122,6 +107,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AccountModelImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SEP2X_group_6" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AccountModelImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GroupTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SEP2X_group_6" />
       <option name="PACKAGE_NAME" value="" />
@@ -133,10 +127,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Start (2)" />
+        <item itemvalue="JUnit.AccTest" />
+        <item itemvalue="JUnit.AccountModelImplTest" />
         <item itemvalue="Application.Start (1)" />
         <item itemvalue="JUnit.GroupTest" />
-        <item itemvalue="JUnit.AccTest" />
-        <item itemvalue="Application.Start" />
       </list>
     </recent_temporary>
   </component>
@@ -172,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586900216711</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="commented almost everything,&#10;finished groupTest,&#10;changed some things here and there,&#10;added email change option">
+      <created>1588000633713</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1588000633713</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -191,6 +193,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="So it begins.&#10;added basic login part without any client server stuff," />
     <MESSAGE value="created a test class" />
-    <option name="LAST_COMMIT_MESSAGE" value="created a test class" />
+    <MESSAGE value="commented almost everything,&#10;finished groupTest,&#10;changed some things here and there,&#10;added email change option" />
+    <option name="LAST_COMMIT_MESSAGE" value="commented almost everything,&#10;finished groupTest,&#10;changed some things here and there,&#10;added email change option" />
   </component>
 </project>

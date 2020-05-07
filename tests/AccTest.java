@@ -50,18 +50,20 @@ public class AccTest
   { ac.setUserToPlayer();
     Player m = ac.getPlayer();
 
-    assertTrue(m instanceof Player);
+    assertTrue(m != null);
+    assertEquals(m, ac.getPlayer());
   }
   @Test void testAccountGetDM()
   { ac.setUserToDm();
     DM m = ac.getDM();
 
-    assertTrue(m instanceof DM);
+    assertTrue(m != null);
+   assertEquals(m,ac.getDM());
   }
   @Test void testAccountGetUser()
-  {
+  { ac.setUserToPlayer();
     User m = ac.getUser();
-
-    assertTrue(m instanceof User);
+      assertTrue(m !=null);
+    assertEquals(m,ac.getUser());
   }
 }
