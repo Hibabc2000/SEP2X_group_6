@@ -60,7 +60,7 @@ public class AccountModelImpl implements AccountModel
     groupsForDm.add(newGroup);
     System.out.println(id);
     findingUnknownGroupsGroup.add(newGroup);support.firePropertyChange("GroupCreatedByDm",null,newGroup);
-    return temp="Group Created";
+    return temp="Group created";
 
   }
   // returns the groups for the User depending on what mode is he in (player or DM)
@@ -168,7 +168,7 @@ public class AccountModelImpl implements AccountModel
     {
       temp= "Password must be longer than 6 characters";
     }
-    else if(username.length()>4) {temp = "Username must be longer than 4 characters";}
+    else if(username.length()<4) {temp = "Username must be longer than 4 characters";}
     else if (!(pass1.equals(pass2)))
     {
       temp = "Passwords don't match";
@@ -178,11 +178,11 @@ public class AccountModelImpl implements AccountModel
       for (int i = 0; i < tempAccounts.size(); i++)
       {
         if ((tempAccounts.get(i).getUsername().equals(username))
-            || (tempAccounts.get(i).getPassword().equals(pass1))
+
             || (tempAccounts.get(i).getEmail().equals(email)))
         {
-          System.out.println(
-              temp = "Error message: Account with this pass/email/name already exists");
+
+              temp = "Error message: Account with this email or name already exists";
           break;
         }
         else
@@ -310,17 +310,9 @@ public class AccountModelImpl implements AccountModel
         if (tempAccounts.get(i).getPassword().equals(passOld) && tempAccounts.get(i).getUsername().equals(username))
         {
          change = tempAccounts.get(i);
-
-        }
-        if ((tempAccounts.get(i).getPassword().equals(passNew)))
-        {
-          temp = "Error message: Password is weak, like you. lol. git gud.";    // actually its not weak, but I don't want to accounts have the same password.
-          break;
-        }
-        else
-        {
           temp = "Ready";
         }
+
       }
     if (temp.equals("Ready"))
     {

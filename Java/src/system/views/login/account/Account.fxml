@@ -13,8 +13,8 @@
                <children>
                   <Button fx:id="logoutButton" layoutX="292.0" layoutY="495.0" mnemonicParsing="false" onAction="#logout" prefHeight="78.0" prefWidth="170.0" text="Logout" />
                   <Button fx:id="changePasswordButton" layoutX="292.0" layoutY="372.0" mnemonicParsing="false" onAction="#changePassword" prefHeight="78.0" prefWidth="170.0" text="Change Password" />
-                  <Button fx:id="buttonDM" layoutX="98.0" layoutY="61.0" mnemonicParsing="false" onAction="#changeToDM" prefHeight="78.0" prefWidth="170.0" text="Play as DM" />
-                  <Button fx:id="buttonPlayer" layoutX="501.0" layoutY="61.0" mnemonicParsing="false" onAction="#changeToPlayer" prefHeight="78.0" prefWidth="170.0" text="Play as Player" />
+                  <Button fx:id="buttonDM" layoutX="98.0" layoutY="61.0" mnemonicParsing="false" onAction="#changeToDM" prefHeight="78.0" prefWidth="170.0" text="Create a group as a DM" />
+                  <Button fx:id="buttonPlayer" layoutX="501.0" layoutY="61.0" mnemonicParsing="false" onAction="#changeToPlayer" prefHeight="78.0" prefWidth="170.0" text="Join a group as a player" />
                   <Button fx:id="changeEmailButton" layoutX="292.0" layoutY="247.0" mnemonicParsing="false" onAction="#changeEmail" prefHeight="78.0" prefWidth="170.0" text="Change Email" />
                </children></AnchorPane>
         </content>

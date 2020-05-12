@@ -18,6 +18,8 @@ public class AccountsForTesting           // just testcl
     tempAccounts = new ArrayList<>();
     findingUnknownGroupsGroup = new ArrayList<>();
 
+    usersAccount = new Account("1","1","1");
+
     tempAccounts
         .add(new Account("Kristof", "kecskepásztor123", "kristof@gmail.com"));
     tempAccounts

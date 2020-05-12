@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="commented almost everything,&#10;finished groupTest,&#10;changed some things here and there,&#10;added email change option">
-      <change afterPath="$PROJECT_DIR$/Java/src/system/Client/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/Client/ClientSocketHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/Client/SocketClient.java" afterDir="false" />
+    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="Added client, clientsockethandler, socketclient,">
+      <change beforePath="$PROJECT_DIR$/.idea/SEP2X_group_6.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SEP2X_group_6.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/core/ViewHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/core/ViewHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/AccountsForTesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/AccountsForTesting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Group.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/Start.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Start.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/AccTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/AccTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/account/Account.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/account/Account.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/playerAccount/PlayerAccountViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/playerAccount/PlayerAccountViewModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/AccountModelImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/AccountModelImplTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/GroupTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/GroupTest.java" afterDir="false" />
     </list>
@@ -128,8 +128,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Start (2)" />
-        <item itemvalue="JUnit.AccTest" />
         <item itemvalue="JUnit.AccountModelImplTest" />
+        <item itemvalue="JUnit.AccTest" />
         <item itemvalue="Application.Start (1)" />
         <item itemvalue="JUnit.GroupTest" />
       </list>
@@ -174,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588000633713</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added client, clientsockethandler, socketclient,">
+      <created>1588873641687</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1588873641687</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -194,6 +201,7 @@
     <MESSAGE value="So it begins.&#10;added basic login part without any client server stuff," />
     <MESSAGE value="created a test class" />
     <MESSAGE value="commented almost everything,&#10;finished groupTest,&#10;changed some things here and there,&#10;added email change option" />
-    <option name="LAST_COMMIT_MESSAGE" value="commented almost everything,&#10;finished groupTest,&#10;changed some things here and there,&#10;added email change option" />
+    <MESSAGE value="Added client, clientsockethandler, socketclient," />
+    <option name="LAST_COMMIT_MESSAGE" value="Added client, clientsockethandler, socketclient," />
   </component>
 </project>

@@ -7,7 +7,7 @@ public class Group
   private String groupName;
   private ArrayList<Player> players;
   private DM dm;
-  private User user;
+
   private int id;
 
   public Group(String groupName, int i)
@@ -42,7 +42,7 @@ public class Group
   }
 
   public void addPlayer(
-      Player player)               // adds a plaer to the group
+      Player player)               // adds a player to the group
   {
     players.add(player);
   }
@@ -55,6 +55,10 @@ public class Group
   public String toString()               // toString method for the GroupList in the UI, its all String, subject to change -
   {
     String m = "";
+    if(dm == null) {
+      System.out.println("No DM, this should not happen");
+
+    } else
     if (players.size() == 0)
     {
       ;
@@ -81,6 +85,7 @@ public class Group
       String username)           // returns whether the player with the entered player's name is part of the group
   {
     boolean temp = false;
+    if(players!=null){
     for (int i = 0; i < players.size(); i++)
     {
       if (players.get(i).getName().equals(username))
@@ -88,6 +93,7 @@ public class Group
         temp = true;
         break;
       }
+    }
     }
     return temp;
   }

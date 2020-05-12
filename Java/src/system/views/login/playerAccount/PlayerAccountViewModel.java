@@ -66,6 +66,7 @@ public class PlayerAccountViewModel
     return error;
   }
 
+
   // I parse the group ID string into integer so I can work with it. + also a numberformatexception is needed.
   public void addGroup(String text)
   {  try {

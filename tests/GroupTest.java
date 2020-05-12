@@ -49,9 +49,10 @@ public class GroupTest
     assertTrue(
         pl.getName().equals("kecske") && pl.equals(gr.getPlayer("kecske")));
   }
-  @Test void testAddGroupPlayer()
+
+  @Test void testAddGroup1Player()
   { Player pl = new Player("medve");
-  gr.addPlayer(pl);
+    gr.addPlayer(pl);
 
     assertTrue(pl instanceof Player && gr.getPlayer("medve").equals(pl));
   }
