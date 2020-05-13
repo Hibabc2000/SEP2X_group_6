@@ -173,6 +173,10 @@ public class AccountModelImpl implements AccountModel
     {
       temp = "Passwords don't match";
     }
+    else if(email.contains("@"))
+    {
+      temp = "E-mail format not valid";
+    }
 
     else
       for (int i = 0; i < tempAccounts.size(); i++)
