@@ -320,8 +320,8 @@ public class AccountModelImpl implements AccountModel
       }
     if (temp.equals("Ready"))
     {
-      tempAccounts.get(tempAccounts.indexOf(change)).changeEmail(passNew);
-
+      tempAccounts.get(tempAccounts.indexOf(change)).setPassword(passNew);
+      System.out.println(usersAccount.getEmail());
       usersAccount.setPassword(passNew);
     }
 

@@ -1,4 +1,9 @@
-package system;
+package system.model.loginModel;
+
+import system.Character;
+import system.DiceRoll;
+import system.User;
+import system.model.loginModel.Group;
 
 public class Player implements User
 {

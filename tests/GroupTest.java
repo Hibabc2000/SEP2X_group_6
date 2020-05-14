@@ -1,6 +1,6 @@
-import system.DM;
-import system.Group;
-import system.Player;
+import system.model.loginModel.DM;
+import system.model.loginModel.Group;
+import system.model.loginModel.Player;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

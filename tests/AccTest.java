@@ -1,7 +1,7 @@
 
-import system.Account;
-import system.DM;
-import system.Player;
+import system.model.loginModel.Account;
+import system.model.loginModel.DM;
+import system.model.loginModel.Player;
 import system.User;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

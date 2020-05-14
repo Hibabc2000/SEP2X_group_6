@@ -5,7 +5,7 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import system.model.loginModel.AccountModel;
-import system.Group;
+import system.model.loginModel.Group;
 
 import java.beans.PropertyChangeEvent;
 import java.util.ArrayList;

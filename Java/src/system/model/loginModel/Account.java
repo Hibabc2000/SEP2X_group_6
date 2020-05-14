@@ -1,4 +1,6 @@
-package system;
+package system.model.loginModel;
+
+import system.User;
 
 public class Account
 {

@@ -1,4 +1,7 @@
-package system;
+package system.model.loginModel;
+
+import system.DiceRoll;
+import system.User;
 
 public class DM implements User
 {

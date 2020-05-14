@@ -2,24 +2,17 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.ListView;
-import system.Account;
-import system.AccountsForTesting;
-import system.Group;
+import system.model.loginModel.Account;
+import system.model.loginModel.Group;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import system.Player;
-import system.model.loginModel.AccountModel;
 import system.model.loginModel.AccountModelImpl;
-import system.views.login.account.AccountViewModel;
 import system.views.login.createAccount.CreateAccountViewModel;
 import system.views.login.dmAccount.DMAccountViewModel;
 import system.views.login.playerAccount.PlayerAccountViewModel;
 
 import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.Arrays;
 

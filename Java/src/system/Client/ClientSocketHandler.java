@@ -1,7 +1,7 @@
 package system.Client;
 
-import system.Account;
-import system.Group;
+import system.model.loginModel.Account;
+import system.model.loginModel.Group;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

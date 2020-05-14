@@ -1,6 +1,5 @@
 package system.model.loginModel;
 
-import system.Group;
 import system.util.Subject;
 
 import java.util.ArrayList;
