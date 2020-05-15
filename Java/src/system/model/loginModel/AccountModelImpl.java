@@ -5,6 +5,7 @@ import system.Client.Client;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class AccountModelImpl implements AccountModel
@@ -20,7 +21,15 @@ public class AccountModelImpl implements AccountModel
   private AccountsForTesting tests;             // this is for testing
  private Client client;
   public AccountModelImpl(Client client)
-  { client = client;
+  { this.client = client;
+    try
+    {
+      client.start();
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
     support = new PropertyChangeSupport(this);
     tests = new AccountsForTesting();
     tempGroups = new ArrayList<>();
@@ -186,33 +195,13 @@ public class AccountModelImpl implements AccountModel
     {
       temp = "Passwords don't match";
     }
-    else if(email.contains("@"))
+    else if(!email.contains("@"))
     {
       temp = "E-mail format not valid";
     }
 
-    else client.checkAccountUniqueness(username,pass1,email);
+    else client.createAccount(username,pass1,email);
       // server
-      for (int i = 0; i < tempAccounts.size(); i++)
-      {
-        if ((tempAccounts.get(i).getUsername().equals(username))
-
-            || (tempAccounts.get(i).getEmail().equals(email)))
-        {
-
-              temp = "Error message: Account with this email or name already exists";
-          break;
-        }
-        else
-        {
-          temp = "Ready";
-        }
-      }
-    if (temp.equals("Ready"))
-    {
-      tempAccounts.add(new Account(username, pass1, email));
-      usersAccount = new Account(username, pass1, email);
-    }
 
     return temp;
   }

@@ -1,27 +1,38 @@
 package system.Server.Database;
 import java.sql.DriverManager;
 import java.sql.Connection;
+import java.sql.Statement;
 
 public class ConnectDBC {
-  public static void main( String args[] ) {
 
-    Connection c = null;
+  private Connection c;
+  private Statement stmt;
+  public ConnectDBC()
+  { c = null;
+     stmt = null;
+  }
+
+  public void InsertAccount(String name, String password, String email)
+  {
 
     try {
       Class.forName("org.postgresql.Driver");
-      c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres",
-          "postgres", "<Your Password>");
-
-      if (c!= null) {
-        System.out.println("Opened database successfully");
-      }
-      else {
-        System.out.print("Connection Failed");
-      }
-
+      c = DriverManager
+          .getConnection("jdbc:postgresql://localhost:5432/SEP2",
+              "postgres", "almafast325");
+      System.out.println("Database open ok");
+      System.out.println("postgrescheck1");
+      stmt = c.createStatement();
+      String sql = "INSERT INTO \"Users\".\"Users\" VALUES( '"+name +"', '"+password +"', '{1,2}', '"+ email +"') ";
+      stmt.executeUpdate(sql);
+      stmt.close();
+      c.close();
     } catch ( Exception e ) {
+      System.err.println( e.getClass().getName()+": "+ e.getMessage() );
       System.exit(0);
     }
-    System.out.println("e");
+
   }
+
+
 }

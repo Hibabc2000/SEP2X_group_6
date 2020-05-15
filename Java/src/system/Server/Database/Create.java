@@ -15,12 +15,12 @@ public class Create {
     try {
       Class.forName("org.postgresql.Driver");
       c = DriverManager
-          .getConnection("jdbc:postgresql://localhost:5432/postgres",
-              "postgres", "postgres");
+          .getConnection("jdbc:postgresql://localhost:5432/SEP2",
+              "postgres", "almafast325");
       System.out.println("Database open ok");
 
       stmt = c.createStatement();
-      String sql = "CREATE TABLE \"dreamhome\".tabletest1 " +
+      String sql = "CREATE TABLE \"Users\".tabletest1 " +
           "(ID INT PRIMARY KEY     NOT NULL," +
           " NAME           TEXT    NOT NULL, " +
           " AGE            INT     NOT NULL, " +

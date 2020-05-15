@@ -62,7 +62,7 @@ public class ClientSocketHandler implements Runnable
 
     public void checkAccountUniqueness(String username, String password, String email, String checkAccount)
         throws IOException
-    {
+    { System.out.println("clientcheck3");
       ArrayList<Object> objs = new ArrayList<>();
       objs.add(checkAccount);
       objs.add(username);

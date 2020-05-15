@@ -2,20 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Java/src/system/Server/ConnectionPool.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/Server/Database/ConnectDBC.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/Server/Database/Create.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/Server/Database/Insert.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/Server/Database/Select.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/Server/Server.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/Server/ServerSocketHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/model/businessModel/BusinessModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/model/businessModel/BusinessModelImplementation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/system/Server/Database/TestDtbs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/system/Server/RunServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/system/core/ClientFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/SEP2X_group_6.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SEP2X_group_6.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/Client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/Java.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Java/Java.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java/src/system/Client/ClientSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Client/ClientSocketHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java/src/system/Client/SocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Client/SocketClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/Run.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Run.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/Server/Database/ConnectDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Server/Database/ConnectDBC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/Server/Database/Create.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Server/Database/Create.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/Server/ServerSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Server/ServerSocketHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/core/ModelFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/core/ModelFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,7 +48,7 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="jdk.selected.JAVA_MODULE" value="13" />
-    <property name="last_opened_file_path" value="E:/database/postgresql-42.2.12.jar!/" />
+    <property name="last_opened_file_path" value="E:/database/postgresql-42.2.11.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15332031" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -82,12 +82,38 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Start">
-    <configuration name="Start (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="login.Start" />
+    <configuration name="ConnectDBC" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="system.Server.Database.ConnectDBC" />
       <module name="Java" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="login.*" />
+          <option name="PATTERN" value="system.Server.Database.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Create" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="system.Server.Database.Create" />
+      <module name="Java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="system.Server.Database.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RunServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="system.Server.RunServer" />
+      <module name="Java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="system.Server.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -108,29 +134,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AccTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SEP2X_group_6" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AccTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AccountModelImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SEP2X_group_6" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AccountModelImplTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GroupTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SEP2X_group_6" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GroupTest" />
-      <option name="TEST_OBJECT" value="class" />
+    <configuration name="TestDtbs" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="system.Server.Database.TestDtbs" />
+      <module name="Java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="system.Server.Database.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -138,10 +150,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Start" />
-        <item itemvalue="JUnit.GroupTest" />
-        <item itemvalue="JUnit.AccTest" />
-        <item itemvalue="JUnit.AccountModelImplTest" />
-        <item itemvalue="Application.Start (1)" />
+        <item itemvalue="Application.RunServer" />
+        <item itemvalue="Application.TestDtbs" />
+        <item itemvalue="Application.Create" />
+        <item itemvalue="Application.ConnectDBC" />
       </list>
     </recent_temporary>
   </component>
@@ -205,7 +217,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589448778370</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Server, connection pool, serversockethandler, jdbc need some help to which way to do">
+      <created>1589535289962</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1589535289962</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -228,7 +247,8 @@
     <MESSAGE value="Added client, clientsockethandler, socketclient," />
     <MESSAGE value="Small changes here and there, in unit test, in account.fxml," />
     <MESSAGE value="Added a lot of classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a lot of classes" />
+    <MESSAGE value="Server, connection pool, serversockethandler, jdbc need some help to which way to do" />
+    <option name="LAST_COMMIT_MESSAGE" value="Server, connection pool, serversockethandler, jdbc need some help to which way to do" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

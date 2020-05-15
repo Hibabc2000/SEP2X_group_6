@@ -135,9 +135,10 @@ public class SocketClient implements Client
 
   @Override public void checkAccountUniqueness(String username, String password,
       String email)
-  {
+  {System.out.println("clientcheck1");
     try
     {
+      System.out.println("clientcheck2");
       socketHandler.checkAccountUniqueness(username,password,email,"checkAccount");
     }
     catch (IOException e)
