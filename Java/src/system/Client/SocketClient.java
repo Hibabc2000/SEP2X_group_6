@@ -32,80 +32,154 @@ public class SocketClient implements Client
   @Override public void createAccount(String name, String password,
       String email)
   {
-    socketHandler.createAccount(name,password,email,"createAccount");
+    try
+    {
+      socketHandler.createAccount(name,password,email,"createAccount");
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
   }
 
-  @Override public void loginAccount(String name, String password)
-  {
-   socketHandler.loginAccount(name,password,"loginAccount");
-  }
+
 
   @Override public void changeEmail(Account acc, String email)
   {
-  socketHandler.changeEmail(acc,email,"changeEmail");
+    try
+    {
+      socketHandler.changeEmail(acc,email,"changeEmail");
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
   }
 
-  @Override public void changePassword(Account acc, String newPassword,
-      String oldPassword)
-  {
- socketHandler.changePassword(acc,newPassword,"changePassword");
-  }
+
 
   @Override public void recoverPassword(String email)
   {
-  socketHandler.recoverPassword(email,"recoverPassword");
+    try
+    {
+      socketHandler.recoverPassword(email,"recoverPassword");
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
   }
 
-  @Override public void createGroup(Account acc, Group g)
+  @Override public void createGroup(Account acc, String groupName)
   {
- socketHandler.createGroup(acc,g,"createGroup");
+    try
+    {
+      socketHandler.createGroup(acc,groupName,"createGroup");
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
   }
 
-  @Override public void joinGroup(Account acc, Group g)
-  {
- socketHandler.joinGroup(acc,g,"joinGroup");
-  }
+
 
   @Override public void checkEmailChangeInformation(Account acc, String email)
   {
-socketHandler.checkEmailChangeInformation(acc,email,"checkEmailChange");
+    try
+    {
+      socketHandler.checkEmailChangeInformation(acc,email,"checkEmailChange");
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
   }
 
   @Override public void checkPasswordChangeInformation(Account acc,
       String newPassword, String oldPassword)
   {
- socketHandler.checkPasswordChangeInformation(acc,newPassword,oldPassword,"checkPasswordChange");
+    try
+    {
+      socketHandler.checkPasswordChangeInformation(acc,newPassword,oldPassword,"checkPasswordChange");
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
   }
 
   @Override public void checkEmail(String email)
   {
- socketHandler.checkEmail(email,"checkEmail");
+    try
+    {
+      socketHandler.checkEmail(email,"checkEmail");
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
   }
 
   @Override public void checkLogin(String username, String password)
   {
- socketHandler.checkLogin(username,password,"checkLogin");
+    try
+    {
+      socketHandler.checkLogin(username,password,"checkLogin");
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
   }
 
   @Override public void checkAccountUniqueness(String username, String password,
       String email)
   {
- socketHandler.checkAccountUniqueness(username,password,email,"checkAccount");
+    try
+    {
+      socketHandler.checkAccountUniqueness(username,password,email,"checkAccount");
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
   }
 
-  @Override public void joinGroupAsAPlayer(Account acc, Group g)
+  @Override public void joinGroupAsAPlayer(Account acc, String groupname)
   {
- socketHandler.joinGroupAsPlayer(acc,g,"joinGroup");
+    try
+    {
+      socketHandler.joinGroupAsPlayer(acc,groupname,"joinGroup");
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
   }
 
   @Override public void searchGroup(int id, String user)
   {
-  socketHandler.searchGroup(id,user,"searchGroup");
+    try
+    {
+      socketHandler.searchGroup(id,user,"searchGroup");
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
   }
 
   @Override public void removeUser(Account ac)
   {
-  socketHandler.removeUser(ac,"remove");
+    try
+    {
+      socketHandler.removeUser(ac,"remove");
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
   }
 
   @Override public void addListener(String eventName,

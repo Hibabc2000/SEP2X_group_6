@@ -2,53 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Java/src/system/Ability.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/Background.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/CharacterClasses/Barbarian.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/CharacterClasses/Bard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/CharacterClasses/CharacterClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/CharacterClasses/Cleric.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/CharacterClasses/Druid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/CharacterClasses/Fighter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/CharacterClasses/Monk.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/CharacterClasses/Paladin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/CharacterClasses/Ranger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/CharacterClasses/Rogue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/CharacterClasses/Sorcerer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/CharacterClasses/Warlock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/CharacterClasses/Wizard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/Feat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/Log/Action.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/Log/Log.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/Map/Map.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/Map/MapBlocked.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/Map/MapEnemy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/Map/MapEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/Map/MapPlayer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/Proficiency.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/Race.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/Skill.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/model/loginModel/Account.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/model/loginModel/DM.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/model/loginModel/Group.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/model/loginModel/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/system/Server/ConnectionPool.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/system/Server/Database/ConnectDBC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/system/Server/Database/Create.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/system/Server/Database/Insert.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/system/Server/Database/Select.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/system/Server/Server.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/system/Server/ServerSocketHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/system/model/businessModel/BusinessModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/system/model/businessModel/BusinessModelImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/SEP2X_group_6.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SEP2X_group_6.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/Account.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/AccountsForTesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/AccountsForTesting.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java/src/system/Client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Client/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java/src/system/Client/ClientSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Client/ClientSocketHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java/src/system/Client/SocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Client/SocketClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/DM.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/Group.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/Player.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/dmAccount/DMAccountViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/dmAccount/DMAccountViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/playerAccount/PlayerAccountViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/playerAccount/PlayerAccountViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/AccTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/AccTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/AccountModelImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/AccountModelImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/GroupTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/GroupTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -80,25 +48,25 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="jdk.selected.JAVA_MODULE" value="13" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Java/src" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="E:/database/postgresql-42.2.12.jar!/" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15332031" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="account" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src" />
+      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\account" />
+      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\model" />
+      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\views" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
       <recent name="testing" />
       <recent name="login" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src" />
-      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\account" />
-      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\model" />
-      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\views" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="account" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -230,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589316725304</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added a lot of classes">
+      <created>1589448778370</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1589448778370</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -252,7 +227,8 @@
     <MESSAGE value="commented almost everything,&#10;finished groupTest,&#10;changed some things here and there,&#10;added email change option" />
     <MESSAGE value="Added client, clientsockethandler, socketclient," />
     <MESSAGE value="Small changes here and there, in unit test, in account.fxml," />
-    <option name="LAST_COMMIT_MESSAGE" value="Small changes here and there, in unit test, in account.fxml," />
+    <MESSAGE value="Added a lot of classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a lot of classes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
