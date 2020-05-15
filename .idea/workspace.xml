@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Java/src/system/Server/Database/TestDtbs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/Server/RunServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/core/ClientFactory.java" afterDir="false" />
+    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="Started Database loading">
+      <change afterPath="$PROJECT_DIR$/Java/src/system/Server/Database/GetAllFromDatabase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/system/Server/Database/GetAllTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/SEP2X_group_6.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SEP2X_group_6.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java/Java.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Java/Java.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/Client/ClientSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Client/ClientSocketHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/Client/SocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Client/SocketClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/Run.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Run.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java/src/system/Server/Database/ConnectDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Server/Database/ConnectDBC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/Server/Database/Create.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Server/Database/Create.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java/src/system/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/Server/ServerSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Server/ServerSocketHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/core/ModelFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/core/ModelFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,21 +16,18 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="SEP2X_group_6" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="1b701449d0caab2cad947a3811491a59fb5cabce" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1XkNw7BvC3whQ4rXm7gHqlbnXNo" />
@@ -48,25 +37,26 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="jdk.selected.JAVA_MODULE" value="13" />
-    <property name="last_opened_file_path" value="E:/database/postgresql-42.2.11.jar!/" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../postgresql-42.2.11.jar!/" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15332031" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src" />
-      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\account" />
-      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\model" />
-      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\views" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="account" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
       <recent name="testing" />
       <recent name="login" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="account" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src" />
+      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\account" />
+      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\model" />
+      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\views" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -81,52 +71,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Start">
-    <configuration name="ConnectDBC" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="system.Server.Database.ConnectDBC" />
+  <component name="RunManager" selected="Application.GetAllTest">
+    <configuration name="GetAllTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="system.Server.Database.GetAllTest" />
       <module name="Java" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="system.Server.Database.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Create" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="system.Server.Database.Create" />
-      <module name="Java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="system.Server.Database.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RunServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="system.Server.RunServer" />
-      <module name="Java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="system.Server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Start" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="system.Start" />
-      <module name="Java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="system.model.loginModel.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -147,13 +98,40 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AccTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SEP2X_group_6" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AccTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AccountModelImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SEP2X_group_6" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AccountModelImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GroupTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SEP2X_group_6" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GroupTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Start" />
-        <item itemvalue="Application.RunServer" />
+        <item itemvalue="Application.GetAllTest" />
         <item itemvalue="Application.TestDtbs" />
-        <item itemvalue="Application.Create" />
-        <item itemvalue="Application.ConnectDBC" />
+        <item itemvalue="JUnit.AccountModelImplTest" />
+        <item itemvalue="JUnit.AccTest" />
+        <item itemvalue="JUnit.GroupTest" />
       </list>
     </recent_temporary>
   </component>
@@ -189,42 +167,21 @@
       <option name="project" value="LOCAL" />
       <updated>1586900216711</updated>
     </task>
-    <task id="LOCAL-00004" summary="commented almost everything,&#10;finished groupTest,&#10;changed some things here and there,&#10;added email change option">
-      <created>1588000633713</created>
+    <task id="LOCAL-00004" summary="Corrected formatting and typos">
+      <created>1588774172244</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1588000633713</updated>
+      <updated>1588774172244</updated>
     </task>
-    <task id="LOCAL-00005" summary="Added client, clientsockethandler, socketclient,">
-      <created>1588873641687</created>
+    <task id="LOCAL-00005" summary="Added e-mail check to account model impl.">
+      <created>1589357234716</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1588873641687</updated>
+      <updated>1589357234716</updated>
     </task>
-    <task id="LOCAL-00006" summary="Small changes here and there, in unit test, in account.fxml,">
-      <created>1589316725304</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1589316725304</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Added a lot of classes">
-      <created>1589448778370</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1589448778370</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Server, connection pool, serversockethandler, jdbc need some help to which way to do">
-      <created>1589535289962</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1589535289962</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -243,19 +200,21 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="So it begins.&#10;added basic login part without any client server stuff," />
     <MESSAGE value="created a test class" />
-    <MESSAGE value="commented almost everything,&#10;finished groupTest,&#10;changed some things here and there,&#10;added email change option" />
-    <MESSAGE value="Added client, clientsockethandler, socketclient," />
-    <MESSAGE value="Small changes here and there, in unit test, in account.fxml," />
-    <MESSAGE value="Added a lot of classes" />
-    <MESSAGE value="Server, connection pool, serversockethandler, jdbc need some help to which way to do" />
-    <option name="LAST_COMMIT_MESSAGE" value="Server, connection pool, serversockethandler, jdbc need some help to which way to do" />
+    <MESSAGE value="Corrected formatting and typos" />
+    <MESSAGE value="Added e-mail check to account model impl." />
+    <MESSAGE value="Started Database loading" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started Database loading" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Java/src/system/AccountsForTesting.java</url>
-          <line>19</line>
+        <line-breakpoint type="java-method">
+          <url>file://$PROJECT_DIR$/Java/src/system/Background.java</url>
+          <line>28</line>
+          <properties class="system.Background" method="addEquipment">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="temporary" value="true" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

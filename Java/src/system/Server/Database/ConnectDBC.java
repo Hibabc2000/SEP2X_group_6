@@ -19,7 +19,7 @@ public class ConnectDBC {
       Class.forName("org.postgresql.Driver");
       c = DriverManager
           .getConnection("jdbc:postgresql://localhost:5432/SEP2",
-              "postgres", "almafast325");
+              "postgres", "");
       System.out.println("Database open ok");
       System.out.println("postgrescheck1");
       stmt = c.createStatement();

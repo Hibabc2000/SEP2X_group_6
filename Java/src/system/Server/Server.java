@@ -1,6 +1,7 @@
 package system.Server;
 
 import system.Server.Database.ConnectDBC;
+import system.Server.Database.GetAllFromDatabase;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -17,6 +18,8 @@ public class Server
       ServerSocket serverSocket = new ServerSocket(SERVER_PORT);
       ConnectionPool pool = new ConnectionPool();
       ConnectDBC dtbs = new ConnectDBC();
+      //GetAllFromDatabase load = new GetAllFromDatabase();
+      //load.loadDatabase();
       while (true)
       {
         System.out.println("[SERVER] Waiting for client connection");
