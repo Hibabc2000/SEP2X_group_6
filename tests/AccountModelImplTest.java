@@ -36,7 +36,7 @@ private CreateAccountViewModel cavm;
 
   @BeforeEach void setUp()
     {
-      model = new AccountModelImpl();
+
       cavm =  new CreateAccountViewModel(model);
        davm = new DMAccountViewModel(model);
        pavm = new PlayerAccountViewModel(model);

@@ -1,7 +1,8 @@
 package networking;
 
-import system.Server.Database.ConnectDBC;
-import system.Server.Database.GetAllFromDatabase;
+import Database.ConnectDBC;
+
+
 
 import java.io.IOException;
 import java.net.ServerSocket;

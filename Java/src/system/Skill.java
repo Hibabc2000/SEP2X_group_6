@@ -2,23 +2,23 @@ package system;
 
 public class Skill
 {
-  private Ability ability;
+  private String ability;
   private String name;
   private String description;
 
-  public Skill(Ability ability, String name, String description)
+  public Skill(String ability, String name, String description)
   {
     this.ability = ability;
     this.name = name;
     this.description = description;
   }
 
-  public Ability getAbility()
+  public String getAbility()
   {
     return ability;
   }
 
-  public void setAbility(Ability ability)
+  public void setAbility(String ability)
   {
     this.ability = ability;
   }

@@ -1,4 +1,4 @@
-package system.Server.Database;
+package Database;
 
 public class GetAllTest
 {

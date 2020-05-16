@@ -1,4 +1,6 @@
-package system.Server.Database;
+package Database;
+
+import Database.ConnectDBC;
 
 public class TestDtbs
 {
