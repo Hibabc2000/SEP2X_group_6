@@ -1,7 +1,5 @@
 package system;
 
-import java.util.ArrayList;
-
 public class Skill
 {
   private Ability ability;

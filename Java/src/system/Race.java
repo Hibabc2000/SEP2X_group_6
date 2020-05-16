@@ -1,32 +1,17 @@
 package system;
 
-import java.util.ArrayList;
-
 public class Race
 {
-  private ArrayList<Feat> raceFeats;
+
+  private String traits;
   private String name;
   private String description;
 
-  public Race(String name, String description)
+  public Race(String name, String description, String traits)
   {
-    raceFeats = new ArrayList<>();
+    this.traits = traits;
     this.name = name;
     this.description = description;
-  }
-  public void addFeat(Feat f)
-  {
-    raceFeats.add(f);
-  }
-
-  public ArrayList<Feat> getRaceFeats()
-  {
-    return raceFeats;
-  }
-
-  public void setRaceFeats(ArrayList<Feat> raceFeats)
-  {
-    this.raceFeats = raceFeats;
   }
 
   public String getName()
@@ -44,15 +29,23 @@ public class Race
     return description;
   }
 
-  public void setDescription(String description)
-  {
+  public void setDescription(String description) {
     this.description = description;
   }
 
+  public String getTraits()
+  {
+    return traits;
+  }
+
+  public void setTraits(String traits)
+  {
+    this.traits = traits;
+  }
 
   @Override public String toString()
   {
-    return "Race{" + "raceFeats=" + raceFeats + ", name='" + name + '\''
+    return "Race{" + "traits=" + traits + ", name='" + name + '\''
         + ", description='" + description + "'}'";
   }
 }

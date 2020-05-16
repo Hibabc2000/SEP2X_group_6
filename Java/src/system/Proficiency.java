@@ -3,8 +3,8 @@ package system;
 public class Proficiency
 {
   private String name;
-  private String  type;
-  private String  origin;
+  private String type;
+  private String origin;
 
   public Proficiency(String name, String type, String origin)
   {

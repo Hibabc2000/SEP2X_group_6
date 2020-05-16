@@ -6,28 +6,16 @@ public class Ability
 {
   private String name;
   private String description;
-  private ArrayList<Proficiency> proficiencies;
-
 
   public Ability(String name, String description)
   {
     this.name = name;
     this.description = description;
-    proficiencies = new ArrayList<>();
   }
 
   public String getName()
   {
     return name;
-  }
-
-  public void setProficiencies(ArrayList<Proficiency> prof)
-  {
-    proficiencies = prof;
-  }
-  public void addProficiency(Proficiency prof)
-  {
-    proficiencies.add(prof);
   }
 
   public void setName(String name)

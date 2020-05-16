@@ -5,6 +5,7 @@ public class Feat
   private String origin;
   private String name;
   private String description;
+
   public Feat(String or, String na, String des)
   {
     origin = or;

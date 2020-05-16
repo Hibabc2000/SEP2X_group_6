@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="">
+    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="Database loading, model rework started">
+      <change beforePath="$PROJECT_DIR$/.idea/SEP2X_group_6.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SEP2X_group_6.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java/src/system/Ability.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Ability.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/Feat.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Feat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/Proficiency.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Proficiency.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java/src/system/Race.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Race.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/Server/Database/GetAllFromDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Server/Database/GetAllFromDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/Skill.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Skill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/model/CharacterClasses/CharacterClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/CharacterClasses/CharacterClass.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -186,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589569198006</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Database loading, model rework started">
+      <created>1589618521136</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1589618521136</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -208,7 +218,8 @@
     <MESSAGE value="Corrected formatting and typos" />
     <MESSAGE value="Added e-mail check to account model impl." />
     <MESSAGE value="Started Database loading" />
-    <option name="LAST_COMMIT_MESSAGE" value="Started Database loading" />
+    <MESSAGE value="Database loading, model rework started" />
+    <option name="LAST_COMMIT_MESSAGE" value="Database loading, model rework started" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

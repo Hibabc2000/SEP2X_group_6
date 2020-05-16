@@ -1,63 +1,20 @@
 package system;
 
+import system.model.CharacterClasses.CharacterClass;
 import java.util.ArrayList;
 
 public class Character
 {
   private int id;
-  private String race;
-  private ArrayList<String> characterClass;
+  private Race race;
+  private ArrayList<CharacterClass> characterClass;
   private String name;
-  private int strength;
-  private int dexterity;
-  private int constitution;
-  private int intelligence;
-  private int wisdom;
-  private int charisma;
-  private int acrobatics;
-  private int animalHandling;
-  private int arcana;
-  private int athletics;
-  private int deception;
-  private int history;
-  private int insight;
-  private int investigation;
-  private int medicine;
-  private int nature;
-  private int perception;
-  private int performance;
-  private int persuasion;
-  private int religion;
-  private int sleightOfHand;
-  private int stealth;
-  private int survival;
-  private boolean acrobaticsProficiency;
-  private boolean animalHandlingProficiency;
-  private boolean arcanaProficiency;
-  private boolean athleticsProficiency;
-  private boolean deceptionProficiency;
-  private boolean historyProficiency;
-  private boolean insightProficiency;
-  private boolean intimidationProficiency;
-  private boolean investigationProficiency;
-  private boolean medicineProficiency;
-  private boolean natureProficiency;
-  private boolean perceptionProficiency;
-  private boolean performanceProficiency;
-  private boolean persuasionProficiency;
-  private boolean religionProficiency;
-  private boolean sleightOfHandProficiency;
-  private boolean stealthProficiency;
-  private boolean survivalProficiency;
-  private int platinumPiece;
-  private int goldPiece;
-  private int electrumPiece;
-  private int silverPiece;
-  private int copperPiece;
-  private int speed;
-  private int proficiencyBonus;
-  private int initiativeBonus;
-  private int armorClass;
+  private int[] abilities; //6-element array
+  private ArrayList<Proficiency> proficiencies; //Stores all proficiencies
+  private ArrayList<Double> profLevel; //half (x0.5), full (x1), expert (x2) - just write multiplier
+  private int[] money; //platinum, gold, electrum, silver, copper
+  private ArrayList<String> equipmentList; //just names, get desc from database if necessary
+  private ArrayList<Integer> equipmentAmount; //just the amount of stuff the character has
 
   public Character()   // need to consult with group about this class
   {
