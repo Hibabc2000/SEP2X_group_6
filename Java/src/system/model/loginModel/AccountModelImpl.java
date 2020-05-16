@@ -1,6 +1,7 @@
 package system.model.loginModel;
 
-import system.*;
+import system.AccountsForTesting;
+import system.DiceRoll;
 import system.networking.Client;
 
 import java.beans.PropertyChangeListener;
@@ -17,11 +18,13 @@ public class AccountModelImpl implements AccountModel
 
   private PropertyChangeSupport support;
   private Account usersAccount;                     // this is the users account, we will store the information about the user's account here.
-                                                    // like names,groups etc.. so we don't need to constantly ask the db for information.
+  // like names,groups etc.. so we don't need to constantly ask the db for information.
   private AccountsForTesting tests;             // this is for testing
- private Client client;
+  private Client client;
+
   public AccountModelImpl(Client client)
-  { this.client = client;
+  {
+    this.client = client;
     try
     {
       client.start();
@@ -33,7 +36,7 @@ public class AccountModelImpl implements AccountModel
     support = new PropertyChangeSupport(this);
     tests = new AccountsForTesting();
     tempGroups = new ArrayList<>();
-    groupsForDm= new ArrayList<>();
+    groupsForDm = new ArrayList<>();
     tempAccounts = new ArrayList<>();
     findingUnknownGroupsGroup = new ArrayList<>();
     // for testing
@@ -47,7 +50,7 @@ public class AccountModelImpl implements AccountModel
   public void removeAccount()
   {
     client.removeUser(usersAccount);
-   System.exit(1);
+    System.exit(1);
   }
 
   // DM creates a group with a given name , and a random ID, right now i am using just a RNG, but this might be changed cause it is inefficient
@@ -57,36 +60,49 @@ public class AccountModelImpl implements AccountModel
   // fire propchange to update the viewmodel and view with the new group,
   @Override public String createGroup(String name)
   {
-    String temp ;
-    client.createGroup(usersAccount,name);
+    String temp;
+    client.createGroup(usersAccount, name);
     //serve
     DiceRoll roll = new DiceRoll();
-    ArrayList<Integer> ids= new ArrayList<>();
+    ArrayList<Integer> ids = new ArrayList<>();
     //server
-    for(int i=0;i<findingUnknownGroupsGroup.size();i++)
-    {ids.add(findingUnknownGroupsGroup.get(i).getId());}
-    int id=0;
-    do {
-    id = roll.RollDice(1000000,2);}while((ids.contains(id)));
-    Group newGroup = new Group(name,id);
+    for (int i = 0; i < findingUnknownGroupsGroup.size(); i++)
+    {
+      ids.add(findingUnknownGroupsGroup.get(i).getId());
+    }
+    int id = 0;
+    do
+    {
+      id = roll.RollDice(1000000, 2);
+    }
+    while ((ids.contains(id)));
+    Group newGroup = new Group(name, id);
     newGroup.addDM(usersAccount.getDM());
     groupsForDm.add(newGroup);
     System.out.println(id);
-    findingUnknownGroupsGroup.add(newGroup);support.firePropertyChange("GroupCreatedByDm",null,newGroup);
+    findingUnknownGroupsGroup.add(newGroup);
+    support.firePropertyChange("GroupCreatedByDm", null, newGroup);
 
-
-    return temp="Group created";
+    return temp = "Group created";
 
   }
+
   // returns the groups for the User depending on what mode is he in (player or DM)
   @Override public ArrayList<Group> getGroups()
-  { if(usersAccount.getUser() instanceof Player)
-  {return tempGroups;}
-  else if(usersAccount.getUser() instanceof DM)
-  { return groupsForDm;}
+  {
+    if (usersAccount.getUser() instanceof Player)
+    {
+      return tempGroups;
+    }
+    else if (usersAccount.getUser() instanceof DM)
+    {
+      return groupsForDm;
+    }
 
-  else return null;
+    else
+      return null;
   }
+
   // players will use this method to search for a group by ID,
   //If it in his tempGroups that means he already discovered it, then the loop breaks;
   // Nextx loop checks the database for the group , and if he finds it but the DM has the same name as the DM of that group then loop breaks and error,
@@ -104,12 +120,16 @@ public class AccountModelImpl implements AccountModel
       }
     }
 
-    client.searchGroup(id,usersAccount.getUsername());
-    for(int i=0; i<findingUnknownGroupsGroup.size();i++)
+    client.searchGroup(id, usersAccount.getUsername());
+    for (int i = 0; i < findingUnknownGroupsGroup.size(); i++)
     {
-      if(findingUnknownGroupsGroup.get(i).getDM().getName().equals(usersAccount.getUsername()) &&
-          findingUnknownGroupsGroup.get(i).getId()==id )
-      {temp="This group was made by you as a DM.\n You can only see this group in the DM mode";break;}
+      if (findingUnknownGroupsGroup.get(i).getDM().getName()
+          .equals(usersAccount.getUsername())
+          && findingUnknownGroupsGroup.get(i).getId() == id)
+      {
+        temp = "This group was made by you as a DM.\n You can only see this group in the DM mode";
+        break;
+      }
 
     }
     if (temp.equals("This group doesn't exit"))
@@ -130,8 +150,7 @@ public class AccountModelImpl implements AccountModel
     return temp;
   }
 
-
-// Player joins a group by a loop going through all the groups that are in his group list, and joins the one
+  // Player joins a group by a loop going through all the groups that are in his group list, and joins the one
   // that has the same toString which the player clicked, next checks if the player is the part of the group or not
   // and whether the group contains the same username as the player, just to make sure there is absolutely no errors.
   //after that the player is added to a group , and fire prop change with 2 variables, oldgroup and the tempgroup.
@@ -139,7 +158,7 @@ public class AccountModelImpl implements AccountModel
   @Override public String joinGroupAsPlayer(String groupname)
   {
     String temp = "Connecting...";
-    client.joinGroupAsAPlayer(usersAccount,groupname);
+    client.joinGroupAsAPlayer(usersAccount, groupname);
     // server
     for (int i = 0; i < tempGroups.size(); i++)
     {
@@ -160,12 +179,17 @@ public class AccountModelImpl implements AccountModel
       }
     }
 
-
-    for (int i = 0; i < tempGroups.size(); i++) {if(tempGroups.get(i).isPlayerPartOfGroup(usersAccount.getPlayer())) {temp = "You are already part of that group";}}
+    for (int i = 0; i < tempGroups.size(); i++)
+    {
+      if (tempGroups.get(i).isPlayerPartOfGroup(usersAccount.getPlayer()))
+      {
+        temp = "You are already part of that group";
+      }
+    }
     return temp;
   }
 
-// this is for creating new accounts, its just checking with if statements if all the values are correct aetc..
+  // this is for creating new accounts, its just checking with if statements if all the values are correct aetc..
   @Override public String checkAccountUniqueness(String username, String pass1,
       String pass2, String email)
   {
@@ -186,26 +210,32 @@ public class AccountModelImpl implements AccountModel
     else if (email.equals("") || email == null)
     {
       temp = "Fill out all the fields";
-    }else if(pass1.length()<6)
-    {
-      temp= "Password must be longer than 6 characters";
     }
-    else if(username.length()<4) {temp = "Username must be longer than 4 characters";}
+    else if (pass1.length() < 6)
+    {
+      temp = "Password must be longer than 6 characters";
+    }
+    else if (username.length() < 4)
+    {
+      temp = "Username must be longer than 4 characters";
+    }
     else if (!(pass1.equals(pass2)))
     {
       temp = "Passwords don't match";
     }
-    else if(!email.contains("@"))
+    else if (!email.contains("@"))
     {
       temp = "E-mail format not valid";
     }
 
-    else client.createAccount(username,pass1,email);
-      // server
+    else
+      client.createAccount(username, pass1, email);
+    // server
 
     return temp;
   }
-// basic login with if statements checking pass and name.
+
+  // basic login with if statements checking pass and name.
   @Override public String checkLogin(String username, String pass)
   {
     String temp = "Connecting...";
@@ -219,28 +249,29 @@ public class AccountModelImpl implements AccountModel
       temp = "Fill out all the fields";
     }
 
-    else client.checkLogin(username, pass);
+    else
+      client.checkLogin(username, pass);
     // put it into server
-      for (int i = 0; i < tempAccounts.size(); i++)
+    for (int i = 0; i < tempAccounts.size(); i++)
+    {
+      if ((tempAccounts.get(i).getUsername().equals(username)) && (tempAccounts
+          .get(i).getPassword().equals(pass)))
       {
-        if ((tempAccounts.get(i).getUsername().equals(username))
-            && (tempAccounts.get(i).getPassword().equals(pass)))
-        {
-         temp = "Ready";
-          usersAccount = tempAccounts.get(i);
-          // usersAccount = add account from database
-          break;
-        }
-        else
-        {
-          temp = "This account doesn't exit.";
-        }
+        temp = "Ready";
+        usersAccount = tempAccounts.get(i);
+        // usersAccount = add account from database
+        break;
       }
+      else
+      {
+        temp = "This account doesn't exit.";
+      }
+    }
 
     return temp;
 
   }
-// checking the email for password recovery whether the email is in the system
+  // checking the email for password recovery whether the email is in the system
 
   @Override public String checkEmail(String value)
   {
@@ -251,27 +282,30 @@ public class AccountModelImpl implements AccountModel
       temp = "Type in your email account,dude...";
     }
 
-    else client.recoverPassword(value);
-      //server
-      for (int i = 0; i < tempAccounts.size(); i++)
+    else
+      client.recoverPassword(value);
+    //server
+    for (int i = 0; i < tempAccounts.size(); i++)
+    {
+      if (tempAccounts.get(i).getEmail().equals(value))
       {
-        if (tempAccounts.get(i).getEmail().equals(value))
-        {
-         temp = "Ready";
-         String pas = tempAccounts.get(i).getPassword();
-         String nam = tempAccounts.get(i).getUsername();
-          System.out.println("You got a new email: \n  For the account "+ nam + " your password is : "+ pas );
-          break;
-        }
-        else
-        {
-          temp = "This email is not registered in our system.";
-        }
+        temp = "Ready";
+        String pas = tempAccounts.get(i).getPassword();
+        String nam = tempAccounts.get(i).getUsername();
+        System.out.println("You got a new email: \n  For the account " + nam
+            + " your password is : " + pas);
+        break;
       }
+      else
+      {
+        temp = "This email is not registered in our system.";
+      }
+    }
 
     return temp;
   }
-// its for the account, when we decide to be DM or Player, its switching the User to that instance.
+
+  // its for the account, when we decide to be DM or Player, its switching the User to that instance.
   @Override public void changeToDm()
   {
     usersAccount.setUserToDm();
@@ -290,8 +324,6 @@ public class AccountModelImpl implements AccountModel
   {
     String temp = "Error";
     Account change = null;
-
-
 
     if (username.equals("") || username == null)
     {
@@ -317,17 +349,19 @@ public class AccountModelImpl implements AccountModel
     {
       temp = "Wrong old password";
     }
-    else client.checkPasswordChangeInformation(usersAccount,passNew,passOld);
+    else
+      client.checkPasswordChangeInformation(usersAccount, passNew, passOld);
     //server
-      for (int i = 0; i < tempAccounts.size(); i++)
+    for (int i = 0; i < tempAccounts.size(); i++)
+    {
+      if (tempAccounts.get(i).getPassword().equals(passOld) && tempAccounts
+          .get(i).getUsername().equals(username))
       {
-        if (tempAccounts.get(i).getPassword().equals(passOld) && tempAccounts.get(i).getUsername().equals(username))
-        {
-         change = tempAccounts.get(i);
-          temp = "Ready";
-        }
-
+        change = tempAccounts.get(i);
+        temp = "Ready";
       }
+
+    }
     if (temp.equals("Ready"))
     {
       tempAccounts.get(tempAccounts.indexOf(change)).setPassword(passNew);
@@ -342,7 +376,7 @@ public class AccountModelImpl implements AccountModel
   @Override public String checkEmailChangeInformation(String username,
       String password, String email)
   {
-  Account change= null;
+    Account change = null;
     String temp = "Error";
 
     if (username.equals("") || username == null)
@@ -361,29 +395,32 @@ public class AccountModelImpl implements AccountModel
     {
       temp = "This is your current email address. You nitwit...";
     }
-    else if (!(usersAccount.getPassword().equals(password)) || !(usersAccount.getUsername().equals(username)))
+    else if (!(usersAccount.getPassword().equals(password)) || !(usersAccount
+        .getUsername().equals(username)))
     {
       temp = "Wrong  password or username";
     }
-    else client.checkEmailChangeInformation(usersAccount,email);
+    else
+      client.checkEmailChangeInformation(usersAccount, email);
     //server
-      for (int i = 0; i < tempAccounts.size(); i++)
+    for (int i = 0; i < tempAccounts.size(); i++)
+    {
+      if (tempAccounts.get(i).getPassword().equals(password) && tempAccounts
+          .get(i).getUsername().equals(username))
       {
-        if (tempAccounts.get(i).getPassword().equals(password) && tempAccounts.get(i).getUsername().equals(username))
-        {
-          change = tempAccounts.get(i);
+        change = tempAccounts.get(i);
 
-        }
-        if ((tempAccounts.get(i).getEmail().equals(email)))
-        {
-          temp = "This email is already registered.";
-          break;
-        }
-        else
-        {
-          temp = "Ready";
-        }
       }
+      if ((tempAccounts.get(i).getEmail().equals(email)))
+      {
+        temp = "This email is already registered.";
+        break;
+      }
+      else
+      {
+        temp = "Ready";
+      }
+    }
     if (temp.equals("Ready"))
     {
 
@@ -394,7 +431,7 @@ public class AccountModelImpl implements AccountModel
     return temp;
   }
 
-    @Override public void addListener(String eventName,
+  @Override public void addListener(String eventName,
       PropertyChangeListener listener)
   {
     support.addPropertyChangeListener(eventName, listener);
@@ -407,20 +444,26 @@ public class AccountModelImpl implements AccountModel
   }
 
   //everything under this is for testing  since I have no idea how to test these things.
- public Account getAccount()
- { return usersAccount;}
- public ArrayList<Account> getTempAccounts()
- {
-   return tempAccounts;
- }
+  public Account getAccount()
+  {
+    return usersAccount;
+  }
+
+  public ArrayList<Account> getTempAccounts()
+  {
+    return tempAccounts;
+  }
+
   public ArrayList<Group> getFindingUnknownGroupsGroup()
   {
     return findingUnknownGroupsGroup;
   }
+
   public ArrayList<Group> getTempGroups()
   {
     return tempGroups;
   }
+
   public ArrayList<Group> getGroupsForDm()
   {
     return groupsForDm;

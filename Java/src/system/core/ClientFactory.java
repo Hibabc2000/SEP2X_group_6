@@ -1,7 +1,7 @@
 package system.core;
 
-import system.Client.Client;
-import system.Client.SocketClient;
+import system.networking.Client;
+import system.networking.SocketClient;
 
 public class ClientFactory
 {

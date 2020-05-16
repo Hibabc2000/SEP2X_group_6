@@ -1,6 +1,6 @@
 package system.core;
 
-import system.Client.Client;
+
 import system.model.characterCreation.CharacterCreationModel;
 import system.model.characterSheet.CharacterSheetModel;
 import system.model.loginModel.AccountModel;

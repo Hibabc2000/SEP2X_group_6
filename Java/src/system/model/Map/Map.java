@@ -7,6 +7,6 @@ public class Map
   private int sizeX;
   private int sizeY;
   private ArrayList<Integer> initiativeOrder;
-  private ArrayList<>
+//  private ArrayList<>
 
 }
