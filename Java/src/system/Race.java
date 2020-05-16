@@ -7,22 +7,16 @@ public class Race
   private ArrayList<Feat> raceFeats;
   private String name;
   private String description;
-  private ArrayList<Proficiency> raceProficiencies;
 
   public Race(String name, String description)
   {
     raceFeats = new ArrayList<>();
-    raceProficiencies= new ArrayList<>();
     this.name = name;
     this.description = description;
   }
   public void addFeat(Feat f)
   {
     raceFeats.add(f);
-  }
-  public void addProficiency(Proficiency p)
-  {
-    raceProficiencies.add(p);
   }
 
   public ArrayList<Feat> getRaceFeats()
@@ -55,20 +49,10 @@ public class Race
     this.description = description;
   }
 
-  public ArrayList<Proficiency> getRaceProficiencies()
-  {
-    return raceProficiencies;
-  }
-
-  public void setRaceProficiencies(ArrayList<Proficiency> raceProficiencies)
-  {
-    this.raceProficiencies = raceProficiencies;
-  }
 
   @Override public String toString()
   {
     return "Race{" + "raceFeats=" + raceFeats + ", name='" + name + '\''
-        + ", description='" + description + '\'' + ", raceProficiencies="
-        + raceProficiencies + '}';
+        + ", description='" + description + "'}'";
   }
 }

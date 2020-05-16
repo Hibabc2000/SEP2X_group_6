@@ -5,16 +5,14 @@ import java.util.ArrayList;
 public class Ability
 {
   private String name;
-  private String  description;
-  private int score;
+  private String description;
   private ArrayList<Proficiency> proficiencies;
 
 
-  public Ability(String name, String description, int score)
+  public Ability(String name, String description)
   {
     this.name = name;
     this.description = description;
-    this.score = score;
     proficiencies = new ArrayList<>();
   }
 
@@ -22,6 +20,7 @@ public class Ability
   {
     return name;
   }
+
   public void setProficiencies(ArrayList<Proficiency> prof)
   {
     proficiencies = prof;
@@ -46,19 +45,8 @@ public class Ability
     this.description = description;
   }
 
-  public int getScore()
-  {
-    return score;
-  }
-
-  public void setScore(int score)
-  {
-    this.score = score;
-  }
-
   @Override public String toString()
   {
-    return "Ability{" + "name='" + name + '\'' + ", description='" + description
-        + '\'' + ", score=" + score + '}';
+    return "Ability{" + "name='" + name + '\'' + ", description='" + description + "'}'";
   }
 }

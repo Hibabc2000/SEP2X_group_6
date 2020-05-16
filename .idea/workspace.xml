@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="Started Database loading">
-      <change afterPath="$PROJECT_DIR$/Java/src/system/Server/Database/GetAllFromDatabase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/Server/Database/GetAllTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SEP2X_group_6.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SEP2X_group_6.iml" afterDir="false" />
+    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/Java.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Java/Java.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/Server/Database/ConnectDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Server/Database/ConnectDBC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/Ability.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Ability.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/Race.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Race.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/Server/Database/GetAllFromDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Server/Database/GetAllFromDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/Skill.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Skill.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -181,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589357234716</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Started Database loading">
+      <created>1589569198006</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1589569198006</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
