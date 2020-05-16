@@ -1,34 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="Database loading, model rework started">
-      <change afterPath="$PROJECT_DIR$/Java/src/system/FeatBarbarian.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/FeatBard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/FeatCleric.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/FeatDruid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/FeatFighter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/FeatGeneral.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/FeatMonk.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/FeatPaladin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/FeatRanger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/FeatRogue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/FeatSorcerer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/FeatWarlock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/FeatWizard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/Spell.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/Subclass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/Subrace.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SEP2X_group_6.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SEP2X_group_6.iml" afterDir="false" />
+    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Java/src/system/EquipmentArmor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/system/EquipmentGeneral.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/system/EquipmentWeapon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/Skill.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Skill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/businessModel/BusinessModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/businessModel/BusinessModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/Database/GetAllFromDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/GetAllFromDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Database/GetAllTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/GetAllTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Database/TestDtbs.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/TestDtbs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/RunServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/RunServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/networking/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/networking/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/AccountModelImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/AccountModelImplTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -217,7 +195,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589618521136</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Lot of classes for postgresql &quot;CORE&quot; and some methods">
+      <created>1589637550337</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1589637550337</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -240,7 +225,8 @@
     <MESSAGE value="Added e-mail check to account model impl." />
     <MESSAGE value="Started Database loading" />
     <MESSAGE value="Database loading, model rework started" />
-    <option name="LAST_COMMIT_MESSAGE" value="Database loading, model rework started" />
+    <MESSAGE value="Lot of classes for postgresql &quot;CORE&quot; and some methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lot of classes for postgresql &quot;CORE&quot; and some methods" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
