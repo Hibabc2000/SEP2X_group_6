@@ -1,0 +1,94 @@
+package system.views.characterSheet;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+
+public class CharacterSheetController
+{
+  @FXML public Label strMod;
+  @FXML public Label str;
+  @FXML public Label dexMod;
+  @FXML public Label dex;
+  @FXML public Label conMod;
+  @FXML public Label con;
+  @FXML public Label intMod;
+  @FXML public Label intell;
+  @FXML public Label wisMod;
+  @FXML public Label wis;
+  @FXML public Label chrMod;
+  @FXML public Label chr;
+  @FXML public Label acrobaticsMod;
+  @FXML public Label animalHandlingMod;
+  @FXML public Label arcanaMod;
+  @FXML public Label athleticsMod;
+  @FXML public Label deceptionMod;
+  @FXML public Label historyMod;
+  @FXML public Label insightMod;
+  @FXML public Label intimidationMod;
+  @FXML public Label investigationMod;
+  @FXML public Label medicineMod;
+  @FXML public Label natureMod;
+  @FXML public Label perceptionMod;
+  @FXML public Label performanceMod;
+  @FXML public Label persuasionMod;
+  @FXML public Label religionMod;
+  @FXML public Label sleightOfHandMod;
+  @FXML public Label stealthMod;
+  @FXML public Label survivalMod;
+  @FXML public Label charClass;
+  @FXML public Label charName;
+  @FXML public Label charAlignment;
+  @FXML public Label charRace;
+  @FXML public Label currentHP;
+  @FXML public Label maxHP;
+  @FXML public Label lvlDisp;
+  @FXML public Label xpCount;
+  @FXML public Label strSave;
+  @FXML public Label dexSave;
+  @FXML public Label conSave;
+  @FXML public Label intSave;
+  @FXML public Label wisSave;
+  @FXML public Label chrSave;
+  @FXML public Label proficiencyBonus;
+  @FXML public Label passiveWisdom;
+  @FXML public Label speed;
+  @FXML public Label armorClass;
+  @FXML public Label initiativeMod;
+  @FXML public Label platinumPiece;
+  @FXML public Label copperPiece;
+  @FXML public Label electrumPiece;
+  @FXML public Label silverPiece;
+  @FXML public Label goldPiece;
+  @FXML public RadioButton acrobaticsCheck;
+  @FXML public RadioButton animalHandlingCheck;
+  @FXML public RadioButton arcanaCheck;
+  @FXML public RadioButton athleticsCheck;
+  @FXML public RadioButton deceptionCheck;
+  @FXML public RadioButton historyCheck;
+  @FXML public RadioButton insightCheck;
+  @FXML public RadioButton intimidationCheck;
+  @FXML public RadioButton investigationCheck;
+  @FXML public RadioButton medicineCheck;
+  @FXML public RadioButton natureCheck;
+  @FXML public RadioButton perceptionCheck;
+  @FXML public RadioButton performanceCheck;
+  @FXML public RadioButton persuasionCheck;
+  @FXML public RadioButton religionCheck;
+  @FXML public RadioButton sleightOfHandCheck;
+  @FXML public RadioButton stealthCheck;
+  @FXML public RadioButton survivalCheck;
+  @FXML public TextField hpChangeAmount;
+  @FXML public Button hpPlusButton;
+  @FXML public Button hpMinusButton;
+  @FXML public ProgressBar xpbar;
+  @FXML public ScrollPane textDescriptionScrollPane;
+  @FXML public AnchorPane textDescriptinAnchorPane;
+  @FXML public AnchorPane inventoryAnchorPane;
+  @FXML public ScrollPane inventoryScrollPane;
+  @FXML public AnchorPane actionAnchorPane;
+  @FXML public ScrollPane actionScrollPane;
+  public void initialization()
+  {}
+  
+}

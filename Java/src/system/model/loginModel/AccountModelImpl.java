@@ -1,7 +1,7 @@
 package system.model.loginModel;
 
 import system.*;
-import system.Client.Client;
+import system.networking.Client;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
