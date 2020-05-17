@@ -7,12 +7,13 @@
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <Pane id="mainPain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="382.0" prefWidth="500.0" stylesheets="@../../../../../../CSS/common/css.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.views.login.createAccount.CreateAccountController">
    <children>
       <Button fx:id="createButton" alignment="CENTER" layoutX="93.0" layoutY="277.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="35.0" prefWidth="297.0" style="-fx-background-color: #7cc987;" text="Create" />
-      <Label alignment="CENTER" layoutX="-5.0" layoutY="7.0" prefHeight="71.0" prefWidth="487.0" text="Create your account">
+      <Label alignment="CENTER" layoutX="84.0" layoutY="14.0" prefHeight="58.0" prefWidth="333.0" text="Create your account">
          <font>
             <Font size="30.0" />
          </font>
@@ -43,5 +44,6 @@
                </input>
             </DropShadow>
          </effect></TextField>
+      <Line endX="172.0" endY="-7.62939453125E-6" layoutX="210.0" layoutY="64.0" startX="-91.00001525878906" startY="-1.52587890625E-5" stroke="#7cc987" />
    </children>
 </Pane>
