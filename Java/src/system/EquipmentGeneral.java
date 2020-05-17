@@ -2,19 +2,19 @@ package system;
 
 public class EquipmentGeneral
 {
-  private String equipment;
+  private Equipment equipment;
 
-  public EquipmentGeneral(String equipment)
+  public EquipmentGeneral(Equipment equipment)
   {
     this.equipment = equipment;
   }
 
-  public String getEquipment()
+  public Equipment getEquipment()
   {
     return equipment;
   }
 
-  public void setEquipment(String equipment)
+  public void setEquipment(Equipment equipment)
   {
     this.equipment = equipment;
   }

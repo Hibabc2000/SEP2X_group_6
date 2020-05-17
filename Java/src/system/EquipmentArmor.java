@@ -2,46 +2,28 @@ package system;
 
 public class EquipmentArmor
 {
-  private String equipment;
-  private String armorClass;
+  private Equipment equipment;
+  private int armorClass;
   private String dexMod;
-  private String stealth;
-  private String strength;
+  private boolean stealth;
+  private int strength;
 
-  public EquipmentArmor(String equipment, String armorClass, String dexMod,
-      String stealth, String strength)
-  {
-    this.equipment = equipment;
-    this.armorClass = armorClass;
-    this.dexMod = dexMod;
-    this.stealth = stealth;
-    this.strength = strength;
-  }
-
-  @Override public String toString()
-  {
-    return "EquipmentArmor{" + "equipment='" + equipment + '\''
-        + ", armorClass='" + armorClass + '\'' + ", dexMod='" + dexMod + '\''
-        + ", stealth='" + stealth + '\'' + ", strength='" + strength + '\''
-        + '}';
-  }
-
-  public String getEquipment()
+  public Equipment getEquipment()
   {
     return equipment;
   }
 
-  public void setEquipment(String equipment)
+  public void setEquipment(Equipment equipment)
   {
     this.equipment = equipment;
   }
 
-  public String getArmorClass()
+  public int getArmorClass()
   {
     return armorClass;
   }
 
-  public void setArmorClass(String armorClass)
+  public void setArmorClass(int armorClass)
   {
     this.armorClass = armorClass;
   }
@@ -56,23 +38,41 @@ public class EquipmentArmor
     this.dexMod = dexMod;
   }
 
-  public String getStealth()
+  public boolean isStealth()
   {
     return stealth;
   }
 
-  public void setStealth(String stealth)
+  public void setStealth(boolean stealth)
   {
     this.stealth = stealth;
   }
 
-  public String getStrength()
+  public int getStrength()
   {
     return strength;
   }
 
-  public void setStrength(String strength)
+  public void setStrength(int strength)
   {
     this.strength = strength;
+  }
+
+  public EquipmentArmor(Equipment equipment, int armorClass, String dexMod,
+      boolean stealth, int strength)
+  {
+    this.equipment = equipment;
+    this.armorClass = armorClass;
+    this.dexMod = dexMod;
+    this.stealth = stealth;
+    this.strength = strength;
+  }
+
+  @Override public String toString()
+  {
+    return "EquipmentArmor{" + "equipment='" + equipment + '\''
+        + ", armorClass='" + armorClass + '\'' + ", dexMod='" + dexMod + '\''
+        + ", stealth='" + stealth + '\'' + ", strength='" + strength + '\''
+        + '}';
   }
 }

@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Java/src/system/EquipmentArmor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/EquipmentGeneral.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java/src/system/EquipmentWeapon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java/src/system/Equipment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/EquipmentArmor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/EquipmentArmor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/EquipmentGeneral.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/EquipmentGeneral.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/EquipmentWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/EquipmentWeapon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/Database/GetAllFromDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/GetAllFromDatabase.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -13,6 +14,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="FavoritesManager">
     <favorites_list name="SEP2X_group_6" />
@@ -27,6 +31,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      </list>
+    </option>
   </component>
   <component name="ProjectId" id="1XkNw7BvC3whQ4rXm7gHqlbnXNo" />
   <component name="PropertiesComponent">
@@ -42,19 +54,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="account" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src" />
+      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\account" />
+      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\model" />
+      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\views" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
       <recent name="testing" />
       <recent name="login" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src" />
-      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\account" />
-      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\model" />
-      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\views" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="account" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -96,13 +108,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RunServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="RunServer" />
-      <module name="SEP2X_group_6" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="TestDtbs" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="system.Server.Database.TestDtbs" />
       <module name="Java" />
@@ -112,6 +117,15 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AccTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SEP2X_group_6" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AccTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -128,10 +142,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.GetAllTest (1)" />
-        <item itemvalue="Application.RunServer" />
         <item itemvalue="Application.GetAllTest" />
         <item itemvalue="Application.TestDtbs" />
         <item itemvalue="JUnit.AccountModelImplTest" />
+        <item itemvalue="JUnit.AccTest" />
       </list>
     </recent_temporary>
   </component>
@@ -195,14 +209,21 @@
       <option name="project" value="LOCAL" />
       <updated>1589618521136</updated>
     </task>
-    <task id="LOCAL-00008" summary="Lot of classes for postgresql &quot;CORE&quot; and some methods">
-      <created>1589637550337</created>
+    <task id="LOCAL-00008" summary="Model rework">
+      <created>1589628730429</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1589637550337</updated>
+      <updated>1589628730429</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Model rework">
+      <created>1589630717180</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1589630717180</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -225,8 +246,8 @@
     <MESSAGE value="Added e-mail check to account model impl." />
     <MESSAGE value="Started Database loading" />
     <MESSAGE value="Database loading, model rework started" />
-    <MESSAGE value="Lot of classes for postgresql &quot;CORE&quot; and some methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lot of classes for postgresql &quot;CORE&quot; and some methods" />
+    <MESSAGE value="Model rework" />
+    <option name="LAST_COMMIT_MESSAGE" value="Model rework" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

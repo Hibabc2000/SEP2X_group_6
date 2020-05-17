@@ -2,12 +2,12 @@ package system;
 
 public class EquipmentWeapon
 {
-  private String equipment;
+  private Equipment equipment;
   private String damage;
   private String properties;
   private String weaponType;
 
-  public EquipmentWeapon(String equipment, String damage, String properties,
+  public EquipmentWeapon(Equipment equipment, String damage, String properties,
       String weaponType)
   {
     this.equipment = equipment;
@@ -23,12 +23,12 @@ public class EquipmentWeapon
         + ", weaponType='" + weaponType + '\'' + '}';
   }
 
-  public String getEquipment()
+  public Equipment getEquipment()
   {
     return equipment;
   }
 
-  public void setEquipment(String equipment)
+  public void setEquipment(Equipment equipment)
   {
     this.equipment = equipment;
   }
