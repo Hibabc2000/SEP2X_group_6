@@ -1,6 +1,6 @@
 package system;
 
-import system.model.CharacterClasses.CharacterClass;
+import system.model.characterClasses.CharacterClass;
 import java.util.ArrayList;
 
 public class Character

@@ -1,4 +1,4 @@
-package system.model.CharacterClasses;
+package system.model.characterClasses;
 
 import system.Ability;
 import system.Feat;

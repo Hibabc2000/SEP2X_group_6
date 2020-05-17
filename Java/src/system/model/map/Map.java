@@ -1,4 +1,4 @@
-package system.model.Map;
+package system.model.map;
 
 import java.util.ArrayList;
 

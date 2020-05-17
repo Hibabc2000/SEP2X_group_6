@@ -1,0 +1,6 @@
+#mainPain
+{
+    -fx-background-image:url('frame.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 100%;
+}

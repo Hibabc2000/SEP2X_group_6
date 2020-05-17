@@ -195,19 +195,19 @@ public class AccountModelImpl implements AccountModel
   {
     String temp = "Connecting...";
 
-    if (username.equals("") || username == null)
+    if (username.equals(""))
     {
       temp = "Fill out all the fields";
     }
-    else if (pass1.equals("") || pass1 == null)
+    else if (pass1.equals(""))
     {
       temp = "Fill out all the fields";
     }
-    else if (pass2.equals("") || pass2 == null)
+    else if (pass2.equals(""))
     {
       temp = "Fill out all the fields";
     }
-    else if (email.equals("") || email == null)
+    else if (email.equals(""))
     {
       temp = "Fill out all the fields";
     }
@@ -240,11 +240,11 @@ public class AccountModelImpl implements AccountModel
   {
     String temp = "Connecting...";
     //server
-    if (username.equals("") || username == null)
+    if (username.equals(""))
     {
       temp = "Fill out all the fields";
     }
-    else if (pass.equals("") || pass == null)
+    else if (pass.equals(""))
     {
       temp = "Fill out all the fields";
     }
@@ -277,7 +277,7 @@ public class AccountModelImpl implements AccountModel
   {
     String temp = "Error";
 
-    if (value.equals("") || value == null)
+    if (value.equals(""))
     {
       temp = "Type in your email account,dude...";
     }
@@ -325,19 +325,19 @@ public class AccountModelImpl implements AccountModel
     String temp = "Error";
     Account change = null;
 
-    if (username.equals("") || username == null)
+    if (username.equals(""))
     {
       temp = "Fill out all the fields";
     }
-    else if (passOld.equals("") || passOld == null)
+    else if (passOld.equals(""))
     {
       temp = "Fill out all the fields";
     }
-    else if (passNew.equals("") || passNew == null)
+    else if (passNew.equals(""))
     {
       temp = "Fill out all the fields";
     }
-    else if (passNewAgain.equals("") || passNewAgain == null)
+    else if (passNewAgain.equals(""))
     {
       temp = "Fill out all the fields";
     }
@@ -379,15 +379,15 @@ public class AccountModelImpl implements AccountModel
     Account change = null;
     String temp = "Error";
 
-    if (username.equals("") || username == null)
+    if (username.equals(""))
     {
       temp = "Fill out all the fields";
     }
-    else if (password.equals("") || password == null)
+    else if (password.equals(""))
     {
       temp = "Fill out all the fields";
     }
-    else if (email.equals("") || email == null)
+    else if (email.equals(""))
     {
       temp = "Fill out all the fields";
     }
