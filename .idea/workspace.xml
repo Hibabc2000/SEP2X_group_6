@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Java/src/system/Equipment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/EquipmentArmor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/EquipmentArmor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/EquipmentGeneral.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/EquipmentGeneral.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/EquipmentWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/EquipmentWeapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Database/GetAllFromDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/GetAllFromDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS/characterSheet/bg.png" beforeDir="false" afterPath="$PROJECT_DIR$/CSS/characterSheet/bg.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS/characterSheet/css.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/Java.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Java/Java.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/views/characterSheet/CharacterSheet.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/characterSheet/CharacterSheet.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/account/Account.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/account/Account.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/openSystem/OpenSystem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/openSystem/OpenSystem.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/playerAccount/PlayerAccount.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/playerAccount/PlayerAccount.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

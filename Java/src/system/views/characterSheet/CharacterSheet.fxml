@@ -5,11 +5,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="912.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.views.characterSheet.CharacterSheetController">
+<AnchorPane id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="907.0" prefWidth="1395.0" stylesheets="@../../../../../CSS/characterSheet/css%20(1).css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.logs.CCP">
    <children>
-      <VBox fillWidth="false" prefHeight="912.0" prefWidth="1920.0">
+      <VBox fillWidth="false" minWidth="-Infinity" prefHeight="912.0" prefWidth="1920.0">
          <children>
-            <MenuBar prefHeight="23.0" prefWidth="1920.0">
+            <MenuBar prefHeight="0.0" prefWidth="1932.0">
               <menus>
                 <Menu mnemonicParsing="false" text="Encounter Map" />
                 <Menu mnemonicParsing="false" text="Character View" />
@@ -22,7 +22,7 @@
                   </Menu>
               </menus>
             </MenuBar>
-            <GridPane id="MPane" prefHeight="882.0" prefWidth="1920.0" stylesheets="@../../../../../CSS/characterSheet/css%2520(1).css">
+            <GridPane id="MPane" prefHeight="882.0" prefWidth="1920.0" stylesheets="@../../../IdeaProjects/SEP2X_group_6/CSS/characterSheet/css%2520(1).css">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="635.2000122070312" minWidth="0.0" prefWidth="129.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="1649.1999969482422" minWidth="10.0" prefWidth="373.8" />
@@ -452,7 +452,7 @@
                                        </GridPane.margin>
                                     </Button>
                                     <Button fx:id="hpMinusButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="26.0" text="-" GridPane.rowIndex="2" />
-                                    <Label fx:id="maxHP" text="180+10" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                    <Label text="180+10" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                        <font>
                                           <Font size="17.0" />
                                        </font>
@@ -460,7 +460,7 @@
                                           <Insets bottom="10.0" />
                                        </GridPane.margin>
                                     </Label>
-                                    <Label fx:id="currentHP" style="-fx-underline: true;" text="180+10" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <Label style="-fx-underline: true;" text="180+10" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                        <font>
                                           <Font size="17.0" />
                                        </font>
@@ -610,7 +610,7 @@
                                     <Insets left="48.0" top="10.0" />
                                  </GridPane.margin>
                               </Label>
-                              <Label fx:id="initiativeMod" prefHeight="35.0" prefWidth="44.0" text="+5" GridPane.rowIndex="1">
+                              <Label fx:id="initiaticeMod" prefHeight="35.0" prefWidth="44.0" text="+5" GridPane.rowIndex="1">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
@@ -650,7 +650,7 @@
                                     <Insets bottom="12.0" left="41.0" />
                                  </GridPane.margin>
                               </Label>
-                              <Label fx:id="goldPiece" prefHeight="18.0" prefWidth="58.0" text="10000" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                              <Label prefHeight="18.0" prefWidth="58.0" text="10000" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
