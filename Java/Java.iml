@@ -10,5 +10,7 @@
     <orderEntry type="library" name="JavaFX" level="application" />
     <orderEntry type="library" name="postgresql-42.2.11" level="application" />
     <orderEntry type="library" name="javafx-swt" level="application" />
+    <orderEntry type="library" name="jfx14" level="application" />
+    <orderEntry type="library" name="lib1" level="application" />
   </component>
 </module>
