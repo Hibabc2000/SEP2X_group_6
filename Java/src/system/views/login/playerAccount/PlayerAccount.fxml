@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="mainPane" prefHeight="504.0" prefWidth="653.0" stylesheets="@../../../../../../../../OneDrive/desktop/SEP2_TEMP%20FILES/css%202.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.views.login.playerAccount.PlayerAccountController">
+<AnchorPane id="mainPane" prefHeight="504.0" prefWidth="653.0" stylesheets="@../../../../../../CSS/common/css.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.views.login.playerAccount.PlayerAccountController">
    <children>
       <AnchorPane layoutX="59.0" layoutY="14.0" minHeight="0.0" minWidth="0.0" prefHeight="402.0" prefWidth="278.0">
          <children>
@@ -22,12 +22,12 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <TextField fx:id="addGroup" layoutX="48.0" layoutY="73.0" prefHeight="45.0" prefWidth="225.0">
+            <TextField fx:id="addGroup" layoutX="51.0" layoutY="86.0" prefHeight="45.0" prefWidth="225.0">
                <effect>
                   <DropShadow color="#7cc987" />
                </effect></TextField>
-            <Button fx:id="addButton" layoutX="48.0" layoutY="127.0" mnemonicParsing="false" onAction="#addGroup" prefHeight="38.0" prefWidth="108.0" style="-fx-background-color: #7cc987;" text="Add" />
-            <Label layoutY="77.0" prefHeight="38.0" prefWidth="42.0" text="ID :">
+            <Button fx:id="addButton" layoutX="51.0" layoutY="140.0" mnemonicParsing="false" onAction="#addGroup" prefHeight="38.0" prefWidth="108.0" style="-fx-background-color: #7cc987;" text="Add" />
+            <Label layoutX="3.0" layoutY="90.0" prefHeight="38.0" prefWidth="42.0" text="ID :">
                <font>
                   <Font size="23.0" />
                </font>
@@ -41,6 +41,6 @@
       </Label>
       <ListView fx:id="groupListPlayer" layoutX="351.0" layoutY="66.0" prefHeight="335.0" prefWidth="246.0" />
       <Button fx:id="joinPlayerButton" layoutX="423.0" layoutY="420.0" mnemonicParsing="false" onAction="#joinGroupAsPlayer" prefHeight="38.0" prefWidth="125.0" style="-fx-background-color: #7cc987;" text="Join" />
-      <Button fx:id="backButton" layoutX="133.0" layoutY="420.0" mnemonicParsing="false" onAction="#backToAccount" prefHeight="38.0" prefWidth="125.0" style="-fx-background-color: #7cc987;" text="Back" />
+      <Button fx:id="backButton" layoutX="136.0" layoutY="420.0" mnemonicParsing="false" onAction="#backToAccount" prefHeight="38.0" prefWidth="125.0" style="-fx-background-color: #7cc987;" text="Back" />
    </children>
 </AnchorPane>
