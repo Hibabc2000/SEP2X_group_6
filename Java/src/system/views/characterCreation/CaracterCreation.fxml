@@ -8,6 +8,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
@@ -857,19 +858,131 @@
                                           <Insets left="20.0" right="20.0" top="20.0" />
                                        </VBox.margin>
                                     </ComboBox>
-                                    <Label text="Description">
+                                    <Label text="Description:">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                        <VBox.margin>
-                                          <Insets left="190.0" top="30.0" />
+                                          <Insets left="190.0" top="15.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <TextArea fx:id="subClassDescription" prefHeight="646.0" prefWidth="458.0" style="-fx-border-color: black;">
+                                    <TextArea fx:id="subClassDescription" prefHeight="237.0" prefWidth="458.0" style="-fx-border-color: black;">
                                        <VBox.margin>
-                                          <Insets bottom="30.0" left="20.0" right="20.0" top="10.0" />
+                                          <Insets bottom="10.0" left="20.0" right="20.0" top="7.0" />
                                        </VBox.margin>
                                     </TextArea>
+                                    <Label text="Skills:" textAlignment="CENTER">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="190.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox prefHeight="374.0" prefWidth="446.0">
+                                       <children>
+                                          <VBox prefHeight="374.0" prefWidth="259.0">
+                                             <HBox.margin>
+                                                <Insets left="20.0" right="7.0" />
+                                             </HBox.margin>
+                                             <children>
+                                                <RadioButton fx:id="acrobaticsRadioButtton" mnemonicParsing="false" text="Acrobatics" />
+                                                <RadioButton fx:id="animalHandlingRadioButton" mnemonicParsing="false" text="Animal Handling">
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </RadioButton>
+                                                <RadioButton fx:id="arcanaRadioButton" mnemonicParsing="false" text="Arcana">
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </RadioButton>
+                                                <RadioButton fx:id="athleticsRadioButton" mnemonicParsing="false" text="Athletics">
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </RadioButton>
+                                                <RadioButton fx:id="deceptionRadioButton" mnemonicParsing="false" text="Deception">
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </RadioButton>
+                                                <RadioButton fx:id="historyRadioButton" mnemonicParsing="false" text="History">
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </RadioButton>
+                                                <RadioButton fx:id="insightRadioButton" mnemonicParsing="false" text="Insight">
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </RadioButton>
+                                                <RadioButton fx:id="intimidationRadioButton" mnemonicParsing="false" text="Intimidation">
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </RadioButton>
+                                                <RadioButton fx:id="investigationRadioButton" mnemonicParsing="false" text="Investigation">
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </RadioButton>
+                                             </children>
+                                          </VBox>
+                                          <VBox prefHeight="374.0" prefWidth="271.0">
+                                             <HBox.margin>
+                                                <Insets left="7.0" right="15.0" />
+                                             </HBox.margin>
+                                             <children>
+                                                <RadioButton fx:id="medecineRadioButton" mnemonicParsing="false" text="Medicine">
+                                                   <VBox.margin>
+                                                      <Insets />
+                                                   </VBox.margin>
+                                                </RadioButton>
+                                                <RadioButton fx:id="natureRadioButton" mnemonicParsing="false" text="Nature">
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </RadioButton>
+                                                <RadioButton fx:id="perceptionRadioButton" mnemonicParsing="false" text="Perception">
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </RadioButton>
+                                                <RadioButton fx:id="performanceRadioButton" mnemonicParsing="false" text="Performance">
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </RadioButton>
+                                                <RadioButton fx:id="persuasionRadioButton" mnemonicParsing="false" text="Persuasion">
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </RadioButton>
+                                                <RadioButton fx:id="religionRadioButton" mnemonicParsing="false" text="Religion">
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </RadioButton>
+                                                <RadioButton fx:id="sleightOfHandRadioButton" mnemonicParsing="false" text="Sleight of Hand">
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </RadioButton>
+                                                <RadioButton fx:id="stealthRadioButton" mnemonicParsing="false" text="Stealth">
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </RadioButton>
+                                                <RadioButton fx:id="survivalRadioButton" mnemonicParsing="false" text="Survival">
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </RadioButton>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
                                  </children>
                               </VBox>
                               <VBox prefHeight="851.0" prefWidth="691.0">
@@ -899,7 +1012,7 @@
                                           <Insets left="235.0" top="15.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <TextArea fx:id="featDescription" editable="false" prefHeight="558.0" prefWidth="551.0" style="-fx-border-color: black;">
+                                    <TextArea fx:id="featDescription" editable="false" prefHeight="580.0" prefWidth="551.0" style="-fx-border-color: black;">
                                        <VBox.margin>
                                           <Insets left="10.0" right="10.0" top="5.0" />
                                        </VBox.margin>
