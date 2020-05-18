@@ -1,6 +1,8 @@
 package system.networking;
 
-public class Container
+import java.io.Serializable;
+
+public class Container implements Serializable
 {
   private Object object;
   private String className;

@@ -32,23 +32,24 @@ public class ClientSocketHandler implements Runnable
      {
        while (true)
        {
-
+         System.out.println("cliensocket run");
          Object obj = inFromServer.readObject();
          Container inDataPack = (Container) obj;
+         System.out.println(inDataPack.getClassName() + "classname");
          switch (inDataPack.getClassName())
          {
-           case "accArrayList":
-             ArrayList<Object> objs = (ArrayList<Object>)inDataPack.getObject();
-             String type = (String) objs.get(0);
+           case "createAccount":
+              boolean objs = (boolean)inDataPack.getObject();
+
              System.out.println("clientrunning");
-             System.out.println(type);
-             if(type.equals("createAccount")) {
-               System.out.println(((ArrayList<Object>) obj).get(1));
-               boolean ac = (boolean) objs.get(1);
-               socketClient.createAccountInfo(ac);
+
+
+               System.out.println(objs);
+
+               socketClient.createAccountInfo(objs);
 
                System.out.println("socketclienten method");
-             }
+
              break;
          }
 
@@ -60,169 +61,169 @@ public class ClientSocketHandler implements Runnable
      }
     }
 
-    public void removeUser(Account ac, String remove) throws IOException
+    public void removeUser(Account ac) throws IOException
     {
       ArrayList<Object> objs = new ArrayList<>();
-      objs.add(remove);
+
       objs.add(ac);
-      Container outDataPack = new Container(objs, "accArrayList");
+      Container outDataPack = new Container(objs, "removeUser");
       outToServer.writeObject(outDataPack);
     }
 
-    public void searchGroup(int id, String user, String searchGroup)
+    public void searchGroup(int id, String user)
         throws IOException
     {
       ArrayList<Object> objs = new ArrayList<>();
-      objs.add(searchGroup);
+
       objs.add(id);
       objs.add(user);
-      Container outDataPack = new Container(objs, "accArrayList");
+      Container outDataPack = new Container(objs, "searchGroup");
       outToServer.writeObject(outDataPack);
     }
 
-    public void joinGroupAsPlayer(Account acc, String groupname, String joinGroup)
+    public void joinGroupAsPlayer(Account acc, String groupname)
         throws IOException
     {
       ArrayList<Object> objs = new ArrayList<>();
-      objs.add(joinGroup);
+
       objs.add(acc);
       objs.add(groupname);
 
-      Container outDataPack = new Container(objs, "accArrayList");
+      Container outDataPack = new Container(objs, "joinGroup");
       outToServer.writeObject(outDataPack);
     }
 
-    public void checkAccountUniqueness(String username, String password, String email, String checkAccount)
+    public void checkAccountUniqueness(String username, String password, String email)
         throws IOException
     { System.out.println("clientcheck3");
       ArrayList<Object> objs = new ArrayList<>();
-      objs.add(checkAccount);
+
       objs.add(username);
       objs.add(password);
       objs.add(email);
-      Container outDataPack = new Container(objs, "accArrayList");
+      Container outDataPack = new Container(objs, "checkAccount");
       outToServer.writeObject(outDataPack);
     }
 
-    public void checkLogin(String username, String password, String checkLogin)
+    public void checkLogin(String username, String password)
         throws IOException
     {
       ArrayList<Object> objs = new ArrayList<>();
-      objs.add(checkLogin);
+
       objs.add(username);
       objs.add(password);
-      Container outDataPack = new Container(objs, "accArrayList");
+      Container outDataPack = new Container(objs, "checkLogin");
       outToServer.writeObject(outDataPack);
     }
 
-    public void checkEmail(String email, String checkEmail) throws IOException
+    public void checkEmail(String email) throws IOException
     {
       ArrayList<Object> objs = new ArrayList<>();
-      objs.add(checkEmail);
+
       objs.add(email);
 
-      Container outDataPack = new Container(objs, "accArrayList");
+      Container outDataPack = new Container(objs, "checkEmail");
       outToServer.writeObject(outDataPack);
     }
 
-    public void checkPasswordChangeInformation(Account acc, String newPassword, String oldPassword,
-        String checkPasswordChange) throws IOException
+    public void checkPasswordChangeInformation(Account acc, String newPassword, String oldPassword) throws IOException
     {
       ArrayList<Object> objs = new ArrayList<>();
-      objs.add(checkPasswordChange);
+
       objs.add(acc);
       objs.add(newPassword);
       objs.add(oldPassword);
-      Container outDataPack = new Container(objs, "accArrayList");
+      Container outDataPack = new Container(objs, "checkPasswordChange");
       outToServer.writeObject(outDataPack);
     }
 
-    public void checkEmailChangeInformation(Account acc, String email, String checkEmailChange)
+    public void checkEmailChangeInformation(Account acc, String email)
         throws IOException
     {
       ArrayList<Object> objs = new ArrayList<>();
-      objs.add(checkEmailChange);
+
       objs.add(acc);
       objs.add(email);
-      Container outDataPack = new Container(objs, "accArrayList");
+      Container outDataPack = new Container(objs, "checkEmailChange");
       outToServer.writeObject(outDataPack);
     }
 
-    public void joinGroup(Account acc, Group g, String joinGroup)
+    public void joinGroup(Account acc, Group g)
         throws IOException
     {
       ArrayList<Object> objs = new ArrayList<>();
-      objs.add(joinGroup);
+
       objs.add(acc);
       objs.add(g);
-      Container outDataPack = new Container(objs, "accArrayList");
+      Container outDataPack = new Container(objs, "joinGroup");
       outToServer.writeObject(outDataPack);
     }
 
-    public void createGroup(Account acc, String groupName, String createGroup)
+    public void createGroup(Account acc, String groupName)
         throws IOException
     {
       ArrayList<Object> objs = new ArrayList<>();
-      objs.add(createGroup);
+
       objs.add(acc);
       objs.add(groupName);
-      Container outDataPack = new Container(objs, "accArrayList");
+      Container outDataPack = new Container(objs, "createGroup");
       outToServer.writeObject(outDataPack);
     }
 
-    public void recoverPassword(String email, String recoverPassword)
+    public void recoverPassword(String email)
         throws IOException
     {
       ArrayList<Object> objs = new ArrayList<>();
-      objs.add(recoverPassword);
+
       objs.add(email);
-      Container outDataPack = new Container(objs, "accArrayList");
+      Container outDataPack = new Container(objs, "recoverPassword");
       outToServer.writeObject(outDataPack);
     }
 
-    public void changePassword(Account acc, String newPassword, String changePassword)
+    public void changePassword(Account acc, String newPassword)
         throws IOException
     {
       ArrayList<Object> objs = new ArrayList<>();
-      objs.add(changePassword);
+
       objs.add(acc);
       objs.add(newPassword);
-      Container outDataPack = new Container(objs, "accArrayList");
+      Container outDataPack = new Container(objs, "changePassword");
       outToServer.writeObject(outDataPack);
     }
 
-    public void changeEmail(Account acc, String email, String changeEmail)
+    public void changeEmail(Account acc, String email)
         throws IOException
     {
       ArrayList<Object> objs = new ArrayList<>();
-      objs.add(changeEmail);
+
       objs.add(acc);
       objs.add(email);
-      Container outDataPack = new Container(objs, "accArrayList");
+      Container outDataPack = new Container(objs, "changeEmail");
       outToServer.writeObject(outDataPack);
     }
 
-    public void loginAccount(String name, String password, String loginAccount)
+    public void loginAccount(String name, String password)
         throws IOException
     {
       ArrayList<Object> objs = new ArrayList<>();
-      objs.add(loginAccount);
+
       objs.add(name);
       objs.add(password);
-      Container outDataPack = new Container(objs, "accArrayList");
+      Container outDataPack = new Container(objs, "loginAccount");
       outToServer.writeObject(outDataPack);
     }
 
-    public void createAccount(String name, String password, String email, String createAccount)
+    public void createAccount(String name, String password, String email)
         throws IOException
     {
       System.out.println("clientsockethandler");
       ArrayList<Object> objs = new ArrayList<>();
-      objs.add(createAccount);
+
       objs.add(name);
       objs.add(password);
       objs.add(email);
-      Container outDataPack = new Container(objs, "accArrayList");
+      Container outDataPack = new Container(objs, "createAccount");
+      outDataPack.setClassName("createAccount");
       outToServer.writeObject(outDataPack);
 
     }

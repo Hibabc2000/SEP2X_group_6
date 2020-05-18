@@ -19,7 +19,7 @@ void createGroup(Account acc, String groupName);
  void checkPasswordChangeInformation(Account acc, String newPassword, String oldPassword);
  void checkEmail(String email);
 void checkLogin(String username, String password);
-void checkAccountUniqueness(String username, String password, String email);
+ // void checkAccountUniqueness(String username, String password, String email);
 void joinGroupAsAPlayer(Account acc,String groupname);
 void searchGroup(int id, String user);
 void removeUser(Account ac);

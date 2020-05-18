@@ -37,9 +37,9 @@ public class CreateAccountViewModel implements Subject
 
   private void accountCreationInfo(PropertyChangeEvent propertyChangeEvent)
   {
-
-        if(!(boolean)propertyChangeEvent.getNewValue()) {error.setValue("This username or email is already in use."); }
-        else {error.setValue("Ready"); }
+    System.out.println("event");
+        if(!((boolean) propertyChangeEvent.getNewValue())) {error.setValue("This username or email is already in use."); System.out.println("eventfalse"); }
+        else {error.setValue("Ready");System.out.println("eventtrue"); }
 
 
 
