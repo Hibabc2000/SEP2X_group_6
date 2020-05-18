@@ -25,6 +25,7 @@ public class CreateAccountController
   {  cavm.checkFieldsForReg();
 
 
+    createAccountLoop();
   }
 
   public void goBack()
@@ -43,7 +44,27 @@ public class CreateAccountController
     email.textProperty().bindBidirectional(cavm.getEmailProperty());
     password1.textProperty().bindBidirectional(cavm.getPassword1Property());
     password2.textProperty().bindBidirectional(cavm.getPassword2Property());
-       cavm.addListener("createAccount",this::createAccountReally);
+       // cavm.addListener("createAccount",this::createAccountReally);
+
+
+  }
+
+  private void createAccountLoop()
+  {
+
+        do
+        {
+          System.out.println("loop");
+          if (errorMessage.getText().equals("Ready"))
+          {
+            System.out.println("asd");
+            vh.openAccount();
+            break;
+
+          }
+
+        } while (!((errorMessage.getText().equals("Ready")) || (errorMessage.getText().equals("This username or email is already in use."))));
+
   }
 
   private void createAccountReally(PropertyChangeEvent propertyChangeEvent)

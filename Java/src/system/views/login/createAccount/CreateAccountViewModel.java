@@ -1,6 +1,5 @@
 package system.views.login.createAccount;
 
-import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import system.model.loginModel.AccountModel;
@@ -38,16 +37,13 @@ public class CreateAccountViewModel implements Subject
 
   private void accountCreationInfo(PropertyChangeEvent propertyChangeEvent)
   {
-    Platform.runLater(new Runnable()
-    {
 
-      @Override public void run()
-      {
-        if(!((boolean)propertyChangeEvent.getNewValue())) {error.setValue("This username or email is already in use.");}
-        else error.setValue("Ready");
-        support.firePropertyChange("createAccount",null,propertyChangeEvent.getNewValue());
-      }
-    });
+        if(!(boolean)propertyChangeEvent.getNewValue()) {error.setValue("This username or email is already in use."); }
+        else {error.setValue("Ready"); }
+
+
+
+
 
 
 
