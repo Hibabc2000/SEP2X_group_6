@@ -2,37 +2,41 @@ package system;
 
 public class Item
 {
-  private String name;
-  private String description;
-  private double price;
-
-  public Item(String name, double price)
+ private Equipment gameItem;
+ private int amount;
+ private boolean equipped;
+ public Item(Equipment gameItem, int amount)
+ {
+   this.gameItem = gameItem;
+   this.amount = amount;
+ }
+  public void setGameItem(Equipment gameItem)
   {
-    this.name = name;
-    this.price = price;
+    this.gameItem = gameItem;
   }
 
-  public void addDescription(String desc)
+  public void setEquipped(boolean equipped)
   {
-    description = desc;
-  }
-  public void addPrice(double pr)
-  {
-    price = pr;
-  }
-  public String getDescription()
-  {
-    return description;
-  }
-  public String getName()
-  {
-    return name;
-  }
-  public double price()
-  {
-    return price;
+    this.equipped = equipped;
   }
 
+  public void setAmount(int amount)
+  {
+    this.amount = amount;
+  }
 
+  public Equipment getGameItem()
+  {
+    return gameItem;
+  }
 
+  public boolean isEquipped()
+  {
+    return equipped;
+  }
+
+  public int getAmount()
+  {
+    return amount;
+  }
 }
