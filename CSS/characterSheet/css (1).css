@@ -1,7 +1,14 @@
 /*url('file:C:\Users\Ali\Desktop\files\NewProject.png')*/
-#mainPane
+
+
+
+#MPane
 {
     -fx-background-image:url('bg.png');
     -fx-background-repeat: no-repeat;
-  -fx-background-size: 1920px 907px;
+  -fx-background-size: 1920px 907px;	
 }
+
+	
+
+
