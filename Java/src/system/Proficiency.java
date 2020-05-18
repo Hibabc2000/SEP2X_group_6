@@ -5,12 +5,14 @@ public class Proficiency
   private String name;
   private String type;
   private String origin;
+  private double mod;
 
-  public Proficiency(String name, String type, String origin)
+  public Proficiency(String name, String type, String origin, double mod)
   {
     this.name = name;
     this.type = type;
     this.origin = origin;
+    this.mod = mod;
   }
 
   public String getName()
@@ -43,9 +45,19 @@ public class Proficiency
     this.origin = origin;
   }
 
+  public double getMod()
+  {
+    return mod;
+  }
+
+  public void setMod(double mod)
+  {
+    this.mod = mod;
+  }
+
   @Override public String toString()
   {
     return "Proficiency{" + "name='" + name + '\'' + ", type='" + type + '\''
-        + ", origin='" + origin + '\'' + '}';
+        + ", origin='" + origin + '\'' + ", mod=" + mod + '}';
   }
 }
