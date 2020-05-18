@@ -1,11 +1,13 @@
-#mainPane
+#mainPane 
 {
     -fx-background-image:url('frame.png');
-    -fx-background-size: 100%;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 100%;		
 }
+
 #createAcc
 {
-    -fx-background-image:url('create.jpg');
+    -fx-background-image:url('create.png');
     -fx-background-repeat: no-repeat;
-  -fx-background-size: 100%;
+    -fx-background-size: 100%;		
 }
