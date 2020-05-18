@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Server/src/Database/getAccountTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/networking/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/networking/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/networking/ClientSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/networking/ClientSocketHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/networking/SocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/networking/SocketClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/account/Account.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/account/Account.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/createAccount/CreateAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/createAccount/CreateAccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/createAccount/CreateAccountViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/createAccount/CreateAccountViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/openSystem/OpenSystemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/openSystem/OpenSystemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Database/GetAllAccountData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/GetAllAccountData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Database/GetAllFromDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/GetAllFromDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/networking/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/networking/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" afterDir="false" />
-    </list>
+    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="Client,server, database communication for create account" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589630717180</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Client,server, database communication for create account">
+      <created>1589808120181</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1589808120181</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -253,7 +245,8 @@
     <MESSAGE value="Started Database loading" />
     <MESSAGE value="Database loading, model rework started" />
     <MESSAGE value="Model rework" />
-    <option name="LAST_COMMIT_MESSAGE" value="Model rework" />
+    <MESSAGE value="Client,server, database communication for create account" />
+    <option name="LAST_COMMIT_MESSAGE" value="Client,server, database communication for create account" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
