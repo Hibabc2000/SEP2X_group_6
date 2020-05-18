@@ -41,6 +41,7 @@ public class ClientSocketHandler implements Runnable
            System.out.println(((ArrayList<Object>) obj).get(1));
            boolean ac = (boolean) objs.get(1);
            socketClient.createAccountInfo(ac);
+
            System.out.println("socketclienten method");
          }
        }
