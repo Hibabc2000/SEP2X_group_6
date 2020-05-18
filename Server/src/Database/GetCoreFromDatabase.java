@@ -1,6 +1,8 @@
 package Database;
 
+import networking.Container;
 import system.*;
+import system.model.staticModel.StaticModel;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -21,6 +23,8 @@ public class GetCoreFromDatabase
   private ArrayList<EquipmentWeapon> equipmentWeaponList;
   private ArrayList<EquipmentGeneral> equipmentGenerals;
   private ArrayList<EquipmentArmor> equipmentArmors;
+  private StaticModel staticModel;
+  private Container cont;
 
   public GetCoreFromDatabase()
   {
@@ -33,6 +37,7 @@ public class GetCoreFromDatabase
     subraces = new ArrayList<>();
     subclasses = new ArrayList<>();
     spells = new ArrayList<>();
+    staticModel = new StaticModel();
 
     try
     {
@@ -73,6 +78,8 @@ public class GetCoreFromDatabase
       System.out.println("10");
       loadSubRaces();
       System.out.println("11");
+      staticModel.load(abilities, skills, races, spells, subclasses, subraces, equipmentArmors, equipmentGenerals, equipmentWeaponList);
+      cont = new Container(staticModel, "StaticModel");
     }
     catch (SQLException ex)
     {
@@ -508,15 +515,45 @@ public class GetCoreFromDatabase
     }
   }
 
-  private void parseModifiers()
+  private ArrayList<Proficiency> parseModifiers(ResultSet rs)
   {
-          /*for (int i = 1; i < rsmd.getColumnCount(); i++)
-       {
-         if (rsmd.getColumnName(i).toLowerCase().equals("modifiers") || rsmd.getColumnName(i).toLowerCase().equals("proficiencies"))
-         {
-           //parse into proficiencies
-         }
-       }*/
+    ArrayList<Proficiency> arr = new ArrayList<>();
+    try
+    {
+      ResultSetMetaData rsmd = rs.getMetaData();
+      for (int i = 0; i < rsmd.getColumnCount(); i++)
+      {
+        if(rsmd.getColumnName(i).toLowerCase().equals("modifiers") || rsmd.getColumnName(i).toLowerCase().equals("proficiency"))
+        {
+          String[] temp = rs.getString(i).split("\\|");
+          for (String s : temp)
+          {
+            String[] s2 = s.split(":");
+            double d;
+            if(s.toLowerCase().contains("expert"))
+            {
+              d = 2;
+            }
+            else if(s.toLowerCase().contains("proficiency"))
+            {
+              d = 1;
+            }
+            else if (s.toLowerCase().contains("half"))
+            {
+              d = 0.5;
+            }
+            else d = 1;
+            Proficiency p = new Proficiency(s2[1], s2[0], rsmd.getColumnName(i), d);
+            arr.add(p);
+          }
+        }
+      }
+    }
+    catch (SQLException e)
+    {
+      e.printStackTrace();
+    }
+    return arr;
   }
 
   private void loadAbility() throws SQLException
