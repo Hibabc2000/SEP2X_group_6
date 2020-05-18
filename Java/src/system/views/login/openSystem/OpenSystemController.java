@@ -27,4 +27,9 @@ private  OpenSystemViewModel osvm;
     this.osvm=osvm;
     vh = viewHandler;
   }
+
+  public void recoverPassword(ActionEvent actionEvent)
+  {
+    vh.openPasswordRecovery();
+  }
 }

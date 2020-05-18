@@ -33,7 +33,9 @@ public class SocketClient implements Client
   {
     try
     {
+      System.out.println("clientsocket");
       socketHandler.createAccount(name,password,email,"createAccount");
+
     }
     catch (IOException e)
     {
@@ -182,15 +184,26 @@ public class SocketClient implements Client
     }
   }
 
+   public void createAccountInfo(boolean ac)
+  {
+
+      support.firePropertyChange("createAccount",null,ac);
+      System.out.println("clientben a propchange");
+
+  }
+
   @Override public void addListener(String eventName,
       PropertyChangeListener listener)
   {
+    support.addPropertyChangeListener(eventName, listener);
 
   }
 
   @Override public void removeListener(String eventName,
       PropertyChangeListener listener)
   {
-
+    support.removePropertyChangeListener(eventName, listener);
   }
+
+
 }

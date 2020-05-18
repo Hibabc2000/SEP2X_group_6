@@ -2,14 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Server/src/Database/GetAllAccountData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/networking/StaticModelImplementation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/Database/getAccountTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/loginModel/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/loginModel/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Database/ConnectDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/ConnectDBC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/networking/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/networking/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/networking/ClientSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/networking/ClientSocketHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/networking/SocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/networking/SocketClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/account/Account.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/account/Account.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/createAccount/CreateAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/createAccount/CreateAccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/createAccount/CreateAccountViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/createAccount/CreateAccountViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/openSystem/OpenSystemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/openSystem/OpenSystemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Database/GetAllAccountData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/GetAllAccountData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/Database/GetAllFromDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/GetAllFromDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Database/Select.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/Select.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/networking/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/networking/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,9 +25,6 @@
   </component>
   <component name="CodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
-  </component>
-  <component name="FavoritesManager">
-    <favorites_list name="SEP2X_group_6" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -82,7 +85,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.GetAllTest (1)">
+  <component name="RunManager" selected="Application.Start">
     <configuration name="GetAllTest (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Database.GetAllTest" />
       <module name="SEP2X_group_6" />
@@ -109,12 +112,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestDtbs" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="system.Server.Database.TestDtbs" />
+    <configuration name="RunServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="RunServer" />
+      <module name="SEP2X_group_6" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Start" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="system.Start" />
       <module name="Java" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="system.Server.Database.*" />
+          <option name="PATTERN" value="system.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -122,31 +132,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AccTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="getAccountTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Database.getAccountTest" />
       <module name="SEP2X_group_6" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AccTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AccountModelImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SEP2X_group_6" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AccountModelImplTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Database.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Start" />
+        <item itemvalue="Application.RunServer" />
+        <item itemvalue="Application.getAccountTest" />
         <item itemvalue="Application.GetAllTest (1)" />
         <item itemvalue="Application.GetAllTest" />
-        <item itemvalue="Application.TestDtbs" />
-        <item itemvalue="JUnit.AccountModelImplTest" />
-        <item itemvalue="JUnit.AccTest" />
       </list>
     </recent_temporary>
   </component>

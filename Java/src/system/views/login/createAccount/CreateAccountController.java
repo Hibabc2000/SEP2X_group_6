@@ -1,12 +1,13 @@
 package system.views.login.createAccount;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import system.core.ViewHandler;
+
+import java.beans.PropertyChangeEvent;
 
 public class CreateAccountController
 {
@@ -21,11 +22,8 @@ public class CreateAccountController
   @FXML private Button createButton;
 
   public void createAccount()
-  {
-    if (cavm.checkFieldsForReg().equals("Ready"))
-    {
-      vh.openAccount();
-    }
+  {  cavm.checkFieldsForReg();
+
 
   }
 
@@ -45,6 +43,17 @@ public class CreateAccountController
     email.textProperty().bindBidirectional(cavm.getEmailProperty());
     password1.textProperty().bindBidirectional(cavm.getPassword1Property());
     password2.textProperty().bindBidirectional(cavm.getPassword2Property());
+       cavm.addListener("createAccount",this::createAccountReally);
+  }
+
+  private void createAccountReally(PropertyChangeEvent propertyChangeEvent)
+  {
+
+    if (errorMessage.getText().equals("Ready"))
+    {
+      System.out.println("asd");
+      vh.openAccount();
+    }
   }
 
 }

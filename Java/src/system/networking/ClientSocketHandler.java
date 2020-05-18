@@ -28,7 +28,27 @@ public class ClientSocketHandler implements Runnable
 
     @Override public void run()
     {
-
+     try
+     {
+       while (true)
+       {
+         Object obj = inFromServer.readObject();
+         ArrayList<Object> objs = (ArrayList<Object>)obj;
+         String type = (String) objs.get(0);
+         System.out.println("clientrunning");
+         System.out.println(type);
+         if(type.equals("createAccount")) {
+           System.out.println(((ArrayList<Object>) obj).get(1));
+           boolean ac = (boolean) objs.get(1);
+           socketClient.createAccountInfo(ac);
+           System.out.println("socketclienten method");
+         }
+       }
+     }
+     catch (IOException | ClassNotFoundException e)
+     {
+       e.printStackTrace();
+     }
     }
 
     public void removeUser(Account ac, String remove) throws IOException
@@ -173,11 +193,13 @@ public class ClientSocketHandler implements Runnable
     public void createAccount(String name, String password, String email, String createAccount)
         throws IOException
     {
+      System.out.println("clientsockethandler");
       ArrayList<Object> objs = new ArrayList<>();
       objs.add(createAccount);
       objs.add(name);
       objs.add(password);
       objs.add(email);
       outToServer.writeObject(objs);
+
     }
   }

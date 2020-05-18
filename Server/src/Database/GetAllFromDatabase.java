@@ -228,7 +228,7 @@ public class GetAllFromDatabase
 
     while (rs.next())
     {
-      Spell sp = new Spell(rs.getString("name"),rs.getString("spellLevel"),rs.getString("school"),
+      Spell sp = new Spell(rs.getString("name"),rs.getInt("spellLevel"),rs.getString("school"),
           rs.getString("castTime"),rs.getString("range"),rs.getString("components"),rs.getString("duration"),
           rs.getString("description"),rs.getString("class"));
       spells.add(sp);

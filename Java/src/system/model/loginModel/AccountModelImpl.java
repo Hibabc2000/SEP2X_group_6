@@ -4,6 +4,7 @@ import system.AccountsForTesting;
 import system.DiceRoll;
 import system.networking.Client;
 
+import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.io.IOException;
@@ -45,6 +46,17 @@ public class AccountModelImpl implements AccountModel
     groupsForDm = tests.getGroupsForDm();
     tempAccounts = tests.getTempAccounts();
     findingUnknownGroupsGroup = tests.getFindingUnknownGroupsGroup();
+
+    client.addListener("createAccount",this::createAccountInfoBackFromServer);
+  }
+
+  private void createAccountInfoBackFromServer(
+      PropertyChangeEvent propertyChangeEvent)
+  {
+    System.out.println("modelimplistener");
+    support.firePropertyChange("createAccount",null,propertyChangeEvent.getNewValue());
+    System.out.println("modelimplistener2");
+
   }
 
   public void removeAccount()
@@ -230,6 +242,7 @@ public class AccountModelImpl implements AccountModel
 
     else
       client.createAccount(username, pass1, email);
+    System.out.println("alma");
     // server
 
     return temp;

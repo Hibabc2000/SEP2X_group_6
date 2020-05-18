@@ -1,13 +1,13 @@
 package networking;
 
-import Database.ConnectDBC;
+import Database.GetAllAccountData;
 import system.model.loginModel.Account;
-
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ServerSocketHandler implements Runnable
@@ -17,15 +17,16 @@ public class ServerSocketHandler implements Runnable
 
   private ObjectOutputStream outToClient;
   private ObjectInputStream inFromClient;
-  private ConnectDBC database;
+  private GetAllAccountData database;
+
 
   private Account account;
 
 
-  public ServerSocketHandler(Socket socket, ConnectionPool pool, ConnectDBC dtbs)
+  public ServerSocketHandler(Socket socket, ConnectionPool pool, GetAllAccountData gaa)
       throws IOException
   {
-    database = dtbs;
+    database = gaa;
 this.socket = socket;
 this.pool = pool;
 inFromClient = new ObjectInputStream(socket.getInputStream());
@@ -45,11 +46,33 @@ outToClient = new ObjectOutputStream(socket.getOutputStream());
         ArrayList<Object> m = (ArrayList<Object>) obj;
         System.out.println(m.get(0));
         if (m.get(0).equals("createAccount"))
-        {
+        {System.out.println("serversockethangler");
+          boolean unique=  false;
           String name = (String) (m).get(1);
           String password = (String) (m).get(2);
           String email = (String) (m).get(3);
-          database.InsertAccount(name,password,email);
+          try
+          {
+            unique = database.checkAccountUniqueness(name,email);
+          }
+          catch (SQLException e)
+          {
+            e.printStackTrace();
+          }
+          if(unique) {
+            try
+            {
+              database.createAccount(name,password,email);
+            }
+            catch (SQLException e)
+            {
+              e.printStackTrace();
+            }
+          }ArrayList<Object> objs = new ArrayList<>();
+          objs.add("createAccount");
+          objs.add(unique);
+
+          sendBackInformationAboutAccountCreation(objs);
         }
            else if (m.get(0).equals("changeEmail"))
         {
@@ -79,9 +102,27 @@ outToClient = new ObjectOutputStream(socket.getOutputStream());
           String oldPassword = (String) (m.get(3));
         }
         else if (m.get(0).equals("checkLogin"))
-        {
+        { boolean answer = false;
           String username = (String) (m.get(1));
           String password = (String) (m.get(2));
+          try
+          {
+            database.checkLogin(username,password
+            );
+          }
+          catch (SQLException e)
+          {
+            e.printStackTrace();
+          }
+          if(answer) {
+            database.acceptLogin();
+          }
+          ArrayList<Object> objs = new ArrayList<>();
+          objs.add("createAccount");
+          objs.add(answer);
+
+          sendBackInformationAboutAccountCreation(objs);
+
         }
         else if (m.get(0).equals("checkAccount"))
         {
@@ -118,5 +159,18 @@ outToClient = new ObjectOutputStream(socket.getOutputStream());
       }
     }
 
+  }
+  public void  sendBackInformationAboutAccountCreation(Object ob)
+  {
+    try
+    {
+
+      outToClient.writeObject(ob);
+      System.out.println("sendbackfromservertoclient");
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
   }
 }
