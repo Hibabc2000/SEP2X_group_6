@@ -6,7 +6,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 
-public class Select
+public class
+Select
 {
 
   public static void main(String args[])
