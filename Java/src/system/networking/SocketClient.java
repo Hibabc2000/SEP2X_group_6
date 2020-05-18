@@ -34,7 +34,7 @@ public class SocketClient implements Client
     try
     {
       System.out.println("clientsocket");
-      socketHandler.createAccount(name,password,email,"createAccount");
+      socketHandler.createAccount(name,password,email);
 
     }
     catch (IOException e)
@@ -49,7 +49,7 @@ public class SocketClient implements Client
   {
     try
     {
-      socketHandler.changeEmail(acc,email,"changeEmail");
+      socketHandler.changeEmail(acc,email);
     }
     catch (IOException e)
     {
@@ -63,7 +63,7 @@ public class SocketClient implements Client
   {
     try
     {
-      socketHandler.recoverPassword(email,"recoverPassword");
+      socketHandler.recoverPassword(email);
     }
     catch (IOException e)
     {
@@ -75,7 +75,7 @@ public class SocketClient implements Client
   {
     try
     {
-      socketHandler.createGroup(acc,groupName,"createGroup");
+      socketHandler.createGroup(acc,groupName);
     }
     catch (IOException e)
     {
@@ -89,7 +89,7 @@ public class SocketClient implements Client
   {
     try
     {
-      socketHandler.checkEmailChangeInformation(acc,email,"checkEmailChange");
+      socketHandler.checkEmailChangeInformation(acc,email);
     }
     catch (IOException e)
     {
@@ -102,7 +102,7 @@ public class SocketClient implements Client
   {
     try
     {
-      socketHandler.checkPasswordChangeInformation(acc,newPassword,oldPassword,"checkPasswordChange");
+      socketHandler.checkPasswordChangeInformation(acc,newPassword,oldPassword);
     }
     catch (IOException e)
     {
@@ -114,7 +114,7 @@ public class SocketClient implements Client
   {
     try
     {
-      socketHandler.checkEmail(email,"checkEmail");
+      socketHandler.checkEmail(email);
     }
     catch (IOException e)
     {
@@ -126,7 +126,7 @@ public class SocketClient implements Client
   {
     try
     {
-      socketHandler.checkLogin(username,password,"checkLogin");
+      socketHandler.checkLogin(username,password);
     }
     catch (IOException e)
     {
@@ -134,7 +134,7 @@ public class SocketClient implements Client
     }
   }
 
-  @Override public void checkAccountUniqueness(String username, String password,
+  /*@Override public void checkAccountUniqueness(String username, String password,
       String email)
   {System.out.println("clientcheck1");
     try
@@ -147,12 +147,12 @@ public class SocketClient implements Client
       e.printStackTrace();
     }
   }
-
+*/
   @Override public void joinGroupAsAPlayer(Account acc, String groupname)
   {
     try
     {
-      socketHandler.joinGroupAsPlayer(acc,groupname,"joinGroup");
+      socketHandler.joinGroupAsPlayer(acc,groupname);
     }
     catch (IOException e)
     {
@@ -164,7 +164,7 @@ public class SocketClient implements Client
   {
     try
     {
-      socketHandler.searchGroup(id,user,"searchGroup");
+      socketHandler.searchGroup(id,user);
     }
     catch (IOException e)
     {
@@ -176,7 +176,7 @@ public class SocketClient implements Client
   {
     try
     {
-      socketHandler.removeUser(ac,"remove");
+      socketHandler.removeUser(ac);
     }
     catch (IOException e)
     {

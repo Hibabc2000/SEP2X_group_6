@@ -21,17 +21,7 @@ public class CreateAccountController
   @FXML private Button backButton;
   @FXML private Button createButton;
 
-  public void createAccount()
-  {  cavm.checkFieldsForReg();
 
-
-    createAccountLoop();
-  }
-
-  public void goBack()
-  {
-    vh.openSystem();
-  }
 
   public void init(CreateAccountViewModel createAccountVM,
       ViewHandler viewHandler)
@@ -48,13 +38,24 @@ public class CreateAccountController
 
 
   }
+  public void createAccount()
+  {  cavm.checkFieldsForReg();
 
+
+    createAccountLoop();
+  }
+
+  public void goBack()
+  {
+    vh.openSystem();
+  }
   private void createAccountLoop()
   {
 
-        do
+
+        while(true)
         {
-          System.out.println("loop");
+
           if (errorMessage.getText().equals("Ready"))
           {
             System.out.println("asd");
@@ -62,8 +63,7 @@ public class CreateAccountController
             break;
 
           }
-
-        } while (!((errorMessage.getText().equals("Ready")) || (errorMessage.getText().equals("This username or email is already in use."))));
+        }
 
   }
 

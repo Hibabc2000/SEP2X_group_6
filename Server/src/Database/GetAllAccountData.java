@@ -99,7 +99,7 @@ public class GetAllAccountData
             + password + "', null, '" + email + "') ";
 
     st.executeUpdate(query);
-    done = true;
+
 
   }
   public boolean checkLogin(String username, String password)
@@ -115,12 +115,14 @@ public class GetAllAccountData
     ResultSet rs = st.executeQuery(query);
     String userame = null;
     String ema = null;
+    String pass = null;
     while (rs.next())
     {
       userame = rs.getString("username");
       ema = rs.getString("email");
       System.out.println("name = " + userame);
       System.out.println("email = " + ema);
+
       if (userame != null && password != null)
       { answer= true;
         System.out.println(answer);

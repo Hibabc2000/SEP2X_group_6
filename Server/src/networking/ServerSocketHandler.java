@@ -2,6 +2,7 @@ package networking;
 
 import Database.GetAllAccountData;
 import system.model.loginModel.Account;
+import system.networking.Container;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -43,78 +44,82 @@ outToClient = new ObjectOutputStream(socket.getOutputStream());
       while (true)
       {
         System.out.println("servercheck1");
-        Object obj = inFromClient.readObject();
-        Container inDataPack = (Container) obj;
-        if (inDataPack.getClassName().equals("accArrayList"))
-          switch (inDataPack.getClassName()){
 
-        case "accArrayList":
-          ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
-          System.out.println(m.get(0));
-          if (m.get(0).equals("createAccount"))
+        Container inDataPack = (Container)inFromClient.readObject();
+
+          switch (inDataPack.getClassName())
           {
-            System.out.println("serversockethangler");
-            boolean unique = false;
-            String name = (String) (m).get(1);
-            String password = (String) (m).get(2);
-            String email = (String) (m).get(3);
-            try
+
+            case "createAccount":
             {
-              unique = database.checkAccountUniqueness(name, email);
-            }
-            catch (SQLException e)
-            {
-              e.printStackTrace();
-            }
-            if (unique)
-            {
+              ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
+              System.out.println(m.get(0));
+              System.out.println("serversockethangler");
+              boolean unique = false;
+              String name = (String) (m).get(0);
+              String password = (String) (m).get(1);
+              String email = (String) (m).get(2);
               try
               {
-                database.createAccount(name, password, email);
+                unique = database.checkAccountUniqueness(name, email);
               }
               catch (SQLException e)
               {
                 e.printStackTrace();
               }
-            }
-            ArrayList<Object> objs = new ArrayList<>();
-            objs.add("createAccount");
-            objs.add(unique);
-            Container outDataPack = new Container(objs,"accArrayList");
-            sendBackInformationAboutAccountCreation(outDataPack);
-          }
-          else if (m.get(0).equals("changeEmail"))
-          {
-            Account account = (Account) (m.get(1));
-            String email = (String) (m.get(2));
-            // dataase
-          }
-          else if (m.get(0).equals("recoverPassword"))
-          {
-            String email = (String) (m.get(1));
-          }
-          else if (m.get(0).equals("createGroup"))
-          {
-            Account account = (Account) (m.get(1));
-            String groupname = (String) (m.get(2));
-          }
-          else if (m.get(0).equals("checkEmailChange"))
-          {
-            Account account = (Account) (m.get(1));
-            String email = (String) (m.get(2));
-          }
-          else if (m.get(0).equals("checkPasswordChange"))
-          {
+              if (unique)
+              {
+                try
+                {
+                  database.createAccount(name, password, email);
+                }
+                catch (SQLException e)
+                {
+                  e.printStackTrace();
+                }
+              }
 
-            Account account = (Account) (m.get(1));
-            String newPassword = (String) (m.get(2));
-            String oldPassword = (String) (m.get(3));
+              Container outDataPack = new Container(unique, "createAccount");
+              sendBackInformationAboutAccountCreation(outDataPack);
+           break;
+            }
+            case "changeEmail":
+            {
+              ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
+              Account account = (Account) (m.get(0));
+              String email = (String) (m.get(1));
+                 break;
+            }
+            case "recoverPassword":
+          {  ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
+            String email = (String) (m.get(0));
+          break;
           }
-          else if (m.get(0).equals("checkLogin"))
+            case "createGroup":
+          {  ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
+            Account account = (Account) (m.get(0));
+            String groupname = (String) (m.get(1));
+            break;
+          }
+            case "checkEmailChange":
+          {ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
+            Account account = (Account) (m.get(0));
+            String email = (String) (m.get(1));
+           break;
+          }
+            case "checkPasswordChange":
           {
+            ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
+            Account account = (Account) (m.get(0));
+            String newPassword = (String) (m.get(1));
+            String oldPassword = (String) (m.get(2));
+          break;
+          }
+            case "checkLogin":
+          {ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
             boolean answer = false;
-            String username = (String) (m.get(1));
-            String password = (String) (m.get(2));
+            String username = (String) (m.get(0));
+            String password = (String) (m.get(1));
             try
             {
               database.checkLogin(username, password);
@@ -133,28 +138,30 @@ outToClient = new ObjectOutputStream(socket.getOutputStream());
 
             Container outDataPack = new Container(objs,"accArrayList");
             sendBackInformationAboutAccountCreation(outDataPack);
-
+                break;
           }
-          else if (m.get(0).equals("checkAccount"))
-          {
-            String username = (String) (m).get(1);
-            String password = (String) (m).get(2);
-            String email = (String) (m).get(3);
+            case "checkAccount":
+          {ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
+            String username = (String) (m).get(0);
+            String password = (String) (m).get(1);
+            String email = (String) (m).get(2);
 
             // datbase something
-
+                  break;
           }
-          else if (m.get(0).equals("joinGroup"))
-          {
-            Account ac = (Account) (m.get(1));
-            String groupname = (String) (m.get(2));
-          }
-          else if (m.get(0).equals("searchGroup"))
-          {
-            int id = (int) (m.get(1));
-            String usernameToCheckWithDMgroup = (String) (m.get(2));
-          }
+          case "joinGroup":
+          {ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
+            Account ac = (Account) (m.get(0));
+            String groupname = (String) (m.get(1));
           break;
+          }
+            case "searchGroup":
+          {ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
+            int id = (int) (m.get(0));
+            String usernameToCheckWithDMgroup = (String) (m.get(1));
+          break;
+          }
+
       }
       }
     }
