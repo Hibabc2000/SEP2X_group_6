@@ -6,7 +6,7 @@
 {
     -fx-background-image:url('bg.png');
     -fx-background-repeat: no-repeat;
-  -fx-background-size: 1920px 907px;
+  -fx-background-size: 100%;
   -fx-overflow: auto;
 }
 
