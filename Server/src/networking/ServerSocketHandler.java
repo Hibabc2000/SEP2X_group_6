@@ -41,109 +41,121 @@ outToClient = new ObjectOutputStream(socket.getOutputStream());
 
     {
       while (true)
-      { System.out.println("servercheck1");
+      {
+        System.out.println("servercheck1");
         Object obj = inFromClient.readObject();
-        ArrayList<Object> m = (ArrayList<Object>) obj;
-        System.out.println(m.get(0));
-        if (m.get(0).equals("createAccount"))
-        {System.out.println("serversockethangler");
-          boolean unique=  false;
-          String name = (String) (m).get(1);
-          String password = (String) (m).get(2);
-          String email = (String) (m).get(3);
-          try
+        Container inDataPack = (Container) obj;
+        if (inDataPack.getClassName().equals("accArrayList"))
+          switch (inDataPack.getClassName()){
+
+        case "accArrayList":
+          ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
+          System.out.println(m.get(0));
+          if (m.get(0).equals("createAccount"))
           {
-            unique = database.checkAccountUniqueness(name,email);
-          }
-          catch (SQLException e)
-          {
-            e.printStackTrace();
-          }
-          if(unique) {
+            System.out.println("serversockethangler");
+            boolean unique = false;
+            String name = (String) (m).get(1);
+            String password = (String) (m).get(2);
+            String email = (String) (m).get(3);
             try
             {
-              database.createAccount(name,password,email);
+              unique = database.checkAccountUniqueness(name, email);
             }
             catch (SQLException e)
             {
               e.printStackTrace();
             }
-          }ArrayList<Object> objs = new ArrayList<>();
-          objs.add("createAccount");
-          objs.add(unique);
-
-          sendBackInformationAboutAccountCreation(objs);
-        }
-           else if (m.get(0).equals("changeEmail"))
-        {
-          Account account = (Account) (m.get(1));
-          String email = (String) (m.get(2));
-          // dataase
-        }
-        else if (m.get(0).equals("recoverPassword"))
-        {
-          String email = (String) (m.get(1));
-        }
-        else if (m.get(0).equals("createGroup"))
-        {
-          Account account = (Account) (m.get(1));
-          String groupname = (String) (m.get(2));
-        }
-        else if (m.get(0).equals("checkEmailChange"))
-        {
-          Account account = (Account) (m.get(1));
-          String email = (String) (m.get(2));
-        }
-        else if (m.get(0).equals("checkPasswordChange"))
-        {
-
-          Account account = (Account) (m.get(1));
-          String newPassword = (String) (m.get(2));
-          String oldPassword = (String) (m.get(3));
-        }
-        else if (m.get(0).equals("checkLogin"))
-        { boolean answer = false;
-          String username = (String) (m.get(1));
-          String password = (String) (m.get(2));
-          try
+            if (unique)
+            {
+              try
+              {
+                database.createAccount(name, password, email);
+              }
+              catch (SQLException e)
+              {
+                e.printStackTrace();
+              }
+            }
+            ArrayList<Object> objs = new ArrayList<>();
+            objs.add("createAccount");
+            objs.add(unique);
+            Container outDataPack = new Container(objs,"accArrayList");
+            sendBackInformationAboutAccountCreation(outDataPack);
+          }
+          else if (m.get(0).equals("changeEmail"))
           {
-            database.checkLogin(username,password
-            );
+            Account account = (Account) (m.get(1));
+            String email = (String) (m.get(2));
+            // dataase
           }
-          catch (SQLException e)
+          else if (m.get(0).equals("recoverPassword"))
           {
-            e.printStackTrace();
+            String email = (String) (m.get(1));
           }
-          if(answer) {
-            database.acceptLogin();
+          else if (m.get(0).equals("createGroup"))
+          {
+            Account account = (Account) (m.get(1));
+            String groupname = (String) (m.get(2));
           }
-          ArrayList<Object> objs = new ArrayList<>();
-          objs.add("createAccount");
-          objs.add(answer);
+          else if (m.get(0).equals("checkEmailChange"))
+          {
+            Account account = (Account) (m.get(1));
+            String email = (String) (m.get(2));
+          }
+          else if (m.get(0).equals("checkPasswordChange"))
+          {
 
-          sendBackInformationAboutAccountCreation(objs);
+            Account account = (Account) (m.get(1));
+            String newPassword = (String) (m.get(2));
+            String oldPassword = (String) (m.get(3));
+          }
+          else if (m.get(0).equals("checkLogin"))
+          {
+            boolean answer = false;
+            String username = (String) (m.get(1));
+            String password = (String) (m.get(2));
+            try
+            {
+              database.checkLogin(username, password);
+            }
+            catch (SQLException e)
+            {
+              e.printStackTrace();
+            }
+            if (answer)
+            {
+              database.acceptLogin();
+            }
+            ArrayList<Object> objs = new ArrayList<>();
+            objs.add("createAccount");
+            objs.add(answer);
 
-        }
-        else if (m.get(0).equals("checkAccount"))
-        {
-          String username = (String) (m).get(1);
-          String password = (String) (m).get(2);
-          String email = (String) (m).get(3);
+            Container outDataPack = new Container(objs,"accArrayList");
+            sendBackInformationAboutAccountCreation(outDataPack);
 
-          // datbase something
+          }
+          else if (m.get(0).equals("checkAccount"))
+          {
+            String username = (String) (m).get(1);
+            String password = (String) (m).get(2);
+            String email = (String) (m).get(3);
 
+            // datbase something
 
-        }
-        else if (m.get(0).equals("joinGroup"))
-        {
-          Account ac = (Account)(m.get(1));
-          String groupname = (String) (m.get(2));
-        }
-        else if (m.get(0).equals("searchGroup"))
-        {
-          int id = (int) (m.get(1));
-          String usernameToCheckWithDMgroup = (String) (m.get(2));
-        }
+          }
+          else if (m.get(0).equals("joinGroup"))
+          {
+            Account ac = (Account) (m.get(1));
+            String groupname = (String) (m.get(2));
+          }
+          else if (m.get(0).equals("searchGroup"))
+          {
+            int id = (int) (m.get(1));
+            String usernameToCheckWithDMgroup = (String) (m.get(2));
+          }
+          break;
+      }
       }
     }
     catch (IOException | ClassNotFoundException e)

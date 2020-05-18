@@ -32,18 +32,26 @@ public class ClientSocketHandler implements Runnable
      {
        while (true)
        {
-         Object obj = inFromServer.readObject();
-         ArrayList<Object> objs = (ArrayList<Object>)obj;
-         String type = (String) objs.get(0);
-         System.out.println("clientrunning");
-         System.out.println(type);
-         if(type.equals("createAccount")) {
-           System.out.println(((ArrayList<Object>) obj).get(1));
-           boolean ac = (boolean) objs.get(1);
-           socketClient.createAccountInfo(ac);
 
-           System.out.println("socketclienten method");
+         Object obj = inFromServer.readObject();
+         Container inDataPack = (Container) obj;
+         switch (inDataPack.getClassName())
+         {
+           case "accArrayList":
+             ArrayList<Object> objs = (ArrayList<Object>)inDataPack.getObject();
+             String type = (String) objs.get(0);
+             System.out.println("clientrunning");
+             System.out.println(type);
+             if(type.equals("createAccount")) {
+               System.out.println(((ArrayList<Object>) obj).get(1));
+               boolean ac = (boolean) objs.get(1);
+               socketClient.createAccountInfo(ac);
+
+               System.out.println("socketclienten method");
+             }
+             break;
          }
+
        }
      }
      catch (IOException | ClassNotFoundException e)
@@ -57,7 +65,8 @@ public class ClientSocketHandler implements Runnable
       ArrayList<Object> objs = new ArrayList<>();
       objs.add(remove);
       objs.add(ac);
-      outToServer.writeObject(objs);
+      Container outDataPack = new Container(objs, "accArrayList");
+      outToServer.writeObject(outDataPack);
     }
 
     public void searchGroup(int id, String user, String searchGroup)
@@ -67,7 +76,8 @@ public class ClientSocketHandler implements Runnable
       objs.add(searchGroup);
       objs.add(id);
       objs.add(user);
-      outToServer.writeObject(objs);
+      Container outDataPack = new Container(objs, "accArrayList");
+      outToServer.writeObject(outDataPack);
     }
 
     public void joinGroupAsPlayer(Account acc, String groupname, String joinGroup)
@@ -78,7 +88,8 @@ public class ClientSocketHandler implements Runnable
       objs.add(acc);
       objs.add(groupname);
 
-      outToServer.writeObject(objs);
+      Container outDataPack = new Container(objs, "accArrayList");
+      outToServer.writeObject(outDataPack);
     }
 
     public void checkAccountUniqueness(String username, String password, String email, String checkAccount)
@@ -89,7 +100,8 @@ public class ClientSocketHandler implements Runnable
       objs.add(username);
       objs.add(password);
       objs.add(email);
-      outToServer.writeObject(objs);
+      Container outDataPack = new Container(objs, "accArrayList");
+      outToServer.writeObject(outDataPack);
     }
 
     public void checkLogin(String username, String password, String checkLogin)
@@ -99,7 +111,8 @@ public class ClientSocketHandler implements Runnable
       objs.add(checkLogin);
       objs.add(username);
       objs.add(password);
-        outToServer.writeObject(objs);
+      Container outDataPack = new Container(objs, "accArrayList");
+      outToServer.writeObject(outDataPack);
     }
 
     public void checkEmail(String email, String checkEmail) throws IOException
@@ -108,7 +121,8 @@ public class ClientSocketHandler implements Runnable
       objs.add(checkEmail);
       objs.add(email);
 
-      outToServer.writeObject(objs);
+      Container outDataPack = new Container(objs, "accArrayList");
+      outToServer.writeObject(outDataPack);
     }
 
     public void checkPasswordChangeInformation(Account acc, String newPassword, String oldPassword,
@@ -119,7 +133,8 @@ public class ClientSocketHandler implements Runnable
       objs.add(acc);
       objs.add(newPassword);
       objs.add(oldPassword);
-      outToServer.writeObject(objs);
+      Container outDataPack = new Container(objs, "accArrayList");
+      outToServer.writeObject(outDataPack);
     }
 
     public void checkEmailChangeInformation(Account acc, String email, String checkEmailChange)
@@ -129,7 +144,8 @@ public class ClientSocketHandler implements Runnable
       objs.add(checkEmailChange);
       objs.add(acc);
       objs.add(email);
-      outToServer.writeObject(objs);
+      Container outDataPack = new Container(objs, "accArrayList");
+      outToServer.writeObject(outDataPack);
     }
 
     public void joinGroup(Account acc, Group g, String joinGroup)
@@ -139,7 +155,8 @@ public class ClientSocketHandler implements Runnable
       objs.add(joinGroup);
       objs.add(acc);
       objs.add(g);
-      outToServer.writeObject(objs);
+      Container outDataPack = new Container(objs, "accArrayList");
+      outToServer.writeObject(outDataPack);
     }
 
     public void createGroup(Account acc, String groupName, String createGroup)
@@ -149,7 +166,8 @@ public class ClientSocketHandler implements Runnable
       objs.add(createGroup);
       objs.add(acc);
       objs.add(groupName);
-      outToServer.writeObject(objs);
+      Container outDataPack = new Container(objs, "accArrayList");
+      outToServer.writeObject(outDataPack);
     }
 
     public void recoverPassword(String email, String recoverPassword)
@@ -158,7 +176,8 @@ public class ClientSocketHandler implements Runnable
       ArrayList<Object> objs = new ArrayList<>();
       objs.add(recoverPassword);
       objs.add(email);
-      outToServer.writeObject(objs);
+      Container outDataPack = new Container(objs, "accArrayList");
+      outToServer.writeObject(outDataPack);
     }
 
     public void changePassword(Account acc, String newPassword, String changePassword)
@@ -168,7 +187,8 @@ public class ClientSocketHandler implements Runnable
       objs.add(changePassword);
       objs.add(acc);
       objs.add(newPassword);
-      outToServer.writeObject(objs);
+      Container outDataPack = new Container(objs, "accArrayList");
+      outToServer.writeObject(outDataPack);
     }
 
     public void changeEmail(Account acc, String email, String changeEmail)
@@ -178,7 +198,8 @@ public class ClientSocketHandler implements Runnable
       objs.add(changeEmail);
       objs.add(acc);
       objs.add(email);
-      outToServer.writeObject(objs);
+      Container outDataPack = new Container(objs, "accArrayList");
+      outToServer.writeObject(outDataPack);
     }
 
     public void loginAccount(String name, String password, String loginAccount)
@@ -188,7 +209,8 @@ public class ClientSocketHandler implements Runnable
       objs.add(loginAccount);
       objs.add(name);
       objs.add(password);
-      outToServer.writeObject(objs);
+      Container outDataPack = new Container(objs, "accArrayList");
+      outToServer.writeObject(outDataPack);
     }
 
     public void createAccount(String name, String password, String email, String createAccount)
@@ -200,7 +222,8 @@ public class ClientSocketHandler implements Runnable
       objs.add(name);
       objs.add(password);
       objs.add(email);
-      outToServer.writeObject(objs);
+      Container outDataPack = new Container(objs, "accArrayList");
+      outToServer.writeObject(outDataPack);
 
     }
   }
