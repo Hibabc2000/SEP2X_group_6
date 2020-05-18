@@ -4,7 +4,7 @@ public class GetAllTest
 {
   public static void main(String[] args)
   {
-    GetAllFromDatabase dbs = new GetAllFromDatabase();
+    GetCoreFromDatabase dbs = new GetCoreFromDatabase();
     dbs.loadDatabase();
   }
 }

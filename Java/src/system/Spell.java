@@ -3,18 +3,18 @@ package system;
 public class Spell
 {
   private String name;
-  private String spellLevel;
+  private int spellLevel;
   private String school;
   private String castTime;
   private String range;
   private String components;
   private String duration;
   private String description;
-  private String clas;
+  private String classes;
 
-  public Spell(String name, String spellLevel, String school, String castTime,
+  public Spell(String name, int spellLevel, String school, String castTime,
       String range, String components, String duration, String description,
-      String clas)
+      String classes)
   {
     this.name = name;
     this.spellLevel = spellLevel;
@@ -24,7 +24,7 @@ public class Spell
     this.components = components;
     this.duration = duration;
     this.description = description;
-    this.clas = clas;
+    this.classes = classes;
   }
 
   @Override public String toString()
@@ -33,7 +33,7 @@ public class Spell
         + '\'' + ", school='" + school + '\'' + ", castTime='" + castTime + '\''
         + ", range='" + range + '\'' + ", components='" + components + '\''
         + ", duration='" + duration + '\'' + ", description='" + description
-        + '\'' + ", clas='" + clas + '\'' + '}';
+        + '\'' + ", clas='" + classes + '\'' + '}';
   }
 
   public String getName()
@@ -46,12 +46,12 @@ public class Spell
     this.name = name;
   }
 
-  public String getSpellLevel()
+  public int getSpellLevel()
   {
     return spellLevel;
   }
 
-  public void setSpellLevel(String spellLevel)
+  public void setSpellLevel(int spellLevel)
   {
     this.spellLevel = spellLevel;
   }
@@ -118,11 +118,11 @@ public class Spell
 
   public String getClas()
   {
-    return clas;
+    return classes;
   }
 
-  public void setClas(String clas)
+  public void setClasses(String classes)
   {
-    this.clas = clas;
+    this.classes = classes;
   }
 }
