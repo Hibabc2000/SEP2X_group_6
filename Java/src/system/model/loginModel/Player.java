@@ -3,7 +3,6 @@ package system.model.loginModel;
 import system.Character;
 import system.DiceRoll;
 import system.User;
-import system.model.loginModel.Group;
 
 public class Player implements User
 {
@@ -23,6 +22,10 @@ public class Player implements User
   {
     if (character == null)
       character = new Character();
+  }
+  public void addCharacter(Character ch)
+  {
+    character=ch;
   }
 
   public String getName()

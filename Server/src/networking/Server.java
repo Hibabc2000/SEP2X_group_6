@@ -1,8 +1,6 @@
 package networking;
 
-import Database.ConnectDBC;
-
-
+import Database.GetAllAccountData;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -18,7 +16,7 @@ public class Server
     {
       ServerSocket serverSocket = new ServerSocket(SERVER_PORT);
       ConnectionPool pool = new ConnectionPool();
-      ConnectDBC dtbs = new ConnectDBC();
+      GetAllAccountData gaad= new GetAllAccountData();
       //GetAllFromDatabase load = new GetAllFromDatabase();
       //load.loadDatabase();
       while (true)
@@ -26,7 +24,7 @@ public class Server
         System.out.println("[SERVER] Waiting for client connection");
         Socket socket = serverSocket.accept();
         ServerSocketHandler socketHandler = new ServerSocketHandler(socket,
-            pool,dtbs);
+            pool,gaad);
         new Thread(socketHandler).start();
         System.out.println("[SERVER] Connected to client");
       }

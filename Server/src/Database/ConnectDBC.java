@@ -23,7 +23,7 @@ public class ConnectDBC {
       System.out.println("Database open ok");
       System.out.println("postgrescheck1");
       stmt = c.createStatement();
-      String sql = "INSERT INTO \"Users\".\"Users\" VALUES( '"+name +"', '"+password +"', '{1,2}', '"+ email +"') ";
+      String sql = "INSERT INTO \"Characters\".\"Users\" VALUES( '"+name +"', '"+password +"', '{1,2}', '"+ email +"') ";
       stmt.executeUpdate(sql);
       stmt.close();
       c.close();

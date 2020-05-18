@@ -1,10 +1,16 @@
 package system.views.login.createAccount;
 
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import system.model.loginModel.AccountModel;
+import system.util.Subject;
 
-public class CreateAccountViewModel
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+
+public class CreateAccountViewModel implements Subject
 {
   private AccountModel model;
   private StringProperty username;
@@ -12,9 +18,11 @@ public class CreateAccountViewModel
   private StringProperty password2;
   private StringProperty email;
   private StringProperty error;
+  private PropertyChangeSupport support;
 
   public CreateAccountViewModel(AccountModel accountModel)
   {
+    support = new PropertyChangeSupport(this);
     model = accountModel;
     username = new SimpleStringProperty();
     password1 = new SimpleStringProperty();
@@ -25,6 +33,24 @@ public class CreateAccountViewModel
     password1.setValue("");
     password2.setValue("");
     email.setValue("");
+    model.addListener("createAccount",this::accountCreationInfo);
+  }
+
+  private void accountCreationInfo(PropertyChangeEvent propertyChangeEvent)
+  {
+    Platform.runLater(new Runnable()
+    {
+
+      @Override public void run()
+      {
+        if(!((boolean)propertyChangeEvent.getNewValue())) {error.setValue("This username or email is already in use.");}
+        else error.setValue("Ready");
+        support.firePropertyChange("createAccount",null,propertyChangeEvent.getNewValue());
+      }
+    });
+
+
+
   }
 
   // calls the checkmethod on model, and after that resets the fields and gives the error for it if there is one, and passes the string to the view
@@ -36,10 +62,13 @@ public class CreateAccountViewModel
         .checkAccountUniqueness(username.getValue(), password1.getValue(),
             password2.getValue(), email.getValue());
     error.setValue(temp);
-    username.setValue("");
-    password1.setValue("");
-    password2.setValue("");
-    email.setValue("");
+    if(!temp.equals("Connecting..."))
+    { username.setValue("");
+      password1.setValue("");
+      password2.setValue("");
+      email.setValue("");}
+
+
     return temp;
 
   }
@@ -67,5 +96,17 @@ public class CreateAccountViewModel
   public StringProperty getErrorProperty()
   {
     return error;
+  }
+
+  @Override public void addListener(String eventName,
+      PropertyChangeListener listener)
+  {
+    support.addPropertyChangeListener(eventName, listener);
+  }
+
+  @Override public void removeListener(String eventName,
+      PropertyChangeListener listener)
+  {
+    support.removePropertyChangeListener(eventName, listener);
   }
 }
