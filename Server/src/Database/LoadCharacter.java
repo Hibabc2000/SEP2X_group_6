@@ -1,6 +1,7 @@
 package Database;
 
 import system.Character;
+import system.model.staticModel.StaticModel;
 
 import java.sql.*;
 
@@ -8,6 +9,7 @@ public class LoadCharacter
 {
   private Character character;
   private Connection c;
+  private StaticModel staticModel;
 
   public LoadCharacter()
   {
@@ -26,7 +28,7 @@ public class LoadCharacter
 
   public Character loadCharacter(int id)
   {
-    character = new Character();
+    character = new Character(staticModel);
     try
     {
       Statement st = c.createStatement();
