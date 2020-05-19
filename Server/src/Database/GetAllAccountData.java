@@ -136,6 +136,5 @@ public class GetAllAccountData
 
   public void acceptLogin()
   {
-
   }
 }

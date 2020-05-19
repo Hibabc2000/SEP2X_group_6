@@ -47,14 +47,15 @@ public class AccountModelImpl implements AccountModel
     tempAccounts = tests.getTempAccounts();
     findingUnknownGroupsGroup = tests.getFindingUnknownGroupsGroup();
 
-    client.addListener("createAccount",this::createAccountInfoBackFromServer);
+    client.addListener("createAccount", this::createAccountInfoBackFromServer);
   }
 
   private void createAccountInfoBackFromServer(
       PropertyChangeEvent propertyChangeEvent)
   {
     System.out.println("modelimplistener");
-    support.firePropertyChange("createAccount",null,propertyChangeEvent.getNewValue());
+    support.firePropertyChange("createAccount", null,
+        propertyChangeEvent.getNewValue());
     System.out.println("modelimplistener2");
 
   }
@@ -253,15 +254,10 @@ public class AccountModelImpl implements AccountModel
   {
     String temp = "Connecting...";
     //server
-    if (username.equals(""))
+    if (username.equals("") || pass.equals(""))
     {
       temp = "Fill out all the fields";
     }
-    else if (pass.equals(""))
-    {
-      temp = "Fill out all the fields";
-    }
-
     else
       client.checkLogin(username, pass);
     // put it into server
@@ -280,7 +276,6 @@ public class AccountModelImpl implements AccountModel
         temp = "This account doesn't exit.";
       }
     }
-
     return temp;
 
   }

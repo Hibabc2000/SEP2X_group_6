@@ -38,7 +38,7 @@ public class ClientSocketHandler implements Runnable
          System.out.println(inDataPack.getClassName() + "classname");
          switch (inDataPack.getClassName())
          {
-           case "createAccount":
+           case LOGIN_RESPONSE:
               boolean objs = (boolean)inDataPack.getObject();
 
              System.out.println("clientrunning");
@@ -49,8 +49,8 @@ public class ClientSocketHandler implements Runnable
                socketClient.createAccountInfo(objs);
 
                System.out.println("socketclienten method");
+               break;
 
-             break;
          }
 
        }
@@ -112,7 +112,7 @@ public class ClientSocketHandler implements Runnable
 
       objs.add(username);
       objs.add(password);
-      Container outDataPack = new Container(objs, "checkLogin");
+      Container outDataPack = new Container(objs, ClassName.CHECK_LOGIN);
       outToServer.writeObject(outDataPack);
     }
 

@@ -54,7 +54,7 @@ public class ViewHandler
     FXMLLoader loader = new FXMLLoader();
     if (openSystem == null)
     {
-      Parent root = getRootByPath("../views/login/openSystem/OpenSystem.fxml",
+      Parent root = getRootByPath("views/login/openSystem/OpenSystem.fxml",
           loader);
       OpenSystemController osc = loader.getController();
       osc.init(vmd.getOSVM(), this);

@@ -8,20 +8,23 @@ import java.io.IOException;
 public interface Client extends Subject
 {
   void start() throws IOException;
-void createAccount(String name, String password, String email);
+  void createAccount(String name, String password, String email);
 
-void changeEmail(Account acc, String email);
+  void changeEmail(Account acc, String email);
 
-void recoverPassword(String email);
-void createGroup(Account acc, String groupName);
+  void recoverPassword(String email);
+  void createGroup(Account acc, String groupName);
 
- void  checkEmailChangeInformation(Account acc, String email);
- void checkPasswordChangeInformation(Account acc, String newPassword, String oldPassword);
- void checkEmail(String email);
+  void checkEmailChangeInformation(Account acc, String email);
+  void checkPasswordChangeInformation(Account acc, String newPassword,
+      String oldPassword);
+  void checkEmail(String email);
+
+  // void checkAccountUniqueness(String username, String password, String email);
+  void joinGroupAsAPlayer(Account acc, String groupname);
+  void searchGroup(int id, String user);
+  void removeUser(Account ac);
+
+//  open system
 void checkLogin(String username, String password);
- // void checkAccountUniqueness(String username, String password, String email);
-void joinGroupAsAPlayer(Account acc,String groupname);
-void searchGroup(int id, String user);
-void removeUser(Account ac);
-
 }

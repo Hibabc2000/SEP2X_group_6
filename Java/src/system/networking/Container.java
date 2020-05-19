@@ -5,7 +5,13 @@ import java.io.Serializable;
 public class Container implements Serializable
 {
   private Object object;
-  private String className;
+  private ClassName className;
+
+  public Container(Object object, ClassName className)
+  {
+    this.object = object;
+    this.className = className;
+  }
 
   public Object getObject()
   {
@@ -17,19 +23,14 @@ public class Container implements Serializable
     this.object = object;
   }
 
-  public String getClassName()
+  public ClassName getClassName()
   {
     return className;
   }
 
-  public void setClassName(String className)
+  public void setClassName(ClassName className)
   {
-    this.className = className;
+   this.className=className;
   }
 
-  public Container(Object object, String className)
-  {
-    this.object = object;
-    this.className = className;
-  }
 }

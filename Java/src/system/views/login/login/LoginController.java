@@ -18,6 +18,7 @@ public class LoginController
   @FXML private Button forgotPasswordButton;
   @FXML private Button loginButton;
   @FXML private Button backButton;
+
   public void login(ActionEvent actionEvent)
   {
     if(loginModel.checkLogin().equals("Ready")){
@@ -39,6 +40,7 @@ public class LoginController
   }
 
   public void recoverPassword(ActionEvent actionEvent)
-  {vh.openPasswordRecovery();
+  {
+    vh.openPasswordRecovery();
   }
 }
