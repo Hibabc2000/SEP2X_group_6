@@ -60,7 +60,7 @@
                <children>
                   <VBox maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="100.0" GridPane.rowSpan="3">
                      <children>
-                        <Label fx:id="strMod" minWidth="-Infinity" prefHeight="0.0" prefWidth="62.0" text="+10">
+                        <Label fx:id="strengthModifier" minWidth="-Infinity" prefHeight="0.0" prefWidth="62.0" text="+10">
                            <VBox.margin>
                               <Insets left="28.0" top="70.0" />
                            </VBox.margin>
@@ -68,7 +68,7 @@
                               <Font size="34.0" />
                            </font>
                         </Label>
-                        <Label fx:id="str" minWidth="-Infinity" text="20" translateY="3.0">
+                        <Label fx:id="strength" minWidth="-Infinity" text="20" translateY="3.0">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -76,7 +76,7 @@
                               <Insets left="53.0" top="2.0" />
                            </VBox.margin>
                         </Label>
-                        <Label fx:id="dexMod" minWidth="-Infinity" prefHeight="50.0" prefWidth="65.0" text="+10">
+                        <Label fx:id="dexterityModifier" minWidth="-Infinity" prefHeight="50.0" prefWidth="65.0" text="+10">
                            <font>
                               <Font size="34.0" />
                            </font>
@@ -84,7 +84,7 @@
                               <Insets left="28.0" top="50.0" />
                            </VBox.margin>
                         </Label>
-                        <Label fx:id="dex" minWidth="-Infinity" text="20" translateY="4.0">
+                        <Label fx:id="dexterity" minWidth="-Infinity" text="20" translateY="4.0">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -92,7 +92,7 @@
                               <Insets left="53.0" top="3.0" />
                            </VBox.margin>
                         </Label>
-                        <Label fx:id="conMod" minWidth="-Infinity" text="+10">
+                        <Label fx:id="constitutionModifier" minWidth="-Infinity" text="+10">
                            <VBox.margin>
                               <Insets left="28.0" top="50.0" />
                            </VBox.margin>
@@ -100,7 +100,7 @@
                               <Font size="34.0" />
                            </font>
                         </Label>
-                        <Label fx:id="con" minWidth="-Infinity" text="20" translateY="5.0">
+                        <Label fx:id="constitution" minWidth="-Infinity" text="20" translateY="5.0">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -108,7 +108,7 @@
                               <Insets left="53.0" top="3.0" />
                            </VBox.margin>
                         </Label>
-                        <Label fx:id="intMod" minWidth="-Infinity" text="+10" translateY="8.0">
+                        <Label fx:id="intelligenceModifier" minWidth="-Infinity" text="+10" translateY="8.0">
                            <VBox.margin>
                               <Insets left="28.0" top="50.0" />
                            </VBox.margin>
@@ -116,7 +116,7 @@
                               <Font size="34.0" />
                            </font>
                         </Label>
-                        <Label fx:id="intell" minWidth="-Infinity" text="20" translateY="8.0">
+                        <Label fx:id="intelligence" minWidth="-Infinity" text="20" translateY="8.0">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -124,7 +124,7 @@
                               <Insets left="53.0" top="12.0" />
                            </VBox.margin>
                         </Label>
-                        <Label fx:id="wisMod" minWidth="-Infinity" text="+10" translateY="7.0">
+                        <Label fx:id="wisdomModifier" minWidth="-Infinity" text="+10" translateY="7.0">
                            <VBox.margin>
                               <Insets left="28.0" top="50.0" />
                            </VBox.margin>
@@ -132,7 +132,7 @@
                               <Font size="34.0" />
                            </font>
                         </Label>
-                        <Label fx:id="wis" minWidth="-Infinity" text="20" translateY="9.0">
+                        <Label fx:id="wisdom" minWidth="-Infinity" text="20" translateY="9.0">
                            <VBox.margin>
                               <Insets left="53.0" top="8.0" />
                            </VBox.margin>
@@ -140,7 +140,7 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="chrMod" minWidth="-Infinity" text="+10" translateY="9.0">
+                        <Label fx:id="charismaModifier" minWidth="-Infinity" text="+10" translateY="9.0">
                            <VBox.margin>
                               <Insets left="28.0" top="50.0" />
                            </VBox.margin>
@@ -148,7 +148,7 @@
                               <Font size="34.0" />
                            </font>
                         </Label>
-                        <Label fx:id="chr" minWidth="-Infinity" text="20" translateY="10.0">
+                        <Label fx:id="charisma" minWidth="-Infinity" text="20" translateY="10.0">
                            <VBox.margin>
                               <Insets left="53.0" top="8.0" />
                            </VBox.margin>
@@ -162,7 +162,7 @@
                      <children>
                         <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="884.0" prefWidth="66.0">
                            <children>
-                              <RadioButton fx:id="acrobaticsCheck" disable="true" mnemonicParsing="false" prefHeight="4.0" prefWidth="12.0">
+                              <RadioButton fx:id="acrobaticsCheckBox" disable="true" mnemonicParsing="false" prefHeight="4.0" prefWidth="12.0">
                                  <VBox.margin>
                                     <Insets left="33.0" top="53.0" />
                                  </VBox.margin>
@@ -259,7 +259,7 @@
                         </VBox>
                         <VBox prefHeight="882.0" prefWidth="55.0">
                            <children>
-                              <Label fx:id="acrobaticsMod" prefHeight="18.0" prefWidth="57.0" text="+9">
+                              <Label fx:id="acrobaticsModifier" prefHeight="18.0" prefWidth="57.0" text="+9">
                                  <VBox.margin>
                                     <Insets top="40.0" />
                                  </VBox.margin>
@@ -267,7 +267,7 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="animalHandlingMod" text="+9">
+                              <Label fx:id="animalHandlingModifier" text="+9">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
@@ -275,7 +275,7 @@
                                     <Insets top="10.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label fx:id="arcanaMod" text="+9">
+                              <Label fx:id="arcanaModifier" text="+9">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
@@ -283,7 +283,7 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="athleticsMod" text="+9">
+                              <Label fx:id="athleticsModifier" text="+9">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
@@ -291,7 +291,7 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="deceptionMod" text="+9">
+                              <Label fx:id="deceptionModifier" text="+9">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>
@@ -299,7 +299,7 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="historyMod" text="+9">
+                              <Label fx:id="historyModifier" text="+9">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
@@ -307,7 +307,7 @@
                                     <Insets top="6.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label fx:id="insightMod" text="+9">
+                              <Label fx:id="insightModifier" text="+9">
                                  <VBox.margin>
                                     <Insets top="8.0" />
                                  </VBox.margin>
@@ -315,7 +315,7 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="intimidationMod" text="+9">
+                              <Label fx:id="intimidationModifier" text="+9">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
@@ -323,7 +323,7 @@
                                     <Insets top="8.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label fx:id="investigationMod" text="+9">
+                              <Label fx:id="investigationModifier" text="+9">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
@@ -331,7 +331,7 @@
                                     <Insets top="8.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label fx:id="medicineMod" text="+9">
+                              <Label fx:id="medicineModifier" text="+9">
                                  <VBox.margin>
                                     <Insets top="8.0" />
                                  </VBox.margin>
@@ -339,7 +339,7 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="natureMod" text="+9">
+                              <Label fx:id="natureModifier" text="+9">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
@@ -347,7 +347,7 @@
                                     <Insets top="8.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label fx:id="perceptionMod" text="+9">
+                              <Label fx:id="perceptionModifier" text="+9">
                                  <VBox.margin>
                                     <Insets top="8.0" />
                                  </VBox.margin>
@@ -355,7 +355,7 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="performanceMod" text="+9">
+                              <Label fx:id="performanceModifier" text="+9">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
@@ -363,7 +363,7 @@
                                     <Insets top="8.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label fx:id="persuasionMod" text="+9">
+                              <Label fx:id="persuasionModifier" text="+9">
                                  <VBox.margin>
                                     <Insets top="9.0" />
                                  </VBox.margin>
@@ -371,7 +371,7 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="religionMod" text="+9">
+                              <Label fx:id="religionModifier" text="+9">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
@@ -379,7 +379,7 @@
                                     <Insets top="9.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label fx:id="sleightOfHandMod" text="+9">
+                              <Label fx:id="sleightOfHandModifier" text="+9">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
@@ -387,7 +387,7 @@
                                     <Insets top="9.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label fx:id="stealthMod" text="+9">
+                              <Label fx:id="stealthModifier" text="+9">
                                  <VBox.margin>
                                     <Insets top="9.0" />
                                  </VBox.margin>
@@ -395,7 +395,7 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="survivalMod" text="+9">
+                              <Label fx:id="survivalModifier" text="+9">
                                  <VBox.margin>
                                     <Insets top="9.0" />
                                  </VBox.margin>
@@ -420,7 +420,7 @@
                             <RowConstraints maxHeight="59.600012207031256" minHeight="10.0" prefHeight="54.399996948242205" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label fx:id="charClass" prefHeight="28.0" prefWidth="143.0" text="namennnn">
+                              <Label fx:id="characterClass" prefHeight="28.0" prefWidth="143.0" text="namennnn">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
@@ -428,7 +428,7 @@
                                     <Insets left="130.0" top="20.0" />
                                  </GridPane.margin>
                               </Label>
-                              <Label fx:id="charName" prefHeight="28.0" prefWidth="151.0" text="nameeeeee" GridPane.rowIndex="1">
+                              <Label fx:id="characterName" prefHeight="28.0" prefWidth="151.0" text="nameeeeee" GridPane.rowIndex="1">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
@@ -436,7 +436,7 @@
                                     <Insets left="130.0" top="8.0" />
                                  </GridPane.margin>
                               </Label>
-                              <Label fx:id="charAlignment" prefHeight="28.0" prefWidth="174.0" text="lawful neutral" GridPane.columnIndex="1">
+                              <Label fx:id="characterAlignment" prefHeight="28.0" prefWidth="174.0" text="lawful neutral" GridPane.columnIndex="1">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
@@ -444,7 +444,7 @@
                                     <Insets left="140.0" top="24.0" />
                                  </GridPane.margin>
                               </Label>
-                              <Label fx:id="charRace" text="water genasi" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <Label fx:id="characterRace" text="water genasi" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
@@ -476,7 +476,7 @@
                                        </GridPane.margin>
                                     </Button>
                                     <Button fx:id="hpMinusButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="26.0" text="-" GridPane.rowIndex="2" />
-                                    <Label text="180+10" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                    <Label fx:id="hpMax" text="180+10" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                        <font>
                                           <Font size="17.0" />
                                        </font>
@@ -484,7 +484,7 @@
                                           <Insets bottom="10.0" />
                                        </GridPane.margin>
                                     </Label>
-                                    <Label style="-fx-underline: true;" text="180+10" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <Label fx:id="hp" style="-fx-underline: true;" text="180+10" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                        <font>
                                           <Font size="17.0" />
                                        </font>
@@ -540,7 +540,7 @@
                               <Insets left="10.0" right="140.0" />
                            </VBox.margin>
                            <children>
-                              <Label fx:id="strSave" text="+5">
+                              <Label fx:id="strengthSavingThrow" text="+5">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
@@ -548,7 +548,7 @@
                                     <Insets left="17.0" top="28.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label fx:id="dexSave" text="+5">
+                              <Label fx:id="dexteritySavingThrow" text="+5">
                                  <VBox.margin>
                                     <Insets left="17.0" top="5.0" />
                                  </VBox.margin>
@@ -556,7 +556,7 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="conSave" text="+5">
+                              <Label fx:id="constitutionSavingThrow" text="+5">
                                  <VBox.margin>
                                     <Insets left="17.0" top="5.0" />
                                  </VBox.margin>
@@ -564,7 +564,7 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="intSave" text="+5">
+                              <Label fx:id="intelligenceSavingThrow" text="+5">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
@@ -572,7 +572,7 @@
                                     <Insets left="17.0" top="5.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label fx:id="wisSave" text="+5">
+                              <Label fx:id="wisdomSavingThrow" text="+5">
                                  <VBox.margin>
                                     <Insets left="17.0" top="6.0" />
                                  </VBox.margin>
@@ -580,7 +580,7 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="chrSave" text="+5">
+                              <Label fx:id="charismaSavingThrow" text="+5">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
@@ -634,7 +634,7 @@
                                     <Insets left="48.0" top="10.0" />
                                  </GridPane.margin>
                               </Label>
-                              <Label fx:id="initiaticeMod" prefHeight="35.0" prefWidth="44.0" text="+5" GridPane.rowIndex="1">
+                              <Label fx:id="initiaticeModifier" prefHeight="35.0" prefWidth="44.0" text="+5" GridPane.rowIndex="1">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
@@ -674,7 +674,7 @@
                                     <Insets bottom="12.0" left="41.0" />
                                  </GridPane.margin>
                               </Label>
-                              <Label prefHeight="18.0" prefWidth="58.0" text="10000" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                              <Label fx:id="goldPiece" prefHeight="18.0" prefWidth="58.0" text="10000" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -691,22 +691,22 @@
                         <Insets left="12.0" right="7.0" top="10.0" />
                      </GridPane.margin>
                      <children>
-                        <TableView prefHeight="321.0" prefWidth="295.0">
+                        <TableView fx:id="attacksAndSpellCastingTable" prefHeight="321.0" prefWidth="295.0">
                           <columns>
-                            <TableColumn prefWidth="126.39996355772018" text="Name" />
-                            <TableColumn prefWidth="54.4000244140625" text="Damage" />
-                              <TableColumn prefWidth="46.4000244140625" text="Range" />
-                              <TableColumn prefWidth="67.199951171875" style="-fx-font-size: 9;" text="Damage Type" />
+                            <TableColumn fx:id="attackAndSpellCastingTableNameColumn" prefWidth="126.39996355772018" text="Name" />
+                            <TableColumn fx:id="attacksAndSpellCastingTableDamageColumn" prefWidth="54.4000244140625" text="Damage" />
+                              <TableColumn fx:id="attacksAndSpellCastingTableRangeColumn" prefWidth="46.4000244140625" text="Range" />
+                              <TableColumn fx:id="attacksAndSpellCastingTableDamageTypeColumn" prefWidth="67.199951171875" style="-fx-font-size: 9;" text="Damage Type" />
                           </columns>
                            <VBox.margin>
                               <Insets left="7.0" right="7.0" top="7.0" />
                            </VBox.margin>
                         </TableView>
-                        <TableView prefHeight="319.0" prefWidth="295.0">
+                        <TableView fx:id="equipmentTable" prefHeight="319.0" prefWidth="295.0">
                           <columns>
-                            <TableColumn prefWidth="27.199951350688934" text="EQ" />
-                            <TableColumn prefWidth="40.800048828125" text="#" />
-                              <TableColumn prefWidth="228.0" text="Name" />
+                            <TableColumn fx:id="equipmentTableEquippedColumn" prefWidth="27.199951350688934" text="EQ" />
+                            <TableColumn fx:id="equipmentTableAmountColumn" prefWidth="40.800048828125" text="#" />
+                              <TableColumn fx:id="equipmentTableNameColumn" prefWidth="228.0" text="Name" />
                           </columns>
                            <VBox.margin>
                               <Insets left="7.0" right="7.0" top="35.0" />
@@ -714,13 +714,13 @@
                         </TableView>
                      </children>
                   </VBox>
-                  <SplitPane dividerPositions="0.9944649446494465" prefHeight="160.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                  <SplitPane fx:id="inventoryAndSpellsSideBarSplitPane" dividerPositions="0.005535055350553505" prefHeight="160.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.columnSpan="2" GridPane.rowIndex="1">
                     <items>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                            <children>
                               <Accordion prefHeight="737.0" prefWidth="536.0">
                                 <panes>
-                                  <TitledPane expanded="false" prefHeight="438.0" prefWidth="536.0" text="Spell Slots">
+                                  <TitledPane fx:id="spellSlotstitledPane" expanded="false" prefHeight="438.0" prefWidth="536.0" text="Spell Slots">
                                        <content>
                                           <GridPane gridLinesVisible="true" prefHeight="298.0" prefWidth="319.0">
                                              <columnConstraints>
@@ -749,7 +749,7 @@
                                                       <Insets left="20.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <CheckBox fx:id="levelOneFirstspellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
@@ -774,197 +774,197 @@
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                <CheckBox fx:id="levelOneSecondspellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                                <CheckBox fx:id="levelOneSpellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="3" GridPane.rowIndex="1">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                                                <CheckBox fx:id="levelOneFourthSpellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="4" GridPane.rowIndex="1">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                <CheckBox fx:id="levelTwoFirstSpellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                                <CheckBox fx:id="levelTwoSecondSpellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="2" GridPane.rowIndex="2">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                                <CheckBox fx:id="levelTwoThirdSpellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="3" GridPane.rowIndex="2">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                                                <CheckBox fx:id="levelTwoFourthSpellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="4" GridPane.rowIndex="2">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <CheckBox fx:id="levelThreeFirstSpellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                                <CheckBox fx:id="levelThreeSecondSpellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="2" GridPane.rowIndex="3">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                                <CheckBox fx:id="levelThreeThirdSpellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="3" GridPane.rowIndex="3">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                                                <CheckBox fx:id="levelThreeFourthSpellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="4" GridPane.rowIndex="3">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                                <CheckBox fx:id="levelFourFirstSpellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                                <CheckBox fx:id="levelFourSecondSpellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="2" GridPane.rowIndex="4">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                                                <CheckBox fx:id="levelFourThirdSpellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="3" GridPane.rowIndex="4">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                                                <CheckBox fx:id="levelFourFourth" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="4" GridPane.rowIndex="4">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <CheckBox fx:id="levelFiveFirstSpellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                                <CheckBox fx:id="levelFiveSecondSpellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="2" GridPane.rowIndex="5">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                                                <CheckBox fx:id="levelFiveThirdSpellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="3" GridPane.rowIndex="5">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="4" GridPane.rowIndex="5">
+                                                <CheckBox fx:id="levelFiveFourthSpellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="4" GridPane.rowIndex="5">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                                <CheckBox fx:id="levelSixFirstSpellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="1" GridPane.rowIndex="6">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                                                <CheckBox fx:id="levelSixSecondSpellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="2" GridPane.rowIndex="6">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="4" GridPane.rowIndex="6">
+                                                <CheckBox fx:id="levelSixFourthSpellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="4" GridPane.rowIndex="6">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                                <CheckBox fx:id="levelSevenFirstSpellSlot" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="7">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                                                <CheckBox fx:id="levelSevenSecondSpellSlot" mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="7">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                                <CheckBox fx:id="levelEightFirstSpellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="1" GridPane.rowIndex="8">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                                                <CheckBox fx:id="levelNineFirstSpellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="1" GridPane.rowIndex="9">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="8">
+                                                <CheckBox fx:id="levelEightSecondSpellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="2" GridPane.rowIndex="8">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="9">
+                                                <CheckBox fx:id="levelNineSecondSpellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="2" GridPane.rowIndex="9">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="9">
+                                                <CheckBox fx:id="levelNineThirdSpellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="3" GridPane.rowIndex="9">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="4" GridPane.rowIndex="9">
+                                                <CheckBox fx:id="levelNineFourthSpellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="4" GridPane.rowIndex="9">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="8">
+                                                <CheckBox fx:id="levelEightThirdSpellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="3" GridPane.rowIndex="8">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="4" GridPane.rowIndex="8">
+                                                <CheckBox fx:id="levelEightFourthSpellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="4" GridPane.rowIndex="8">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="7">
+                                                <CheckBox fx:id="levelSevenThirdSpellSlot" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="7">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="4" GridPane.rowIndex="7">
+                                                <CheckBox fx:id="levelSevenFourthSpellSlot" mnemonicParsing="false" GridPane.columnIndex="4" GridPane.rowIndex="7">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                                                <CheckBox fx:id="pactFirstSpellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="1" GridPane.rowIndex="10">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="10">
+                                                <CheckBox fx:id="pactSecondSpellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="2" GridPane.rowIndex="10">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="10">
+                                                <CheckBox fx:id="pactThirdSpellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="3" GridPane.rowIndex="10">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="4" GridPane.rowIndex="10">
+                                                <CheckBox fx:id="pactFourthSpellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="4" GridPane.rowIndex="10">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
                                                 </CheckBox>
-                                                <CheckBox mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                                                <CheckBox fx:id="levelSixThirdSpellSlot" mnemonicParsing="false" onAction="#spellSlotCheck" GridPane.columnIndex="3" GridPane.rowIndex="6">
                                                    <GridPane.margin>
                                                       <Insets left="45.0" />
                                                    </GridPane.margin>
@@ -1023,20 +1023,20 @@
                                           </GridPane>
                                        </content>
                                     </TitledPane>
-                                  <TitledPane prefWidth="536.0" text="Known Spells">
+                                  <TitledPane fx:id="knownSpellsTitledPane" prefWidth="536.0" text="Known Spells">
                                        <content>
                                           <VBox prefHeight="200.0" prefWidth="100.0">
                                              <children>
-                                                <TableView prefHeight="562.0" prefWidth="515.0">
+                                                <TableView fx:id="knownSpellsTable" prefHeight="562.0" prefWidth="515.0">
                                                   <columns>
-                                                    <TableColumn prefWidth="147.99998819828033" style="-fx-font-size: 9;" text="Name" />
-                                                    <TableColumn prefWidth="63.199951171875" style="-fx-font-size: 9;" text="Range/Area" />
-                                                      <TableColumn prefWidth="53.600006103515625" style="-fx-font-size: 9;" text="Damage" />
-                                                      <TableColumn prefWidth="38.400146484375" style="-fx-font-size: 9;" text="COMPS" />
-                                                      <TableColumn minWidth="0.0" prefWidth="25.5999755859375" style="-fx-font-size: 9;" text="Lvl" />
-                                                      <TableColumn prefWidth="53.5999755859375" style="-fx-font-size: 9;" text="Cast Time" />
-                                                      <TableColumn prefWidth="52.7999267578125" style="-fx-font-size: 9;" text="Duration" />
-                                                      <TableColumn prefWidth="82.40005493164062" style="-fx-font-size: 9;" text="Saving throw" />
+                                                    <TableColumn fx:id="knownSpellsTableNameColumn" prefWidth="147.99998819828033" style="-fx-font-size: 9;" text="Name" />
+                                                    <TableColumn fx:id="knownSpellsTableRangeAndAreaColumn" prefWidth="63.199951171875" style="-fx-font-size: 9;" text="Range/Area" />
+                                                      <TableColumn fx:id="knownSpellsTableDamageColumn" prefWidth="53.600006103515625" style="-fx-font-size: 9;" text="Damage" />
+                                                      <TableColumn fx:id="knownSpellsTableComponentsColumn" prefWidth="38.400146484375" style="-fx-font-size: 9;" text="COMPS" />
+                                                      <TableColumn fx:id="knownSpellsTablelevelColumn" minWidth="0.0" prefWidth="25.5999755859375" style="-fx-font-size: 9;" text="Lvl" />
+                                                      <TableColumn fx:id="knownSpellsTableCastTimeColumn" prefWidth="53.5999755859375" style="-fx-font-size: 9;" text="Cast Time" />
+                                                      <TableColumn fx:id="knownSpellsTableDurationColumn" prefWidth="52.7999267578125" style="-fx-font-size: 9;" text="Duration" />
+                                                      <TableColumn fx:id="knownSpellsTableSavingThrowColumn" prefWidth="82.40005493164062" style="-fx-font-size: 9;" text="Saving throw" />
                                                   </columns>
                                                 </TableView>
                                                 <HBox prefHeight="100.0" prefWidth="200.0">
@@ -1049,7 +1049,7 @@
                                                             <Insets left="10.0" top="20.0" />
                                                          </HBox.margin>
                                                       </Label>
-                                                      <Label text="100/100">
+                                                      <Label fx:id="knownSpellsAmount" text="100/100">
                                                          <font>
                                                             <Font size="15.0" />
                                                          </font>
@@ -1057,7 +1057,7 @@
                                                             <Insets left="10.0" top="20.0" />
                                                          </HBox.margin>
                                                       </Label>
-                                                      <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="110.0" text="Remove">
+                                                      <Button fx:id="removeKnownSpellButton" mnemonicParsing="false" onAction="#removeSpellFromKnownSpells" prefHeight="38.0" prefWidth="110.0" text="Remove">
                                                          <HBox.margin>
                                                             <Insets left="200.0" top="17.0" />
                                                          </HBox.margin>
@@ -1068,23 +1068,23 @@
                                           </VBox>
                                        </content>
                                     </TitledPane>
-                                    <TitledPane expanded="false" prefHeight="200.0" prefWidth="200.0" text="Add Spells">
+                                    <TitledPane fx:id="addSpellsTitledPane" expanded="false" prefHeight="200.0" prefWidth="200.0" text="Add Spells">
                                        <content>
                                           <VBox prefHeight="200.0" prefWidth="100.0">
                                              <children>
-                                                <TableView prefHeight="562.0" prefWidth="515.0">
+                                                <TableView fx:id="addSpellTable" prefHeight="562.0" prefWidth="515.0">
                                                    <columns>
-                                                      <TableColumn prefWidth="147.99998819828033" style="-fx-font-size: 9;" text="Name" />
-                                                      <TableColumn prefWidth="63.199951171875" style="-fx-font-size: 9;" text="Range/Area" />
-                                                      <TableColumn prefWidth="53.600006103515625" style="-fx-font-size: 9;" text="Damage" />
-                                                      <TableColumn prefWidth="38.400146484375" style="-fx-font-size: 9;" text="COMPS" />
-                                                      <TableColumn minWidth="0.0" prefWidth="25.5999755859375" style="-fx-font-size: 9;" text="Lvl" />
-                                                      <TableColumn prefWidth="53.5999755859375" style="-fx-font-size: 9;" text="Cast Time" />
-                                                      <TableColumn prefWidth="52.7999267578125" style="-fx-font-size: 9;" text="Duration" />
-                                                      <TableColumn prefWidth="82.40005493164062" style="-fx-font-size: 9;" text="Saving throw" />
+                                                      <TableColumn fx:id="addSpellTableNameColumn" prefWidth="147.99998819828033" style="-fx-font-size: 9;" text="Name" />
+                                                      <TableColumn fx:id="addSpellTableRangeAndAreaColumn" prefWidth="63.199951171875" style="-fx-font-size: 9;" text="Range/Area" />
+                                                      <TableColumn fx:id="addSpellTableDamageColumn" prefWidth="53.600006103515625" style="-fx-font-size: 9;" text="Damage" />
+                                                      <TableColumn fx:id="addSpellTableComponentsColumn" prefWidth="38.400146484375" style="-fx-font-size: 9;" text="COMPS" />
+                                                      <TableColumn fx:id="addSpellTableLevelColumn" minWidth="0.0" prefWidth="25.5999755859375" style="-fx-font-size: 9;" text="Lvl" />
+                                                      <TableColumn fx:id="addSpellTableCastTimeColumn" prefWidth="53.5999755859375" style="-fx-font-size: 9;" text="Cast Time" />
+                                                      <TableColumn fx:id="addSpellTableDurationColumn" prefWidth="52.7999267578125" style="-fx-font-size: 9;" text="Duration" />
+                                                      <TableColumn fx:id="addSpellTableSavingThrowColumn" prefWidth="82.40005493164062" style="-fx-font-size: 9;" text="Saving throw" />
                                                    </columns>
                                                 </TableView>
-                                                <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="110.0" text="Add">
+                                                <Button fx:id="addSpelltoKnownSpellsButton" mnemonicParsing="false" onAction="#addSpellToKnownSpells" prefHeight="38.0" prefWidth="110.0" text="Add">
                                                    <VBox.margin>
                                                       <Insets left="200.0" top="10.0" />
                                                    </VBox.margin>
@@ -1093,21 +1093,21 @@
                                           </VBox>
                                        </content>
                                     </TitledPane>
-                                    <TitledPane expanded="false" prefHeight="200.0" prefWidth="200.0" text="Spellbook">
+                                    <TitledPane fx:id="spellBookTitledPane" expanded="false" prefHeight="200.0" prefWidth="200.0" text="Spellbook">
                                        <content>
                                           <VBox prefHeight="200.0" prefWidth="100.0">
                                              <children>
-                                                <TableView prefHeight="562.0" prefWidth="515.0">
+                                                <TableView fx:id="spellBookTable" prefHeight="562.0" prefWidth="515.0">
                                                    <columns>
-                                                      <TableColumn prefWidth="139.19993937015533" style="-fx-font-size: 9;" text="Name" />
-                                                      <TableColumn prefWidth="66.4000244140625" style="-fx-font-size: 9;" text="Range/Area" />
-                                                      <TableColumn prefWidth="51.999908447265625" style="-fx-font-size: 9;" text="Damage" />
-                                                      <TableColumn prefWidth="44.7999267578125" style="-fx-font-size: 9;" text="COMPS" />
-                                                      <TableColumn minWidth="0.0" prefWidth="21.5999755859375" style="-fx-font-size: 9;" text="Lvl" />
-                                                      <TableColumn prefWidth="49.5999755859375" style="-fx-font-size: 9;" text="Cast Time" />
-                                                      <TableColumn prefWidth="49.60009765625" style="-fx-font-size: 9;" text="Duration" />
-                                                      <TableColumn prefWidth="60.800048828125" style="-fx-font-size: 9;" text="Saving throw" />
-                                                      <TableColumn prefWidth="28.0" text="R" />
+                                                      <TableColumn fx:id="spellBookTableNameColumn" prefWidth="139.19993937015533" style="-fx-font-size: 9;" text="Name" />
+                                                      <TableColumn fx:id="spellBookTableRangeAndAreaColumn" prefWidth="66.4000244140625" style="-fx-font-size: 9;" text="Range/Area" />
+                                                      <TableColumn fx:id="spellBookTableDamegeColumn" prefWidth="51.999908447265625" style="-fx-font-size: 9;" text="Damage" />
+                                                      <TableColumn fx:id="spellBookTableComponentsColumn" prefWidth="44.7999267578125" style="-fx-font-size: 9;" text="COMPS" />
+                                                      <TableColumn fx:id="spellBookTableLevelColumn" minWidth="0.0" prefWidth="21.5999755859375" style="-fx-font-size: 9;" text="Lvl" />
+                                                      <TableColumn fx:id="spellBookTableCastTimeColumn" prefWidth="49.5999755859375" style="-fx-font-size: 9;" text="Cast Time" />
+                                                      <TableColumn fx:id="spellBookTableDurationColumn" prefWidth="49.60009765625" style="-fx-font-size: 9;" text="Duration" />
+                                                      <TableColumn fx:id="spellBookTableSavingThrowColumn" prefWidth="60.800048828125" style="-fx-font-size: 9;" text="Saving throw" />
+                                                      <TableColumn fx:id="spellBookTablePreparedColumn" prefWidth="28.0" text="R" />
                                                    </columns>
                                                 </TableView>
                                                 <HBox prefHeight="100.0" prefWidth="200.0">
@@ -1120,7 +1120,7 @@
                                                             <Insets top="20.0" />
                                                          </HBox.margin>
                                                       </Label>
-                                                      <Label text="20/20">
+                                                      <Label fx:id="preparedSpellsAmount" text="20/20">
                                                          <font>
                                                             <Font size="14.0" />
                                                          </font>
@@ -1128,17 +1128,17 @@
                                                             <Insets left="10.0" top="20.0" />
                                                          </HBox.margin>
                                                       </Label>
-                                                      <Button mnemonicParsing="false" text="Prepare">
+                                                      <Button fx:id="prepareSpellButton" mnemonicParsing="false" onAction="#prepareSpell" text="Prepare">
                                                          <HBox.margin>
                                                             <Insets left="80.0" top="20.0" />
                                                          </HBox.margin>
                                                       </Button>
-                                                      <Button mnemonicParsing="false" text="Unprepare">
+                                                      <Button fx:id="unprepareSpellButton" mnemonicParsing="false" onAction="#unprepareSpell" text="Unprepare">
                                                          <HBox.margin>
                                                             <Insets left="40.0" top="20.0" />
                                                          </HBox.margin>
                                                       </Button>
-                                                      <Button mnemonicParsing="false" text="Remove">
+                                                      <Button fx:id="removeSpellFromSpellbookButton" mnemonicParsing="false" onAction="#removeSpellFromSpellBook" text="Remove">
                                                          <HBox.margin>
                                                             <Insets left="30.0" top="20.0" />
                                                          </HBox.margin>
@@ -1159,52 +1159,52 @@
                                  <children>
                                     <Accordion>
                                       <panes>
-                                        <TitledPane expanded="false" prefHeight="501.0" prefWidth="536.0" text="Inventory">
+                                        <TitledPane fx:id="inventoryTitledPane" expanded="false" prefHeight="501.0" prefWidth="536.0" text="Inventory">
                                              <content>
                                                 <VBox prefHeight="586.0" prefWidth="534.0">
                                                    <children>
                                                       <Accordion prefHeight="486.0" prefWidth="515.0">
                                                         <panes>
-                                                          <TitledPane expanded="false" prefHeight="284.0" prefWidth="485.0" text="Weapons">
+                                                          <TitledPane fx:id="inventiryWeaponsTitledPane" expanded="false" prefHeight="284.0" prefWidth="485.0" text="Weapons">
                                                                <content>
-                                                                  <TableView prefHeight="200.0" prefWidth="200.0">
+                                                                  <TableView fx:id="inventoryWeaponsTable" prefHeight="200.0" prefWidth="200.0">
                                                                     <columns>
-                                                                        <TableColumn prefWidth="20.0" text="eq" />
-                                                                      <TableColumn maxWidth="18.39990234375" prefWidth="18.39990234375" text="#" />
-                                                                        <TableColumn prefWidth="134.4000129699707" style="-fx-font-size: 9;" text="Name" />
-                                                                        <TableColumn prefWidth="46.39990234375" style="-fx-font-size: 9;" text="Damage" />
-                                                                        <TableColumn prefWidth="64.79994201660156" style="-fx-font-size: 9;" text="Damage type" />
-                                                                        <TableColumn prefWidth="44.0" style="-fx-font-size: 9;" text="Weight" />
-                                                                        <TableColumn prefWidth="44.800048828125" style="-fx-font-size: 9;" text="Value" />
-                                                                        <TableColumn prefWidth="31.199951171875" style="-fx-font-size: 9;" text="Range" />
-                                                                        <TableColumn prefWidth="80.800048828125" style="-fx-font-size: 9;" text="Type" />
+                                                                        <TableColumn fx:id="inventoryWeaponsTableEquippedColumn" prefWidth="20.0" text="eq" />
+                                                                      <TableColumn fx:id="inventoryWeaponsTableAmountColumn" maxWidth="18.39990234375" prefWidth="18.39990234375" text="#" />
+                                                                        <TableColumn fx:id="inventoryWeaponsTableNameColumn" prefWidth="134.4000129699707" style="-fx-font-size: 9;" text="Name" />
+                                                                        <TableColumn fx:id="inventoryWeaponsTableDamageColumn" prefWidth="46.39990234375" style="-fx-font-size: 9;" text="Damage" />
+                                                                        <TableColumn fx:id="inventoryWeaponsTableDamageTypeColumn" prefWidth="64.79994201660156" style="-fx-font-size: 9;" text="Damage type" />
+                                                                        <TableColumn fx:id="inventoryWeaponsTableWeightColumn" prefWidth="44.0" style="-fx-font-size: 9;" text="Weight" />
+                                                                        <TableColumn fx:id="inventoryWeaponsTableValueColumn" prefWidth="44.800048828125" style="-fx-font-size: 9;" text="Value" />
+                                                                        <TableColumn fx:id="inventoryWeaponsTableRangeColumn" prefWidth="31.199951171875" style="-fx-font-size: 9;" text="Range" />
+                                                                        <TableColumn fx:id="inventoryWeaponsTableTypeColumn" prefWidth="80.800048828125" style="-fx-font-size: 9;" text="Type" />
                                                                     </columns>
                                                                   </TableView>
                                                                </content>
                                                             </TitledPane>
-                                                          <TitledPane text="Armor">
+                                                          <TitledPane fx:id="inventoryArmorTiltledPane" text="Armor">
                                                                <content>
-                                                                  <TableView prefHeight="200.0" prefWidth="200.0">
+                                                                  <TableView fx:id="inventoryArmorTable" prefHeight="200.0" prefWidth="200.0">
                                                                      <columns>
-                                                                        <TableColumn maxWidth="20.0" prefWidth="75.0" text="EQ" />
-                                                                        <TableColumn prefWidth="28.000000762942364" text="#" />
-                                                                        <TableColumn prefWidth="213.5999641418457" style="-fx-font-size: 9;" text="Name" />
-                                                                        <TableColumn minWidth="0.0" prefWidth="59.19996643066406" style="-fx-font-size: 9;" text="Weight" />
-                                                                        <TableColumn prefWidth="66.39990234375" style="-fx-font-size: 9;" text="Value" />
-                                                                        <TableColumn prefWidth="67.2000732421875" style="-fx-font-size: 9;" text="Armor Class" />
+                                                                        <TableColumn fx:id="inventoryArmorTableEquippedColumn" maxWidth="20.0" prefWidth="75.0" text="EQ" />
+                                                                        <TableColumn fx:id="inventoryArmorTableAmountColumn" prefWidth="28.000000762942364" text="#" />
+                                                                        <TableColumn fx:id="inventoryArmorTableNameColumn" prefWidth="213.5999641418457" style="-fx-font-size: 9;" text="Name" />
+                                                                        <TableColumn fx:id="inventoryArmorTableWeightColumn" minWidth="0.0" prefWidth="59.19996643066406" style="-fx-font-size: 9;" text="Weight" />
+                                                                        <TableColumn fx:id="inventoryArmorTableValueColumn" prefWidth="66.39990234375" style="-fx-font-size: 9;" text="Value" />
+                                                                        <TableColumn fx:id="inventoryArmorTableArmorClassColumn" prefWidth="67.2000732421875" style="-fx-font-size: 9;" text="Armor Class" />
                                                                      </columns>
                                                                   </TableView>
                                                                </content>
                                                             </TitledPane>
-                                                            <TitledPane prefHeight="146.0" prefWidth="504.0" text="Misc">
+                                                            <TitledPane fx:id="inventoryMiscellaneousTitledPane" prefHeight="146.0" prefWidth="504.0" text="Misc">
                                                                <content>
-                                                                  <TableView prefHeight="200.0" prefWidth="200.0">
+                                                                  <TableView fx:id="inventoryMiscellaneousTable" prefHeight="200.0" prefWidth="200.0">
                                                                      <columns>
-                                                                        <TableColumn maxWidth="20.0" prefWidth="75.0" text="EQ" />
-                                                                        <TableColumn prefWidth="55.999996185302734" text="#" />
-                                                                        <TableColumn prefWidth="256.79993438720703" style="-fx-font-size: 9;" text="Name" />
-                                                                        <TableColumn minWidth="5.60009765625" prefWidth="71.199951171875" style="-fx-font-size: 9;" text="Weight" />
-                                                                        <TableColumn prefWidth="65.5999755859375" style="-fx-font-size: 9;" text="Value" />
+                                                                        <TableColumn fx:id="inventoryMiscellaneousTableEquippedColumn" maxWidth="20.0" prefWidth="75.0" text="EQ" />
+                                                                        <TableColumn fx:id="inventoryMiscellaneousTableAmountColumn" prefWidth="55.999996185302734" text="#" />
+                                                                        <TableColumn fx:id="inventoryMiscellaneousTableNameCOlumn" prefWidth="256.79993438720703" style="-fx-font-size: 9;" text="Name" />
+                                                                        <TableColumn fx:id="inventoryMiscellaneousTableWeightColumn" minWidth="5.60009765625" prefWidth="71.199951171875" style="-fx-font-size: 9;" text="Weight" />
+                                                                        <TableColumn fx:id="inventoryMiscellaneousTableValueColumn" prefWidth="65.5999755859375" style="-fx-font-size: 9;" text="Value" />
                                                                      </columns>
                                                                   </TableView>
                                                                </content>
@@ -1219,12 +1219,12 @@
                                                             <Insets left="10.0" right="10.0" />
                                                          </VBox.margin>
                                                          <children>
-                                                            <Label prefHeight="18.0" prefWidth="172.0" text="selected item's name">
+                                                            <Label fx:id="selectedItemFromInventoryName" prefHeight="18.0" prefWidth="172.0" text="selected item's name">
                                                                <HBox.margin>
                                                                   <Insets top="10.0" />
                                                                </HBox.margin>
                                                             </Label>
-                                                            <TextField prefHeight="26.0" prefWidth="106.0" promptText="amount">
+                                                            <TextField fx:id="selectedItemFromInventoryAmount" prefHeight="26.0" prefWidth="106.0" promptText="amount">
                                                                <opaqueInsets>
                                                                   <Insets />
                                                                </opaqueInsets>
@@ -1232,12 +1232,12 @@
                                                                   <Insets left="10.0" top="7.0" />
                                                                </HBox.margin>
                                                             </TextField>
-                                                            <Button mnemonicParsing="false" text="Remove">
+                                                            <Button fx:id="removeSelectedItemFromInventoryButton" mnemonicParsing="false" onAction="#removeSelectedItemFromInventory" text="Remove">
                                                                <HBox.margin>
                                                                   <Insets left="10.0" top="7.0" />
                                                                </HBox.margin>
                                                             </Button>
-                                                            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="48.0" text="Equip">
+                                                            <Button fx:id="equipSelectedItemFromInventoryButton" mnemonicParsing="false" onAction="#equipSelectedItemFromInventory" prefHeight="26.0" prefWidth="48.0" text="Equip">
                                                                <padding>
                                                                   <Insets left="10.0" />
                                                                </padding>
@@ -1245,7 +1245,7 @@
                                                                   <Insets left="10.0" top="7.0" />
                                                                </HBox.margin>
                                                             </Button>
-                                                            <Button mnemonicParsing="false" text="Unequip">
+                                                            <Button fx:id="unequipSelectedItemFromInventoryButton" mnemonicParsing="false" onAction="#unequipSelectedItemFromInventory" text="Unequip">
                                                                <HBox.margin>
                                                                   <Insets left="10.0" top="7.0" />
                                                                </HBox.margin>
@@ -1256,49 +1256,46 @@
                                                 </VBox>
                                              </content>
                                           </TitledPane>
-                                        <TitledPane expanded="false" prefHeight="500.0" prefWidth="536.0" text="Add Item">
+                                        <TitledPane fx:id="addItemTitledPane" expanded="false" prefHeight="500.0" prefWidth="536.0" text="Add Item">
                                              <content>
-                                                <VBox prefHeight="200.0" prefWidth="100.0">
+                                                <VBox prefHeight="615.0" prefWidth="534.0">
                                                    <children>
                                                       <Accordion prefHeight="458.0" prefWidth="515.0">
                                                          <panes>
-                                                            <TitledPane animated="false" expanded="false" prefHeight="284.0" prefWidth="485.0" text="Weapons">
+                                                            <TitledPane fx:id="addItemWeaponTitledPane" animated="false" expanded="false" prefHeight="284.0" prefWidth="485.0" text="Weapons">
                                                                <content>
-                                                                  <TableView prefHeight="200.0" prefWidth="200.0">
+                                                                  <TableView fx:id="addItemWeaponTable" prefHeight="200.0" prefWidth="200.0">
                                                                      <columns>
-                                                                        <TableColumn prefWidth="28.000000762942364" text="#" />
-                                                                        <TableColumn prefWidth="142.39989852905273" style="-fx-font-size: 9;" text="Name" />
-                                                                        <TableColumn prefWidth="46.39990234375" style="-fx-font-size: 9;" text="Damage" />
-                                                                        <TableColumn prefWidth="72.80006408691406" style="-fx-font-size: 9;" text="Damage type" />
-                                                                        <TableColumn prefWidth="43.9998779296875" style="-fx-font-size: 9;" text="Weight" />
-                                                                        <TableColumn prefWidth="44.7999267578125" style="-fx-font-size: 9;" text="Value" />
-                                                                        <TableColumn prefWidth="39.2000732421875" style="-fx-font-size: 9;" text="Range" />
-                                                                        <TableColumn prefWidth="83.20006103515624" style="-fx-font-size: 9;" text="Type" />
+                                                                        <TableColumn fx:id="addItemWeaponTableNameColumn" prefWidth="142.39989852905273" style="-fx-font-size: 9;" text="Name" />
+                                                                        <TableColumn fx:id="addItemWeaponTableDamageColumn" prefWidth="46.39990234375" style="-fx-font-size: 9;" text="Damage" />
+                                                                        <TableColumn fx:id="addItemWeaponTableDamageTypeColumn" prefWidth="72.80006408691406" style="-fx-font-size: 9;" text="Damage type" />
+                                                                        <TableColumn fx:id="addItemWeaponTableWeightColumn" prefWidth="43.9998779296875" style="-fx-font-size: 9;" text="Weight" />
+                                                                        <TableColumn fx:id="addItemWeaponTableValueColumn" prefWidth="44.7999267578125" style="-fx-font-size: 9;" text="Value" />
+                                                                        <TableColumn fx:id="addItemWeaponTableRangeColumn" prefWidth="39.2000732421875" style="-fx-font-size: 9;" text="Range" />
+                                                                        <TableColumn fx:id="addItemWeaponTableTypeColumn" prefWidth="83.20006103515624" style="-fx-font-size: 9;" text="Type" />
                                                                      </columns>
                                                                   </TableView>
                                                                </content>
                                                             </TitledPane>
-                                                            <TitledPane animated="false" text="Armor">
+                                                            <TitledPane fx:id="addItemArmorTitledPane" animated="false" text="Armor">
                                                                <content>
-                                                                  <TableView prefHeight="200.0" prefWidth="200.0">
+                                                                  <TableView fx:id="addItemArmorTable" prefHeight="200.0" prefWidth="200.0">
                                                                      <columns>
-                                                                        <TableColumn prefWidth="28.000000762942364" text="#" />
-                                                                        <TableColumn prefWidth="213.5999641418457" style="-fx-font-size: 9;" text="Name" />
-                                                                        <TableColumn minWidth="0.0" prefWidth="59.19996643066406" style="-fx-font-size: 9;" text="Weight" />
-                                                                        <TableColumn prefWidth="72.800048828125" style="-fx-font-size: 9;" text="Value" />
-                                                                        <TableColumn prefWidth="55.199951171875" style="-fx-font-size: 9;" text="Armor Class" />
+                                                                        <TableColumn fx:id="addItemArmorTableNameColumn" prefWidth="213.5999641418457" style="-fx-font-size: 9;" text="Name" />
+                                                                        <TableColumn fx:id="addItemArmorTableWeightColumn" minWidth="0.0" prefWidth="59.19996643066406" style="-fx-font-size: 9;" text="Weight" />
+                                                                        <TableColumn fx:id="addItemArmorTableValueColumn" prefWidth="72.800048828125" style="-fx-font-size: 9;" text="Value" />
+                                                                        <TableColumn fx:id="addItemArmorTableArmorClassColumn" prefWidth="55.199951171875" style="-fx-font-size: 9;" text="Armor Class" />
                                                                      </columns>
                                                                   </TableView>
                                                                </content>
                                                             </TitledPane>
-                                                            <TitledPane prefHeight="146.0" prefWidth="504.0" text="Misc">
+                                                            <TitledPane fx:id="addItemMiscellaneousTitledPane" prefHeight="146.0" prefWidth="504.0" text="Misc">
                                                                <content>
-                                                                  <TableView prefHeight="200.0" prefWidth="200.0">
+                                                                  <TableView fx:id="addItemMiscellaneousTable" prefHeight="200.0" prefWidth="200.0">
                                                                      <columns>
-                                                                        <TableColumn prefWidth="52.79992942809986" text="#" />
-                                                                        <TableColumn prefWidth="296.79993057250977" style="-fx-font-size: 9;" text="Name" />
-                                                                        <TableColumn minWidth="5.60009765625" prefWidth="66.4000244140625" style="-fx-font-size: 9;" text="Weight" />
-                                                                        <TableColumn prefWidth="69.5999755859375" style="-fx-font-size: 9;" text="Value" />
+                                                                        <TableColumn fx:id="addItemMiscellaneousTableNameColumn" prefWidth="296.79993057250977" style="-fx-font-size: 9;" text="Name" />
+                                                                        <TableColumn fx:id="addItemMiscellaneousTableWeightColumn" minWidth="5.60009765625" prefWidth="66.4000244140625" style="-fx-font-size: 9;" text="Weight" />
+                                                                        <TableColumn fx:id="addItemMiscellaneousTableValueColumn" prefWidth="69.5999755859375" style="-fx-font-size: 9;" text="Value" />
                                                                      </columns>
                                                                   </TableView>
                                                                </content>
@@ -1313,12 +1310,12 @@
                                                             <Insets left="10.0" right="10.0" />
                                                          </VBox.margin>
                                                          <children>
-                                                            <Label prefHeight="18.0" prefWidth="202.0" text="selected item's name">
+                                                            <Label fx:id="addItemSelectredItemName" prefHeight="18.0" prefWidth="202.0" text="selected item's name">
                                                                <HBox.margin>
                                                                   <Insets top="10.0" />
                                                                </HBox.margin>
                                                             </Label>
-                                                            <TextField promptText="amount">
+                                                            <TextField fx:id="selectedItemFromAddItemAmountTextField" promptText="amount">
                                                                <opaqueInsets>
                                                                   <Insets />
                                                                </opaqueInsets>
@@ -1326,7 +1323,7 @@
                                                                   <Insets left="10.0" top="7.0" />
                                                                </HBox.margin>
                                                             </TextField>
-                                                            <Button mnemonicParsing="false" text="Add">
+                                                            <Button fx:id="addSelectedItemFromAddItemButton" mnemonicParsing="false" onAction="#addSelectedItemToInventory" text="Add">
                                                                <HBox.margin>
                                                                   <Insets left="20.0" top="7.0" />
                                                                </HBox.margin>
@@ -1379,11 +1376,11 @@
                                                                   <Insets left="80.0" />
                                                                </GridPane.margin>
                                                             </Label>
-                                                            <Label text="Label" GridPane.columnIndex="1" />
-                                                            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                                            <Label prefHeight="2.0" prefWidth="28.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                                            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                            <Label fx:id="platinumPieceOne" text="Label" GridPane.columnIndex="1" />
+                                                            <Label fx:id="goldPieceOne" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                            <Label fx:id="electrumPieceOne" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                            <Label fx:id="silverPieceOne" prefHeight="2.0" prefWidth="28.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                            <Label fx:id="copperPieceOne" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                                          </children>
                                                       </GridPane>
                                                       <GridPane>
@@ -1425,42 +1422,42 @@
                                                                   <Insets left="30.0" />
                                                                </GridPane.margin>
                                                             </Label>
-                                                            <TextField GridPane.rowIndex="1">
+                                                            <TextField fx:id="changePlatinumAmountTextField" GridPane.rowIndex="1">
                                                                <GridPane.margin>
                                                                   <Insets left="20.0" right="20.0" />
                                                                </GridPane.margin>
                                                             </TextField>
-                                                            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                            <TextField fx:id="changeGoldAmountTextField" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                                <GridPane.margin>
                                                                   <Insets left="20.0" right="20.0" />
                                                                </GridPane.margin>
                                                             </TextField>
-                                                            <TextField GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <TextField fx:id="changeElectrumAmountTextField" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <GridPane.margin>
                                                                   <Insets left="20.0" right="20.0" />
                                                                </GridPane.margin>
                                                             </TextField>
-                                                            <TextField GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                                            <TextField fx:id="changeSilverAmountTextField" GridPane.columnIndex="3" GridPane.rowIndex="1">
                                                                <GridPane.margin>
                                                                   <Insets left="20.0" right="20.0" />
                                                                </GridPane.margin>
                                                             </TextField>
-                                                            <TextField GridPane.columnIndex="4" GridPane.rowIndex="1">
+                                                            <TextField fx:id="changeCopperAmountTextField" GridPane.columnIndex="4" GridPane.rowIndex="1">
                                                                <GridPane.margin>
                                                                   <Insets left="20.0" right="20.0" />
                                                                </GridPane.margin>
                                                             </TextField>
-                                                            <Button mnemonicParsing="false" text="ADD" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                            <Button fx:id="addCurrencyButton" mnemonicParsing="false" onAction="#addCurrency" text="ADD" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                                                <GridPane.margin>
                                                                   <Insets left="30.0" top="5.0" />
                                                                </GridPane.margin>
                                                             </Button>
-                                                            <Button mnemonicParsing="false" text="Remove" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                                            <Button fx:id="removeCurrencyButton" mnemonicParsing="false" onAction="#removeCurrency" text="Remove" GridPane.columnIndex="2" GridPane.rowIndex="2">
                                                                <GridPane.margin>
                                                                   <Insets left="25.0" top="5.0" />
                                                                </GridPane.margin>
                                                             </Button>
-                                                            <Button mnemonicParsing="false" text="Clear" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                                            <Button fx:id="clearChangeCurrencyTextFieldsButton" mnemonicParsing="false" onAction="#clearCurrencyTextFields" text="Clear" GridPane.columnIndex="3" GridPane.rowIndex="2">
                                                                <GridPane.margin>
                                                                   <Insets left="30.0" top="5.0" />
                                                                </GridPane.margin>
@@ -1479,7 +1476,7 @@
                         </AnchorPane>
                     </items>
                   </SplitPane>
-                  <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                  <TextArea fx:id="featuresAndTraitsTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets bottom="45.0" left="12.0" right="9.0" top="20.0" />
                      </GridPane.margin>
