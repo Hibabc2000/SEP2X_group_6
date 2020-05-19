@@ -1,8 +1,7 @@
-package system.model.loginModel;
+package system.transferobjects.login;
 
 import system.Character;
 import system.DiceRoll;
-import system.User;
 
 import java.io.Serializable;
 
@@ -13,8 +12,7 @@ public class Player implements User, Serializable
   private String playerName;
   private Group playerGroup;
  private int characterID;
-  public Player(
-      String name)                   // more information needed about player class
+  public Player(String name)                   // more information needed about player class
   {
     playerName = name;
 

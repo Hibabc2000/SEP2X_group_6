@@ -1,9 +1,9 @@
 package networking;
 
 import Database.GetAllAccountData;
-import system.model.loginModel.Account;
-import system.networking.ClassName;
-import system.networking.Container;
+import system.transferobjects.login.Account;
+import system.transferobjects.ClassName;
+import system.transferobjects.Container;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

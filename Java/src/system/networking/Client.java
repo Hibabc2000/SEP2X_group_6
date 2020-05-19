@@ -1,7 +1,7 @@
 package system.networking;
 
-import system.model.loginModel.Account;
-import system.model.loginModel.Group;
+import system.transferobjects.login.Account;
+import system.transferobjects.login.Group;
 import system.util.Subject;
 
 import java.io.IOException;

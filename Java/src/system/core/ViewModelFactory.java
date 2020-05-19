@@ -21,12 +21,12 @@ public class ViewModelFactory
   private AccountViewModel accountModel;
   private CreateAccountViewModel createAccountModel;
 
-  private OpenSystemViewModel opsmodel;
-  private PasswordRecoveryViewModel prmodel;
-  private DMAccountViewModel dmavm;
-  private PlayerAccountViewModel pavm;
-  private ChangePasswordViewModel cpvm;
-  private ChangeEmailViewModel cevm;
+  private OpenSystemViewModel openSystemViewModel;
+  private PasswordRecoveryViewModel passwordRecoveryViewModel;
+  private DMAccountViewModel dmAccountViewModel;
+  private PlayerAccountViewModel playerAccountViewModel;
+  private ChangePasswordViewModel changePasswordViewModel;
+  private ChangeEmailViewModel changeEmailViewModel;
 
 //  characterSheet
   private CharacterSheetViewModel characterSheetViewModel;
@@ -41,12 +41,12 @@ public class ViewModelFactory
     accountModel = new AccountViewModel(model.getAccountModel());
     createAccountModel = new CreateAccountViewModel(model.getAccountModel());
 
-    opsmodel = new OpenSystemViewModel(model.getAccountModel());
-    prmodel = new PasswordRecoveryViewModel(model.getAccountModel());
-    dmavm= new DMAccountViewModel(model.getAccountModel());
-    pavm= new PlayerAccountViewModel(model.getAccountModel());
-    cpvm = new ChangePasswordViewModel(model.getAccountModel());
-    cevm = new ChangeEmailViewModel(model.getAccountModel());
+    openSystemViewModel = new OpenSystemViewModel(model.getAccountModel());
+    passwordRecoveryViewModel = new PasswordRecoveryViewModel(model.getAccountModel());
+    dmAccountViewModel = new DMAccountViewModel(model.getAccountModel());
+    playerAccountViewModel = new PlayerAccountViewModel(model.getAccountModel());
+    changePasswordViewModel = new ChangePasswordViewModel(model.getAccountModel());
+    changeEmailViewModel = new ChangeEmailViewModel(model.getAccountModel());
 
 
   }
@@ -55,31 +55,31 @@ public class ViewModelFactory
   {
     return accountModel;
   }
-  public ChangeEmailViewModel getCEVM(){return cevm;}
+  public ChangeEmailViewModel getChangeEmailVM(){return changeEmailViewModel;}
   public CreateAccountViewModel getCreateAccountVM()
   {
     return createAccountModel;
   }
 
-  public OpenSystemViewModel getOSVM()
+  public OpenSystemViewModel getOpenSystemViewModel()
   {
-    return opsmodel;
+    return openSystemViewModel;
   }
   public PasswordRecoveryViewModel getPasswordRecoveryVM()
   {
-    return prmodel;
+    return passwordRecoveryViewModel;
   }
-  public DMAccountViewModel getDMAVM()
+  public DMAccountViewModel getDMAccountViewModel()
   {
-    return dmavm;
+    return dmAccountViewModel;
   }
-  public PlayerAccountViewModel getPAVM()
+  public PlayerAccountViewModel getPlayerAccountViewModel()
   {
-    return pavm;
+    return playerAccountViewModel;
   }
-  public ChangePasswordViewModel getCPVM()
+  public ChangePasswordViewModel getChangePasswordViewModel()
   {
-    return cpvm;
+    return changePasswordViewModel;
   }
 
 }

@@ -1,11 +1,11 @@
 package Database;
 
-import system.model.loginModel.Account;
-import system.model.loginModel.DM;
-import system.model.loginModel.Group;
-import system.model.loginModel.Player;
-import system.networking.ClassName;
-import system.networking.Container;
+import system.transferobjects.login.Account;
+import system.transferobjects.login.DM;
+import system.transferobjects.login.Group;
+import system.transferobjects.login.Player;
+import system.transferobjects.ClassName;
+import system.transferobjects.Container;
 
 import java.sql.*;
 import java.util.ArrayList;

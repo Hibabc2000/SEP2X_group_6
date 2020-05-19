@@ -1,7 +1,6 @@
-package system.model.loginModel;
+package system.transferobjects.login;
 
 import system.DiceRoll;
-import system.User;
 
 import java.io.Serializable;
 

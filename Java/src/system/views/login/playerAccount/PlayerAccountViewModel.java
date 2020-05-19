@@ -1,7 +1,7 @@
 package system.views.login.playerAccount;
 
 import system.model.loginModel.AccountModel;
-import system.model.loginModel.Group;
+import system.transferobjects.login.Group;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;

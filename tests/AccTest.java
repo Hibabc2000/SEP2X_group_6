@@ -1,8 +1,8 @@
 
-import system.model.loginModel.Account;
-import system.model.loginModel.DM;
-import system.model.loginModel.Player;
-import system.User;
+import system.transferobjects.login.Account;
+import system.transferobjects.login.DM;
+import system.transferobjects.login.Player;
+import system.transferobjects.login.User;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

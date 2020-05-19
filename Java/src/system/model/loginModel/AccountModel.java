@@ -1,5 +1,6 @@
 package system.model.loginModel;
 
+import system.transferobjects.login.Group;
 import system.util.Subject;
 
 import java.util.ArrayList;
@@ -19,6 +20,6 @@ public interface AccountModel extends Subject
   String searchGroup(int id);
   ArrayList<Group> getGroups();
 
- String joinGroupAsPlayer(String groupname);
+ String joinGroupAsPlayer(String groupName);
   String checkEmailChangeInformation(String value, String value1, String value2);
 }

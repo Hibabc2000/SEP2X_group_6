@@ -1,6 +1,6 @@
 package networking;
 
-import system.model.loginModel.Account;
+import system.transferobjects.login.Account;
 
 import java.util.ArrayList;
 import java.util.List;

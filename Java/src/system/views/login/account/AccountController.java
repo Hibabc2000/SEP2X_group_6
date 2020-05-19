@@ -10,7 +10,7 @@ import javafx.scene.control.TextField;
 public class AccountController
 {
   private ViewHandler vh;
-  private AccountViewModel avm;
+  private AccountViewModel accountViewModel;
   @FXML private TextField addGroup;
   @FXML private ListView groupListPlayer;
   @FXML private ListView groupListDM;
@@ -22,7 +22,7 @@ public class AccountController
 
   public void init(AccountViewModel accountVM, ViewHandler viewHandler)
   {
-    avm= accountVM;
+    accountViewModel = accountVM;
     vh=viewHandler;
   }
 
@@ -42,13 +42,13 @@ public class AccountController
 
   public void changeToDM(ActionEvent actionEvent)
   {
-    avm.changeToDm();
+    accountViewModel.changeToDm();
     vh.openAccountDM();
   }
 
   public void changeToPlayer(ActionEvent actionEvent)
   {
-    avm.changeToPlayer();
+    accountViewModel.changeToPlayer();
     vh.openAccountPlayer();
   }
 

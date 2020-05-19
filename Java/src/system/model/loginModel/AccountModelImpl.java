@@ -3,7 +3,11 @@ package system.model.loginModel;
 import system.AccountsForTesting;
 import system.DiceRoll;
 import system.networking.Client;
-import system.networking.Container;
+import system.transferobjects.Container;
+import system.transferobjects.login.Account;
+import system.transferobjects.login.DM;
+import system.transferobjects.login.Group;
+import system.transferobjects.login.Player;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -206,14 +210,14 @@ public class AccountModelImpl implements AccountModel
   // and whether the group contains the same username as the player, just to make sure there is absolutely no errors.
   //after that the player is added to a group , and fire prop change with 2 variables, oldgroup and the tempgroup.
 
-  @Override public String joinGroupAsPlayer(String groupname)
+  @Override public String joinGroupAsPlayer(String groupName)
   {
     String temp = "Connecting...";
     client.joinGroupAsAPlayer(usersAccount, tempGroups.get(0));
     // server
     for (int i = 0; i < tempGroups.size(); i++)
     {
-      if (tempGroups.get(i).toString().equals(groupname) && !(tempGroups.get(i)
+      if (tempGroups.get(i).toString().equals(groupName) && !(tempGroups.get(i)
           .isPlayerPartOfGroup(usersAccount.getPlayer())) && (!tempGroups.get(i)
           .isContainsUsername(usersAccount.getUsername())))
       {

@@ -17,6 +17,7 @@ import java.io.IOException;
 
 public class ViewHandler
 {
+  private ViewModelFactory vmf;
   private Scene login;
   private Scene createAccount;
   private Scene account;
@@ -28,14 +29,14 @@ public class ViewHandler
   private Scene emailChange;
   private Scene characterSheet;
   private Stage stage;
-  private ViewModelFactory vmd;
+
   private Stage stage2;
   private Stage stage3;
   private Stage stage4;
 
   public ViewHandler(ViewModelFactory vmf)
   {
-    vmd = vmf;
+    this.vmf = vmf;
     stage = new Stage();
     stage2 = new Stage();
     stage3 = new Stage();
@@ -56,7 +57,7 @@ public class ViewHandler
       Parent root = getRootByPath("views/login/openSystem/OpenSystem.fxml",
           loader);
       OpenSystemController osc = loader.getController();
-      osc.init(vmd.getOSVM(), this);
+      osc.init(vmf.getOpenSystemViewModel(), this);
       openSystem = new Scene(root);
 
     }
@@ -73,7 +74,7 @@ public class ViewHandler
     {
       Parent root = getRootByPath("../views/login/account/Account.fxml", loader);
       AccountController ac = loader.getController();
-      ac.init(vmd.getAccountVM(), this);
+      ac.init(vmf.getAccountVM(), this);
       account = new Scene(root);
 
     }
@@ -90,7 +91,7 @@ public class ViewHandler
     {
       Parent root = getRootByPath("../views/login/playerAccount/PlayerAccount.fxml", loader);
       PlayerAccountController pac = loader.getController();
-      pac.init(vmd.getPAVM(), this);
+      pac.init(vmf.getPlayerAccountViewModel(), this);
       accountPlayer = new Scene(root);
 
     }
@@ -107,7 +108,7 @@ public class ViewHandler
     {
       Parent root = getRootByPath("../views/login/dmAccount/DMAccount.fxml", loader);
       DMAccountController dmac = loader.getController();
-      dmac.init(vmd.getDMAVM(), this);
+      dmac.init(vmf.getDMAccountViewModel(), this);
       accountDM = new Scene(root);
 
     }
@@ -139,7 +140,7 @@ public class ViewHandler
     {
       Parent root = getRootByPath("../views/login/createAccount/CreateAccount.fxml", loader);
       CreateAccountController cac = loader.getController();
-      cac.init(vmd.getCreateAccountVM(), this);
+      cac.init(vmf.getCreateAccountVM(), this);
       createAccount = new Scene(root);
 
     }
@@ -157,7 +158,7 @@ public class ViewHandler
     {
       Parent root = getRootByPath("../views/login/passwordRecovery/PasswordRecovery.fxml", loader);
       PasswordRecoveryController controller = loader.getController();
-      controller.init(vmd.getPasswordRecoveryVM(), this);
+      controller.init(vmf.getPasswordRecoveryVM(), this);
       passwordRecovery = new Scene(root);
     }
     stage2.setTitle("DnDAS");
@@ -173,7 +174,7 @@ public class ViewHandler
     {
       Parent root = getRootByPath("../views/login/changePassword/ChangePassword.fxml", loader);
       ChangePasswordController controller = loader.getController();
-      controller.init(vmd.getCPVM(), this);
+      controller.init(vmf.getChangePasswordViewModel(), this);
       passwordChange = new Scene(root);
     }
     stage3.setTitle("DnDAS");
@@ -189,7 +190,7 @@ public class ViewHandler
     {
       Parent root = getRootByPath("../views/login/changeEmail/ChangeEmail.fxml", loader);
       ChangeEmailController controller = loader.getController();
-      controller.init(vmd.getCEVM(), this);
+      controller.init(vmf.getChangeEmailVM(), this);
       emailChange = new Scene(root);
     }
     stage4.setTitle("DnDAS");
@@ -207,7 +208,7 @@ public void openCharacterSheet()
   {
     Parent root = getRootByPath("../views/characterSheet/ChangeEmail.fxml", loader);
     ChangeEmailController controller = loader.getController();
-    controller.init(vmd.getCEVM(), this);
+    controller.init(vmf.getChangeEmailVM(), this);
     emailChange = new Scene(root);
   }
   stage4.setTitle("DnDAS");

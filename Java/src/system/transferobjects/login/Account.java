@@ -1,6 +1,4 @@
-package system.model.loginModel;
-
-import system.User;
+package system.transferobjects.login;
 
 import java.io.Serializable;
 

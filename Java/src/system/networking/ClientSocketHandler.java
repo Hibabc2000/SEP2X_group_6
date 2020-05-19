@@ -1,8 +1,10 @@
 package system.networking;
 
 import javafx.application.Platform;
-import system.model.loginModel.Account;
-import system.model.loginModel.Group;
+import system.transferobjects.ClassName;
+import system.transferobjects.Container;
+import system.transferobjects.login.Account;
+import system.transferobjects.login.Group;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

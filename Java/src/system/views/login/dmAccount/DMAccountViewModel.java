@@ -5,7 +5,7 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import system.model.loginModel.AccountModel;
-import system.model.loginModel.Group;
+import system.transferobjects.login.Group;
 
 import java.beans.PropertyChangeEvent;
 import java.util.ArrayList;
@@ -66,7 +66,6 @@ public class DMAccountViewModel
   {
     String temp = "Error";
     if (textField.getValue() == null || textField.getValue().equals(""))
-
     {
       error.setValue("Choose a name for your group");
     }
@@ -77,4 +76,8 @@ public class DMAccountViewModel
     error.setValue(temp);
   }
 
+  public void joinGroupAsDM()
+  {
+
+  }
 }

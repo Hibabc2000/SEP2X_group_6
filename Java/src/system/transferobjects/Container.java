@@ -1,4 +1,4 @@
-package system.networking;
+package system.transferobjects;
 
 import java.io.Serializable;
 

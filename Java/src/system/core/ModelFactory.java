@@ -8,24 +8,24 @@ import system.model.loginModel.AccountModelImpl;
 
 public class ModelFactory
 {
-  private AccountModel model;
-  private ClientFactory cf;
+  private AccountModel accountModel;
+  private ClientFactory clientFactory;
 
 private CharacterCreationModel characterCreationModel;
 private CharacterSheetModel characterSheetModel;
-  public ModelFactory(ClientFactory c)
+  public ModelFactory(ClientFactory clientFactory)
   {
-    cf = c;
+    this.clientFactory = clientFactory;
 
   }
 
   public AccountModel getAccountModel()
   {
-    if (model == null)
+    if (accountModel == null)
     {
-      model = new AccountModelImpl(cf.getClient());
+      accountModel = new AccountModelImpl(clientFactory.getClient());
     }
-    return model;
+    return accountModel;
   }
 
 }

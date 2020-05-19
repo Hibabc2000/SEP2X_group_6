@@ -1,4 +1,4 @@
-package system;
+package system.transferobjects.login;
 
 public interface User
 

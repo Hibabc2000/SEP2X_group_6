@@ -1,7 +1,8 @@
 package system.networking;
 
-import system.model.loginModel.Account;
-import system.model.loginModel.Group;
+import system.transferobjects.Container;
+import system.transferobjects.login.Account;
+import system.transferobjects.login.Group;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;

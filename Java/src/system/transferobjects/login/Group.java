@@ -1,4 +1,4 @@
-package system.model.loginModel;
+package system.transferobjects.login;
 
 import java.io.Serializable;
 import java.util.ArrayList;

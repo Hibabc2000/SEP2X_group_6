@@ -5,22 +5,24 @@ import javafx.beans.property.StringProperty;
 import system.model.loginModel.AccountModel;
 
 public class ChangeEmailViewModel
-{  private AccountModel model;
+{
+  private AccountModel accountModel;
   private StringProperty username;
   private StringProperty email;
-  private  StringProperty password;
+  private StringProperty password;
   private StringProperty error;
 
   public ChangeEmailViewModel(AccountModel accountModel)
-  { model = accountModel;
+  {
+    this.accountModel = accountModel;
 
-    username= new SimpleStringProperty();
+    username = new SimpleStringProperty();
     password = new SimpleStringProperty();
     email = new SimpleStringProperty();
     error = new SimpleStringProperty();
     error.setValue("");
     password.setValue("");
-   email.setValue("");
+    email.setValue("");
     username.setValue("");
   }
 
@@ -28,14 +30,17 @@ public class ChangeEmailViewModel
   {
     return username;
   }
+
   public StringProperty getPasswordProperty()
   {
     return password;
   }
+
   public StringProperty getErrorProperty()
   {
     return error;
   }
+
   public StringProperty getEmailProperty()
   {
     return email;
@@ -45,7 +50,9 @@ public class ChangeEmailViewModel
   // to checks if its ready or not.
   public String checkEmailChangeInformation()
   {
-    String temp = model.checkEmailChangeInformation(username.getValue(),password.getValue(),email.getValue());
+    String temp = accountModel
+        .checkEmailChangeInformation(username.getValue(), password.getValue(),
+            email.getValue());
     error.setValue(temp);
     password.setValue("");
     email.setValue("");
