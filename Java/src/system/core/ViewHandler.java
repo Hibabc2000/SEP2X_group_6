@@ -9,7 +9,6 @@ import system.views.login.changeEmail.ChangeEmailController;
 import system.views.login.changePassword.ChangePasswordController;
 import system.views.login.createAccount.CreateAccountController;
 import system.views.login.dmAccount.DMAccountController;
-import system.views.login.login.LoginController;
 import system.views.login.openSystem.OpenSystemController;
 import system.views.login.passwordRecovery.PasswordRecoveryController;
 import system.views.login.playerAccount.PlayerAccountController;
@@ -64,23 +63,6 @@ public class ViewHandler
 
     stage.setTitle("DnDAS");
     stage.setScene(openSystem);
-    stage.show();
-  }
-
-  public void openLogin()
-  {
-    FXMLLoader loader = new FXMLLoader();
-    if (login == null)
-    {
-      Parent root = getRootByPath("../views/login/login/Login.fxml", loader);
-      LoginController lc = loader.getController();
-      lc.init(vmd.getLoginVM(), this);
-      login = new Scene(root);
-
-    }
-
-    stage.setTitle("DnDAS");
-    stage.setScene(login);
     stage.show();
   }
 

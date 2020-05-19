@@ -246,22 +246,12 @@ public class AccountModelImpl implements AccountModel
   {
     String temp = "Connecting...";
 
-    if (username.equals(""))
+    if (username.equals("") || pass1.equals("") || pass2.equals("") || email
+        .equals(""))
     {
       temp = "Fill out all the fields";
     }
-    else if (pass1.equals(""))
-    {
-      temp = "Fill out all the fields";
-    }
-    else if (pass2.equals(""))
-    {
-      temp = "Fill out all the fields";
-    }
-    else if (email.equals(""))
-    {
-      temp = "Fill out all the fields";
-    }
+
     else if (pass1.length() < 6)
     {
       temp = "Password must be longer than 6 characters";
@@ -278,7 +268,6 @@ public class AccountModelImpl implements AccountModel
     {
       temp = "E-mail format not valid";
     }
-
     else
       client.createAccount(username, pass1, email);
     System.out.println("alma");

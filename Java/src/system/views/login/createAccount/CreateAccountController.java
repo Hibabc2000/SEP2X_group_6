@@ -12,7 +12,7 @@ import java.beans.PropertyChangeEvent;
 public class CreateAccountController
 {
   private ViewHandler vh;
-  private CreateAccountViewModel cavm;
+  private CreateAccountViewModel createAccountViewModel;
   @FXML private TextField userName;
   @FXML private PasswordField password1;
   @FXML private PasswordField password2;
@@ -26,30 +26,27 @@ public class CreateAccountController
   public void init(CreateAccountViewModel createAccountVM,
       ViewHandler viewHandler)
   {
-    cavm = createAccountVM;
+    createAccountViewModel = createAccountVM;
     vh = viewHandler;
 
-    userName.textProperty().bindBidirectional(cavm.getUserNameProperty());
-    errorMessage.textProperty().bind(cavm.getErrorProperty());
-    email.textProperty().bindBidirectional(cavm.getEmailProperty());
-    password1.textProperty().bindBidirectional(cavm.getPassword1Property());
-    password2.textProperty().bindBidirectional(cavm.getPassword2Property());
-       cavm.addListener("createAccount",this::createAccountReally);
-
+    userName.textProperty().bindBidirectional(createAccountViewModel.getUserNameProperty());
+    errorMessage.textProperty().bind(createAccountViewModel.getErrorProperty());
+    email.textProperty().bindBidirectional(createAccountViewModel.getEmailProperty());
+    password1.textProperty().bindBidirectional(createAccountViewModel.getPassword1Property());
+    password2.textProperty().bindBidirectional(createAccountViewModel.getPassword2Property());
+    createAccountViewModel.addListener("createAccount", this::createAccountReally);
 
   }
+
   public void createAccount()
   {
-
-    cavm.checkFieldsForReg();
-
+    createAccountViewModel.checkFieldsForReg();
   }
 
   public void goBack()
   {
     vh.openSystem();
   }
-
 
   private void createAccountReally(PropertyChangeEvent propertyChangeEvent)
   {

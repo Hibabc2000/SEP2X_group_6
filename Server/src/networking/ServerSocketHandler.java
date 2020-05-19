@@ -48,7 +48,7 @@ public class ServerSocketHandler implements Runnable
         switch (inDataPack.getClassName())
         {
 
-          case "createAccount":
+          case CREATE_ACCOUNT:
           {
             ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
             System.out.println(m.get(0));
@@ -77,7 +77,7 @@ public class ServerSocketHandler implements Runnable
               }
             }
 
-            Container outDataPack = new Container(unique, "createAccount");
+            Container outDataPack = new Container(unique, ClassName.CREATE_ACCOUNT);
             sendBackInformationAboutAccountCreation(outDataPack);
             break;
           }

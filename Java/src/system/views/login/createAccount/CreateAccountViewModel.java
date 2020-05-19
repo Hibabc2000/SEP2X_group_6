@@ -32,21 +32,23 @@ public class CreateAccountViewModel implements Subject
     password1.setValue("");
     password2.setValue("");
     email.setValue("");
-    model.addListener("createAccount",this::accountCreationInfo);
+    model.addListener("createAccount", this::accountCreationInfo);
   }
 
   private void accountCreationInfo(PropertyChangeEvent propertyChangeEvent)
-  {String val = "error";
+  {
+    String val = "error";
     System.out.println("event");
-        if(!((boolean) propertyChangeEvent.getNewValue())) { val = "This username or email is already in use."; error.setValue(val);}
-        else {val = "Ready"; }
-        support.firePropertyChange("createAccount",null,val);
-
-
-
-
-
-
+    if (!((boolean) propertyChangeEvent.getNewValue()))
+    {
+      val = "This username or email is already in use.";
+      error.setValue(val);
+    }
+    else
+    {
+      val = "Ready";
+    }
+    support.firePropertyChange("createAccount", null, val);
 
   }
 
@@ -59,12 +61,13 @@ public class CreateAccountViewModel implements Subject
         .checkAccountUniqueness(username.getValue(), password1.getValue(),
             password2.getValue(), email.getValue());
     error.setValue(temp);
-    if(!temp.equals("Connecting..."))
-    { username.setValue("");
+    if (!temp.equals("Connecting..."))
+    {
+      username.setValue("");
       password1.setValue("");
       password2.setValue("");
-      email.setValue("");}
-
+      email.setValue("");
+    }
 
     return temp;
 
