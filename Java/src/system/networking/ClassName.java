@@ -13,6 +13,13 @@ public enum ClassName
   CHECK_EMAIL_CHANGE,
 //  change password
   CHECK_PASSWORD_CHANGE,
+// groups
+  CREATE_GROUP,
+  JOIN_GROUP,
+  SEARCH_GROUP,
+//remove user from client
+ REMOVE_USER,
+
 
 
 }

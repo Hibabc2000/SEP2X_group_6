@@ -79,7 +79,7 @@ public class ClientSocketHandler implements Runnable
       ArrayList<Object> objs = new ArrayList<>();
 
       objs.add(ac);
-      Container outDataPack = new Container(objs, "removeUser");
+      Container outDataPack = new Container(objs, ClassName.REMOVE_USER);
       outToServer.writeObject(outDataPack);
     }
 
@@ -90,33 +90,12 @@ public class ClientSocketHandler implements Runnable
 
       objs.add(id);
       objs.add(user);
-      Container outDataPack = new Container(objs, "searchGroup");
+      Container outDataPack = new Container(objs, ClassName.SEARCH_GROUP);
       outToServer.writeObject(outDataPack);
     }
 
-    public void joinGroupAsPlayer(Account acc, String groupname)
-        throws IOException
-    {
-      ArrayList<Object> objs = new ArrayList<>();
 
-      objs.add(acc);
-      objs.add(groupname);
 
-      Container outDataPack = new Container(objs, "joinGroup");
-      outToServer.writeObject(outDataPack);
-    }
-
-    public void checkAccountUniqueness(String username, String password, String email)
-        throws IOException
-    { System.out.println("clientcheck3");
-      ArrayList<Object> objs = new ArrayList<>();
-
-      objs.add(username);
-      objs.add(password);
-      objs.add(email);
-      Container outDataPack = new Container(objs, "checkAccount");
-      outToServer.writeObject(outDataPack);
-    }
 
     public void checkLogin(String username, String password)
         throws IOException
@@ -130,27 +109,17 @@ public class ClientSocketHandler implements Runnable
       outToServer.writeObject(outDataPack);
     }
 
-    public void checkPasswordChangeInformation(Account acc, String newPassword, String oldPassword) throws IOException
+    public void changePassword(Account acc, String oldPassword) throws IOException
     {
       ArrayList<Object> objs = new ArrayList<>();
 
       objs.add(acc);
-      objs.add(newPassword);
       objs.add(oldPassword);
       Container outDataPack = new Container(objs, ClassName.CHECK_PASSWORD_CHANGE);
       outToServer.writeObject(outDataPack);
     }
 
-    public void checkEmailChangeInformation(Account acc, String email)
-        throws IOException
-    {
-      ArrayList<Object> objs = new ArrayList<>();
 
-      objs.add(acc);
-      objs.add(email);
-      Container outDataPack = new Container(objs, ClassName.CHECK_EMAIL_CHANGE);
-      outToServer.writeObject(outDataPack);
-    }
 
     public void joinGroup(Account acc, Group g)
         throws IOException
@@ -159,7 +128,7 @@ public class ClientSocketHandler implements Runnable
 
       objs.add(acc);
       objs.add(g);
-      Container outDataPack = new Container(objs, "joinGroup");
+      Container outDataPack = new Container(objs, ClassName.JOIN_GROUP);
       outToServer.writeObject(outDataPack);
     }
 
@@ -170,7 +139,7 @@ public class ClientSocketHandler implements Runnable
 
       objs.add(acc);
       objs.add(groupName);
-      Container outDataPack = new Container(objs, "createGroup");
+      Container outDataPack = new Container(objs,ClassName.CREATE_GROUP);
       outToServer.writeObject(outDataPack);
     }
 
@@ -184,16 +153,7 @@ public class ClientSocketHandler implements Runnable
       outToServer.writeObject(outDataPack);
     }
 
-    public void changePassword(Account acc, String newPassword)
-        throws IOException
-    {
-      ArrayList<Object> objs = new ArrayList<>();
 
-      objs.add(acc);
-      objs.add(newPassword);
-      Container outDataPack = new Container(objs, "changePassword");
-      outToServer.writeObject(outDataPack);
-    }
 
     public void changeEmail(Account acc, String email)
         throws IOException
@@ -206,16 +166,7 @@ public class ClientSocketHandler implements Runnable
       outToServer.writeObject(outDataPack);
     }
 
-    public void loginAccount(String name, String password)
-        throws IOException
-    {
-      ArrayList<Object> objs = new ArrayList<>();
 
-      objs.add(name);
-      objs.add(password);
-      Container outDataPack = new Container(objs, "loginAccount");
-      outToServer.writeObject(outDataPack);
-    }
 
     public void createAccount(String name, String password, String email)
         throws IOException

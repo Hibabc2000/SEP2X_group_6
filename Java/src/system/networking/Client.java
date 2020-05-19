@@ -1,6 +1,7 @@
 package system.networking;
 
 import system.model.loginModel.Account;
+import system.model.loginModel.Group;
 import system.util.Subject;
 
 import java.io.IOException;
@@ -15,13 +16,11 @@ public interface Client extends Subject
   void recoverPassword(String email);
   void createGroup(Account acc, String groupName);
 
-  void checkEmailChangeInformation(Account acc, String email);
-  void checkPasswordChangeInformation(Account acc, String newPassword,
+  void changePassword(Account acc,
       String oldPassword);
 
 
-  // void checkAccountUniqueness(String username, String password, String email);
-  void joinGroupAsAPlayer(Account acc, String groupname);
+  void joinGroupAsAPlayer(Account acc, Group group);
   void searchGroup(int id, String user);
   void removeUser(Account ac);
 

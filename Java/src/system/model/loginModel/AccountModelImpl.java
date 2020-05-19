@@ -209,7 +209,7 @@ public class AccountModelImpl implements AccountModel
   @Override public String joinGroupAsPlayer(String groupname)
   {
     String temp = "Connecting...";
-    client.joinGroupAsAPlayer(usersAccount, groupname);
+    client.joinGroupAsAPlayer(usersAccount, tempGroups.get(0));
     // server
     for (int i = 0; i < tempGroups.size(); i++)
     {
@@ -361,18 +361,12 @@ public class AccountModelImpl implements AccountModel
       temp = "Wrong old password";
     }
     else
-      client.checkPasswordChangeInformation(usersAccount, passNew, passOld);
-    //server
-    for (int i = 0; i < tempAccounts.size(); i++)
     {
-      if (tempAccounts.get(i).getPassword().equals(passOld) && tempAccounts
-          .get(i).getUsername().equals(username))
-      {
-        change = tempAccounts.get(i);
-        temp = "Ready";
-      }
+      usersAccount.setPassword(passNew);temp = "Ready"; // if no errors,then password is changed
+      client.changePassword(usersAccount, passOld); // here we send it to the database so it changes, we dont need to check anything
 
     }
+
     if (temp.equals("Ready"))
     {
       tempAccounts.get(tempAccounts.indexOf(change)).setPassword(passNew);
@@ -404,7 +398,7 @@ public class AccountModelImpl implements AccountModel
       temp = "Wrong  password or username";
     }
     else
-      client.checkEmailChangeInformation(usersAccount, email);
+      client.changeEmail(usersAccount, email);
     //server
     for (int i = 0; i < tempAccounts.size(); i++)
     {

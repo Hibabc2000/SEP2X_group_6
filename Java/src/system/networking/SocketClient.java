@@ -1,6 +1,7 @@
 package system.networking;
 
 import system.model.loginModel.Account;
+import system.model.loginModel.Group;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -85,32 +86,19 @@ public class SocketClient implements Client
 
 
 
-  @Override public void checkEmailChangeInformation(Account acc, String email)
+
+
+  @Override public void changePassword(Account acc, String oldPassword)
   {
-    try
-    {
-      socketHandler.checkEmailChangeInformation(acc,email);
-    }
-    catch (IOException e)
-    {
-      e.printStackTrace();
-    }
+      try
+      {
+        socketHandler.changePassword(acc,oldPassword);
+      }
+      catch (IOException e)
+      {
+        e.printStackTrace();
+      }
   }
-
-  @Override public void checkPasswordChangeInformation(Account acc,
-      String newPassword, String oldPassword)
-  {
-    try
-    {
-      socketHandler.checkPasswordChangeInformation(acc,newPassword,oldPassword);
-    }
-    catch (IOException e)
-    {
-      e.printStackTrace();
-    }
-  }
-
-
 
   @Override public void checkLogin(String username, String password)
   {
@@ -125,25 +113,12 @@ public class SocketClient implements Client
     }
   }
 
-  /*@Override public void checkAccountUniqueness(String username, String password,
-      String email)
-  {System.out.println("clientcheck1");
-    try
-    {
-      System.out.println("clientcheck2");
-      socketHandler.checkAccountUniqueness(username,password,email,"checkAccount");
-    }
-    catch (IOException e)
-    {
-      e.printStackTrace();
-    }
-  }
-*/
-  @Override public void joinGroupAsAPlayer(Account acc, String groupname)
+
+  @Override public void joinGroupAsAPlayer(Account acc, Group groupname)
   {
     try
     {
-      socketHandler.joinGroupAsPlayer(acc,groupname);
+      socketHandler.joinGroup(acc,groupname);
     }
     catch (IOException e)
     {

@@ -150,18 +150,20 @@ public class GetAllAccountData
       throws SQLException
   {
 
-    System.out.println("elindulsz,?");
+
 
     Statement st = c.createStatement();
-    String query =
-        "SELECT * FROM \"Users\".\"Users\" WHERE  username  = '" + username
-            + "' AND password ='" + password + "' ;";
+    String query = "SELECT u.username, u.password, u.email, u.\"groupIDs\", g.name, g.id, g.\"usernameDM\", g.\"usernamePlayers\", g.\"characterIDs\" FROM \"Groups\".\"Groups\" g, \"Users\".\"Users\" u     WHERE u.username = '"+username +"' AND u.password= '"+password +"' ;";
 
     ResultSet rs = st.executeQuery(query);
     String userame = null;
     String ema = null;
     String pass = null;
+    String groupidz = null;
     ArrayList<Integer> ids = new ArrayList<>();
+    ArrayList<Group> groupList = new ArrayList<>();
+    ArrayList<String> plys = new ArrayList<>();
+    ArrayList<Integer> charIDs = new ArrayList<>();
 
     while (rs.next())
     {
@@ -169,45 +171,49 @@ public class GetAllAccountData
       pass = rs.getString("password");
       ema = rs.getString("email");
 
-      String m = rs.getString("groupIDs");
+      groupidz = rs.getString("groupIDs");
 
-      ids = sqlArrayToArrayListInteger(m);
+      String k = rs.getString("usernamePlayers");
+      plys = sqlArrayToArrayListString(k);
+
+      String charid = rs.getString("characterIDs");
+      charIDs = sqlArrayToArrayListInteger(charid);
+
+      for (int i = 0; i < plys.size(); i++)
+      {
+        System.out.println(plys.get(i));
+        Player a = new Player(plys.get(i));
+        a.addCharacterID(charIDs.get(i));
+
+        ng.addPlayer(a);
+
+      }
+      groupList.add(plys)
+
 
     }
 
-    ArrayList<Group> groupList = new ArrayList<>();
-    ArrayList<String> plys = new ArrayList<>();
-    ArrayList<Integer> charIDs = new ArrayList<>();
+    ids = sqlArrayToArrayListInteger(groupidz);
+
+
 
     for (int i = 0; i < ids.size(); i++)
     {
       query = "SELECT * FROM \"Groups\".\"Groups\" WHERE  id  = '" + ids.get(i)
           + "' ;";
       rs = st.executeQuery(query);
-      System.out.println(ids.get(i));
+
       while (rs.next())
       {
         Group ng = new Group(rs.getString("name"), rs.getInt("id"));
-        System.out.println(rs.getString("name"));
-        System.out.println(rs.getInt("id"));
+
         ng.addDM(new DM(rs.getString("usernameDM")));
-        System.out.println(rs.getString("usernameDM"));
-        String charid = rs.getString("characterIDs");
-        System.out.println(rs.getString("characterIDs"));
-        charIDs = sqlArrayToArrayListInteger(charid);
 
-        String k = rs.getString("usernamePlayers");
-        plys = sqlArrayToArrayListString(k);
 
-        for (int op = 0; i < plys.size(); i++)
-        {
-          System.out.println(plys.get(i));
-          Player a = new Player(plys.get(i));
-          a.addCharacterID(charIDs.get(i));
 
-          ng.addPlayer(a);
 
-        }
+
+
 
         groupList.add(ng);
 

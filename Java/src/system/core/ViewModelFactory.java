@@ -9,7 +9,7 @@ import system.views.login.changeEmail.ChangeEmailViewModel;
 import system.views.login.changePassword.ChangePasswordViewModel;
 import system.views.login.createAccount.CreateAccountViewModel;
 import system.views.login.dmAccount.DMAccountViewModel;
-import system.views.login.login.LoginViewModel;
+
 import system.views.login.openSystem.OpenSystemViewModel;
 import system.views.login.passwordRecovery.PasswordRecoveryViewModel;
 import system.views.login.playerAccount.PlayerAccountViewModel;
@@ -20,7 +20,7 @@ public class ViewModelFactory
   private ModelFactory model;
   private AccountViewModel accountModel;
   private CreateAccountViewModel createAccountModel;
-  private LoginViewModel loginModel;
+
   private OpenSystemViewModel opsmodel;
   private PasswordRecoveryViewModel prmodel;
   private DMAccountViewModel dmavm;
@@ -40,7 +40,7 @@ public class ViewModelFactory
     model = mf;
     accountModel = new AccountViewModel(model.getAccountModel());
     createAccountModel = new CreateAccountViewModel(model.getAccountModel());
-    loginModel = new LoginViewModel(model.getAccountModel());
+
     opsmodel = new OpenSystemViewModel(model.getAccountModel());
     prmodel = new PasswordRecoveryViewModel(model.getAccountModel());
     dmavm= new DMAccountViewModel(model.getAccountModel());
@@ -60,10 +60,7 @@ public class ViewModelFactory
   {
     return createAccountModel;
   }
-  public LoginViewModel getLoginVM()
-  {
-    return loginModel;
-  }
+
   public OpenSystemViewModel getOSVM()
   {
     return opsmodel;

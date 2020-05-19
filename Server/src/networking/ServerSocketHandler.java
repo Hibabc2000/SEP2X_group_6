@@ -82,7 +82,7 @@ public class ServerSocketHandler implements Runnable
             sendBackInformationAboutAccountCreation(outDataPack);
             break;
           }
-          case "changeEmail":
+          case CHECK_EMAIL_CHANGE:
           {
             ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
             Account account = (Account) (m.get(0));
@@ -95,19 +95,14 @@ public class ServerSocketHandler implements Runnable
             String email = (String) (m.get(0));
             break;
           }
-          case "createGroup":
+          case CREATE_GROUP:
           {
             ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
             Account account = (Account) (m.get(0));
             String groupname = (String) (m.get(1));
             break;
           }
-          case CHECK_EMAIL_CHANGE:
-          {
-            ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
-            String email = (String) (m.get(1));
-            break;
-          }
+
           case CHECK_PASSWORD_CHANGE:
           {
             ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
@@ -156,31 +151,28 @@ public class ServerSocketHandler implements Runnable
 
             break;
           }
-          case "checkAccount":
-          {
-            ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
-            String username = (String) (m).get(0);
-            String password = (String) (m).get(1);
-            String email = (String) (m).get(2);
 
-            // datbase something
-            break;
-          }
-          case "joinGroup":
+          case JOIN_GROUP:
           {
             ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
             Account ac = (Account) (m.get(0));
             String groupname = (String) (m.get(1));
             break;
           }
-          case "searchGroup":
+          case SEARCH_GROUP:
           {
             ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
             int id = (int) (m.get(0));
             String usernameToCheckWithDMgroup = (String) (m.get(1));
             break;
           }
+          case REMOVE_USER:
+          {ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
+            Account user = (Account) (m.get(0));
 
+            break;
+
+          }
         }
       }
     }
