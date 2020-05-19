@@ -14,21 +14,29 @@ public class ChangeEmailController
   @FXML private Label errorMessage;
   @FXML private TextField usernameField;
   @FXML private PasswordField passwordField;
- @FXML private TextField emailField;
+  @FXML private TextField emailField;
+
   public void init(ChangeEmailViewModel vm, ViewHandler viewHandler)
   {
 
-    cevmodel= vm;
+    cevmodel = vm;
     vh = viewHandler;
     errorMessage.textProperty().bind(cevmodel.getErrorProperty());
-    usernameField.textProperty().bindBidirectional(cevmodel.getUserNameProperty());
-    passwordField.textProperty().bindBidirectional(cevmodel.getPasswordProperty());
+    usernameField.textProperty()
+        .bindBidirectional(cevmodel.getUserNameProperty());
+    passwordField.textProperty()
+        .bindBidirectional(cevmodel.getPasswordProperty());
     emailField.textProperty().bindBidirectional(cevmodel.getEmailProperty());
 
   }
+
   // checks the string if it equals ready then closes the stage
-  public void proceedWithEmailChange(ActionEvent actionEvent)
-  {if (cevmodel.checkEmailChangeInformation().equals("Ready")) { vh.closeStage4();}
+  public void confirmEmailButton()
+  {
+    if (cevmodel.checkEmailChangeInformation().equals("Ready"))
+    {
+      vh.closeStage4();
+    }
 
   }
 

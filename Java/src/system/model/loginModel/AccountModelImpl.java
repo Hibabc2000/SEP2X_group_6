@@ -347,19 +347,8 @@ public class AccountModelImpl implements AccountModel
     String temp = "Error";
     Account change = null;
 
-    if (username.equals(""))
-    {
-      temp = "Fill out all the fields";
-    }
-    else if (passOld.equals(""))
-    {
-      temp = "Fill out all the fields";
-    }
-    else if (passNew.equals(""))
-    {
-      temp = "Fill out all the fields";
-    }
-    else if (passNewAgain.equals(""))
+    if (username.equals("") || passOld.equals("") || passNew.equals("")
+        || passNewAgain.equals(""))
     {
       temp = "Fill out all the fields";
     }
@@ -401,15 +390,7 @@ public class AccountModelImpl implements AccountModel
     Account change = null;
     String temp = "Error";
 
-    if (username.equals(""))
-    {
-      temp = "Fill out all the fields";
-    }
-    else if (password.equals(""))
-    {
-      temp = "Fill out all the fields";
-    }
-    else if (email.equals(""))
+    if (username.equals("") || password.equals("") || email.equals(""))
     {
       temp = "Fill out all the fields";
     }

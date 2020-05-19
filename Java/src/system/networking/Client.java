@@ -18,7 +18,7 @@ public interface Client extends Subject
   void checkEmailChangeInformation(Account acc, String email);
   void checkPasswordChangeInformation(Account acc, String newPassword,
       String oldPassword);
-  void checkEmail(String email);
+
 
   // void checkAccountUniqueness(String username, String password, String email);
   void joinGroupAsAPlayer(Account acc, String groupname);

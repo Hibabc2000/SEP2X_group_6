@@ -142,7 +142,7 @@ public class GetAllAccountData
     System.out.println("ans3" + answer);
     ArrayList<Object> obj = new ArrayList<>();
     obj.add(answer);
-    Container datapack = new Container(obj, "acceptLogin");
+    Container datapack = new Container(obj, ClassName.LOGIN_RESPONSE);
     return datapack;
   }
 

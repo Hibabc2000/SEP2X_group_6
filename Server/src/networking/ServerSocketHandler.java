@@ -77,7 +77,8 @@ public class ServerSocketHandler implements Runnable
               }
             }
 
-            Container outDataPack = new Container(unique, ClassName.CREATE_ACCOUNT);
+            Container outDataPack = new Container(unique,
+                ClassName.CREATE_ACCOUNT);
             sendBackInformationAboutAccountCreation(outDataPack);
             break;
           }
@@ -88,7 +89,7 @@ public class ServerSocketHandler implements Runnable
             String email = (String) (m.get(1));
             break;
           }
-          case "recoverPassword":
+          case RECOVER_PASSWORD:
           {
             ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
             String email = (String) (m.get(0));
@@ -101,14 +102,13 @@ public class ServerSocketHandler implements Runnable
             String groupname = (String) (m.get(1));
             break;
           }
-          case "checkEmailChange":
+          case CHECK_EMAIL_CHANGE:
           {
             ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
-            Account account = (Account) (m.get(0));
             String email = (String) (m.get(1));
             break;
           }
-          case "checkPasswordChange":
+          case CHECK_PASSWORD_CHANGE:
           {
             ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
             Account account = (Account) (m.get(0));
@@ -116,7 +116,7 @@ public class ServerSocketHandler implements Runnable
             String oldPassword = (String) (m.get(2));
             break;
           }
-          case ClassName.CHECK_LOGIN:
+          case CHECK_LOGIN:
           {
             Container dataPack = null;
             ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
@@ -129,7 +129,7 @@ public class ServerSocketHandler implements Runnable
               System.out.println("checking the login in serveecoscket");
               dataPack = database.checkLogin(username, password);
               answer = (boolean) ((ArrayList<Object>) dataPack.getObject())
-                .get(0);
+                  .get(0);
             }
             catch (SQLException e)
             {

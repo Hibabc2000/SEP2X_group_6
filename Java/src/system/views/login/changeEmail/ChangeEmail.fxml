@@ -10,8 +10,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
-<FlowPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.views.login.changeEmail.ChangeEmailController">
+<FlowPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.views.login.changeEmail.ChangeEmailController">
    <children>
       <AnchorPane id="mainPane" prefHeight="349.0" prefWidth="511.0" stylesheets="@../../../../../../CSS/common/css.css">
          <children>
@@ -34,7 +33,7 @@
             <Label alignment="CENTER" layoutX="53.0" layoutY="93.0" prefHeight="26.0" prefWidth="124.0" text="Username :" />
             <Label alignment="CENTER" layoutX="53.0" layoutY="216.0" prefHeight="26.0" prefWidth="124.0" text="New email address" />
             <Label fx:id="errorMessage" layoutX="112.0" layoutY="313.0" prefHeight="50.0" prefWidth="275.0" text="Error" />
-            <Button fx:id="proceedButton" layoutX="106.0" layoutY="278.0" mnemonicParsing="false" onAction="#proceedWithEmailChange" prefHeight="35.0" prefWidth="287.0" style="-fx-background-color: #7cc987;" text="Confirm" />
+            <Button fx:id="confirmEmailButton" layoutX="106.0" layoutY="278.0" mnemonicParsing="false" onAction="#confirmEmailButton" prefHeight="35.0" prefWidth="287.0" style="-fx-background-color: #7cc987;" text="Confirm" />
             <Button fx:id="cancelButton" layoutX="417.0" layoutY="41.0" mnemonicParsing="false" onAction="#cancelEmailChange" prefHeight="3.0" prefWidth="54.0" style="-fx-background-color: #7cc987;" text="Back" />
             <Label alignment="CENTER" layoutX="154.0" layoutY="18.0" prefHeight="71.0" prefWidth="201.0" text="Change email">
                <font>

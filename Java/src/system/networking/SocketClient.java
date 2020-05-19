@@ -110,17 +110,7 @@ public class SocketClient implements Client
     }
   }
 
-  @Override public void checkEmail(String email)
-  {
-    try
-    {
-      socketHandler.checkEmail(email);
-    }
-    catch (IOException e)
-    {
-      e.printStackTrace();
-    }
-  }
+
 
   @Override public void checkLogin(String username, String password)
   {

@@ -130,16 +130,6 @@ public class ClientSocketHandler implements Runnable
       outToServer.writeObject(outDataPack);
     }
 
-    public void checkEmail(String email) throws IOException
-    {
-      ArrayList<Object> objs = new ArrayList<>();
-
-      objs.add(email);
-
-      Container outDataPack = new Container(objs, "checkEmail");
-      outToServer.writeObject(outDataPack);
-    }
-
     public void checkPasswordChangeInformation(Account acc, String newPassword, String oldPassword) throws IOException
     {
       ArrayList<Object> objs = new ArrayList<>();
@@ -147,7 +137,7 @@ public class ClientSocketHandler implements Runnable
       objs.add(acc);
       objs.add(newPassword);
       objs.add(oldPassword);
-      Container outDataPack = new Container(objs, "checkPasswordChange");
+      Container outDataPack = new Container(objs, ClassName.CHECK_PASSWORD_CHANGE);
       outToServer.writeObject(outDataPack);
     }
 
@@ -158,7 +148,7 @@ public class ClientSocketHandler implements Runnable
 
       objs.add(acc);
       objs.add(email);
-      Container outDataPack = new Container(objs, "checkEmailChange");
+      Container outDataPack = new Container(objs, ClassName.CHECK_EMAIL_CHANGE);
       outToServer.writeObject(outDataPack);
     }
 
@@ -212,7 +202,7 @@ public class ClientSocketHandler implements Runnable
 
       objs.add(acc);
       objs.add(email);
-      Container outDataPack = new Container(objs, "changeEmail");
+      Container outDataPack = new Container(objs, ClassName.CHECK_EMAIL_CHANGE);
       outToServer.writeObject(outDataPack);
     }
 
