@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/loginModel/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/loginModel/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/loginModel/DM.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/loginModel/DM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/loginModel/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/loginModel/Group.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/loginModel/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/loginModel/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/networking/ClientSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/networking/ClientSocketHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/networking/SocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/networking/SocketClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/account/Account.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/account/Account.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/createAccount/CreateAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/createAccount/CreateAccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/createAccount/CreateAccountViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/createAccount/CreateAccountViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Database/GetAllAccountData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/GetAllAccountData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Database/GetAllTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/GetAllTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" afterDir="false" />
-    </list>
+    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -285,7 +270,8 @@
     <MESSAGE value="UI mthfck" />
     <MESSAGE value="&#10;clientből ---&gt; firepropertychange --&gt;CreateAccount viewmodel --&gt; update controller &lt;-- while loop" />
     <MESSAGE value="&#10;fixed things, for container to work" />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;fixed things, for container to work" />
+    <MESSAGE value="ServerDatabaseClientcommunication, modelimpl methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="ServerDatabaseClientcommunication, modelimpl methods" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
