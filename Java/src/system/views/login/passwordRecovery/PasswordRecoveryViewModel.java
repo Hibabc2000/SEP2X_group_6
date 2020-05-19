@@ -16,6 +16,7 @@ private StringProperty error;
   }
   public String checkEmail()
   {
+    // Pars a message to view (confirmation message)
     String temp= model.checkEmail(email.getValue());
     error.setValue(temp); email.setValue("");
     return temp;

@@ -39,9 +39,9 @@ public class CreateAccountController
 
   }
   public void createAccount()
-  {  cavm.checkFieldsForReg();
+  {
 
-
+    cavm.checkFieldsForReg();
 
   }
 

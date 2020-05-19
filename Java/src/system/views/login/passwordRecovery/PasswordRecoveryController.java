@@ -1,11 +1,10 @@
 package system.views.login.passwordRecovery;
 
-import system.core.ViewHandler;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import system.core.ViewHandler;
 
 public class PasswordRecoveryController
 {
@@ -14,7 +13,7 @@ public class PasswordRecoveryController
   @FXML private TextField emailTextField;
   @FXML private Button recoverPasswordButton;
   @FXML private Label errorMessage;
-  public void recoverPassword(ActionEvent actionEvent)
+  public void recoverPassword()
   {
     if(model.checkEmail().equals("Ready")){
       vh.closeStage2(); }

@@ -311,7 +311,7 @@ public class AccountModelImpl implements AccountModel
 
     if (value.equals(""))
     {
-      temp = "Type in your email account,dude...";
+      temp = "Type in your email account,jezz...";
     }
 
     else
