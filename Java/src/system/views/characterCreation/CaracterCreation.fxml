@@ -2,13 +2,13 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
@@ -21,7 +21,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="912.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.logs.CVP">
+<AnchorPane prefHeight="912.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.views.characterCreation.CharacterCreationController">
    <children>
       <MenuBar layoutY="-1.0" prefHeight="30.0" prefWidth="1920.0">
         <menus>
@@ -58,22 +58,22 @@
                             <RowConstraints maxHeight="783.6000045776367" minHeight="10.0" prefHeight="770.3999908447265" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <ComboBox fx:id="raceBox" prefHeight="13.0" prefWidth="910.0" promptText="RACE" style="-fx-font-size: 30; -fx-background-color: white; -fx-border-color: black; -fx-border-radius: 5;">
+                              <ComboBox fx:id="raceComboBox" prefHeight="13.0" prefWidth="910.0" promptText="RACE" style="-fx-font-size: 30; -fx-background-color: white; -fx-border-color: black; -fx-border-radius: 5;">
                                  <GridPane.margin>
                                     <Insets left="20.0" top="15.0" />
                                  </GridPane.margin>
                               </ComboBox>
-                              <ComboBox fx:id="classBox" prefHeight="60.0" prefWidth="909.0" promptText="CLass" style="-fx-font-size: 30; -fx-background-color: white; -fx-border-color: black; -fx-border-radius: 5;" GridPane.columnIndex="1">
+                              <ComboBox fx:id="classComboBox" prefHeight="60.0" prefWidth="909.0" promptText="CLass" style="-fx-font-size: 30; -fx-background-color: white; -fx-border-color: black; -fx-border-radius: 5;" GridPane.columnIndex="1">
                                  <GridPane.margin>
                                     <Insets left="29.0" top="15.0" />
                                  </GridPane.margin>
                               </ComboBox>
-                              <TextArea fx:id="raceDisc" editable="false" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: gray; -fx-border-color: black; -fx-border-radius: 5;" GridPane.rowIndex="1">
+                              <TextArea fx:id="raceDescription" editable="false" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: gray; -fx-border-color: black; -fx-border-radius: 5;" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets bottom="20.0" left="20.0" right="30.0" top="10.0" />
                                  </GridPane.margin>
                               </TextArea>
-                              <TextArea fx:id="classDisc" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: gray; -fx-border-color: black; -fx-border-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <TextArea fx:id="classDescription" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: gray; -fx-border-color: black; -fx-border-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets bottom="20.0" left="29.0" right="22.0" top="10.0" />
                                  </GridPane.margin>
@@ -128,7 +128,7 @@
                                                 <Insets left="10.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <TextField fx:id="strRolledNum" prefHeight="102.0" prefWidth="114.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <TextField fx:id="strengthRolledNumber" prefHeight="102.0" prefWidth="114.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <GridPane.margin>
                                                 <Insets left="20.0" right="20.0" />
                                              </GridPane.margin>
@@ -180,7 +180,7 @@
                                                 <Insets left="10.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="strRacialBonus" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                          <Label fx:id="strengthRacialBonus" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                              <font>
                                                 <Font size="30.0" />
                                              </font>
@@ -188,7 +188,7 @@
                                                 <Insets left="40.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="strAbilityImprovment" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                          <Label fx:id="strengthAbilityImprovement" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                              <font>
                                                 <Font size="30.0" />
                                              </font>
@@ -196,7 +196,7 @@
                                                 <Insets left="40.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="strMiscBonus" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                          <Label fx:id="strengthMiscBonus" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                              <font>
                                                 <Font size="30.0" />
                                              </font>
@@ -204,7 +204,7 @@
                                                 <Insets left="40.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="strTotal" text="20" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                          <Label fx:id="strengthTotal" text="20" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                              <GridPane.margin>
                                                 <Insets left="30.0" />
                                              </GridPane.margin>
@@ -251,7 +251,7 @@
                                                 <Insets left="10.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <TextField fx:id="dexRolledNum" prefHeight="102.0" prefWidth="114.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <TextField fx:id="dexterityRolledNumber" prefHeight="102.0" prefWidth="114.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <GridPane.margin>
                                                 <Insets left="20.0" right="20.0" />
                                              </GridPane.margin>
@@ -303,7 +303,7 @@
                                                 <Insets left="10.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="dexRacialBonus" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                          <Label fx:id="dexterityRacialBonus" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                              <font>
                                                 <Font size="30.0" />
                                              </font>
@@ -311,7 +311,7 @@
                                                 <Insets left="40.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="dexAbilityImprovment" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                          <Label fx:id="dexterityAbilityImprovement" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                              <font>
                                                 <Font size="30.0" />
                                              </font>
@@ -319,7 +319,7 @@
                                                 <Insets left="40.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="dexMiscBonus" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                          <Label fx:id="dexterityMiscBonus" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                              <font>
                                                 <Font size="30.0" />
                                              </font>
@@ -327,7 +327,7 @@
                                                 <Insets left="40.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="dexTotal" text="20" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                          <Label fx:id="dexterityTotal" text="20" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                              <GridPane.margin>
                                                 <Insets left="30.0" />
                                              </GridPane.margin>
@@ -374,7 +374,7 @@
                                                 <Insets left="10.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <TextField fx:id="conRolledNum" prefHeight="102.0" prefWidth="114.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <TextField fx:id="constitutionRolledNumber" prefHeight="102.0" prefWidth="114.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <GridPane.margin>
                                                 <Insets left="20.0" right="20.0" />
                                              </GridPane.margin>
@@ -426,7 +426,7 @@
                                                 <Insets left="10.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="conRacialBonus" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                          <Label fx:id="constitutionRacialBonus" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                              <font>
                                                 <Font size="30.0" />
                                              </font>
@@ -434,7 +434,7 @@
                                                 <Insets left="40.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="conAbilityImprovment" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                          <Label fx:id="constitutionAbilityImprovement" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                              <font>
                                                 <Font size="30.0" />
                                              </font>
@@ -442,7 +442,7 @@
                                                 <Insets left="40.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="conMiscBonus" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                          <Label fx:id="constitutionMiscBonus" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                              <font>
                                                 <Font size="30.0" />
                                              </font>
@@ -450,7 +450,7 @@
                                                 <Insets left="40.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="conTotal" text="20" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                          <Label fx:id="constitutionTotal" text="20" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                              <GridPane.margin>
                                                 <Insets left="30.0" />
                                              </GridPane.margin>
@@ -497,7 +497,7 @@
                                                 <Insets left="10.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <TextField fx:id="intRolledNum" prefHeight="102.0" prefWidth="114.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <TextField fx:id="intelligenceRolledNumber" prefHeight="102.0" prefWidth="114.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <GridPane.margin>
                                                 <Insets left="20.0" right="20.0" />
                                              </GridPane.margin>
@@ -549,7 +549,7 @@
                                                 <Insets left="10.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="intRacialBonus" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                          <Label fx:id="intelligenceRacialBonus" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                              <font>
                                                 <Font size="30.0" />
                                              </font>
@@ -557,7 +557,7 @@
                                                 <Insets left="40.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="intAbilityImprovment" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                          <Label fx:id="intelligenceAbilityImprovement" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                              <font>
                                                 <Font size="30.0" />
                                              </font>
@@ -565,7 +565,7 @@
                                                 <Insets left="40.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="intMiscBonus" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                          <Label fx:id="intelligenceMiscBonus" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                              <font>
                                                 <Font size="30.0" />
                                              </font>
@@ -573,7 +573,7 @@
                                                 <Insets left="40.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="intTotal" text="20" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                          <Label fx:id="intelligenceTotal" text="20" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                              <GridPane.margin>
                                                 <Insets left="30.0" />
                                              </GridPane.margin>
@@ -620,7 +620,7 @@
                                                 <Insets left="10.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <TextField fx:id="wizRolledNum" prefHeight="102.0" prefWidth="114.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <TextField fx:id="wisdomRolledNumber" prefHeight="102.0" prefWidth="114.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <GridPane.margin>
                                                 <Insets left="20.0" right="20.0" />
                                              </GridPane.margin>
@@ -672,7 +672,7 @@
                                                 <Insets left="10.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="wizRacialBonus" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                          <Label fx:id="wisdomRacialBonus" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                              <font>
                                                 <Font size="30.0" />
                                              </font>
@@ -680,7 +680,7 @@
                                                 <Insets left="40.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="wizAbilityImprovment" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                          <Label fx:id="wisdomAbilityImprovement" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                              <font>
                                                 <Font size="30.0" />
                                              </font>
@@ -688,7 +688,7 @@
                                                 <Insets left="40.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="wizMiscBonus" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                          <Label fx:id="wisdomMiscBonus" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                              <font>
                                                 <Font size="30.0" />
                                              </font>
@@ -696,7 +696,7 @@
                                                 <Insets left="40.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="wizTotal" text="20" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                          <Label fx:id="wisdomTotal" text="20" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                              <GridPane.margin>
                                                 <Insets left="30.0" />
                                              </GridPane.margin>
@@ -743,7 +743,7 @@
                                                 <Insets left="10.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <TextField fx:id="chrRolledNum" prefHeight="102.0" prefWidth="114.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <TextField fx:id="charismaRolledNumber" prefHeight="102.0" prefWidth="114.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <GridPane.margin>
                                                 <Insets left="20.0" right="20.0" />
                                              </GridPane.margin>
@@ -795,7 +795,7 @@
                                                 <Insets left="10.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="chrRacialBonus" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                          <Label fx:id="charismaRacialBonus" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                              <font>
                                                 <Font size="30.0" />
                                              </font>
@@ -803,7 +803,7 @@
                                                 <Insets left="40.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="chrAbilityImprovment" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                          <Label fx:id="charismaAbilityImprovement" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                              <font>
                                                 <Font size="30.0" />
                                              </font>
@@ -811,7 +811,7 @@
                                                 <Insets left="40.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="chrMiscBonus" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                          <Label fx:id="charismaMiscBonus" text="+5" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                              <font>
                                                 <Font size="30.0" />
                                              </font>
@@ -819,7 +819,7 @@
                                                 <Insets left="40.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="chrTotal" text="20" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                          <Label fx:id="charismaTotal" text="20" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                              <GridPane.margin>
                                                 <Insets left="30.0" />
                                              </GridPane.margin>
@@ -886,47 +886,51 @@
                                                 <Insets left="20.0" right="7.0" />
                                              </HBox.margin>
                                              <children>
-                                                <RadioButton fx:id="acrobaticsRadioButtton" mnemonicParsing="false" text="Acrobatics" />
-                                                <RadioButton fx:id="animalHandlingRadioButton" mnemonicParsing="false" text="Animal Handling">
+                                                <CheckBox fx:id="acrobaticsCheckBox" mnemonicParsing="false" text="Acrobatics">
+                                                   <VBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </VBox.margin>
+                                                </CheckBox>
+                                                <CheckBox fx:id="animalHandlingCheckBox" mnemonicParsing="false" text="Animal Handling">
                                                    <VBox.margin>
                                                       <Insets top="20.0" />
                                                    </VBox.margin>
-                                                </RadioButton>
-                                                <RadioButton fx:id="arcanaRadioButton" mnemonicParsing="false" text="Arcana">
+                                                </CheckBox>
+                                                <CheckBox fx:id="arcanaCheckBox" mnemonicParsing="false" text="Arcana">
                                                    <VBox.margin>
                                                       <Insets top="20.0" />
                                                    </VBox.margin>
-                                                </RadioButton>
-                                                <RadioButton fx:id="athleticsRadioButton" mnemonicParsing="false" text="Athletics">
+                                                </CheckBox>
+                                                <CheckBox fx:id="athleticsCheckBox" mnemonicParsing="false" text="Atheltics">
                                                    <VBox.margin>
                                                       <Insets top="20.0" />
                                                    </VBox.margin>
-                                                </RadioButton>
-                                                <RadioButton fx:id="deceptionRadioButton" mnemonicParsing="false" text="Deception">
+                                                </CheckBox>
+                                                <CheckBox fx:id="deceptionCheckBox" mnemonicParsing="false" text="Deception">
                                                    <VBox.margin>
                                                       <Insets top="20.0" />
                                                    </VBox.margin>
-                                                </RadioButton>
-                                                <RadioButton fx:id="historyRadioButton" mnemonicParsing="false" text="History">
+                                                </CheckBox>
+                                                <CheckBox fx:id="historyCheckBox" mnemonicParsing="false" text="History">
                                                    <VBox.margin>
                                                       <Insets top="20.0" />
                                                    </VBox.margin>
-                                                </RadioButton>
-                                                <RadioButton fx:id="insightRadioButton" mnemonicParsing="false" text="Insight">
+                                                </CheckBox>
+                                                <CheckBox fx:id="insightCheckBox" mnemonicParsing="false" text="Insight">
                                                    <VBox.margin>
                                                       <Insets top="20.0" />
                                                    </VBox.margin>
-                                                </RadioButton>
-                                                <RadioButton fx:id="intimidationRadioButton" mnemonicParsing="false" text="Intimidation">
+                                                </CheckBox>
+                                                <CheckBox fx:id="intimidationCheckBox" mnemonicParsing="false" text="Intimidation">
                                                    <VBox.margin>
                                                       <Insets top="20.0" />
                                                    </VBox.margin>
-                                                </RadioButton>
-                                                <RadioButton fx:id="investigationRadioButton" mnemonicParsing="false" text="Investigation">
+                                                </CheckBox>
+                                                <CheckBox fx:id="investigationCheckBox" mnemonicParsing="false" text="Investigation">
                                                    <VBox.margin>
                                                       <Insets top="20.0" />
                                                    </VBox.margin>
-                                                </RadioButton>
+                                                </CheckBox>
                                              </children>
                                           </VBox>
                                           <VBox prefHeight="374.0" prefWidth="271.0">
@@ -934,51 +938,51 @@
                                                 <Insets left="7.0" right="15.0" />
                                              </HBox.margin>
                                              <children>
-                                                <RadioButton fx:id="medecineRadioButton" mnemonicParsing="false" text="Medicine">
+                                                <CheckBox fx:id="medicineCheckBox" mnemonicParsing="false" text="Medicine">
                                                    <VBox.margin>
-                                                      <Insets />
+                                                      <Insets top="10.0" />
                                                    </VBox.margin>
-                                                </RadioButton>
-                                                <RadioButton fx:id="natureRadioButton" mnemonicParsing="false" text="Nature">
-                                                   <VBox.margin>
-                                                      <Insets top="20.0" />
-                                                   </VBox.margin>
-                                                </RadioButton>
-                                                <RadioButton fx:id="perceptionRadioButton" mnemonicParsing="false" text="Perception">
+                                                </CheckBox>
+                                                <CheckBox fx:id="natureCheckBox" mnemonicParsing="false" text="Nature">
                                                    <VBox.margin>
                                                       <Insets top="20.0" />
                                                    </VBox.margin>
-                                                </RadioButton>
-                                                <RadioButton fx:id="performanceRadioButton" mnemonicParsing="false" text="Performance">
+                                                </CheckBox>
+                                                <CheckBox fx:id="perceptionCheckBox" mnemonicParsing="false" text="Perception">
                                                    <VBox.margin>
                                                       <Insets top="20.0" />
                                                    </VBox.margin>
-                                                </RadioButton>
-                                                <RadioButton fx:id="persuasionRadioButton" mnemonicParsing="false" text="Persuasion">
+                                                </CheckBox>
+                                                <CheckBox fx:id="performanceCheckBox" mnemonicParsing="false" text="Performance">
                                                    <VBox.margin>
                                                       <Insets top="20.0" />
                                                    </VBox.margin>
-                                                </RadioButton>
-                                                <RadioButton fx:id="religionRadioButton" mnemonicParsing="false" text="Religion">
+                                                </CheckBox>
+                                                <CheckBox fx:id="persuasionCheckBox" mnemonicParsing="false" text="Persuasion">
                                                    <VBox.margin>
                                                       <Insets top="20.0" />
                                                    </VBox.margin>
-                                                </RadioButton>
-                                                <RadioButton fx:id="sleightOfHandRadioButton" mnemonicParsing="false" text="Sleight of Hand">
+                                                </CheckBox>
+                                                <CheckBox fx:id="religionCheckBox" mnemonicParsing="false" text="Religion">
                                                    <VBox.margin>
                                                       <Insets top="20.0" />
                                                    </VBox.margin>
-                                                </RadioButton>
-                                                <RadioButton fx:id="stealthRadioButton" mnemonicParsing="false" text="Stealth">
+                                                </CheckBox>
+                                                <CheckBox fx:id="sleightOfHandCheckBox" mnemonicParsing="false" text="Sleight Of Hand">
                                                    <VBox.margin>
                                                       <Insets top="20.0" />
                                                    </VBox.margin>
-                                                </RadioButton>
-                                                <RadioButton fx:id="survivalRadioButton" mnemonicParsing="false" text="Survival">
+                                                </CheckBox>
+                                                <CheckBox fx:id="stealthCheckBox" mnemonicParsing="false" text="Stealth">
                                                    <VBox.margin>
                                                       <Insets top="20.0" />
                                                    </VBox.margin>
-                                                </RadioButton>
+                                                </CheckBox>
+                                                <CheckBox fx:id="survivalCheckBox" mnemonicParsing="false" text="Survival">
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </CheckBox>
                                              </children>
                                           </VBox>
                                        </children>
@@ -1017,7 +1021,7 @@
                                           <Insets left="10.0" right="10.0" top="5.0" />
                                        </VBox.margin>
                                     </TextArea>
-                                    <Button mnemonicParsing="false" onAction="#addFeatButton" prefHeight="47.0" prefWidth="86.0" text="ADD">
+                                    <Button fx:id="addFeatButton" mnemonicParsing="false" onAction="#addFeat" prefHeight="47.0" prefWidth="86.0" text="ADD">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -1029,7 +1033,7 @@
                               </VBox>
                               <VBox prefHeight="851.0" prefWidth="571.0">
                                  <children>
-                                    <Label text="Ability Score Improvment">
+                                    <Label text="Ability Score Improvement">
                                        <font>
                                           <Font size="22.0" />
                                        </font>
@@ -1045,17 +1049,17 @@
                                           <Insets left="10.0" right="10.0" top="10.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <ComboBox fx:id="abilityScoreImprovmentComboBoxOne" prefHeight="45.0" prefWidth="410.0" promptText="Choose an ability score">
+                                    <ComboBox fx:id="abilityScoreImprovementComboBoxOne" prefHeight="45.0" prefWidth="410.0" promptText="Choose an ability score">
                                        <VBox.margin>
                                           <Insets left="20.0" right="20.0" top="20.0" />
                                        </VBox.margin>
                                     </ComboBox>
-                                    <ComboBox fx:id="abilityScoreImprovmentComboBoxTwo" prefHeight="45.0" prefWidth="410.0" promptText="Choose an ability score">
+                                    <ComboBox fx:id="abilityScoreImprovementComboBoxTwo" prefHeight="45.0" prefWidth="410.0" promptText="Choose an ability score">
                                        <VBox.margin>
                                           <Insets left="20.0" right="20.0" top="20.0" />
                                        </VBox.margin>
                                     </ComboBox>
-                                    <Button mnemonicParsing="false" onAction="#addAbilityScoreImprovmentConfirmationButton" prefHeight="51.0" prefWidth="90.0" text="ADD">
+                                    <Button fx:id="addAbilityScoreImprovementConfirmationButton" mnemonicParsing="false" onAction="#addAbilityScoreImprovment" prefHeight="51.0" prefWidth="90.0" text="ADD">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -1085,7 +1089,7 @@
                                           <Insets left="17.0" right="17.0" />
                                        </VBox.margin>
                                     </TextArea>
-                                    <Button mnemonicParsing="false" onAction="#removeFeatOrFeatureButton" prefHeight="43.0" prefWidth="68.0" text="REMOVE">
+                                    <Button fx:id="removeFeatOrFeatureButton" mnemonicParsing="false" onAction="#removeFeat" prefHeight="43.0" prefWidth="68.0" text="REMOVE">
                                        <VBox.margin>
                                           <Insets bottom="17.0" left="318.0" top="10.0" />
                                        </VBox.margin>
@@ -1239,7 +1243,7 @@
                                           <Insets left="10.0" right="10.0" top="10.0" />
                                        </VBox.margin>
                                     </TextArea>
-                                    <Button mnemonicParsing="false" onAction="#saveCharacterButton" prefHeight="106.0" prefWidth="464.0" text="SAVE CHARACTER" textAlignment="CENTER">
+                                    <Button fx:id="saveCharacterButton" mnemonicParsing="false" onAction="#saveCharacter" prefHeight="106.0" prefWidth="464.0" text="SAVE CHARACTER" textAlignment="CENTER">
                                        <VBox.margin>
                                           <Insets left="10.0" right="10.0" top="19.0" />
                                        </VBox.margin>
@@ -1275,13 +1279,13 @@
                            <children>
                               <Label text="Armor Class:" />
                               <Label text="Initiative:" GridPane.rowIndex="1" />
-                              <Label fx:id="speedManuallyEnteredNumber" text="Speed:" GridPane.rowIndex="2" />
-                              <Label text="XP" GridPane.rowIndex="3" fx:id="xpManuallyEnteredNumber" />
+                              <Label text="Speed:" GridPane.rowIndex="2" />
+                              <Label text="XP" GridPane.rowIndex="3" />
                               <Label text="Level" GridPane.rowIndex="4" />
                               <TextField fx:id="armorClassManuallyEnteredNumber" prefWidth="1548.0" GridPane.columnIndex="1" />
                               <TextField fx:id="initiativeModifierManuallyEnteredNumber" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField fx:id="speedManuallyEnteredNumber" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" fx:id="xpManuallyEnteredNumber" />
                               <TextField fx:id="levelManuallyEnteredNumber" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                            </children>
                         </GridPane>

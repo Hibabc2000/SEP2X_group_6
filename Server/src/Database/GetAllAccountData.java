@@ -4,6 +4,7 @@ import system.model.loginModel.Account;
 import system.model.loginModel.DM;
 import system.model.loginModel.Group;
 import system.model.loginModel.Player;
+import system.networking.ClassName;
 import system.networking.Container;
 
 import java.sql.*;
@@ -40,8 +41,8 @@ public class GetAllAccountData
     boolean unique = false;
     Statement st = c.createStatement();
     String query =
-        "SELECT * FROM \"Users\".\"Users\" WHERE  username  = '" + username + "' OR email ='"
-            + email + "' ;";
+        "SELECT * FROM \"Users\".\"Users\" WHERE  username  = '" + username
+            + "' OR email ='" + email + "' ;";
 
     ResultSet rs = st.executeQuery(query);
     String userame = null;
@@ -77,7 +78,8 @@ public class GetAllAccountData
     {
       Group gr = new Group(rs.getString("name"), rs.getInt("id"));
       gr.addDM(new DM(rs.getString("usernameDM")));
-      ArrayList<String> players = (ArrayList<String>) rs.getArray("usernamePlayers");
+      ArrayList<String> players = (ArrayList<String>) rs
+          .getArray("usernamePlayers");
 
       for (int i = 0; i < players.size(); i++)
       {
@@ -90,7 +92,8 @@ public class GetAllAccountData
 
   }
 
-  public void createAccount(String username,String password, String email) throws SQLException
+  public void createAccount(String username, String password, String email)
+      throws SQLException
   {
 
     boolean done = false;
@@ -101,17 +104,18 @@ public class GetAllAccountData
 
     st.executeUpdate(query);
 
-
   }
+
   public Container checkLogin(String username, String password)
       throws SQLException
 
-  { boolean answer = false;
+  {
+    boolean answer = false;
 
     Statement st = c.createStatement();
     String query =
-        "SELECT * FROM \"Users\".\"Users\" WHERE  username  = '" + username + "' AND password ='"
-            + password + "' ;";
+        "SELECT * FROM \"Users\".\"Users\" WHERE  username  = '" + username
+            + "' AND password ='" + password + "' ;";
 
     ResultSet rs = st.executeQuery(query);
     String userame = null;
@@ -124,127 +128,129 @@ public class GetAllAccountData
       pass = rs.getString("password");
       ema = rs.getString("email");
 
-
-
-
-
       System.out.println("name = " + userame);
       System.out.println("email = " + ema);
 
-
       if (userame != null && password != null)
-      { answer= true;
-        System.out.println("ans1"+answer);
+      {
+        answer = true;
+        System.out.println("ans1" + answer);
         break;
       }
 
     }
-    System.out.println("ans3"+answer);
-     ArrayList<Object> obj = new ArrayList<>();
+    System.out.println("ans3" + answer);
+    ArrayList<Object> obj = new ArrayList<>();
     obj.add(answer);
-    Container datapack = new Container(obj,"acceptLogin");
+    Container datapack = new Container(obj, "acceptLogin");
     return datapack;
   }
 
-  public Container acceptLogin(String username,String password) throws SQLException
+  public Container acceptLogin(String username, String password)
+      throws SQLException
   {
 
     System.out.println("elindulsz,?");
 
+    Statement st = c.createStatement();
+    String query =
+        "SELECT * FROM \"Users\".\"Users\" WHERE  username  = '" + username
+            + "' AND password ='" + password + "' ;";
 
-      Statement st = c.createStatement();
-      String query =
-          "SELECT * FROM \"Users\".\"Users\" WHERE  username  = '" + username + "' AND password ='"
-              + password + "' ;";
+    ResultSet rs = st.executeQuery(query);
+    String userame = null;
+    String ema = null;
+    String pass = null;
+    ArrayList<Integer> ids = new ArrayList<>();
 
-      ResultSet rs = st.executeQuery(query);
-      String userame = null;
-      String ema = null;
-      String pass = null;
-      ArrayList<Integer> ids = new ArrayList<>();
+    while (rs.next())
+    {
+      userame = rs.getString("username");
+      pass = rs.getString("password");
+      ema = rs.getString("email");
 
-      while (rs.next())
-      {
-        userame = rs.getString("username");
-        pass = rs.getString("password");
-        ema = rs.getString("email");
+      String m = rs.getString("groupIDs");
 
-        String m = rs.getString("groupIDs");
+      ids = sqlArrayToArrayListInteger(m);
 
-        ids = sqlArrayToArrayListInteger(m);
+    }
 
-      }
-
-      ArrayList<Group> groupList = new ArrayList<>();
-    ArrayList<String >plys= new ArrayList<>();
+    ArrayList<Group> groupList = new ArrayList<>();
+    ArrayList<String> plys = new ArrayList<>();
     ArrayList<Integer> charIDs = new ArrayList<>();
 
-      for ( int i =0; i<ids.size();i++)
-      {query= "SELECT * FROM \"Groups\".\"Groups\" WHERE  id  = '" + ids.get(i) + "' ;";
-         rs = st.executeQuery(query);
-        System.out.println(ids.get(i));
-          while(rs.next())
-          {Group ng = new Group(rs.getString("name"),rs.getInt("id"));
-            System.out.println(rs.getString("name"));
-            System.out.println(rs.getInt("id"));
-          ng.addDM(new DM(rs.getString("usernameDM")));
-            System.out.println(rs.getString("usernameDM"));
-          String charid = rs.getString("characterIDs");
-            System.out.println(rs.getString("characterIDs"));
-          charIDs = sqlArrayToArrayListInteger(charid);
+    for (int i = 0; i < ids.size(); i++)
+    {
+      query = "SELECT * FROM \"Groups\".\"Groups\" WHERE  id  = '" + ids.get(i)
+          + "' ;";
+      rs = st.executeQuery(query);
+      System.out.println(ids.get(i));
+      while (rs.next())
+      {
+        Group ng = new Group(rs.getString("name"), rs.getInt("id"));
+        System.out.println(rs.getString("name"));
+        System.out.println(rs.getInt("id"));
+        ng.addDM(new DM(rs.getString("usernameDM")));
+        System.out.println(rs.getString("usernameDM"));
+        String charid = rs.getString("characterIDs");
+        System.out.println(rs.getString("characterIDs"));
+        charIDs = sqlArrayToArrayListInteger(charid);
 
-          String k = rs.getString("usernamePlayers");
-          plys = sqlArrayToArrayListString(k);
+        String k = rs.getString("usernamePlayers");
+        plys = sqlArrayToArrayListString(k);
 
-
-          for(int op=0; i<plys.size();i++)
-          {
-            System.out.println(plys.get(i));
-            Player a = new Player(plys.get(i));
+        for (int op = 0; i < plys.size(); i++)
+        {
+          System.out.println(plys.get(i));
+          Player a = new Player(plys.get(i));
           a.addCharacterID(charIDs.get(i));
 
-            ng.addPlayer(a);
+          ng.addPlayer(a);
 
-          }
+        }
 
-          groupList.add(ng);
+        groupList.add(ng);
 
-          }
       }
-    ArrayList<Object> objs= new ArrayList<>();
-      boolean b = true;
-      objs.add(b);
-      Account acc = new Account(userame,password,ema);
-      objs.add(acc);
-      objs.add(groupList);
-      Container dataPack = new Container(objs,"acceptLogin");
-      return dataPack;
+    }
+    ArrayList<Object> objs = new ArrayList<>();
+    boolean b = true;
+    objs.add(b);
+    Account acc = new Account(userame, password, ema);
+    objs.add(acc);
+    objs.add(groupList);
+    Container dataPack = new Container(objs, ClassName.LOGIN_RESPONSE);
+    return dataPack;
 
   }
+
   public ArrayList<Integer> sqlArrayToArrayListInteger(String ar)
-  { ArrayList<Integer> temp = new ArrayList<>();
+  {
+    ArrayList<Integer> temp = new ArrayList<>();
     String[] ara = ar.split("\\{");
     String part2 = ara[1];
     String[] h = part2.split("}");
     String o = h[0];
     String[] l = o.split(",");
 
-    for(int i =0;i<l.length;i++)
+    for (int i = 0; i < l.length; i++)
     {
       temp.add(Integer.parseInt(l[i]));
 
     }
     return temp;
   }
+
   public ArrayList<String> sqlArrayToArrayListString(String ar)
-  { ArrayList<String> temp = new ArrayList<>();
+  {
+    ArrayList<String> temp = new ArrayList<>();
     String[] ara = ar.split("\\{");
     String part2 = ara[1];
     String[] h = part2.split("}");
     String o = h[0];
     String[] l = o.split(",");
 
-    for(int i =0;i<l.length;i++)
+    for (int i = 0; i < l.length; i++)
     {
       temp.add(l[i]);
 

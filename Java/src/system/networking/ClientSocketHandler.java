@@ -56,7 +56,7 @@ public class ClientSocketHandler implements Runnable
                System.out.println("socketclienten method");
 
              break;
-           case "acceptLogin":
+           case LOGIN_RESPONSE:
            {
              socketClient.loginInfo(inDataPack);
 
@@ -125,7 +125,7 @@ public class ClientSocketHandler implements Runnable
 
       objs.add(username);
       objs.add(password);
-      Container outDataPack = new Container(objs, "checkLogin");
+      Container outDataPack = new Container(objs, ClassName.CHECK_LOGIN);
 
       outToServer.writeObject(outDataPack);
     }

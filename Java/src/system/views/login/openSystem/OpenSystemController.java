@@ -16,29 +16,37 @@ public class OpenSystemController
   public Button forgotPasswordButton;
   public Label errorMessageLabel;
 
-  private ViewHandler vh;
+  private ViewHandler viewHandler;
   private OpenSystemViewModel openSystemViewModel;
 
-  public void createAccount(ActionEvent actionEvent)
+  public void init(OpenSystemViewModel openSystemViewModel,
+      ViewHandler viewHandler)
   {
-    vh.openCreateAccount();
+    this.openSystemViewModel = openSystemViewModel;
+    userNameField.textProperty()
+        .bindBidirectional(openSystemViewModel.getUserNameProperty());
+    passwordField.textProperty()
+        .bindBidirectional(openSystemViewModel.getPasswordProperty());
+    errorMessageLabel.textProperty()
+        .bind(openSystemViewModel.getErrorProperty());
+    this.viewHandler = viewHandler;
+  }
 
+  public void createAccount()
+  {
+    viewHandler.openCreateAccount();
   }
 
   public void login()
   {
-
-    vh.openLogin();
-  }
-
-  public void init(OpenSystemViewModel osvm, ViewHandler viewHandler)
-  {
-    this.openSystemViewModel = osvm;
-    vh = viewHandler;
+    if (openSystemViewModel.checkLogin().equals("Ready"))
+    {
+      viewHandler.openAccount();
+    }
   }
 
   public void recoverPassword(ActionEvent actionEvent)
   {
-    vh.openPasswordRecovery();
+    viewHandler.openPasswordRecovery();
   }
 }

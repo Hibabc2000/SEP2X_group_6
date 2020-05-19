@@ -1,5 +1,90 @@
 package system.views.characterCreation;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
+
 public class CharacterCreationController
 {
+  @FXML public ComboBox raceComboBox;
+  @FXML public ComboBox classComboBox;
+  @FXML public ComboBox subClassComboBox;
+  @FXML public ComboBox featComboBox;
+  @FXML public ComboBox abilityScoreImprovementComboBoxOne;
+  @FXML public ComboBox abilityScoreImprovementComboBoxTwo;
+  @FXML public ComboBox alignmentComboBox;
+  @FXML public ComboBox backgroundComboBox;
+  @FXML public TextArea raceDescription;
+  @FXML public TextArea classDescription;
+  @FXML public TextArea subClassDescription;
+  @FXML public TextArea featDescription;
+  @FXML public TextArea featOrFeatureDescription;
+  @FXML public TextArea languageTextArea;
+  @FXML public TextArea physicalCharacteristicsTextArea;
+  @FXML public TextArea treasureTextArea;
+  @FXML public TextArea alliesAndOrganizationsTextArea;
+  @FXML public TextArea backstoryTextArea;
+  @FXML public TextArea personalCharacteristicsTextArea;
+  @FXML public TextArea characterDescriptionTextArea;
+  @FXML public TextField strengthRolledNumber;
+  @FXML public TextField dexterityRolledNumber;
+  @FXML public TextField constitutionRolledNumber;
+  @FXML public TextField intelligenceRolledNumber;
+  @FXML public TextField wisdomRolledNumber;
+  @FXML public TextField charismaRolledNumber;
+  @FXML public TextField nameTextField;
+  @FXML public TextField armorClassManuallyEnteredNumber;
+  @FXML public TextField initiativeModifierManuallyEnteredNumber;
+  @FXML public TextField levelManuallyEnteredNumber;
+  @FXML public TextField speedManuallyEnteredNumber;
+  @FXML public ListView featsAndFeaturesListView;
+  @FXML public TextField xpManuallyEnteredNumber;
+  @FXML public CheckBox acrobaticsCheckBox;
+  @FXML public CheckBox animalHandlingCheckBox;
+  @FXML public CheckBox arcanaCheckBox;
+  @FXML public CheckBox athleticsCheckBox;
+  @FXML public CheckBox deceptionCheckBox;
+  @FXML public CheckBox historyCheckBox;
+  @FXML public CheckBox insightCheckBox;
+  @FXML public CheckBox intimidationCheckBox;
+  @FXML public CheckBox investigationCheckBox;
+  @FXML public CheckBox medicineCheckBox;
+  @FXML public CheckBox natureCheckBox;
+  @FXML public CheckBox perceptionCheckBox;
+  @FXML public CheckBox performanceCheckBox;
+  @FXML public CheckBox persuasionCheckBox;
+  @FXML public CheckBox religionCheckBox;
+  @FXML public CheckBox sleightOfHandCheckBox;
+  @FXML public CheckBox stealthCheckBox;
+  @FXML public CheckBox survivalCheckBox;
+  @FXML public Label strengthRacialBonus;
+  @FXML public Label strengthAbilityImprovement;
+  @FXML public Label strengthMiscBonus;
+  @FXML public Label strengthTotal;
+  @FXML public Label dexterityRacialBonus;
+  @FXML public Label dexterityAbilityImprovement;
+  @FXML public Label dexterityMiscBonus;
+  @FXML public Label dexterityTotal;
+  @FXML public Label constitutionRacialBonus;
+  @FXML public Label constitutionAbilityImprovement;
+  @FXML public Label constitutionMiscBonus;
+  @FXML public Label constitutionTotal;
+  @FXML public Label intelligenceRacialBonus;
+  @FXML public Label intelligenceAbilityImprovement;
+  @FXML public Label intelligenceMiscBonus;
+  @FXML public Label intelligenceTotal;
+  @FXML public Label wisdomRacialBonus;
+  @FXML public Label wisdomAbilityImprovement;
+  @FXML public Label wisdomMiscBonus;
+  @FXML public Label wisdomTotal;
+  @FXML public Label charismaRacialBonus;
+  @FXML public Label charismaAbilityImprovement;
+  @FXML public Label charismaMiscBonus;
+  @FXML public Label charismaTotal;
+  /*
+  public Button addFeatButton;
+  public Button addAbilityScoreImprovementConfirmationButton;
+  public Button removeFeatOrFeatureButton;
+  public Button saveCharacterButton;
+   */
+
 }
