@@ -1,8 +1,9 @@
 package system.model.loginModel;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Group
+public class Group implements Serializable
 {
   private String groupName;
   private ArrayList<Player> players;

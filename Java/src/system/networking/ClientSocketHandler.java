@@ -1,5 +1,6 @@
 package system.networking;
 
+import javafx.application.Platform;
 import system.model.loginModel.Account;
 import system.model.loginModel.Group;
 
@@ -33,23 +34,35 @@ public class ClientSocketHandler implements Runnable
        while (true)
        {
          System.out.println("cliensocket run");
-         Object obj = inFromServer.readObject();
-         Container inDataPack = (Container) obj;
+         Container inDataPack = (Container) inFromServer.readObject();
+
          System.out.println(inDataPack.getClassName() + "classname");
          switch (inDataPack.getClassName())
          {
-           case LOGIN_RESPONSE:
+           case "createAccount":
               boolean objs = (boolean)inDataPack.getObject();
 
              System.out.println("clientrunning");
 
 
                System.out.println(objs);
+             Platform.runLater(() -> {
 
                socketClient.createAccountInfo(objs);
+               }
+             );
+
 
                System.out.println("socketclienten method");
-               break;
+
+             break;
+           case "acceptLogin":
+           {
+             socketClient.loginInfo(inDataPack);
+
+             ((ArrayList<Object>)inDataPack.getObject()).get(1);
+           }
+
 
          }
 
@@ -112,7 +125,8 @@ public class ClientSocketHandler implements Runnable
 
       objs.add(username);
       objs.add(password);
-      Container outDataPack = new Container(objs, ClassName.CHECK_LOGIN);
+      Container outDataPack = new Container(objs, "checkLogin");
+
       outToServer.writeObject(outDataPack);
     }
 

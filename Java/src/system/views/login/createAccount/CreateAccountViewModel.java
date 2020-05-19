@@ -36,10 +36,11 @@ public class CreateAccountViewModel implements Subject
   }
 
   private void accountCreationInfo(PropertyChangeEvent propertyChangeEvent)
-  {
+  {String val = "error";
     System.out.println("event");
-        if(!((boolean) propertyChangeEvent.getNewValue())) {error.setValue("This username or email is already in use."); System.out.println("eventfalse"); }
-        else {error.setValue("Ready");System.out.println("eventtrue"); }
+        if(!((boolean) propertyChangeEvent.getNewValue())) { val = "This username or email is already in use."; error.setValue(val);}
+        else {val = "Ready"; }
+        support.firePropertyChange("createAccount",null,val);
 
 
 

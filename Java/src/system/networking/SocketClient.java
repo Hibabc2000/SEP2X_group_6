@@ -127,6 +127,7 @@ public class SocketClient implements Client
     try
     {
       socketHandler.checkLogin(username,password);
+      System.out.println("sockethandler");
     }
     catch (IOException e)
     {
@@ -188,8 +189,13 @@ public class SocketClient implements Client
   {
 
       support.firePropertyChange("createAccount",null,ac);
-      System.out.println("clientben a propchange");
 
+
+  }
+  public void loginInfo(Container c)
+  {
+    support.firePropertyChange("acceptLogin",null,c);
+    System.out.println("client prop change");
   }
 
   @Override public void addListener(String eventName,

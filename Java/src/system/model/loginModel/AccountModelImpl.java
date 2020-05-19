@@ -3,6 +3,7 @@ package system.model.loginModel;
 import system.AccountsForTesting;
 import system.DiceRoll;
 import system.networking.Client;
+import system.networking.Container;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -47,15 +48,45 @@ public class AccountModelImpl implements AccountModel
     tempAccounts = tests.getTempAccounts();
     findingUnknownGroupsGroup = tests.getFindingUnknownGroupsGroup();
 
-    client.addListener("createAccount", this::createAccountInfoBackFromServer);
+    client.addListener("createAccount",this::createAccountInfoBackFromServer);
+    client.addListener("acceptLogin",this::loginInfo);
+  }
+
+  private void loginInfo(PropertyChangeEvent propertyChangeEvent)
+  {
+    System.out.println("verything is fine");
+    Container info = (Container) propertyChangeEvent.getNewValue();
+    ArrayList<Object> objs =  (ArrayList<Object>) info.getObject();
+    boolean isLoginValid = (boolean)objs.get(0);
+    System.out.println(((Account)objs.get(1)).getPlayer());
+    if(isLoginValid) {distributeAccountInfo(objs);}
+    else {support.firePropertyChange("acceptLogin",isLoginValid,null);} // be aware that new value is null, because login is invalid
+  }
+  public void distributeAccountInfo(ArrayList<Object> o)
+  {
+    System.out.println(((Account)o.get(1)));
+    Account temp = (Account) o.get(1);
+    usersAccount = temp;
+    ArrayList<Group> groups = (ArrayList<Group>) o.get(2);
+    for(int i=0; i<groups.size();i++)
+    {
+      if(groups.get(i).getDM().getName().equals(usersAccount.getDM().getName()))
+      {groupsForDm.add(groups.get(i));}
+      else tempGroups.add(groups.get(i));
+
+
+    }
+
+
+
+
   }
 
   private void createAccountInfoBackFromServer(
       PropertyChangeEvent propertyChangeEvent)
   {
     System.out.println("modelimplistener");
-    support.firePropertyChange("createAccount", null,
-        propertyChangeEvent.getNewValue());
+    support.firePropertyChange("createAccount",null,propertyChangeEvent.getNewValue());
     System.out.println("modelimplistener2");
 
   }
@@ -244,7 +275,7 @@ public class AccountModelImpl implements AccountModel
     else
       client.createAccount(username, pass1, email);
     System.out.println("alma");
-    // server
+    usersAccount = new Account(username,pass1,email);
 
     return temp;
   }
@@ -254,28 +285,21 @@ public class AccountModelImpl implements AccountModel
   {
     String temp = "Connecting...";
     //server
-    if (username.equals("") || pass.equals(""))
+    if (username.equals(""))
     {
       temp = "Fill out all the fields";
     }
+    else if (pass.equals(""))
+    {
+      temp = "Fill out all the fields";
+    }
+
     else
+
       client.checkLogin(username, pass);
     // put it into server
-    for (int i = 0; i < tempAccounts.size(); i++)
-    {
-      if ((tempAccounts.get(i).getUsername().equals(username)) && (tempAccounts
-          .get(i).getPassword().equals(pass)))
-      {
-        temp = "Ready";
-        usersAccount = tempAccounts.get(i);
-        // usersAccount = add account from database
-        break;
-      }
-      else
-      {
-        temp = "This account doesn't exit.";
-      }
-    }
+
+
     return temp;
 
   }

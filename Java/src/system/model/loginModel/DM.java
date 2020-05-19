@@ -3,7 +3,9 @@ package system.model.loginModel;
 import system.DiceRoll;
 import system.User;
 
-public class DM implements User
+import java.io.Serializable;
+
+public class DM implements User, Serializable
 {
   private String nameDM;
   private Group groupDM;

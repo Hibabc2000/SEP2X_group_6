@@ -34,7 +34,7 @@ public class CreateAccountController
     email.textProperty().bindBidirectional(cavm.getEmailProperty());
     password1.textProperty().bindBidirectional(cavm.getPassword1Property());
     password2.textProperty().bindBidirectional(cavm.getPassword2Property());
-       // cavm.addListener("createAccount",this::createAccountReally);
+       cavm.addListener("createAccount",this::createAccountReally);
 
 
   }
@@ -42,39 +42,24 @@ public class CreateAccountController
   {  cavm.checkFieldsForReg();
 
 
-    createAccountLoop();
+
   }
 
   public void goBack()
   {
     vh.openSystem();
   }
-  private void createAccountLoop()
-  {
 
-
-        while(true)
-        {
-
-          if (errorMessage.getText().equals("Ready"))
-          {
-            System.out.println("asd");
-            vh.openAccount();
-            break;
-
-          }
-        }
-
-  }
 
   private void createAccountReally(PropertyChangeEvent propertyChangeEvent)
   {
 
-    if (errorMessage.getText().equals("Ready"))
+    if (propertyChangeEvent.getNewValue().equals("Ready"))
     {
-      System.out.println("asd");
+      System.out.println("opening account");
       vh.openAccount();
     }
+
   }
 
 }

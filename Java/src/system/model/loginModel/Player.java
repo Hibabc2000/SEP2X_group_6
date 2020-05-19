@@ -4,13 +4,15 @@ import system.Character;
 import system.DiceRoll;
 import system.User;
 
-public class Player implements User
+import java.io.Serializable;
+
+public class Player implements User, Serializable
 {
   private Character character;
 
   private String playerName;
   private Group playerGroup;
-
+ private int characterID;
   public Player(
       String name)                   // more information needed about player class
   {
@@ -20,12 +22,23 @@ public class Player implements User
 
   public void createCharacter()    //
   {
-    if (character == null)
-      character = new Character();
+
   }
-  public void addCharacter(Character ch)
+  public void addCharacterID(Integer i)
   {
-    character=ch;
+    characterID = i;
+  }
+  public int getCharacterID()
+  {
+    return  characterID;
+  }
+  public void addGroup(Group gr)
+  {
+    playerGroup = gr;
+  }
+  public Group getPlayerGroup()
+  {
+    return playerGroup;
   }
 
   public String getName()

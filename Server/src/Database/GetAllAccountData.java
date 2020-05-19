@@ -4,6 +4,7 @@ import system.model.loginModel.Account;
 import system.model.loginModel.DM;
 import system.model.loginModel.Group;
 import system.model.loginModel.Player;
+import system.networking.Container;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -102,7 +103,7 @@ public class GetAllAccountData
 
 
   }
-  public boolean checkLogin(String username, String password)
+  public Container checkLogin(String username, String password)
       throws SQLException
 
   { boolean answer = false;
@@ -116,25 +117,138 @@ public class GetAllAccountData
     String userame = null;
     String ema = null;
     String pass = null;
+
     while (rs.next())
     {
       userame = rs.getString("username");
+      pass = rs.getString("password");
       ema = rs.getString("email");
+
+
+
+
+
       System.out.println("name = " + userame);
       System.out.println("email = " + ema);
 
+
       if (userame != null && password != null)
       { answer= true;
-        System.out.println(answer);
+        System.out.println("ans1"+answer);
         break;
       }
-      System.out.println(answer);
-    }
 
-    return answer;
+    }
+    System.out.println("ans3"+answer);
+     ArrayList<Object> obj = new ArrayList<>();
+    obj.add(answer);
+    Container datapack = new Container(obj,"acceptLogin");
+    return datapack;
   }
 
-  public void acceptLogin()
+  public Container acceptLogin(String username,String password) throws SQLException
   {
+
+    System.out.println("elindulsz,?");
+
+
+      Statement st = c.createStatement();
+      String query =
+          "SELECT * FROM \"Users\".\"Users\" WHERE  username  = '" + username + "' AND password ='"
+              + password + "' ;";
+
+      ResultSet rs = st.executeQuery(query);
+      String userame = null;
+      String ema = null;
+      String pass = null;
+      ArrayList<Integer> ids = new ArrayList<>();
+
+      while (rs.next())
+      {
+        userame = rs.getString("username");
+        pass = rs.getString("password");
+        ema = rs.getString("email");
+
+        String m = rs.getString("groupIDs");
+
+        ids = sqlArrayToArrayListInteger(m);
+
+      }
+
+      ArrayList<Group> groupList = new ArrayList<>();
+    ArrayList<String >plys= new ArrayList<>();
+    ArrayList<Integer> charIDs = new ArrayList<>();
+
+      for ( int i =0; i<ids.size();i++)
+      {query= "SELECT * FROM \"Groups\".\"Groups\" WHERE  id  = '" + ids.get(i) + "' ;";
+         rs = st.executeQuery(query);
+        System.out.println(ids.get(i));
+          while(rs.next())
+          {Group ng = new Group(rs.getString("name"),rs.getInt("id"));
+            System.out.println(rs.getString("name"));
+            System.out.println(rs.getInt("id"));
+          ng.addDM(new DM(rs.getString("usernameDM")));
+            System.out.println(rs.getString("usernameDM"));
+          String charid = rs.getString("characterIDs");
+            System.out.println(rs.getString("characterIDs"));
+          charIDs = sqlArrayToArrayListInteger(charid);
+
+          String k = rs.getString("usernamePlayers");
+          plys = sqlArrayToArrayListString(k);
+
+
+          for(int op=0; i<plys.size();i++)
+          {
+            System.out.println(plys.get(i));
+            Player a = new Player(plys.get(i));
+          a.addCharacterID(charIDs.get(i));
+
+            ng.addPlayer(a);
+
+          }
+
+          groupList.add(ng);
+
+          }
+      }
+    ArrayList<Object> objs= new ArrayList<>();
+      boolean b = true;
+      objs.add(b);
+      Account acc = new Account(userame,password,ema);
+      objs.add(acc);
+      objs.add(groupList);
+      Container dataPack = new Container(objs,"acceptLogin");
+      return dataPack;
+
+  }
+  public ArrayList<Integer> sqlArrayToArrayListInteger(String ar)
+  { ArrayList<Integer> temp = new ArrayList<>();
+    String[] ara = ar.split("\\{");
+    String part2 = ara[1];
+    String[] h = part2.split("}");
+    String o = h[0];
+    String[] l = o.split(",");
+
+    for(int i =0;i<l.length;i++)
+    {
+      temp.add(Integer.parseInt(l[i]));
+
+    }
+    return temp;
+  }
+  public ArrayList<String> sqlArrayToArrayListString(String ar)
+  { ArrayList<String> temp = new ArrayList<>();
+    String[] ara = ar.split("\\{");
+    String part2 = ara[1];
+    String[] h = part2.split("}");
+    String o = h[0];
+    String[] l = o.split(",");
+
+    for(int i =0;i<l.length;i++)
+    {
+      temp.add(l[i]);
+
+    }
+    return temp;
   }
 }
