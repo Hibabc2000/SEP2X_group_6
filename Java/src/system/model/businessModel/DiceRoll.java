@@ -1,4 +1,4 @@
-package system;
+package system.model.businessModel;
 
 import java.util.Random;
 

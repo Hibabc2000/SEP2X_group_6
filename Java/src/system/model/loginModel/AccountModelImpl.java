@@ -1,7 +1,7 @@
 package system.model.loginModel;
 
 import system.AccountsForTesting;
-import system.DiceRoll;
+import system.model.businessModel.DiceRoll;
 import system.networking.Client;
 import system.transferobjects.Container;
 import system.transferobjects.login.Account;

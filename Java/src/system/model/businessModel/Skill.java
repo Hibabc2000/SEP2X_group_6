@@ -1,14 +1,26 @@
-package system;
+package system.model.businessModel;
 
-public class Ability
+public class Skill
 {
+  private String ability;
   private String name;
   private String description;
 
-  public Ability(String name, String description)
+  public Skill(String ability, String name, String description)
   {
+    this.ability = ability;
     this.name = name;
     this.description = description;
+  }
+
+  public String getAbility()
+  {
+    return ability;
+  }
+
+  public void setAbility(String ability)
+  {
+    this.ability = ability;
   }
 
   public String getName()
@@ -33,6 +45,8 @@ public class Ability
 
   @Override public String toString()
   {
-    return "Ability{" + "name='" + name + '\'' + ", description='" + description + "'}'";
+    return "Skill{" + "ability=" + ability
+        + ", name='" + name + '\'' + ", description='" + description + '\''
+        + '}';
   }
 }

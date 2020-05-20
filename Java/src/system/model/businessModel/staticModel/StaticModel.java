@@ -1,6 +1,6 @@
-package system.model.staticModel;
+package system.model.businessModel.staticModel;
 
-import system.*;
+import system.model.businessModel.*;
 
 import java.util.ArrayList;
 
