@@ -40,20 +40,37 @@ public class AccountModelImpl implements AccountModel
       e.printStackTrace();
     }
     support = new PropertyChangeSupport(this);
-    tests = new AccountsForTesting();
+
     tempGroups = new ArrayList<>();
     groupsForDm = new ArrayList<>();
 
 
     // for testing
 
-    tempGroups = tests.getTempGroups();
-    groupsForDm = tests.getGroupsForDm();
 
 
     client.addListener("createAccount", this::createAccountInfoBackFromServer);
     client.addListener("acceptLogin", this::loginInfo);
+    client.addListener("searchGroup",this::searchGroupInfo);
   }
+
+  private void searchGroupInfo(PropertyChangeEvent propertyChangeEvent)
+  { Container info = (Container) propertyChangeEvent.getNewValue();
+   ArrayList<Object> objs = (ArrayList<Object>) info.getObject();
+   boolean isIDValid = (boolean)objs.get(0);
+
+    System.out.println("id :" + isIDValid);
+    if(isIDValid)
+    {
+      Group groupWithTheIDWeFound= (Group)objs.get(1);
+      tempGroups.add(groupWithTheIDWeFound);   //I'm not sure about this one, maybe it will cause problems.
+      support.firePropertyChange("GroupAdded", null,
+          groupWithTheIDWeFound);
+    }
+    else {support.firePropertyChange("searchFailed",null,isIDValid);}
+  }
+
+
 
   private void loginInfo(PropertyChangeEvent propertyChangeEvent)
   {
@@ -62,6 +79,7 @@ public class AccountModelImpl implements AccountModel
     ArrayList<Object> objs = (ArrayList<Object>) info.getObject();
     boolean isLoginValid = (boolean) objs.get(0);
     System.out.println("log response:"+isLoginValid );
+
     if (isLoginValid)
     {
       distributeAccountInfo(objs);
@@ -75,21 +93,30 @@ public class AccountModelImpl implements AccountModel
 
   public void distributeAccountInfo(ArrayList<Object> o)
   {
-    System.out.println(((Account) o.get(1)));
+
     usersAccount= (Account) o.get(1);
 
     System.out.println(usersAccount.getUsername());
-    ArrayList<Group> groups = (ArrayList<Group>) o.get(2);
-
-    for (int i = 0; i < groups.size(); i++)
+    try
     {
-      if (groups.get(i).getDM().getName()
-          .equals(usersAccount.getUsername()))
+      if (o.get(2)!=null)
       {
-        groupsForDm.add(groups.get(i));
+        System.out.println("nézem agroupokat");
+        ArrayList<Group> groups = (ArrayList<Group>) o.get(2);
+
+        for (int i = 0; i < groups.size(); i++)
+        {
+          if (groups.get(i).getDM().getName().equals(usersAccount.getUsername()))
+          {
+            groupsForDm.add(groups.get(i));
+          }
+          else
+            tempGroups.add(groups.get(i));
+        }
       }
-      else
-        tempGroups.add(groups.get(i));
+    } catch (IndexOutOfBoundsException e)
+    {
+      System.out.println("no groups");
     }
 
   }
@@ -176,34 +203,17 @@ public class AccountModelImpl implements AccountModel
         break;
       }
     }
-
-    client.searchGroup(id, usersAccount.getUsername());
-    for (int i = 0; i < findingUnknownGroupsGroup.size(); i++)
+    for(int i =0; i<groupsForDm.size();i++)
     {
-      if (findingUnknownGroupsGroup.get(i).getDM().getName()
-          .equals(usersAccount.getUsername())
-          && findingUnknownGroupsGroup.get(i).getId() == id)
-      {
-        temp = "This group was made by you as a DM.\n You can only see this group in the DM mode";
-        break;
-      }
+      if(groupsForDm.get(i).getId()==id)
+       {temp="You are the DM of this group\n so you cannot join a player.";break;}
 
     }
-    if (temp.equals("This group doesn't exit"))
+    if(temp.equals("Searching..."))
     {
-      for (int i = 0; i < findingUnknownGroupsGroup.size(); i++)
-      {
-        if (findingUnknownGroupsGroup.get(i).getId() == id)
-        {
-          tempGroups.add(findingUnknownGroupsGroup.get(i));
-          support.firePropertyChange("GroupAdded", null,
-              findingUnknownGroupsGroup.get(i));
-          temp = "Group added to your group list";
-          break;
-        }
-
-      }
+      client.searchGroup(id, usersAccount.getUsername());
     }
+
     return temp;
   }
 

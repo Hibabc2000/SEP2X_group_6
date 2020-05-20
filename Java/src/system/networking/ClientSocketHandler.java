@@ -68,8 +68,19 @@ public class ClientSocketHandler implements Runnable
                  }
              );
 
-
+             break;
            }
+           case SEARCH_GROUP:
+           {
+             ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
+
+             Platform.runLater(()->{
+               socketClient.searchGroupInfo(inDataPack);
+             });
+
+             break;
+           }
+
 
 
          }

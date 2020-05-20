@@ -24,10 +24,17 @@ public class PlayerAccountViewModel
     groupList = FXCollections.observableArrayList();
     model.addListener("GroupAdded",this::addToGroupList);
     model.addListener("PlayerAddedToGroup",this::addPlayerToGroup);
+    model.addListener("searchFailed",this::searchFail);
 
 
   }
- // here we go through the grouplist and check whether the "oldgroup" variable equals one of the groups that are in the list right now.
+
+  private void searchFail(PropertyChangeEvent propertyChangeEvent)
+  {
+    error.setValue("A group with this ID does not exist.");
+  }
+
+  // here we go through the grouplist and check whether the "oldgroup" variable equals one of the groups that are in the list right now.
   // if yes then  we will take that and change it to the new group which has been updated with your name in it.
   private void addPlayerToGroup(PropertyChangeEvent propertyChangeEvent)
   {
@@ -43,6 +50,7 @@ public class PlayerAccountViewModel
   private void addToGroupList(PropertyChangeEvent propertyChangeEvent)
     {
       groupList.add(((Group)propertyChangeEvent.getNewValue()).toString());
+      error.set("Group added to your group list");
     }
 // this method creates the grouplist  when the scene is opened
   // the getGroups method returns the groups the player already knows or is part of.

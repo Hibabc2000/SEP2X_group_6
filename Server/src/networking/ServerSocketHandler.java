@@ -79,7 +79,7 @@ public class ServerSocketHandler implements Runnable
 
             Container outDataPack = new Container(unique,
                 ClassName.CREATE_ACCOUNT);
-            sendBackInformationAboutAccountCreation(outDataPack);
+            sendBackData(outDataPack);
             break;
           }
           case CHECK_EMAIL_CHANGE:
@@ -136,7 +136,7 @@ public class ServerSocketHandler implements Runnable
               {
                 System.out.println("if answer true,");
                 dataPack = database.acceptLogin(username, password);
-                sendBackLoginInfo(dataPack);
+                sendBackData(dataPack);
               }
               catch (SQLException e)
               {
@@ -146,7 +146,7 @@ public class ServerSocketHandler implements Runnable
             else if (!answer)
             {
               System.out.println("if answ not true");
-              sendBackLoginInfo(dataPack);
+              sendBackData(dataPack);
             }
 
             break;
@@ -160,10 +160,37 @@ public class ServerSocketHandler implements Runnable
             break;
           }
           case SEARCH_GROUP:
-          {
+          { Container dataPack =null;
             ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
             int id = (int) (m.get(0));
-            String usernameToCheckWithDMgroup = (String) (m.get(1));
+            boolean isItValid  = false;
+            try
+            {
+              isItValid = database.searchGroup(id);
+            }
+            catch (SQLException e)
+            {
+              e.printStackTrace();
+            }
+            if(isItValid)
+            {
+              try
+              {
+
+                dataPack = database.getGroup(id);
+
+
+                sendBackData(dataPack);
+              }
+              catch (SQLException e)
+              {
+                e.printStackTrace();
+              }
+
+            }
+            else {ArrayList<Object> obj = new ArrayList<Object>();obj.add(isItValid);dataPack = new Container(obj,ClassName.SEARCH_GROUP);
+              sendBackData(dataPack);
+            }
             break;
           }
           case REMOVE_USER:
@@ -191,20 +218,7 @@ public class ServerSocketHandler implements Runnable
 
   }
 
-  public void sendBackInformationAboutAccountCreation(Object ob)
-  {
-    try
-    {
-      outToClient.writeObject(ob);
-      System.out.println("sendbackfromservertoclient");
-    }
-    catch (IOException e)
-    {
-      e.printStackTrace();
-    }
-  }
-
-  public void sendBackLoginInfo(Object ob)
+  public void sendBackData(Object ob)
   {
     try
     {
@@ -216,4 +230,5 @@ public class ServerSocketHandler implements Runnable
       e.printStackTrace();
     }
   }
+
 }

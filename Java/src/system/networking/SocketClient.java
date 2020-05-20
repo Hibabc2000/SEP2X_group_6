@@ -163,6 +163,11 @@ public class SocketClient implements Client
     support.firePropertyChange("acceptLogin",null,c);
     System.out.println("client prop change");
   }
+  public void searchGroupInfo(Container inDataPack)
+  {
+    support.firePropertyChange("searchGroup",null,inDataPack);
+    System.out.println("clientsocketfiresupportadcmid");
+  }
 
   @Override public void addListener(String eventName,
       PropertyChangeListener listener)

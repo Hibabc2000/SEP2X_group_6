@@ -149,17 +149,36 @@ public class GetAllAccountData
   public Container acceptLogin(String username, String password)
       throws SQLException
   {
-    Statement st = c.createStatement();
-    String query =
-        "SELECT u.username, u.password, u.email, u.\"groupIDs\", g.name, g.id, g.\"usernameDM\", g.\"usernamePlayers\", g.\"characterIDs\" FROM \"Groups\".\"Groups\" g, \"Users\".\"Users\" u     WHERE u.username = '"
-            + username + "' AND u.password= '" + password + "' ;";
+
+
+
+    Statement st = c.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+    String query ="SELECT u.username, u.password, u.email, u.\"groupIDs\", g.name, g.id, g.\"usernameDM\", g.\"usernamePlayers\", g.\"characterIDs\" FROM \"Groups\".\"Groups\" g, \"Users\".\"Users\" u     WHERE u.username = '"+username +"' AND u.password= '"+password +"' AND u.\"groupIDs\" IS NOT NULL ;";
 
     ResultSet rs = st.executeQuery(query);
+
+    boolean doesAccountHaveGroups=true;
     String userame = null;
     String ema = null;
     String pass = null;
 
+
+
+    if(!rs.next())
+    {
+      doesAccountHaveGroups = false;
+      query =
+          "SELECT * FROM \"Users\".\"Users\" WHERE  username  = '" + username + "' AND password ='" + password + "' ;";
+      rs = st.executeQuery(query);
+      System.out.println("alma");
+
+
+    }
+    rs.beforeFirst();
+
+
     ArrayList<Group> groupList = new ArrayList<>();
+
     ArrayList<String> plys = new ArrayList<>();
     ArrayList<Integer> charIDs = new ArrayList<>();
 
@@ -168,7 +187,10 @@ public class GetAllAccountData
       userame = rs.getString("username");
       pass = rs.getString("password");
       ema = rs.getString("email");
-
+      System.out.println(doesAccountHaveGroups + "why isnt if true?");
+      if(doesAccountHaveGroups==false) {
+        System.out.println(doesAccountHaveGroups+ " which means it doesnt have accs");break;}
+      System.out.println(doesAccountHaveGroups + "why isnt if true?");
       //groupidz = rs.getString("groupIDs");
 
       String k = rs.getString("usernamePlayers");
@@ -177,43 +199,44 @@ public class GetAllAccountData
       String charid = rs.getString("characterIDs");
       charIDs = sqlArrayToArrayListInteger(charid);
 
-      Group ng = new Group(rs.getString("name"), rs.getInt("id"));
+      Group ng = null;
+      ng  = new Group(rs.getString("name"), rs.getInt("id"));
 
       for (int i = 0; i < plys.size(); i++)
       {
 
         Player a = new Player(plys.get(i));
 
-        if (charIDs.get(i) != null)
-        {
-          a.addCharacterID(charIDs.get(i));
-        }
-        else
-        {
-          a.addCharacterID(null);
-        }
+        if(charIDs.get(i)!=null)
+        { a.addCharacterID(charIDs.get(i));} else {a.addCharacterID(null);}
         ng.addDM(new DM(rs.getString("usernameDM")));
+
 
         ng.addPlayer(a);
 
       }
 
+
+
+
       groupList.add(ng);
+
 
     }
 
+
     ArrayList<Object> objs = new ArrayList<>();
-    boolean b = true;
-    objs.add(b);
+    boolean b = true; objs.add(b);
     Account acc = new Account(userame, password, ema);
     objs.add(acc);
-    objs.add(groupList);
+    System.out.println(doesAccountHaveGroups + "why isnt if true?");
+    if(doesAccountHaveGroups)
+    {
+      objs.add(groupList);
+      System.out.println(groupList.get(0).getId() + "=id \n did gro: "+ groupList.get(0).getDM().getName() + " id: "+ groupList.get(1).getId());
+    }
+    System.out.println("acc: " + acc.getUsername() + "pas "+ acc.getPassword() + "ema "+ acc.getEmail());
 
-    System.out.println(
-        "acc: " + acc.getUsername() + "pas " + acc.getPassword() + "ema " + acc
-            .getEmail());
-    System.out.println("Group1 " + groupList.get(0).toString());
-    System.out.println("Group2 " + groupList.get(1).toString());
 
     Container dataPack = new Container(objs, ClassName.LOGIN_RESPONSE);
     return dataPack;
@@ -252,5 +275,97 @@ public class GetAllAccountData
 
     }
     return temp;
+  }
+
+  public boolean searchGroup(int id) throws SQLException
+  {
+    boolean answer = false;
+
+    Statement st = c.createStatement();
+    String query =
+        "SELECT * FROM \"Groups\".\"Groups\" WHERE  id  = " + id + " ;";
+
+    ResultSet rs = st.executeQuery(query);
+    String nam = null;
+
+    while (rs.next())
+    {
+      nam = rs.getString("name");
+
+
+    }
+    if (nam != null)
+    {
+      answer = true;
+      System.out.println("ans1" + answer);
+
+    }
+    return answer;
+  }
+
+  public Container getGroup(int id) throws SQLException
+  {
+    Statement st = c.createStatement();
+    String query = "SELECT * FROM \"Groups\".\"Groups\" WHERE  id  = " + id + " ;";
+    ResultSet rs = st.executeQuery(query);
+
+
+    Group thisIsAGroupForTheGroupWithTheIDOfWhatTheUserInsertedIntoTheMethodToFindThisGroupDoYouUnderstandThisMarin = null;
+
+    ArrayList<String> plys = new ArrayList<>();
+    ArrayList<Integer> charIDs = new ArrayList<>();
+
+    while (rs.next())
+    {
+
+      String k = rs.getString("usernamePlayers");
+      plys = sqlArrayToArrayListString(k);
+
+      String charid = rs.getString("characterIDs");
+      charIDs = sqlArrayToArrayListInteger(charid);
+
+
+      thisIsAGroupForTheGroupWithTheIDOfWhatTheUserInsertedIntoTheMethodToFindThisGroupDoYouUnderstandThisMarin=
+          new Group(rs.getString("name"), rs.getInt("id"));
+
+      for (int i = 0; i < plys.size(); i++)
+      {
+
+        Player a = new Player(plys.get(i));
+
+        if(charIDs.get(i)!=null)
+        { a.addCharacterID(charIDs.get(i));} else {a.addCharacterID(null);}
+        thisIsAGroupForTheGroupWithTheIDOfWhatTheUserInsertedIntoTheMethodToFindThisGroupDoYouUnderstandThisMarin.addDM(new DM(rs.getString("usernameDM")));
+
+
+        thisIsAGroupForTheGroupWithTheIDOfWhatTheUserInsertedIntoTheMethodToFindThisGroupDoYouUnderstandThisMarin.addPlayer(a);
+
+      }
+
+
+
+
+
+
+
+    }
+
+
+
+
+    ArrayList<Object> objs = new ArrayList<>();
+    boolean b = true;
+    objs.add(b);
+
+    objs.add(thisIsAGroupForTheGroupWithTheIDOfWhatTheUserInsertedIntoTheMethodToFindThisGroupDoYouUnderstandThisMarin);
+
+
+
+    System.out.println("Group1 "+ objs.get(0).toString());
+
+
+    Container dataPack = new Container(objs, ClassName.SEARCH_GROUP);
+    return dataPack;
+
   }
 }

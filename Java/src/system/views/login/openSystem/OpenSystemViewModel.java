@@ -27,6 +27,21 @@ public class OpenSystemViewModel implements Subject
     password.setValue("");
     support = new PropertyChangeSupport(this);
     accountModel.addListener("acceptLogin", this::acceptLoginInfo);
+    accountModel.addListener("searchGroup",this::searchGroupAnswer);
+  }
+
+  private void searchGroupAnswer(PropertyChangeEvent propertyChangeEvent)
+  {
+    String val = "error";
+    boolean respone = ((boolean) propertyChangeEvent.getNewValue());
+  if(!respone)
+  {
+    val = "A group with this ID doesn't exist";
+    error.setValue(val);
+  }
+  else{val="The group has been added to your group list."; error.setValue(val);}
+    support.firePropertyChange("acceptTheGroup",null, val);
+
   }
 
   private void acceptLoginInfo(PropertyChangeEvent propertyChangeEvent)
