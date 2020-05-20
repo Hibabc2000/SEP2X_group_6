@@ -195,7 +195,6 @@ public class ServerSocketHandler implements Runnable
   {
     try
     {
-
       outToClient.writeObject(ob);
       System.out.println("sendbackfromservertoclient");
     }

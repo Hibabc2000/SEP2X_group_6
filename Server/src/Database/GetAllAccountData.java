@@ -149,9 +149,6 @@ public class GetAllAccountData
   public Container acceptLogin(String username, String password)
       throws SQLException
   {
-
-
-
     Statement st = c.createStatement();
     String query = "SELECT u.username, u.password, u.email, u.\"groupIDs\", g.name, g.id, g.\"usernameDM\", g.\"usernamePlayers\", g.\"characterIDs\" FROM \"Groups\".\"Groups\" g, \"Users\".\"Users\" u     WHERE u.username = '"+username +"' AND u.password= '"+password +"' ;";
 

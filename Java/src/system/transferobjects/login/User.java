@@ -1,6 +1,8 @@
 package system.transferobjects.login;
 
-public interface User
+import java.io.Serializable;
+
+public interface User  extends Serializable
 
 {
 

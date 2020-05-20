@@ -3,9 +3,7 @@ package system.transferobjects.login;
 import system.Character;
 import system.DiceRoll;
 
-import java.io.Serializable;
-
-public class Player implements User, Serializable
+public class Player implements User
 {
   private Character character;
 
