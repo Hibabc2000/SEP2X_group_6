@@ -150,13 +150,14 @@ public class GetAllAccountData
       throws SQLException
   {
     Statement st = c.createStatement();
-    String query = "SELECT u.username, u.password, u.email, u.\"groupIDs\", g.name, g.id, g.\"usernameDM\", g.\"usernamePlayers\", g.\"characterIDs\" FROM \"Groups\".\"Groups\" g, \"Users\".\"Users\" u     WHERE u.username = '"+username +"' AND u.password= '"+password +"' ;";
+    String query =
+        "SELECT u.username, u.password, u.email, u.\"groupIDs\", g.name, g.id, g.\"usernameDM\", g.\"usernamePlayers\", g.\"characterIDs\" FROM \"Groups\".\"Groups\" g, \"Users\".\"Users\" u     WHERE u.username = '"
+            + username + "' AND u.password= '" + password + "' ;";
 
     ResultSet rs = st.executeQuery(query);
     String userame = null;
     String ema = null;
     String pass = null;
-
 
     ArrayList<Group> groupList = new ArrayList<>();
     ArrayList<String> plys = new ArrayList<>();
@@ -176,33 +177,30 @@ public class GetAllAccountData
       String charid = rs.getString("characterIDs");
       charIDs = sqlArrayToArrayListInteger(charid);
 
-      Group ng = null;
-      ng  = new Group(rs.getString("name"), rs.getInt("id"));
+      Group ng = new Group(rs.getString("name"), rs.getInt("id"));
 
       for (int i = 0; i < plys.size(); i++)
       {
 
         Player a = new Player(plys.get(i));
 
-        if(charIDs.get(i)!=null)
-        { a.addCharacterID(charIDs.get(i));} else {a.addCharacterID(null);}
+        if (charIDs.get(i) != null)
+        {
+          a.addCharacterID(charIDs.get(i));
+        }
+        else
+        {
+          a.addCharacterID(null);
+        }
         ng.addDM(new DM(rs.getString("usernameDM")));
-
 
         ng.addPlayer(a);
 
       }
 
-
-
-
       groupList.add(ng);
 
-
     }
-
-
-
 
     ArrayList<Object> objs = new ArrayList<>();
     boolean b = true;
@@ -211,9 +209,11 @@ public class GetAllAccountData
     objs.add(acc);
     objs.add(groupList);
 
-    System.out.println("acc: " + acc.getUsername() + "pas "+ acc.getPassword() + "ema "+ acc.getEmail());
-    System.out.println("Group1 "+ groupList.get(0).toString());
-    System.out.println("Group2 "+ groupList.get(1).toString());
+    System.out.println(
+        "acc: " + acc.getUsername() + "pas " + acc.getPassword() + "ema " + acc
+            .getEmail());
+    System.out.println("Group1 " + groupList.get(0).toString());
+    System.out.println("Group2 " + groupList.get(1).toString());
 
     Container dataPack = new Container(objs, ClassName.LOGIN_RESPONSE);
     return dataPack;

@@ -391,4 +391,16 @@ public class Character
       }
     }
   }
+
+  public String getUsername()
+  {
+    //write username getter
+    return "";
+  }
+
+  public String getGroup()
+  {
+    //write groupname getter
+    return "";
+  }
 }

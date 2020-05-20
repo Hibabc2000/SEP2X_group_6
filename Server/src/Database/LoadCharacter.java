@@ -30,19 +30,19 @@ public class LoadCharacter
   {
     character = new Character(staticModel);
     try
+  {
+    Statement st = c.createStatement();
+    String query = "SELECT * FROM \"Characters\".\"Characters\" WHERE id = " + id + ";";
+    ResultSet rs = st.executeQuery(query);
+    while (rs.next())
     {
-      Statement st = c.createStatement();
-      String query = "SELECT * FROM \"Characters\".\"Characters\" WHERE id = " + id + ";";
-      ResultSet rs = st.executeQuery(query);
-      while (rs.next())
-      {
-        //call character set methods
-      }
+      //call character set methods
     }
-    catch (SQLException e)
-    {
-      e.printStackTrace();
-    }
+  }
+  catch (SQLException e)
+  {
+    e.printStackTrace();
+  }
     return character;
   }
 }
