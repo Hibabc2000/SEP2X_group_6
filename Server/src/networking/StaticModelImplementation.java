@@ -1,7 +1,7 @@
 package networking;
 
-import Database.GetAllFromDatabase;
-import system.*;
+import Database.GetCoreFromDatabase;
+import system.model.businessModel.*;
 
 import java.util.ArrayList;
 
@@ -16,8 +16,8 @@ public class StaticModelImplementation
   public static ArrayList<EquipmentWeapon> equipmentWeaponList;
   public static ArrayList<EquipmentGeneral> equipmentGenerals;
   public  static ArrayList<EquipmentArmor> equipmentArmors;
-  private static GetAllFromDatabase gafd;
-  public StaticModelImplementation(GetAllFromDatabase g)
+  private static GetCoreFromDatabase gafd;
+  public StaticModelImplementation(GetCoreFromDatabase g)
   {
     gafd = g;
     gafd.loadDatabase();

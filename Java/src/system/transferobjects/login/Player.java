@@ -1,7 +1,7 @@
 package system.transferobjects.login;
 
-import system.Character;
-import system.DiceRoll;
+import system.model.businessModel.Character;
+import system.model.businessModel.DiceRoll;
 
 public class Player implements User
 {

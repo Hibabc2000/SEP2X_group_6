@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="">
+    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="Character work">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/core/ViewHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/core/ViewHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/networking/ClientSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/networking/ClientSocketHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/transferobjects/ClassName.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/transferobjects/ClassName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/openSystem/OpenSystemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/openSystem/OpenSystemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/openSystem/OpenSystemViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/openSystem/OpenSystemViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Database/GetAllAccountData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/GetAllAccountData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Database/GetCoreFromDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/GetCoreFromDatabase.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,6 +12,9 @@
   </component>
   <component name="CodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="SEP2X_group_6" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -36,6 +31,7 @@
     <option name="files">
       <list>
         <option value="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+        <option value="$PROJECT_DIR$/.idea/dictionaries/Felhasználó.xml" />
       </list>
     </option>
   </component>
@@ -53,19 +49,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="account" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src" />
+      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\account" />
+      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\model" />
+      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\views" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
       <recent name="testing" />
       <recent name="login" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src" />
-      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\account" />
-      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\model" />
-      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\views" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="account" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -80,13 +76,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Start">
-    <configuration name="GetAllTest (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Database.GetAllTest" />
+  <component name="RunManager" selected="Application.EnumTest">
+    <configuration name="EnumTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="networking.EnumTest" />
       <module name="SEP2X_group_6" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Database.*" />
+          <option name="PATTERN" value="networking.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -107,6 +103,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GetAllTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Database.GetAllTest" />
+      <module name="SEP2X_group_6" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Database.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RunServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="RunServer" />
       <module name="SEP2X_group_6" />
@@ -119,7 +128,7 @@
       <module name="Java" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="system.*" />
+          <option name="PATTERN" value="system.model.businessModel.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -127,12 +136,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="getAccountTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Database.getAccountTest" />
-      <module name="SEP2X_group_6" />
+    <configuration name="TestDtbs" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="system.Server.Database.TestDtbs" />
+      <module name="Java" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Database.*" />
+          <option name="PATTERN" value="system.Server.Database.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -142,11 +151,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Start" />
+        <item itemvalue="Application.EnumTest" />
         <item itemvalue="Application.RunServer" />
-        <item itemvalue="Application.GetAllTest (1)" />
-        <item itemvalue="Application.getAccountTest" />
+        <item itemvalue="Application.Start" />
         <item itemvalue="Application.GetAllTest" />
+        <item itemvalue="Application.TestDtbs" />
       </list>
     </recent_temporary>
   </component>
@@ -224,47 +233,47 @@
       <option name="project" value="LOCAL" />
       <updated>1589630717180</updated>
     </task>
-    <task id="LOCAL-00010" summary="Client,server, database communication for create account">
-      <created>1589808120181</created>
+    <task id="LOCAL-00010" summary="Updated equipment, worked on database equipment loading (probably finished)">
+      <created>1589713839509</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1589808120181</updated>
+      <updated>1589713839509</updated>
     </task>
-    <task id="LOCAL-00011" summary="UI mthfck">
-      <created>1589810241485</created>
+    <task id="LOCAL-00011" summary="Spell rework">
+      <created>1589794411284</created>
       <option name="number" value="00011" />
       <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
-      <updated>1589810241485</updated>
+      <updated>1589794411284</updated>
     </task>
-    <task id="LOCAL-00012" summary="&#10;clientből ---&gt; firepropertychange --&gt;CreateAccount viewmodel --&gt; update controller &lt;-- while loop">
-      <created>1589814815210</created>
+    <task id="LOCAL-00012" summary="Started making parser for proficiency/other modifiers.&#10;Made StaticModel.">
+      <created>1589800620724</created>
       <option name="number" value="00012" />
       <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
-      <updated>1589814815210</updated>
+      <updated>1589800620724</updated>
     </task>
-    <task id="LOCAL-00013" summary="&#10;fixed things, for container to work">
-      <created>1589822165976</created>
+    <task id="LOCAL-00013" summary="Character work">
+      <created>1589880379805</created>
       <option name="number" value="00013" />
       <option name="presentableId" value="LOCAL-00013" />
       <option name="project" value="LOCAL" />
-      <updated>1589822165976</updated>
+      <updated>1589880379806</updated>
     </task>
-    <task id="LOCAL-00014" summary="ServerDatabaseClientcommunication, modelimpl methods">
-      <created>1589900707627</created>
+    <task id="LOCAL-00014" summary="Character work">
+      <created>1589880429084</created>
       <option name="number" value="00014" />
       <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
-      <updated>1589900707627</updated>
+      <updated>1589880429084</updated>
     </task>
-    <task id="LOCAL-00015" summary="changed everything to ENUM">
-      <created>1589915021257</created>
+    <task id="LOCAL-00015" summary="Deprecated GetAllFromDatabase, since it was overridden by other classes.">
+      <created>1589967214130</created>
       <option name="number" value="00015" />
       <option name="presentableId" value="LOCAL-00015" />
       <option name="project" value="LOCAL" />
-      <updated>1589915021257</updated>
+      <updated>1589967214130</updated>
     </task>
     <option name="localTasksCounter" value="16" />
     <servers />
@@ -290,13 +299,12 @@
     <MESSAGE value="Started Database loading" />
     <MESSAGE value="Database loading, model rework started" />
     <MESSAGE value="Model rework" />
-    <MESSAGE value="Client,server, database communication for create account" />
-    <MESSAGE value="UI mthfck" />
-    <MESSAGE value="&#10;clientből ---&gt; firepropertychange --&gt;CreateAccount viewmodel --&gt; update controller &lt;-- while loop" />
-    <MESSAGE value="&#10;fixed things, for container to work" />
-    <MESSAGE value="ServerDatabaseClientcommunication, modelimpl methods" />
-    <MESSAGE value="changed everything to ENUM" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed everything to ENUM" />
+    <MESSAGE value="Updated equipment, worked on database equipment loading (probably finished)" />
+    <MESSAGE value="Spell rework" />
+    <MESSAGE value="Started making parser for proficiency/other modifiers.&#10;Made StaticModel." />
+    <MESSAGE value="Character work" />
+    <MESSAGE value="Deprecated GetAllFromDatabase, since it was overridden by other classes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Deprecated GetAllFromDatabase, since it was overridden by other classes." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -309,6 +317,12 @@
           </properties>
           <option name="temporary" value="true" />
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/Server/src/Database/LoadCharacter.java</url>
+          <line>41</line>
+          <option name="temporary" value="true" />
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

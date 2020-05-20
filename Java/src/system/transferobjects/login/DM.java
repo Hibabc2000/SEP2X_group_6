@@ -1,6 +1,6 @@
 package system.transferobjects.login;
 
-import system.DiceRoll;
+import system.model.businessModel.DiceRoll;
 
 import java.io.Serializable;
 

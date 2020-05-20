@@ -1,7 +1,7 @@
-package system;
+package system.model.businessModel;
 
 import system.model.characterClasses.CharacterClass;
-import system.model.staticModel.StaticModel;
+import system.model.businessModel.staticModel.StaticModel;
 
 import java.util.ArrayList;
 

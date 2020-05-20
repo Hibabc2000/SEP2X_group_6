@@ -1,7 +1,7 @@
 package Database;
 
-import system.Character;
-import system.model.staticModel.StaticModel;
+import system.model.businessModel.Character;
+import system.model.businessModel.staticModel.StaticModel;
 
 import java.sql.*;
 
