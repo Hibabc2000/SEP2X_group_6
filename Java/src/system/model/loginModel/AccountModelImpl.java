@@ -43,14 +43,13 @@ public class AccountModelImpl implements AccountModel
     tests = new AccountsForTesting();
     tempGroups = new ArrayList<>();
     groupsForDm = new ArrayList<>();
-    tempAccounts = new ArrayList<>();
-    findingUnknownGroupsGroup = new ArrayList<>();
+
+
     // for testing
-    usersAccount = tests.getAcc();
+
     tempGroups = tests.getTempGroups();
     groupsForDm = tests.getGroupsForDm();
-    tempAccounts = tests.getTempAccounts();
-    findingUnknownGroupsGroup = tests.getFindingUnknownGroupsGroup();
+
 
     client.addListener("createAccount", this::createAccountInfoBackFromServer);
     client.addListener("acceptLogin", this::loginInfo);
@@ -62,27 +61,30 @@ public class AccountModelImpl implements AccountModel
     Container info = (Container) propertyChangeEvent.getNewValue();
     ArrayList<Object> objs = (ArrayList<Object>) info.getObject();
     boolean isLoginValid = (boolean) objs.get(0);
-    System.out.println(((Account) objs.get(1)).getPlayer());
+    System.out.println("log response:"+isLoginValid );
     if (isLoginValid)
     {
       distributeAccountInfo(objs);
+      support.firePropertyChange("acceptLogin",null,isLoginValid);
     }
     else
     {
-      support.firePropertyChange("acceptLogin", isLoginValid, null);
-    } // be aware that new value is null, because login is invalid
+      support.firePropertyChange("acceptLogin", null, isLoginValid);
+    }
   }
 
   public void distributeAccountInfo(ArrayList<Object> o)
   {
     System.out.println(((Account) o.get(1)));
-    Account temp = (Account) o.get(1);
-    usersAccount = temp;
+    usersAccount= (Account) o.get(1);
+
+    System.out.println(usersAccount.getUsername());
     ArrayList<Group> groups = (ArrayList<Group>) o.get(2);
+
     for (int i = 0; i < groups.size(); i++)
     {
       if (groups.get(i).getDM().getName()
-          .equals(usersAccount.getDM().getName()))
+          .equals(usersAccount.getUsername()))
       {
         groupsForDm.add(groups.get(i));
       }

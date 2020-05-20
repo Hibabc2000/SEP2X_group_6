@@ -60,9 +60,15 @@ public class ClientSocketHandler implements Runnable
              break;
            case LOGIN_RESPONSE:
            {
-             socketClient.loginInfo(inDataPack);
+             ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
+             System.out.println((boolean)m.get(0));
+             Platform.runLater(() -> {
 
-             ((ArrayList<Object>)inDataPack.getObject()).get(1);
+               socketClient.loginInfo(inDataPack);
+                 }
+             );
+
+
            }
 
 

@@ -19,6 +19,8 @@ public enum ClassName
   SEARCH_GROUP,
 //remove user from client
  REMOVE_USER,
+// STATIC
+ STATIC_MODEL,
 
 
 

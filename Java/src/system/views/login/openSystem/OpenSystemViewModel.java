@@ -3,13 +3,19 @@ package system.views.login.openSystem;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import system.model.loginModel.AccountModel;
+import system.util.Subject;
 
-public class OpenSystemViewModel
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+
+public class OpenSystemViewModel implements Subject
 {
   private StringProperty username;
   private StringProperty password;
   private StringProperty error;
   private AccountModel accountModel;
+  private PropertyChangeSupport support;
 
   public OpenSystemViewModel(AccountModel accountModel)
   {
@@ -19,6 +25,30 @@ public class OpenSystemViewModel
     error = new SimpleStringProperty();
     username.setValue("");
     password.setValue("");
+    support = new PropertyChangeSupport(this);
+    accountModel.addListener("acceptLogin", this::acceptLoginInfo);
+  }
+
+  private void acceptLoginInfo(PropertyChangeEvent propertyChangeEvent)
+  {String val = "error";
+    System.out.println("event");
+    boolean response = ((boolean) propertyChangeEvent.getNewValue());
+    if (!response)
+    {
+      val = "Wrong password or username";
+      error.setValue(val);
+    }
+    else
+    {
+      System.out.println("muhahhaa");
+      val = "Ready";
+      error.setValue(val);
+
+    }
+
+    support.firePropertyChange("acceptTheLogIn",null, val);
+
+
   }
 
   public String checkLogin()
@@ -42,5 +72,17 @@ public class OpenSystemViewModel
   public StringProperty getErrorProperty()
   {
     return error;
+  }
+
+  @Override public void addListener(String eventName,
+      PropertyChangeListener listener)
+  {
+    support.addPropertyChangeListener(eventName, listener);
+  }
+
+  @Override public void removeListener(String eventName,
+      PropertyChangeListener listener)
+  {
+    support.removePropertyChangeListener(eventName, listener);
   }
 }

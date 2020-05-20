@@ -2,6 +2,7 @@ package Database;
 
 import system.*;
 import system.model.staticModel.StaticModel;
+import system.transferobjects.ClassName;
 import system.transferobjects.Container;
 
 import java.sql.*;
@@ -79,7 +80,7 @@ public class GetCoreFromDatabase
       loadSubRaces();
       System.out.println("11");
       staticModel.load(abilities, skills, races, spells, subclasses, subraces, equipmentArmors, equipmentGenerals, equipmentWeaponList);
-      cont = new Container(staticModel, "StaticModel");
+      cont = new Container(staticModel, ClassName.STATIC_MODEL);
     }
     catch (SQLException ex)
     {

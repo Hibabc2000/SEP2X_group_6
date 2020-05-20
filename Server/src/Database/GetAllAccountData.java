@@ -159,8 +159,8 @@ public class GetAllAccountData
     String userame = null;
     String ema = null;
     String pass = null;
-    String groupidz = null;
-    ArrayList<Integer> ids = new ArrayList<>();
+
+
     ArrayList<Group> groupList = new ArrayList<>();
     ArrayList<String> plys = new ArrayList<>();
     ArrayList<Integer> charIDs = new ArrayList<>();
@@ -171,7 +171,7 @@ public class GetAllAccountData
       pass = rs.getString("password");
       ema = rs.getString("email");
 
-      groupidz = rs.getString("groupIDs");
+      //groupidz = rs.getString("groupIDs");
 
       String k = rs.getString("usernamePlayers");
       plys = sqlArrayToArrayListString(k);
@@ -179,52 +179,45 @@ public class GetAllAccountData
       String charid = rs.getString("characterIDs");
       charIDs = sqlArrayToArrayListInteger(charid);
 
+      Group ng = null;
+      ng  = new Group(rs.getString("name"), rs.getInt("id"));
+
       for (int i = 0; i < plys.size(); i++)
       {
-        System.out.println(plys.get(i));
+
         Player a = new Player(plys.get(i));
-        a.addCharacterID(charIDs.get(i));
+
+        if(charIDs.get(i)!=null)
+        { a.addCharacterID(charIDs.get(i));} else {a.addCharacterID(null);}
+        ng.addDM(new DM(rs.getString("usernameDM")));
+
 
         ng.addPlayer(a);
 
       }
-      groupList.add(plys)
+
+
+
+
+      groupList.add(ng);
 
 
     }
 
-    ids = sqlArrayToArrayListInteger(groupidz);
 
 
 
-    for (int i = 0; i < ids.size(); i++)
-    {
-      query = "SELECT * FROM \"Groups\".\"Groups\" WHERE  id  = '" + ids.get(i)
-          + "' ;";
-      rs = st.executeQuery(query);
-
-      while (rs.next())
-      {
-        Group ng = new Group(rs.getString("name"), rs.getInt("id"));
-
-        ng.addDM(new DM(rs.getString("usernameDM")));
-
-
-
-
-
-
-
-        groupList.add(ng);
-
-      }
-    }
     ArrayList<Object> objs = new ArrayList<>();
     boolean b = true;
     objs.add(b);
     Account acc = new Account(userame, password, ema);
     objs.add(acc);
     objs.add(groupList);
+
+    System.out.println("acc: " + acc.getUsername() + "pas "+ acc.getPassword() + "ema "+ acc.getEmail());
+    System.out.println("Group1 "+ groupList.get(0).toString());
+    System.out.println("Group2 "+ groupList.get(1).toString());
+
     Container dataPack = new Container(objs, ClassName.LOGIN_RESPONSE);
     return dataPack;
 

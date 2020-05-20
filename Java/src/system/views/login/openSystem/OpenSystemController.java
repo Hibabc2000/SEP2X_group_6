@@ -7,6 +7,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import system.core.ViewHandler;
 
+import java.beans.PropertyChangeEvent;
+
 public class OpenSystemController
 {
   public Button createAccountButton;
@@ -30,6 +32,19 @@ public class OpenSystemController
     errorMessageLabel.textProperty()
         .bind(openSystemViewModel.getErrorProperty());
     this.viewHandler = viewHandler;
+    openSystemViewModel.addListener("acceptTheLogIn", this::loginAccount);
+
+  }
+
+  private void loginAccount(PropertyChangeEvent propertyChangeEvent)
+  {
+    System.out.println("Asda");
+    System.out.println(propertyChangeEvent.getNewValue());
+    if (propertyChangeEvent.getNewValue().equals("Ready"))
+    {
+      System.out.println("opening account");
+      viewHandler.openAccount();
+    }
   }
 
   public void createAccount()
