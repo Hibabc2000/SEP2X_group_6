@@ -9,6 +9,8 @@ public class GetAllFromDatabase
 {
   /**
    * Class for initializing server. Loads all data from database Core schema into the java program.
+   * @deprecated
+   * DO NOT USE.
    */
 
   private Connection c;
