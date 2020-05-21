@@ -1,9 +1,9 @@
 package networking;
 
 import Database.GetAllAccountData;
-import system.transferobjects.login.Account;
 import system.transferobjects.ClassName;
 import system.transferobjects.Container;
+import system.transferobjects.login.Account;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -34,10 +34,15 @@ public class ServerSocketHandler implements Runnable
 
   }
 
+  /**
+   * An infinite loop that is listening for client requests.
+   * The incoming request is casted to a Container. The container has
+   * two attributes:  object and  identifier(ClassName). The switch statement will check
+   * the request identifier
+   */
   @Override public void run()
   {
     try
-
     {
       while (true)
       {
@@ -160,10 +165,11 @@ public class ServerSocketHandler implements Runnable
             break;
           }
           case SEARCH_GROUP:
-          { Container dataPack =null;
+          {
+            Container dataPack = null;
             ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
             int id = (int) (m.get(0));
-            boolean isItValid  = false;
+            boolean isItValid = false;
             try
             {
               isItValid = database.searchGroup(id);
@@ -172,13 +178,12 @@ public class ServerSocketHandler implements Runnable
             {
               e.printStackTrace();
             }
-            if(isItValid)
+            if (isItValid)
             {
               try
               {
 
                 dataPack = database.getGroup(id);
-
 
                 sendBackData(dataPack);
               }
@@ -188,13 +193,18 @@ public class ServerSocketHandler implements Runnable
               }
 
             }
-            else {ArrayList<Object> obj = new ArrayList<Object>();obj.add(isItValid);dataPack = new Container(obj,ClassName.SEARCH_GROUP);
+            else
+            {
+              ArrayList<Object> obj = new ArrayList<Object>();
+              obj.add(isItValid);
+              dataPack = new Container(obj, ClassName.SEARCH_GROUP);
               sendBackData(dataPack);
             }
             break;
           }
           case REMOVE_USER:
-          {ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
+          {
+            ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
             Account user = (Account) (m.get(0));
 
             break;
@@ -218,6 +228,11 @@ public class ServerSocketHandler implements Runnable
 
   }
 
+  /**
+   * Send a response to the Client
+   *
+   * @param ob Object containing the response
+   */
   public void sendBackData(Object ob)
   {
     try
@@ -230,5 +245,4 @@ public class ServerSocketHandler implements Runnable
       e.printStackTrace();
     }
   }
-
 }

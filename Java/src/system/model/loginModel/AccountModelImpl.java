@@ -293,17 +293,25 @@ public class AccountModelImpl implements AccountModel
   }
 
   // basic login with if statements checking pass and name.
-  @Override public String checkLogin(String username, String pass)
+
+  /**
+   * Checks the given username and password and sends them forward to the
+   * Client network
+   * @param username String containing the username
+   * @param password String containing the password
+   * @return  a String with an error if it is the case
+   */
+  @Override public String checkLogin(String username, String password)
   {
     String temp = "Connecting...";
     //server
-    if (username.equals("") || pass.equals(""))
+    if (username.equals("") || password.equals(""))
     {
       temp = "Fill out all the fields";
     }
 
     else
-      client.checkLogin(username, pass);
+      client.checkLogin(username, password);
     // put it into server
 
     return temp;

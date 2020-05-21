@@ -87,11 +87,10 @@ public class OpenSystemViewModel implements Subject
 
   }
 
-//!!! Why should the method return a String
   /**
    * Calls the model in order to check the credentials. Sets the error
    * username and password fields to empty Strings
-   * @return String
+   * @return String with an error if it is the case
    */
   public String checkLogin()
   {

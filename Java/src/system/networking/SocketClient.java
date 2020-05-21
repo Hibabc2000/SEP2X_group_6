@@ -101,6 +101,11 @@ public class SocketClient implements Client
       }
   }
 
+  /**
+   * sends the username and password to the Socket Handler
+   * @param username String containing the username
+   * @param password String containing the password
+   */
   @Override public void checkLogin(String username, String password)
   {
     try

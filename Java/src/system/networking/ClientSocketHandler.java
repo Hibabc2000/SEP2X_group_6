@@ -113,9 +113,15 @@ public class ClientSocketHandler implements Runnable
       outToServer.writeObject(outDataPack);
     }
 
-
-
-
+    /**
+     * Appends the username and password to an ArrayList. Afterwords
+     * a Container is created containing the created ArrayList and an identifier(ClassName).
+     * The container is send to the server
+     *
+     * @param username String containing the username
+     * @param password String containing the password
+     * @throws IOException exceptions produced by failed or interrupted I/O operations.
+     */
     public void checkLogin(String username, String password)
         throws IOException
     {
