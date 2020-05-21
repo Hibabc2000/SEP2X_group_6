@@ -1,11 +1,12 @@
 package system.views.login.playerAccount;
 
-import system.model.loginModel.AccountModel;
-import system.transferobjects.login.Group;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import system.model.loginModel.AccountModel;
+import system.transferobjects.login.Group;
+import system.transferobjects.login.Player;
 
 import java.beans.PropertyChangeEvent;
 import java.util.ArrayList;
@@ -38,11 +39,17 @@ public class PlayerAccountViewModel
   // if yes then  we will take that and change it to the new group which has been updated with your name in it.
   private void addPlayerToGroup(PropertyChangeEvent propertyChangeEvent)
   {
+    System.out.println("this is addplayertogroup method in playeraccountvm");
   for(int i =0; i<groupList.size();i++)
   {
-
+    System.out.println("Mosr plYWER adok hozza az fxml-hez te fasz");
     if(groupList.get(i).equals(propertyChangeEvent.getOldValue().toString()))
-    {groupList.set(i,propertyChangeEvent.getNewValue().toString());}
+    {Group adgruop = (Group) propertyChangeEvent.getOldValue();
+    adgruop.addPlayer((Player)propertyChangeEvent.getNewValue());
+      groupList.set(i,adgruop.toString());
+      System.out.println("THIS IS OLD VALUE : \n"+propertyChangeEvent.getOldValue().toString());
+      System.out.println( adgruop.toString());
+    }
 
   }
   }

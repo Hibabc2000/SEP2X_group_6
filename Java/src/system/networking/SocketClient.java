@@ -120,11 +120,11 @@ public class SocketClient implements Client
   }
 
 
-  @Override public void joinGroupAsAPlayer(Account acc, Group groupname)
+  @Override public void joinGroupAsAPlayer(Account acc, Group group)
   {
     try
     {
-      socketHandler.joinGroup(acc,groupname);
+      socketHandler.joinGroup(acc,group);
     }
     catch (IOException e)
     {
@@ -172,6 +172,11 @@ public class SocketClient implements Client
   {
     support.firePropertyChange("searchGroup",null,inDataPack);
     System.out.println("clientsocketfiresupportadcmid");
+  }
+  public void addPlayerToGroupUpdate(Container c)
+  {
+    support.firePropertyChange("addPlayerGroupUpdate",null,c);
+    System.out.println("group added to other player ui this is client speaking");
   }
 
   @Override public void addListener(String eventName,

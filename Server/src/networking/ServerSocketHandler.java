@@ -228,6 +228,15 @@ public class ServerSocketHandler implements Runnable
 
   }
 
+  /** returns an accounts variable
+   *
+   * @return Account
+   */
+  public Account  getAccount()
+  {
+    return account;
+  }
+
   /**
    * Send a response to the Client
    *

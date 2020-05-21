@@ -52,6 +52,46 @@ public class AccountModelImpl implements AccountModel
     client.addListener("createAccount", this::createAccountInfoBackFromServer);
     client.addListener("acceptLogin", this::loginInfo);
     client.addListener("searchGroup",this::searchGroupInfo);
+    client.addListener("addPlayerGroupUpdate",this::updateGroups);
+  }
+
+  private void updateGroups(PropertyChangeEvent propertyChangeEvent)
+  {
+    ArrayList<Object> objs = (ArrayList<Object>) ((Container)propertyChangeEvent.getNewValue()).getObject();
+     Player playerToAdd = (Player) objs.get(0);
+     int idOfTheGroupToAddThePlayer = (int)objs.get(1);
+    Group oldGroup = null;
+
+     for(int i =0; i<tempGroups.size();i++)
+     {
+       if(tempGroups.get(i).getId()== idOfTheGroupToAddThePlayer);
+       { oldGroup = tempGroups.get(i);
+         support.firePropertyChange("PlayerAddedToGroup", oldGroup,playerToAdd);
+
+       break;
+       }
+     }
+  /*   if(oldGroup!=null){
+       support.firePropertyChange("PlayerAddedToGroup", oldGroup,playerToAdd
+        );
+
+       }
+*/
+
+
+
+    for(int i =0; i<groupsForDm.size();i++)
+    {
+
+      if(groupsForDm.get(i).getId()== idOfTheGroupToAddThePlayer)
+      { oldGroup = groupsForDm.get(i);
+
+        support.firePropertyChange("PlayerAddedToDMGroup", oldGroup,
+          playerToAdd);
+        System.out.println("Im putting a person into this group which is DM");
+      }
+    }
+
   }
 
   private void searchGroupInfo(PropertyChangeEvent propertyChangeEvent)
@@ -225,19 +265,21 @@ public class AccountModelImpl implements AccountModel
   @Override public String joinGroupAsPlayer(String groupName)
   {
     String temp = "Connecting...";
-    client.joinGroupAsAPlayer(usersAccount, tempGroups.get(0));
+
     // server
     for (int i = 0; i < tempGroups.size(); i++)
     {
-      if (tempGroups.get(i).toString().equals(groupName) && !(tempGroups.get(i)
-          .isPlayerPartOfGroup(usersAccount.getPlayer())) && (!tempGroups.get(i)
+      if (tempGroups.get(i).toString().equals(groupName) &&  (!tempGroups.get(i)
           .isContainsUsername(usersAccount.getUsername())))
       {
-        String oldGroup = tempGroups.get(i).toString();
-        tempGroups.get(i).addPlayer(usersAccount.getPlayer());
+        Group oldGroup = tempGroups.get(i);
+
         temp = "You have been added to the group";
+
         support.firePropertyChange("PlayerAddedToGroup", oldGroup,
-            tempGroups.get(i));
+            usersAccount.getPlayer());
+        tempGroups.get(i).addPlayer(usersAccount.getPlayer());
+        client.joinGroupAsAPlayer(usersAccount, tempGroups.get(i));
         break;
       }
       else

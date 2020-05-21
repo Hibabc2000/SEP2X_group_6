@@ -6,11 +6,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import system.model.loginModel.AccountModel;
 import system.transferobjects.login.Group;
+import system.transferobjects.login.Player;
+import system.util.Subject;
 
 import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 
-public class DMAccountViewModel
+public class DMAccountViewModel implements Subject
 {
   private AccountModel model;
   private StringProperty error;
@@ -27,6 +30,23 @@ public class DMAccountViewModel
 
     model.addListener("GroupCreatedByDm",
         this::addGroupToList);   // listener if a new group is created by you.
+    model.addListener("PlayerAddedToDMGroup",this::addPlayerToGroup);
+  }
+
+  private void addPlayerToGroup(PropertyChangeEvent propertyChangeEvent)
+  { System.out.println("this is addplayertogroup method in playeraccountvm");
+    for(int i =0; i<groupListDM.size();i++)
+    {
+      System.out.println("Mosr plYWER adok hozza az fxml-hez te fasz");
+      if(groupListDM.get(i).equals(propertyChangeEvent.getOldValue().toString()))
+      {Group adgruop = (Group) propertyChangeEvent.getOldValue();
+        adgruop.addPlayer((Player)propertyChangeEvent.getNewValue());
+        groupListDM.set(i,adgruop.toString());
+        System.out.println("THIS IS OLD VALUE : \n"+propertyChangeEvent.getOldValue().toString());
+        System.out.println( adgruop.toString());
+      }
+
+    }
   }
 
   // adds the new group to the group list.
@@ -77,6 +97,18 @@ public class DMAccountViewModel
   }
 
   public void joinGroupAsDM()
+  {
+
+  }
+
+  @Override public void addListener(String eventName,
+      PropertyChangeListener listener)
+  {
+
+  }
+
+  @Override public void removeListener(String eventName,
+      PropertyChangeListener listener)
   {
 
   }

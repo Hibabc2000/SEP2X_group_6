@@ -105,6 +105,18 @@ public class GetAllAccountData
     st.executeUpdate(query);
 
   }
+  public void addPlayerToGroup(Account ac,Group gp) throws SQLException
+  {
+    Statement st = c.createStatement();
+    String query =
+        "UPDATE \"Groups\".\"Groups\" SET \"usernamePlayers\" = \"usernamePlayers\" || '{"+ac.getUsername()+"}', \"characterIDs\"= \"characterIDs\" || '{null}'  WHERE id = " + gp.getId() + ";";
+
+    st.executeUpdate(query);
+    Statement mt = c.createStatement();
+    String curry = "UPDATE \"Users\".\"Users\" SET \"groupIDs\" = \"groupIDs\" || '{"+gp.getId()+"}' WHERE username = '" + ac.getUsername() + "' ;";
+    mt.executeUpdate(curry);
+
+  }
 
   public Container checkLogin(String username, String password)
       throws SQLException
@@ -153,7 +165,7 @@ public class GetAllAccountData
 
 
     Statement st = c.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-    String query ="SELECT u.username, u.password, u.email, u.\"groupIDs\", g.name, g.id, g.\"usernameDM\", g.\"usernamePlayers\", g.\"characterIDs\" FROM \"Groups\".\"Groups\" g, \"Users\".\"Users\" u     WHERE u.username = '"+username +"' AND u.password= '"+password +"' AND u.\"groupIDs\" IS NOT NULL ;";
+    String query ="SELECT u.username, u.password, u.email, u.\"groupIDs\", g.name, g.id, g.\"usernameDM\", g.\"usernamePlayers\", g.\"characterIDs\" FROM \"Groups\".\"Groups\" g, \"Users\".\"Users\" u     WHERE u.username = '"+username +"' AND u.password= '"+password +"' AND u.\"groupIDs\" IS NOT NULL  AND  g.id IN (select(unnest(u.\"groupIDs\")));;";
 
     ResultSet rs = st.executeQuery(query);
 
@@ -233,7 +245,7 @@ public class GetAllAccountData
     if(doesAccountHaveGroups)
     {
       objs.add(groupList);
-      System.out.println(groupList.get(0).getId() + "=id \n did gro: "+ groupList.get(0).getDM().getName() + " id: "+ groupList.get(1).getId());
+
     }
     System.out.println("acc: " + acc.getUsername() + "pas "+ acc.getPassword() + "ema "+ acc.getEmail());
 
@@ -253,7 +265,7 @@ public class GetAllAccountData
     String[] l = o.split(",");
 
     for (int i = 0; i < l.length; i++)
-    {
+    { if(l[i].equals("NULL")) {l[i]="0";}
       temp.add(Integer.parseInt(l[i]));
 
     }

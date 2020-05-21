@@ -17,12 +17,14 @@ public enum ClassName
   CREATE_GROUP,
   JOIN_GROUP,
   SEARCH_GROUP,
+  GROUP_JOIN_UPDATE ,
 //remove user from client
  REMOVE_USER,
 // STATIC
  STATIC_MODEL,
 //Character
   CHARACTER,
+  ;
 
 
 }

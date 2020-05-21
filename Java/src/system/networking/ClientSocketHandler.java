@@ -80,6 +80,14 @@ public class ClientSocketHandler implements Runnable
 
              break;
            }
+           case GROUP_JOIN_UPDATE:
+           {
+
+             Platform.runLater(()->{
+               socketClient.addPlayerToGroupUpdate(inDataPack);
+             });
+             break;
+           }
 
 
 

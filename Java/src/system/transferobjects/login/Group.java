@@ -27,6 +27,10 @@ public class Group implements Serializable
   {
     return dm;
   } // returns the DM  of the group
+  public void addAllPlayers(ArrayList<Player> plys)
+  {
+    players = plys;
+  }
 
   public Player getPlayer(
       String player) // returns the Player from the group by searching for him by name
@@ -47,10 +51,21 @@ public class Group implements Serializable
   {
     players.add(player);
   }
+  public void removePlayer(Player p)
+  {
+    players.remove(p);
+  }
 
   public void addDM(DM d)                      //adds a DM to the group
   {
     dm = d;
+  }
+  public Group copy()
+  {
+  Group copy = new Group(groupName,id);
+  copy.addDM(dm);
+  copy.addAllPlayers(players);
+  return copy;
   }
 
   public String toString()               // toString method for the GroupList in the UI, its all String, subject to change -
