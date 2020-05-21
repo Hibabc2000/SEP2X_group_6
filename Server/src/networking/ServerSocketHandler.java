@@ -4,6 +4,7 @@ import Database.GetAllAccountData;
 import system.transferobjects.ClassName;
 import system.transferobjects.Container;
 import system.transferobjects.login.Account;
+import system.transferobjects.login.Group;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -66,6 +67,9 @@ public class ServerSocketHandler implements Runnable
             {
 //              Check account uniqueness in the database
               unique = database.checkAccountUniqueness(name, email);
+              account = new Account(name,password,email);
+              pool.userJoin(account);
+              pool.addHandler(this);
             }
             catch (SQLException e)
             {
@@ -145,6 +149,10 @@ public class ServerSocketHandler implements Runnable
 //                dataPack contains an obj with the acc data/groups
                 dataPack = database.acceptLogin(username, password);
                 sendBackData(dataPack);
+                account = (Account) ((ArrayList<Object>)(ArrayList<Object>) dataPack.getObject()).get(1);
+                pool.userJoin(account);
+                pool.addHandler(this);
+
               }
               catch (SQLException e)
               {
@@ -164,7 +172,17 @@ public class ServerSocketHandler implements Runnable
           {
             ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
             Account ac = (Account) (m.get(0));
-            String groupname = (String) (m.get(1));
+            Group group = (Group) (m.get(1));
+            try
+            {
+              database.addPlayerToGroup(ac,group);
+              pool.addPlayerToGroup(group,ac);
+
+            }
+            catch (SQLException e)
+            {
+              e.printStackTrace();
+            }
             break;
           }
           case SEARCH_GROUP:
