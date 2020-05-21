@@ -44,33 +44,43 @@ public class AccountModelImpl implements AccountModel
     tempGroups = new ArrayList<>();
     groupsForDm = new ArrayList<>();
 
-
     // for testing
 
-
-
+    client.addListener("recoverPassword", this::recoverPasswordBackFromServer);
     client.addListener("createAccount", this::createAccountInfoBackFromServer);
     client.addListener("acceptLogin", this::loginInfo);
-    client.addListener("searchGroup",this::searchGroupInfo);
-    client.addListener("addPlayerGroupUpdate",this::updateGroups);
+    client.addListener("searchGroup", this::searchGroupInfo);
+    client.addListener("addPlayerGroupUpdate", this::updateGroups);
+  }
+
+  private void recoverPasswordBackFromServer(
+      PropertyChangeEvent propertyChangeEvent)
+  {
+    ArrayList<Object> objs = (ArrayList<Object>) ((Container) propertyChangeEvent
+        .getNewValue()).getObject();
+    support.firePropertyChange("recoverPassword", null, objs);
+
   }
 
   private void updateGroups(PropertyChangeEvent propertyChangeEvent)
   {
-    ArrayList<Object> objs = (ArrayList<Object>) ((Container)propertyChangeEvent.getNewValue()).getObject();
-     Player playerToAdd = (Player) objs.get(0);
-     int idOfTheGroupToAddThePlayer = (int)objs.get(1);
+    ArrayList<Object> objs = (ArrayList<Object>) ((Container) propertyChangeEvent
+        .getNewValue()).getObject();
+    Player playerToAdd = (Player) objs.get(0);
+    int idOfTheGroupToAddThePlayer = (int) objs.get(1);
     Group oldGroup = null;
 
-     for(int i =0; i<tempGroups.size();i++)
-     {
-       if(tempGroups.get(i).getId()== idOfTheGroupToAddThePlayer);
-       { oldGroup = tempGroups.get(i);
-         support.firePropertyChange("PlayerAddedToGroup", oldGroup,playerToAdd);
+    for (int i = 0; i < tempGroups.size(); i++)
+    {
+      if (tempGroups.get(i).getId() == idOfTheGroupToAddThePlayer)
+        ;
+      {
+        oldGroup = tempGroups.get(i);
+        support.firePropertyChange("PlayerAddedToGroup", oldGroup, playerToAdd);
 
-       break;
-       }
-     }
+        break;
+      }
+    }
   /*   if(oldGroup!=null){
        support.firePropertyChange("PlayerAddedToGroup", oldGroup,playerToAdd
         );
@@ -78,16 +88,15 @@ public class AccountModelImpl implements AccountModel
        }
 */
 
-
-
-    for(int i =0; i<groupsForDm.size();i++)
+    for (int i = 0; i < groupsForDm.size(); i++)
     {
 
-      if(groupsForDm.get(i).getId()== idOfTheGroupToAddThePlayer)
-      { oldGroup = groupsForDm.get(i);
+      if (groupsForDm.get(i).getId() == idOfTheGroupToAddThePlayer)
+      {
+        oldGroup = groupsForDm.get(i);
 
-        support.firePropertyChange("PlayerAddedToDMGroup", oldGroup,
-          playerToAdd);
+        support
+            .firePropertyChange("PlayerAddedToDMGroup", oldGroup, playerToAdd);
         System.out.println("Im putting a person into this group which is DM");
       }
     }
@@ -95,22 +104,24 @@ public class AccountModelImpl implements AccountModel
   }
 
   private void searchGroupInfo(PropertyChangeEvent propertyChangeEvent)
-  { Container info = (Container) propertyChangeEvent.getNewValue();
-   ArrayList<Object> objs = (ArrayList<Object>) info.getObject();
-   boolean isIDValid = (boolean)objs.get(0);
+  {
+    Container info = (Container) propertyChangeEvent.getNewValue();
+    ArrayList<Object> objs = (ArrayList<Object>) info.getObject();
+    boolean isIDValid = (boolean) objs.get(0);
 
     System.out.println("id :" + isIDValid);
-    if(isIDValid)
+    if (isIDValid)
     {
-      Group groupWithTheIDWeFound= (Group)objs.get(1);
-      tempGroups.add(groupWithTheIDWeFound);   //I'm not sure about this one, maybe it will cause problems.
-      support.firePropertyChange("GroupAdded", null,
-          groupWithTheIDWeFound);
+      Group groupWithTheIDWeFound = (Group) objs.get(1);
+      tempGroups.add(
+          groupWithTheIDWeFound);   //I'm not sure about this one, maybe it will cause problems.
+      support.firePropertyChange("GroupAdded", null, groupWithTheIDWeFound);
     }
-    else {support.firePropertyChange("searchFailed",null,isIDValid);}
+    else
+    {
+      support.firePropertyChange("searchFailed", null, isIDValid);
+    }
   }
-
-
 
   private void loginInfo(PropertyChangeEvent propertyChangeEvent)
   {
@@ -118,12 +129,12 @@ public class AccountModelImpl implements AccountModel
     Container info = (Container) propertyChangeEvent.getNewValue();
     ArrayList<Object> objs = (ArrayList<Object>) info.getObject();
     boolean isLoginValid = (boolean) objs.get(0);
-    System.out.println("log response:"+isLoginValid );
+    System.out.println("log response:" + isLoginValid);
 
     if (isLoginValid)
     {
       distributeAccountInfo(objs);
-      support.firePropertyChange("acceptLogin",null,isLoginValid);
+      support.firePropertyChange("acceptLogin", null, isLoginValid);
     }
     else
     {
@@ -134,19 +145,20 @@ public class AccountModelImpl implements AccountModel
   public void distributeAccountInfo(ArrayList<Object> o)
   {
 
-    usersAccount= (Account) o.get(1);
+    usersAccount = (Account) o.get(1);
 
     System.out.println(usersAccount.getUsername());
     try
     {
-      if (o.get(2)!=null)
+      if (o.get(2) != null)
       {
         System.out.println("nézem agroupokat");
         ArrayList<Group> groups = (ArrayList<Group>) o.get(2);
 
         for (int i = 0; i < groups.size(); i++)
         {
-          if (groups.get(i).getDM().getName().equals(usersAccount.getUsername()))
+          if (groups.get(i).getDM().getName()
+              .equals(usersAccount.getUsername()))
           {
             groupsForDm.add(groups.get(i));
           }
@@ -154,7 +166,8 @@ public class AccountModelImpl implements AccountModel
             tempGroups.add(groups.get(i));
         }
       }
-    } catch (IndexOutOfBoundsException e)
+    }
+    catch (IndexOutOfBoundsException e)
     {
       System.out.println("no groups");
     }
@@ -243,13 +256,16 @@ public class AccountModelImpl implements AccountModel
         break;
       }
     }
-    for(int i =0; i<groupsForDm.size();i++)
+    for (int i = 0; i < groupsForDm.size(); i++)
     {
-      if(groupsForDm.get(i).getId()==id)
-       {temp="You are the DM of this group\n so you cannot join a player.";break;}
+      if (groupsForDm.get(i).getId() == id)
+      {
+        temp = "You are the DM of this group\n so you cannot join a player.";
+        break;
+      }
 
     }
-    if(temp.equals("Searching..."))
+    if (temp.equals("Searching..."))
     {
       client.searchGroup(id, usersAccount.getUsername());
     }
@@ -269,7 +285,7 @@ public class AccountModelImpl implements AccountModel
     // server
     for (int i = 0; i < tempGroups.size(); i++)
     {
-      if (tempGroups.get(i).toString().equals(groupName) &&  (!tempGroups.get(i)
+      if (tempGroups.get(i).toString().equals(groupName) && (!tempGroups.get(i)
           .isContainsUsername(usersAccount.getUsername())))
       {
         Group oldGroup = tempGroups.get(i);
@@ -350,9 +366,10 @@ public class AccountModelImpl implements AccountModel
   /**
    * Checks the given username and password and sends them forward to the
    * Client network
+   *
    * @param username String containing the username
    * @param password String containing the password
-   * @return  a String with an error if it is the case
+   * @return a String with an error if it is the case
    */
   @Override public String checkLogin(String username, String password)
   {
@@ -375,6 +392,7 @@ public class AccountModelImpl implements AccountModel
   /**
    * Basic field checks(empty fields), after checking the {@param email} is
    * send to the client socket
+   *
    * @param email String containing the email
    * @return String message containing an error if it is the case
    */
@@ -445,8 +463,10 @@ public class AccountModelImpl implements AccountModel
     }
     else
     {
-      usersAccount.setPassword(passNew);temp = "Ready"; // if no errors,then password is changed
-      client.changePassword(usersAccount, passOld); // here we send it to the database so it changes, we dont need to check anything
+      usersAccount.setPassword(passNew);
+      temp = "Ready"; // if no errors,then password is changed
+      client.changePassword(usersAccount,
+          passOld); // here we send it to the database so it changes, we dont need to check anything
 
     }
 

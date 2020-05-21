@@ -3,6 +3,10 @@ package system.views.login.passwordRecovery;
 import system.model.loginModel.AccountModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import system.transferobjects.Container;
+
+import java.beans.PropertyChangeEvent;
+import java.util.ArrayList;
 
 public class PasswordRecoveryViewModel
 { private AccountModel model;
@@ -18,6 +22,20 @@ private StringProperty error;
   email= new SimpleStringProperty();
   error= new SimpleStringProperty();
   email.setValue("");
+    model.addListener("recoverPassword", this::recoverPasswordBackFromServer);
+  }
+
+  private void recoverPasswordBackFromServer(
+      PropertyChangeEvent propertyChangeEvent)
+  {
+    ArrayList<Object> objs = (ArrayList<Object>) ((Container) propertyChangeEvent
+        .getNewValue()).getObject();
+    boolean answer= (boolean) objs.get(0);
+    String password= (String) objs.get(1);
+    if(answer){
+error.setValue("Your password is: "+password);
+    }else
+      error.setValue("The email was not found");
   }
 
   /**

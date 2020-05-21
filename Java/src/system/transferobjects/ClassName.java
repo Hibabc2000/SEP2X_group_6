@@ -7,6 +7,7 @@ public enum ClassName
   LOGIN_RESPONSE,
     // recover password function
   RECOVER_PASSWORD,
+  RECOVER_PASSWORD_RESPONSE,
 //  create account
   CREATE_ACCOUNT,
 //  change email

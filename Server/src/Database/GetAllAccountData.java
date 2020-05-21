@@ -124,15 +124,21 @@ public class GetAllAccountData
     st.executeUpdate(query);
 
   }
-  public void addPlayerToGroup(Account ac,Group gp) throws SQLException
+
+  public void addPlayerToGroup(Account ac, Group gp) throws SQLException
   {
     Statement st = c.createStatement();
     String query =
-        "UPDATE \"Groups\".\"Groups\" SET \"usernamePlayers\" = \"usernamePlayers\" || '{"+ac.getUsername()+"}', \"characterIDs\"= \"characterIDs\" || '{null}'  WHERE id = " + gp.getId() + ";";
+        "UPDATE \"Groups\".\"Groups\" SET \"usernamePlayers\" = \"usernamePlayers\" || '{"
+            + ac.getUsername()
+            + "}', \"characterIDs\"= \"characterIDs\" || '{null}'  WHERE id = "
+            + gp.getId() + ";";
 
     st.executeUpdate(query);
     Statement mt = c.createStatement();
-    String curry = "UPDATE \"Users\".\"Users\" SET \"groupIDs\" = \"groupIDs\" || '{"+gp.getId()+"}' WHERE username = '" + ac.getUsername() + "' ;";
+    String curry =
+        "UPDATE \"Users\".\"Users\" SET \"groupIDs\" = \"groupIDs\" || '{" + gp
+            .getId() + "}' WHERE username = '" + ac.getUsername() + "' ;";
     mt.executeUpdate(curry);
 
   }
@@ -222,10 +228,8 @@ public class GetAllAccountData
       rs = st.executeQuery(query);
       System.out.println("alma");
 
-
     }
     rs.beforeFirst();
-
 
     ArrayList<Group> groupList = new ArrayList<>();
 
@@ -271,19 +275,13 @@ public class GetAllAccountData
         }
         ng.addDM(new DM(rs.getString("usernameDM")));
 
-
         ng.addPlayer(a);
 
       }
 
-
-
-
       groupList.add(ng);
 
-
     }
-
 
     ArrayList<Object> objs = new ArrayList<>();
     boolean b = true;
@@ -317,7 +315,11 @@ public class GetAllAccountData
     String[] l = o.split(",");
 
     for (int i = 0; i < l.length; i++)
-    { if(l[i].equals("NULL")) {l[i]="0";}
+    {
+      if (l[i].equals("NULL"))
+      {
+        l[i] = "0";
+      }
       temp.add(Integer.parseInt(l[i]));
 
     }
@@ -426,4 +428,45 @@ public class GetAllAccountData
     return dataPack;
 
   }
-}
+
+  public boolean checkEmail(String email) throws SQLException
+  {
+    boolean response = false;
+    String emails = null;
+    Statement st = c.createStatement();
+    String query =
+        "SELECT * FROM \"Users\".\"Users\" WHERE  email  = " + email + " ;";
+    ResultSet rs = st.executeQuery(query);
+    while (rs.next())
+    {
+      emails = rs.getString("email");
+    }
+    if (email == null)
+    {
+      response = false;
+    }
+    else
+      response = true;
+    return response;
+  }
+
+  public Container recoverPassword(String email) throws SQLException
+  {
+    String password = null;
+    Statement st = c.createStatement();
+    String query =
+        "SELECT * FROM \"Users\".\"Users\" WHERE  email  = " + email + " ;";
+    ResultSet rs = st.executeQuery(query);
+    while (rs.next())
+    {
+      password = rs.getString("password");
+    }
+    ArrayList<Object> objs = new ArrayList<>();
+    boolean answer = true;
+    objs.add(answer);
+    objs.add(password);
+    Container datapack = new Container(objs,
+        ClassName.RECOVER_PASSWORD_RESPONSE);
+    return datapack;
+  }
+  }

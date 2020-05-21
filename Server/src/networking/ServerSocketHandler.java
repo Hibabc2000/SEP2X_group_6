@@ -13,6 +13,7 @@ import java.net.Socket;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+
 public class ServerSocketHandler implements Runnable
 {
   private ConnectionPool pool;
@@ -65,9 +66,9 @@ public class ServerSocketHandler implements Runnable
             String email = (String) (m).get(2);
             try
             {
-//              Check account uniqueness in the database
+              //              Check account uniqueness in the database
               unique = database.checkAccountUniqueness(name, email);
-              account = new Account(name,password,email);
+              account = new Account(name, password, email);
               pool.userJoin(account);
               pool.addHandler(this);
             }
@@ -79,7 +80,7 @@ public class ServerSocketHandler implements Runnable
             {
               try
               {
-//                create the account in the database
+                //                create the account in the database
                 database.createAccount(name, password, email);
               }
               catch (SQLException e)
@@ -102,8 +103,30 @@ public class ServerSocketHandler implements Runnable
           }
           case RECOVER_PASSWORD:
           {
+            Container outDataPack = null;
+            boolean answer = false;
             ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
             String email = (String) (m.get(0));
+            try
+            {
+              answer = database.checkEmail(email);
+
+              if (answer)
+              {
+                outDataPack = database.recoverPassword(email);
+                sendBackData(outDataPack);
+              }
+              else if (!answer)
+              {
+                outDataPack = new Container(answer, ClassName.RECOVER_PASSWORD_RESPONSE);
+                sendBackData(outDataPack);
+              }
+            }
+            catch (SQLException e)
+            {
+              e.printStackTrace();
+            }
+
             break;
           }
           case CREATE_GROUP:
@@ -146,10 +169,11 @@ public class ServerSocketHandler implements Runnable
               try
               {
                 System.out.println("if answer true,");
-//                dataPack contains an obj with the acc data/groups
+                //                dataPack contains an obj with the acc data/groups
                 dataPack = database.acceptLogin(username, password);
                 sendBackData(dataPack);
-                account = (Account) ((ArrayList<Object>)(ArrayList<Object>) dataPack.getObject()).get(1);
+                account = (Account) ((ArrayList<Object>) (ArrayList<Object>) dataPack
+                    .getObject()).get(1);
                 pool.userJoin(account);
                 pool.addHandler(this);
 
@@ -175,8 +199,8 @@ public class ServerSocketHandler implements Runnable
             Group group = (Group) (m.get(1));
             try
             {
-              database.addPlayerToGroup(ac,group);
-              pool.addPlayerToGroup(group,ac);
+              database.addPlayerToGroup(ac, group);
+              pool.addPlayerToGroup(group, ac);
 
             }
             catch (SQLException e)
@@ -249,11 +273,12 @@ public class ServerSocketHandler implements Runnable
 
   }
 
-  /** returns an accounts variable
+  /**
+   * returns an accounts variable
    *
    * @return Account
    */
-  public Account  getAccount()
+  public Account getAccount()
   {
     return account;
   }

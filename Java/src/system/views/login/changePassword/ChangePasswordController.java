@@ -17,9 +17,10 @@ public class ChangePasswordController
   @FXML private PasswordField passwordNewAgain;
 
   /**
-   *
-   * @param changePasswordViewModel
-   * @param viewHandler
+   * Initializes the class attributes, binds the fxml fields to view model properties.
+
+   * @param changePasswordViewModel view model for this controller
+   * @param viewHandler used for changing the views
    */
   public void init(ChangePasswordViewModel changePasswordViewModel, ViewHandler viewHandler)
   {
@@ -36,8 +37,12 @@ public class ChangePasswordController
         .bindBidirectional(cpvmodel.getPasswordOldProperty());
   }
 
+  /**
+   * Calls the field checker in the view model
+   */
   public void saveChanges()
   {
+
     if (cpvmodel.checkPasswordChangeInformation().equals("Ready"))
     {
       vh.closeStage3();
