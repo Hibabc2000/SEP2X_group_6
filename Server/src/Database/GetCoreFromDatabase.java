@@ -29,6 +29,9 @@ public class GetCoreFromDatabase
 
   public GetCoreFromDatabase()
   {
+    /**
+     * Constructor method. Creates empty ArrayLists and gets the PostgreSQL connection.
+     */
     races = new ArrayList<>();
     equipmentArmors = new ArrayList<>();
     equipmentWeaponList = new ArrayList<>();
@@ -57,6 +60,8 @@ public class GetCoreFromDatabase
   {
     /**
      * Main database loading method. Sub-methods responsible for loading individual tables.
+     * All of the methods in this class draw on the Core database schema.
+     * @exception SQLException Thrown in case of an error in the database communication.
      */
     try
     {
@@ -79,7 +84,8 @@ public class GetCoreFromDatabase
       System.out.println("10");
       loadSubRaces();
       System.out.println("11");
-      staticModel.load(abilities, skills, races, spells, subclasses, subraces, equipmentArmors, equipmentGenerals, equipmentWeaponList);
+      staticModel.load(abilities, skills, races, spells, subclasses, subraces,
+          equipmentArmors, equipmentGenerals, equipmentWeaponList);
       cont = new Container(staticModel, ClassName.STATIC_MODEL);
     }
     catch (SQLException ex)
@@ -90,6 +96,9 @@ public class GetCoreFromDatabase
 
   private void loadEquipmentArmors() throws SQLException
   {
+    /**
+     * Method loading the Equipment_armor table.
+     */
     Statement st = c.createStatement();
     String query = "SELECT * FROM \"Core\".\"Equipment_armor\"";
     ResultSet rs = st.executeQuery(query);
@@ -125,6 +134,9 @@ public class GetCoreFromDatabase
 
   private void loadEquipmentGeneral() throws SQLException
   {
+    /**
+     * Method loading the Equipment_general table
+     */
     Statement st = c.createStatement();
     String query = "SELECT * FROM \"Core\".\"Equipment_general\"";
     ResultSet rs = st.executeQuery(query);
@@ -156,291 +168,58 @@ public class GetCoreFromDatabase
 
   private void loadRace() throws SQLException
   {
+    /**
+     * Method for loading Race table.
+     */
     Statement st = c.createStatement();
     String query = "SELECT * FROM \"Core\".\"Race\"";
     ResultSet rs = st.executeQuery(query);
-    ResultSetMetaData rsmd = rs.getMetaData();
     while (rs.next())
     {
-      if (rs.getString("name").equals("Dwarf"))
-      {
-        Race r = new Race(rs.getString("name"), rs.getString("description"),
-            rs.getString("traits"));
-        races.add(r);
-      }
-      else if (rs.getString("name").equals("Dwarf"))
-      {
-        Race r = new Race(rs.getString("name"), rs.getString("description"),
-            rs.getString("traits"));
-        races.add(r);
-      }
-      else if (rs.getString("name").equals("Half-Elf"))
-      {
-        Race r = new Race(rs.getString("name"), rs.getString("description"),
-            rs.getString("traits"));
-        races.add(r);
-      }
-      else if (rs.getString("name").equals("Elf"))
-      {
-        Race r = new Race(rs.getString("name"), rs.getString("description"),
-            rs.getString("traits"));
-        races.add(r);
-      }
-      else if (rs.getString("name").equals("Halfling"))
-      {
-        Race r = new Race(rs.getString("name"), rs.getString("description"),
-            rs.getString("traits"));
-        races.add(r);
-      }
-      else if (rs.getString("name").equals("Human"))
-      {
-        Race r = new Race(rs.getString("name"), rs.getString("description"),
-            rs.getString("traits"));
-        races.add(r);
-      }
-      else if (rs.getString("name").equals("Dragonborn"))
-      {
-        Race r = new Race(rs.getString("name"), rs.getString("description"),
-            rs.getString("traits"));
-        races.add(r);
-      }
-      else if (rs.getString("name").equals("Gnome"))
-      {
-        Race r = new Race(rs.getString("name"), rs.getString("description"),
-            rs.getString("traits"));
-        races.add(r);
-      }
-      else if (rs.getString("name").equals("Half-Orc"))
-      {
-        Race r = new Race(rs.getString("name"), rs.getString("description"),
-            rs.getString("traits"));
-        races.add(r);
-      }
-      else if (rs.getString("name").equals("Tiefling"))
-      {
-        Race r = new Race(rs.getString("name"), rs.getString("description"),
-            rs.getString("traits"));
-        races.add(r);
-      }
-
+      Race r = new Race(rs.getString("name"), rs.getString("description"), rs.getString("traits"));
+      races.add(r);
     }
   }
 
   private void loadSubRaces() throws SQLException
   {
+    /**
+     * Method for loading Subraces table.
+     */
     Statement st = c.createStatement();
     String query = "SELECT * FROM \"Core\".\"Subraces\"";
     ResultSet rs = st.executeQuery(query);
 
     while (rs.next())
     {
-      if (rs.getString("name").equals("Hill Dwarf"))
-      {
-        Subrace hillDwarf = new Subrace(rs.getString("mainRace"),
-            rs.getString("name"), rs.getString("description"),
-            rs.getString("traits"));
-        subraces.add(hillDwarf);
-      }
-      else if (rs.getString("name").equals("Mountain Dwarf"))
-      {
-        Subrace mountainDwarf = new Subrace(rs.getString("mainRace"),
-            rs.getString("name"), rs.getString("description"),
-            rs.getString("traits"));
-        subraces.add(mountainDwarf);
-      }
-      else if (rs.getString("name").equals("High Elf"))
-      {
-        Subrace highElf = new Subrace(rs.getString("mainRace"),
-            rs.getString("name"), rs.getString("description"),
-            rs.getString("traits"));
-        subraces.add(highElf);
-      }
-      else if (rs.getString("name").equals("Wood Elf"))
-      {
-        Subrace woodElf = new Subrace(rs.getString("mainRace"),
-            rs.getString("name"), rs.getString("description"),
-            rs.getString("traits"));
-        subraces.add(woodElf);
-      }
-      else if (rs.getString("name").equals("Dark Elf (Drow)"))
-      {
-        Subrace drow = new Subrace(rs.getString("mainRace"),
-            rs.getString("name"), rs.getString("description"),
-            rs.getString("traits"));
-        subraces.add(drow);
-      }
-      else if (rs.getString("name").equals("Lightfoot"))
-      {
-        Subrace lightfoot = new Subrace(rs.getString("mainRace"),
-            rs.getString("name"), rs.getString("description"),
-            rs.getString("traits"));
-        subraces.add(lightfoot);
-      }
-      else if (rs.getString("name").equals("Stout"))
-      {
-        Subrace stout = new Subrace(rs.getString("mainRace"),
-            rs.getString("name"), rs.getString("description"),
-            rs.getString("traits"));
-        subraces.add(stout);
-      }
-      else if (rs.getString("name").equals("Forest Gnome"))
-      {
-        Subrace forestGnome = new Subrace(rs.getString("mainRace"),
-            rs.getString("name"), rs.getString("description"),
-            rs.getString("traits"));
-        subraces.add(forestGnome);
-      }
-      else if (rs.getString("name").equals("Rock Gnome"))
-      {
-        Subrace rockGnome = new Subrace(rs.getString("mainRace"),
-            rs.getString("name"), rs.getString("description"),
-            rs.getString("traits"));
-        subraces.add(rockGnome);
-      }
-
+      Subrace hillDwarf = new Subrace(rs.getString("mainRace"), rs.getString("name"), rs.getString("description"),
+          rs.getString("traits"));
+      subraces.add(hillDwarf);
     }
   }
 
   private void loadSkills() throws SQLException
   {
+    /**
+     * Method for loading Skills table.
+     */
     Statement st = c.createStatement();
     String query = "SELECT * FROM \"Core\".\"Skill\"";
     ResultSet rs = st.executeQuery(query);
 
     while (rs.next())
     {
-      if (rs.getString("name").equals("Acrobatics"))
-      {
-
         Skill skill = new Skill(rs.getString("ability"), rs.getString("name"),
             rs.getString("description"));
         skills.add(skill);
-      }
-
-      if (rs.getString("name").equals("Animal Handling"))
-      {
-        Skill skill = new Skill(rs.getString("ability"), rs.getString("name"),
-            rs.getString("description"));
-        skills.add(skill);
-      }
-      if (rs.getString("name").equals("Arcana"))
-      {
-
-        Skill skill = new Skill(rs.getString("ability"), rs.getString("name"),
-            rs.getString("description"));
-        skills.add(skill);
-      }
-      if (rs.getString("name").equals("Athletics"))
-      {
-
-        Skill skill = new Skill(rs.getString("ability"), rs.getString("name"),
-            rs.getString("description"));
-        skills.add(skill);
-      }
-      if (rs.getString("name").equals("Deception"))
-      {
-
-        Skill skill = new Skill(rs.getString("ability"), rs.getString("name"),
-            rs.getString("description"));
-        skills.add(skill);
-      }
-      if (rs.getString("name").equals("History"))
-      {
-
-        Skill skill = new Skill(rs.getString("ability"), rs.getString("name"),
-            rs.getString("description"));
-        skills.add(skill);
-      }
-      if (rs.getString("name").equals("Insight"))
-      {
-
-        Skill skill = new Skill(rs.getString("ability"), rs.getString("name"),
-            rs.getString("description"));
-        skills.add(skill);
-      }
-      if (rs.getString("name").equals("Intimidation"))
-      {
-
-        Skill skill = new Skill(rs.getString("ability"), rs.getString("name"),
-            rs.getString("description"));
-        skills.add(skill);
-      }
-      if (rs.getString("name").equals("Investigation"))
-      {
-
-        Skill skill = new Skill(rs.getString("ability"), rs.getString("name"),
-            rs.getString("description"));
-        skills.add(skill);
-      }
-      if (rs.getString("name").equals("Medicine"))
-      {
-
-        Skill skill = new Skill(rs.getString("ability"), rs.getString("name"),
-            rs.getString("description"));
-        skills.add(skill);
-      }
-      if (rs.getString("name").equals("Nature"))
-      {
-
-        Skill skill = new Skill(rs.getString("ability"), rs.getString("name"),
-            rs.getString("description"));
-        skills.add(skill);
-      }
-      if (rs.getString("name").equals("Perception"))
-      {
-
-        Skill skill = new Skill(rs.getString("ability"), rs.getString("name"),
-            rs.getString("description"));
-        skills.add(skill);
-      }
-      if (rs.getString("name").equals("Insight"))
-      {
-
-        Skill skill = new Skill(rs.getString("ability"), rs.getString("name"),
-            rs.getString("description"));
-        skills.add(skill);
-      }
-      if (rs.getString("name").equals("Insight"))
-      {
-
-        Skill skill = new Skill(rs.getString("ability"), rs.getString("name"),
-            rs.getString("description"));
-        skills.add(skill);
-      }
-      if (rs.getString("name").equals("Insight"))
-      {
-
-        Skill skill = new Skill(rs.getString("ability"), rs.getString("name"),
-            rs.getString("description"));
-        skills.add(skill);
-      }
-      if (rs.getString("name").equals("Insight"))
-      {
-
-        Skill skill = new Skill(rs.getString("ability"), rs.getString("name"),
-            rs.getString("description"));
-        skills.add(skill);
-      }
-      if (rs.getString("name").equals("Insight"))
-      {
-
-        Skill skill = new Skill(rs.getString("ability"), rs.getString("name"),
-            rs.getString("description"));
-        skills.add(skill);
-      }
-      if (rs.getString("name").equals("Insight"))
-      {
-
-        Skill skill = new Skill(rs.getString("ability"), rs.getString("name"),
-            rs.getString("description"));
-        skills.add(skill);
-      }
-
     }
   }
 
   private void loadEquipmentWeapons() throws SQLException
   {
+    /**
+     * Method for loading Equipment_weapons table
+     */
     Statement st = c.createStatement();
     String query = "SELECT * FROM \"Core\".\"Equipment_weapons\"";
     ResultSet rs = st.executeQuery(query);
@@ -486,6 +265,9 @@ public class GetCoreFromDatabase
 
   private void loadSpells() throws SQLException
   {
+    /**
+     * Method for loading Spells table.
+     */
     Statement st = c.createStatement();
     String query = "SELECT * FROM \"Core\".\"Spell\"";
     ResultSet rs = st.executeQuery(query);
@@ -504,6 +286,9 @@ public class GetCoreFromDatabase
 
   private void loadSubClasses() throws SQLException
   {
+    /**
+     * Method for loading Subclasses table.
+     */
     Statement st = c.createStatement();
     String query = "SELECT * FROM \"Core\".\"Subclasses\"";
     ResultSet rs = st.executeQuery(query);
@@ -518,24 +303,28 @@ public class GetCoreFromDatabase
 
   private ArrayList<Proficiency> parseModifiers(ResultSet rs)
   {
+    /**
+     * Special parser method for proficiencies and other modifiers.
+     */
     ArrayList<Proficiency> arr = new ArrayList<>();
     try
     {
       ResultSetMetaData rsmd = rs.getMetaData();
       for (int i = 0; i < rsmd.getColumnCount(); i++)
       {
-        if(rsmd.getColumnName(i).toLowerCase().equals("modifiers") || rsmd.getColumnName(i).toLowerCase().equals("proficiency"))
+        if (rsmd.getColumnName(i).toLowerCase().contains("modifiers") || rsmd
+            .getColumnName(i).toLowerCase().contains("proficien"))
         {
           String[] temp = rs.getString(i).split("\\|");
           for (String s : temp)
           {
             String[] s2 = s.split(":");
             double d;
-            if(s.toLowerCase().contains("expert"))
+            if (s.toLowerCase().contains("expert"))
             {
               d = 2;
             }
-            else if(s.toLowerCase().contains("proficiency"))
+            else if (s.toLowerCase().contains("proficiency"))
             {
               d = 1;
             }
@@ -543,8 +332,10 @@ public class GetCoreFromDatabase
             {
               d = 0.5;
             }
-            else d = 1;
-            Proficiency p = new Proficiency(s2[1], s2[0], rsmd.getColumnName(i), d);
+            else
+              d = 1;
+            Proficiency p = new Proficiency(s2[1], s2[0], rsmd.getColumnName(i),
+                d);
             arr.add(p);
           }
         }
@@ -559,6 +350,9 @@ public class GetCoreFromDatabase
 
   private void loadAbility() throws SQLException
   {
+    /**
+     * Method for loading Ability table.
+     */
     Statement st = c.createStatement();
     String query = "SELECT * FROM \"Core\".\"Ability\"";
     ResultSet rs = st.executeQuery(query);

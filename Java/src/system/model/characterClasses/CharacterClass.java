@@ -13,4 +13,14 @@ public abstract class CharacterClass
   private ArrayList<Integer> classFeatLevels;
   private String description;
   private Ability primary;
+
+  public String getClassName()
+  {
+    return getClass().getName();
+  }
+
+  public int getLevelInClass()
+  {
+    return levelInClass;
+  }
 }

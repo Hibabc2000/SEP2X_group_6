@@ -3,13 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/networking/ClientSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/networking/ClientSocketHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/networking/SocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/networking/SocketClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/openSystem/OpenSystemViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/openSystem/OpenSystemViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/playerAccount/PlayerAccountViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/playerAccount/PlayerAccountViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Database/GetAllAccountData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/GetAllAccountData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/model/characterClasses/CharacterClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/characterClasses/CharacterClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Database/GetCoreFromDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/GetCoreFromDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Database/InsertCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/InsertCharacter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Database/LoadCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/LoadCharacter.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +80,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Start">
+  <component name="RunManager" selected="Application.EnumTest">
     <configuration name="EnumTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="networking.EnumTest" />
       <module name="SEP2X_group_6" />
@@ -158,9 +155,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Start" />
-        <item itemvalue="Application.RunServer" />
         <item itemvalue="Application.EnumTest" />
+        <item itemvalue="Application.RunServer" />
+        <item itemvalue="Application.Start" />
         <item itemvalue="Application.GetAllTest" />
         <item itemvalue="Application.TestDtbs" />
       </list>
@@ -282,7 +279,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589967214130</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Started working on InsertCharacter.">
+      <created>1589994409865</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1589994409865</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -311,7 +315,8 @@
     <MESSAGE value="Started making parser for proficiency/other modifiers.&#10;Made StaticModel." />
     <MESSAGE value="Character work" />
     <MESSAGE value="Deprecated GetAllFromDatabase, since it was overridden by other classes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Deprecated GetAllFromDatabase, since it was overridden by other classes." />
+    <MESSAGE value="Started working on InsertCharacter." />
+    <option name="LAST_COMMIT_MESSAGE" value="Started working on InsertCharacter." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 public class Background
 {
+  /**
+   * Class for storing DnD backgrounds.
+   */
   private String name;
   private String description;
   private ArrayList<Item> equipmentList;

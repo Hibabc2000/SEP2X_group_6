@@ -2,6 +2,9 @@ package system.model.businessModel;
 
 public class Ability
 {
+  /**
+   * Class for storing DnD abilities.
+   */
   private String name;
   private String description;
 
