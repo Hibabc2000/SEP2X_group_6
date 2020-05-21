@@ -298,7 +298,18 @@ public class AccountModelImpl implements AccountModel
     return temp;
   }
 
-  // this is for creating new accounts, its just checking with if statements if all the values are correct aetc..
+  /**
+   * Basic fields checking functionality(empty fields, fields length).
+   * Sends a request to the client socket with the username,password,email in order
+   * to create an account
+   *
+   * @param username String containing the username
+   * @param pass1    String containing the password
+   * @param pass2    String containing the password confirmation
+   * @param email    String containing the email
+   * @return String in case there are any errors
+   */
+
   @Override public String checkAccountUniqueness(String username, String pass1,
       String pass2, String email)
   {
