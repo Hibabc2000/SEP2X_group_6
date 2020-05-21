@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="Join group finished">
+    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/networking/ClientSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/networking/ClientSocketHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/networking/SocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/networking/SocketClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/transferobjects/ClassName.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/transferobjects/ClassName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/transferobjects/login/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/transferobjects/login/Group.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/dmAccount/DMAccountViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/dmAccount/DMAccountViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/playerAccount/PlayerAccountViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/playerAccount/PlayerAccountViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Database/GetAllAccountData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/GetAllAccountData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/networking/ConnectionPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/networking/ConnectionPool.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -86,7 +77,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.EnumTest">
+  <component name="RunManager" selected="Application.Start">
     <configuration name="EnumTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="networking.EnumTest" />
       <module name="SEP2X_group_6" />
@@ -133,7 +124,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Start" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Start" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="system.Start" />
       <module name="Java" />
       <extension name="coverage">
@@ -168,9 +159,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.EnumTest" />
-        <item itemvalue="Application.RunServer" />
         <item itemvalue="Application.Start" />
+        <item itemvalue="Application.RunServer" />
+        <item itemvalue="Application.EnumTest" />
         <item itemvalue="Application.GetAllTest" />
         <item itemvalue="Application.TestDtbs" />
       </list>
@@ -299,7 +290,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589994409865</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Join group finished">
+      <created>1590067831500</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1590067831500</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
