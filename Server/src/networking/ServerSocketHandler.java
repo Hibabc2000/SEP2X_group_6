@@ -64,6 +64,7 @@ public class ServerSocketHandler implements Runnable
             String email = (String) (m).get(2);
             try
             {
+//              Check account uniqueness in the database
               unique = database.checkAccountUniqueness(name, email);
             }
             catch (SQLException e)
@@ -74,6 +75,7 @@ public class ServerSocketHandler implements Runnable
             {
               try
               {
+//                create the account in the database
                 database.createAccount(name, password, email);
               }
               catch (SQLException e)
@@ -140,6 +142,7 @@ public class ServerSocketHandler implements Runnable
               try
               {
                 System.out.println("if answer true,");
+//                dataPack contains an obj with the acc data/groups
                 dataPack = database.acceptLogin(username, password);
                 sendBackData(dataPack);
               }

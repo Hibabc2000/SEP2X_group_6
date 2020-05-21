@@ -21,8 +21,14 @@ public class CreateAccountController
   @FXML private Button backButton;
   @FXML private Button createButton;
 
-
-
+  /**
+   * Initializes the class attributes, binds the fxml fields to view model properties.
+   * Note that this method is also listening for changes from the view model, and in case
+   * the create account process is completed successfully the createAccountReally method will
+   * be called
+   * @param createAccountVM view model for this controller
+   * @param viewHandler used for changing the views
+   */
   public void init(CreateAccountViewModel createAccountVM,
       ViewHandler viewHandler)
   {
@@ -38,16 +44,27 @@ public class CreateAccountController
 
   }
 
+  /**
+   * Calls the field checker in the view model
+   */
   public void createAccount()
   {
     createAccountViewModel.checkFieldsForReg();
   }
 
+  /**
+   * Open the OpenSystem view(main view)
+   */
   public void goBack()
   {
     vh.openSystem();
   }
 
+  /**
+   * If the {@param propertyChangeEvent} contains the String "Ready" the
+   * creating account process was successful and the openAccount view will be opened
+   * @param propertyChangeEvent String containing a message
+   */
   private void createAccountReally(PropertyChangeEvent propertyChangeEvent)
   {
 
@@ -56,7 +73,7 @@ public class CreateAccountController
       System.out.println("opening account");
       vh.openAccount();
     }
-
+// !!!! WE SHOULD DISPLAY THE ERROR IF SMTH GOES WRONG
   }
 
 }

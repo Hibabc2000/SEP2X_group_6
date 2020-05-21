@@ -1,5 +1,7 @@
 package Database;
 
+import system.transferobjects.ClassName;
+import system.transferobjects.Container;
 import system.transferobjects.login.Account;
 import system.transferobjects.login.DM;
 import system.transferobjects.login.Group;
@@ -35,6 +37,17 @@ public class GetAllAccountData
     }
   }
 
+  /**
+   * Creates an SQL statement, if the username or email is found in the database
+   * the method will return a boolean false. If they are not in the database the
+   * credentials are unique and the method will return a boolean true
+   *
+   * @param username String containing the username
+   * @param email    String containing the email
+   * @return boolean true if the account is unique and false if it is not
+   * @throws SQLException an exception that provides information on a database
+   *                      access error or other errors.
+   */
   public boolean checkAccountUniqueness(String username, String email)
       throws SQLException
   {
@@ -92,6 +105,15 @@ public class GetAllAccountData
 
   }
 
+  /**
+   * Creates an SQL statement that will create an account in the Database
+   *
+   * @param username String containing the username
+   * @param password String containing the password
+   * @param email    String containing the email
+   * @throws SQLException an exception that provides information on a database
+   *                      access error or other errors.
+   */
   public void createAccount(String username, String password, String email)
       throws SQLException
   {
@@ -118,6 +140,17 @@ public class GetAllAccountData
 
   }
 
+  /**
+   * Creates an SQL statement that checks if the username and password are found in
+   * the database. If the credentials are found a Container will be created containing the
+   * answer(true), otherwise the answer will be false
+   *
+   * @param username String containing the username
+   * @param password String containing the password
+   * @return a container that has the answer(boolean) from the database
+   * @throws SQLException An exception that provides information on a database
+   *                      access error or other errors.
+   */
   public Container checkLogin(String username, String password)
       throws SQLException
 
@@ -158,29 +191,37 @@ public class GetAllAccountData
     return datapack;
   }
 
+  //  /**
+  //   * @param username String containing the username
+  //   * @param password String containing the password
+  //   * @return
+  //   * @throws SQLException An exception that provides information on a database
+  //   *                      access error or other errors.
+  //   */
   public Container acceptLogin(String username, String password)
       throws SQLException
   {
 
-
-
-    Statement st = c.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-    String query ="SELECT u.username, u.password, u.email, u.\"groupIDs\", g.name, g.id, g.\"usernameDM\", g.\"usernamePlayers\", g.\"characterIDs\" FROM \"Groups\".\"Groups\" g, \"Users\".\"Users\" u     WHERE u.username = '"+username +"' AND u.password= '"+password +"' AND u.\"groupIDs\" IS NOT NULL  AND  g.id IN (select(unnest(u.\"groupIDs\")));;";
+    Statement st = c.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
+        ResultSet.CONCUR_READ_ONLY);
+    String query =
+        "SELECT u.username, u.password, u.email, u.\"groupIDs\", g.name, g.id, g.\"usernameDM\", g.\"usernamePlayers\", g.\"characterIDs\" FROM \"Groups\".\"Groups\" g, \"Users\".\"Users\" u     WHERE u.username = '"
+            + username + "' AND u.password= '" + password
+            + "' AND u.\"groupIDs\" IS NOT NULL ;";
 
     ResultSet rs = st.executeQuery(query);
 
-    boolean doesAccountHaveGroups=true;
+    boolean doesAccountHaveGroups = true;
     String userame = null;
     String ema = null;
     String pass = null;
 
-
-
-    if(!rs.next())
+    if (!rs.next())
     {
       doesAccountHaveGroups = false;
       query =
-          "SELECT * FROM \"Users\".\"Users\" WHERE  username  = '" + username + "' AND password ='" + password + "' ;";
+          "SELECT * FROM \"Users\".\"Users\" WHERE  username  = '" + username
+              + "' AND password ='" + password + "' ;";
       rs = st.executeQuery(query);
       System.out.println("alma");
 
@@ -200,8 +241,12 @@ public class GetAllAccountData
       pass = rs.getString("password");
       ema = rs.getString("email");
       System.out.println(doesAccountHaveGroups + "why isnt if true?");
-      if(doesAccountHaveGroups==false) {
-        System.out.println(doesAccountHaveGroups+ " which means it doesnt have accs");break;}
+      if (doesAccountHaveGroups == false)
+      {
+        System.out.println(
+            doesAccountHaveGroups + " which means it doesnt have accs");
+        break;
+      }
       System.out.println(doesAccountHaveGroups + "why isnt if true?");
       //groupidz = rs.getString("groupIDs");
 
@@ -212,15 +257,21 @@ public class GetAllAccountData
       charIDs = sqlArrayToArrayListInteger(charid);
 
       Group ng = null;
-      ng  = new Group(rs.getString("name"), rs.getInt("id"));
+      ng = new Group(rs.getString("name"), rs.getInt("id"));
 
       for (int i = 0; i < plys.size(); i++)
       {
 
         Player a = new Player(plys.get(i));
 
-        if(charIDs.get(i)!=null)
-        { a.addCharacterID(charIDs.get(i));} else {a.addCharacterID(null);}
+        if (charIDs.get(i) != null)
+        {
+          a.addCharacterID(charIDs.get(i));
+        }
+        else
+        {
+          a.addCharacterID(null);
+        }
         ng.addDM(new DM(rs.getString("usernameDM")));
 
 
@@ -238,17 +289,21 @@ public class GetAllAccountData
 
 
     ArrayList<Object> objs = new ArrayList<>();
-    boolean b = true; objs.add(b);
+    boolean b = true;
+    objs.add(b);
     Account acc = new Account(userame, password, ema);
     objs.add(acc);
     System.out.println(doesAccountHaveGroups + "why isnt if true?");
-    if(doesAccountHaveGroups)
+    if (doesAccountHaveGroups)
     {
       objs.add(groupList);
-
+      System.out.println(
+          groupList.get(0).getId() + "=id \n did gro: " + groupList.get(0)
+              .getDM().getName() + " id: " + groupList.get(1).getId());
     }
-    System.out.println("acc: " + acc.getUsername() + "pas "+ acc.getPassword() + "ema "+ acc.getEmail());
-
+    System.out.println(
+        "acc: " + acc.getUsername() + "pas " + acc.getPassword() + "ema " + acc
+            .getEmail());
 
     Container dataPack = new Container(objs, ClassName.LOGIN_RESPONSE);
     return dataPack;
@@ -304,7 +359,6 @@ public class GetAllAccountData
     {
       nam = rs.getString("name");
 
-
     }
     if (nam != null)
     {
@@ -318,9 +372,9 @@ public class GetAllAccountData
   public Container getGroup(int id) throws SQLException
   {
     Statement st = c.createStatement();
-    String query = "SELECT * FROM \"Groups\".\"Groups\" WHERE  id  = " + id + " ;";
+    String query =
+        "SELECT * FROM \"Groups\".\"Groups\" WHERE  id  = " + id + " ;";
     ResultSet rs = st.executeQuery(query);
-
 
     Group thisIsAGroupForTheGroupWithTheIDOfWhatTheUserInsertedIntoTheMethodToFindThisGroupDoYouUnderstandThisMarin = null;
 
@@ -336,45 +390,40 @@ public class GetAllAccountData
       String charid = rs.getString("characterIDs");
       charIDs = sqlArrayToArrayListInteger(charid);
 
-
-      thisIsAGroupForTheGroupWithTheIDOfWhatTheUserInsertedIntoTheMethodToFindThisGroupDoYouUnderstandThisMarin=
-          new Group(rs.getString("name"), rs.getInt("id"));
+      thisIsAGroupForTheGroupWithTheIDOfWhatTheUserInsertedIntoTheMethodToFindThisGroupDoYouUnderstandThisMarin = new Group(
+          rs.getString("name"), rs.getInt("id"));
 
       for (int i = 0; i < plys.size(); i++)
       {
 
         Player a = new Player(plys.get(i));
 
-        if(charIDs.get(i)!=null)
-        { a.addCharacterID(charIDs.get(i));} else {a.addCharacterID(null);}
-        thisIsAGroupForTheGroupWithTheIDOfWhatTheUserInsertedIntoTheMethodToFindThisGroupDoYouUnderstandThisMarin.addDM(new DM(rs.getString("usernameDM")));
+        if (charIDs.get(i) != null)
+        {
+          a.addCharacterID(charIDs.get(i));
+        }
+        else
+        {
+          a.addCharacterID(null);
+        }
+        thisIsAGroupForTheGroupWithTheIDOfWhatTheUserInsertedIntoTheMethodToFindThisGroupDoYouUnderstandThisMarin
+            .addDM(new DM(rs.getString("usernameDM")));
 
-
-        thisIsAGroupForTheGroupWithTheIDOfWhatTheUserInsertedIntoTheMethodToFindThisGroupDoYouUnderstandThisMarin.addPlayer(a);
+        thisIsAGroupForTheGroupWithTheIDOfWhatTheUserInsertedIntoTheMethodToFindThisGroupDoYouUnderstandThisMarin
+            .addPlayer(a);
 
       }
 
-
-
-
-
-
-
     }
-
-
-
 
     ArrayList<Object> objs = new ArrayList<>();
     boolean b = true;
     objs.add(b);
 
-    objs.add(thisIsAGroupForTheGroupWithTheIDOfWhatTheUserInsertedIntoTheMethodToFindThisGroupDoYouUnderstandThisMarin);
+    objs.add(
+        thisIsAGroupForTheGroupWithTheIDOfWhatTheUserInsertedIntoTheMethodToFindThisGroupDoYouUnderstandThisMarin);
 
-
-
-    System.out.println("Group1 "+ objs.get(0).toString());
-
+    System.out.println("Group1 " + objs.get(0).toString());
 
     Container dataPack = new Container(objs, ClassName.SEARCH_GROUP);
     return dataPack;

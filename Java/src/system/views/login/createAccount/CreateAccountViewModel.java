@@ -35,6 +35,13 @@ public class CreateAccountViewModel implements Subject
     model.addListener("createAccount", this::accountCreationInfo);
   }
 
+  /**
+   * Checks the received propertyChangeEvent boolean value if it is true an event containing
+   * a String with the value "Ready" will be fired to the controller, otherwise the String will
+   * contain an error message
+   *
+   * @param propertyChangeEvent boolean
+   */
   private void accountCreationInfo(PropertyChangeEvent propertyChangeEvent)
   {
     String val = "error";
@@ -52,11 +59,14 @@ public class CreateAccountViewModel implements Subject
 
   }
 
-  // calls the checkmethod on model, and after that resets the fields and gives the error for it if there is one, and passes the string to the view
-  // to checks if its ready or not.
+  /**
+   * Calls the checkAccountUniqueness method on model, and after that resets the fields and gives
+   * the error for it if there is one, and passes the string to the view to checks if its ready or not.
+   *
+   * @return a String containing a message
+   */
   public String checkFieldsForReg()
   {
-
     String temp = model
         .checkAccountUniqueness(username.getValue(), password1.getValue(),
             password2.getValue(), email.getValue());
@@ -73,37 +83,74 @@ public class CreateAccountViewModel implements Subject
 
   }
 
+  /**
+   * Gets the username StringProperty
+   *
+   * @return StringProperty
+   */
   public StringProperty getUserNameProperty()
   {
     return username;
   }
 
+  /**
+   * Gets the password1 StringProperty
+   *
+   * @return StringProperty
+   */
   public StringProperty getPassword1Property()
   {
     return password1;
   }
 
+  /**
+   * Gets the password2 StringProperty
+   *
+   * @return StringProperty
+   */
   public StringProperty getPassword2Property()
   {
     return password2;
   }
 
+  /**
+   * Gets the email StringProperty
+   *
+   * @return StringProperty
+   */
   public StringProperty getEmailProperty()
   {
     return email;
   }
 
+  /**
+   * Gets the error StringProperty
+   *
+   * @return StringProperty
+   */
   public StringProperty getErrorProperty()
   {
     return error;
   }
 
+  /**
+   * Adds the listener.
+   *
+   * @param eventName String containing the event name
+   * @param listener  source bean so as to be notified of any bound property updates.
+   */
   @Override public void addListener(String eventName,
       PropertyChangeListener listener)
   {
     support.addPropertyChangeListener(eventName, listener);
   }
 
+  /**
+   * Removes the listener.
+   *
+   * @param eventName String containing the event name
+   * @param listener  source bean so as to be notified of any bound property updates.
+   */
   @Override public void removeListener(String eventName,
       PropertyChangeListener listener)
   {
