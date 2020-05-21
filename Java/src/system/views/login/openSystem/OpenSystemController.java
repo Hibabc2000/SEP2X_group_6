@@ -1,6 +1,5 @@
 package system.views.login.openSystem;
 
-import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -21,6 +20,13 @@ public class OpenSystemController
   private ViewHandler viewHandler;
   private OpenSystemViewModel openSystemViewModel;
 
+  /**
+   * Initializes the class attributes, binds the fxml fields to view model properties.
+   * Note that this method is also listening for changes from the view model, and in case
+   * the login data is accepted the loginAccount method will be called
+   * @param openSystemViewModel
+   * @param viewHandler used for changing the views
+   */
   public void init(OpenSystemViewModel openSystemViewModel,
       ViewHandler viewHandler)
   {
@@ -36,6 +42,12 @@ public class OpenSystemController
 
   }
 
+  /**
+   * Returns to the view the login request result. If the {@param propertyChangeEvent} has the
+   * value "Ready" the openAccount view will be opened
+   * @param propertyChangeEvent contains a String
+   */
+
   private void loginAccount(PropertyChangeEvent propertyChangeEvent)
   {
     System.out.println("Asda");
@@ -47,11 +59,18 @@ public class OpenSystemController
     }
   }
 
+  /**
+   * Opens the CreateAccount view
+   */
   public void createAccount()
   {
     viewHandler.openCreateAccount();
   }
 
+  /**
+   * Sends a request to the view model in order to check the credentials. If the credentials are
+   * verified successfully the openAccount view will be opened
+   */
   public void login()
   {
     if (openSystemViewModel.checkLogin().equals("Ready"))
@@ -60,7 +79,10 @@ public class OpenSystemController
     }
   }
 
-  public void recoverPassword(ActionEvent actionEvent)
+  /**
+   * Opens the PasswordRecovery view
+   */
+  public void recoverPassword()
   {
     viewHandler.openPasswordRecovery();
   }

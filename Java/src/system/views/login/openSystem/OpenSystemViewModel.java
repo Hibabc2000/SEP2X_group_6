@@ -17,6 +17,11 @@ public class OpenSystemViewModel implements Subject
   private AccountModel accountModel;
   private PropertyChangeSupport support;
 
+  /**
+   * Initializes the class attributes, listens for updates from the model
+   *
+   * @param accountModel
+   */
   public OpenSystemViewModel(AccountModel accountModel)
   {
     this.accountModel = accountModel;
@@ -27,25 +32,42 @@ public class OpenSystemViewModel implements Subject
     password.setValue("");
     support = new PropertyChangeSupport(this);
     accountModel.addListener("acceptLogin", this::acceptLoginInfo);
-    accountModel.addListener("searchGroup",this::searchGroupAnswer);
+    accountModel.addListener("searchGroup", this::searchGroupAnswer);
   }
 
+  /**
+   * Checks the {@param propertyChangeEvent} value and fires an event(acceptTheGroup)
+   * with a String value
+   * if {@param propertyChangeEvent} is true String with the value "Ready"
+   * will be displayed in the view otherwise an error will be returned.
+   * @param propertyChangeEvent boolean value
+   */
   private void searchGroupAnswer(PropertyChangeEvent propertyChangeEvent)
   {
     String val = "error";
     boolean respone = ((boolean) propertyChangeEvent.getNewValue());
-  if(!respone)
-  {
-    val = "A group with this ID doesn't exist";
-    error.setValue(val);
+    if (!respone)
+    {
+      val = "A group with this ID doesn't exist";
+      error.setValue(val);
+    }
+    else
+    {
+      val = "The group has been added to your group list.";
+      error.setValue(val);
+    }
+    support.firePropertyChange("acceptTheGroup", null, val);
   }
-  else{val="The group has been added to your group list."; error.setValue(val);}
-    support.firePropertyChange("acceptTheGroup",null, val);
 
-  }
-
+  /**
+   * Checks the {@param propertyChangeEvent} value and fires an event(acceptTheLogIn)
+   * with a String value
+   * if {@param propertyChangeEvent} is true String with the value "Ready"
+   * will be displayed in the view otherwise an error will be returned.
+   */
   private void acceptLoginInfo(PropertyChangeEvent propertyChangeEvent)
-  {String val = "error";
+  {
+    String val = "error";
     System.out.println("event");
     boolean response = ((boolean) propertyChangeEvent.getNewValue());
     if (!response)
@@ -61,40 +83,69 @@ public class OpenSystemViewModel implements Subject
 
     }
 
-    support.firePropertyChange("acceptTheLogIn",null, val);
-
+    support.firePropertyChange("acceptTheLogIn", null, val);
 
   }
 
+//!!! Why should the method return a String
+  /**
+   * Calls the model in order to check the credentials. Sets the error
+   * username and password fields to empty Strings
+   * @return String
+   */
   public String checkLogin()
   {
-    String temp = accountModel.checkLogin(username.getValue(), password.getValue());
+    String temp = accountModel
+        .checkLogin(username.getValue(), password.getValue());
     error.setValue(temp);
     username.setValue("");
     password.setValue("");
     return temp;
   }
+
+  /**
+   * Gets the username StringProperty
+   * @return StringProperty
+   */
   public StringProperty getUserNameProperty()
   {
     return username;
   }
 
+  /**
+   * Gets the password StringProperty
+   * @return StringProperty
+   */
   public StringProperty getPasswordProperty()
   {
     return password;
   }
 
+  /**
+   * Gets the error StringProperty
+   * @return StringProperty
+   */
   public StringProperty getErrorProperty()
   {
     return error;
   }
 
+  /**
+   * Adds the listener.
+   * @param eventName String containing the event name
+   * @param listener source bean so as to be notified of any bound property updates.
+   */
   @Override public void addListener(String eventName,
       PropertyChangeListener listener)
   {
     support.addPropertyChangeListener(eventName, listener);
   }
 
+  /**
+   * Removes the listener.
+   * @param eventName String containing the event name
+   * @param listener  source bean so as to be notified of any bound property updates.
+   */
   @Override public void removeListener(String eventName,
       PropertyChangeListener listener)
   {
