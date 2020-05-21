@@ -48,4 +48,10 @@ public class Race
     return "Race{" + "traits=" + traits + ", name='" + name + '\''
         + ", description='" + description + "'}'";
   }
+  public boolean equals(Object object)
+  {
+    if(!(object instanceof Race)){return false;}
+    else if(((Race) object).getName().equals(name)){return true;}
+    else{return false;}
+  }
 }

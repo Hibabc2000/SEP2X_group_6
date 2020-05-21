@@ -60,4 +60,10 @@ public class Proficiency
     return "Proficiency{" + "name='" + name + '\'' + ", type='" + type + '\''
         + ", origin='" + origin + '\'' + ", mod=" + mod + '}';
   }
+  public boolean equals(Object object)
+  {
+    if(!(object instanceof Proficiency)){return false;}
+    else if((((Proficiency) object).getName().equals(name))&&(((Proficiency) object).getMod() == mod)&&(((Proficiency) object).getOrigin().equals(origin)&&(((Proficiency) object).getType().equals(type)))){return true;}
+    else{return false;}
+  }
 }

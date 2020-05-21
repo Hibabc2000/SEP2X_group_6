@@ -1,5 +1,6 @@
 package system.networking;
 
+import system.model.businessModel.Character;
 import system.transferobjects.Container;
 import system.transferobjects.login.Account;
 import system.transferobjects.login.Group;
@@ -22,7 +23,7 @@ public class SocketClient implements Client
 
   @Override public void start() throws IOException
   {
-    support = new PropertyChangeSupport(this);
+    support=new PropertyChangeSupport(this);
     socket = new Socket(SERVER_IP, SERVER_PORT);
     socketHandler = new ClientSocketHandler(socket, this);
     Thread thread = new Thread(socketHandler);
@@ -30,21 +31,13 @@ public class SocketClient implements Client
     thread.start();
   }
 
-  /**
-   * Sends the the username,password,email to the client socket
-   * handler in order to create an account
-   *
-   * @param username     String containing the username
-   * @param password String containing the password
-   * @param email    String containing the email
-   */
-  @Override public void createAccount(String username, String password,
+  @Override public void createAccount(String name, String password,
       String email)
   {
     try
     {
       System.out.println("clientsocket");
-      socketHandler.createAccount(username, password, email);
+      socketHandler.createAccount(name,password,email);
 
     }
     catch (IOException e)
@@ -59,7 +52,7 @@ public class SocketClient implements Client
   {
     try
     {
-      socketHandler.changeEmail(acc, email);
+      socketHandler.changeEmail(acc,email);
     }
     catch (IOException e)
     {
@@ -67,10 +60,8 @@ public class SocketClient implements Client
     }
   }
 
-  /**
-   * Sends the {@param email} to the client socket handler
-   * @param email String containing the email
-   */
+
+
   @Override public void recoverPassword(String email)
   {
     try
@@ -87,29 +78,32 @@ public class SocketClient implements Client
   {
     try
     {
-      socketHandler.createGroup(acc, groupName);
+      socketHandler.createGroup(acc,groupName);
     }
     catch (IOException e)
     {
       e.printStackTrace();
     }
   }
+
+
+
+
 
   @Override public void changePassword(Account acc, String oldPassword)
   {
-    try
-    {
-      socketHandler.changePassword(acc, oldPassword);
-    }
-    catch (IOException e)
-    {
-      e.printStackTrace();
-    }
+      try
+      {
+        socketHandler.changePassword(acc,oldPassword);
+      }
+      catch (IOException e)
+      {
+        e.printStackTrace();
+      }
   }
 
   /**
-   * Sends the username and password to the Socket Handler
-   *
+   * sends the username and password to the Socket Handler
    * @param username String containing the username
    * @param password String containing the password
    */
@@ -117,7 +111,7 @@ public class SocketClient implements Client
   {
     try
     {
-      socketHandler.checkLogin(username, password);
+      socketHandler.checkLogin(username,password);
       System.out.println("sockethandler");
     }
     catch (IOException e)
@@ -126,11 +120,12 @@ public class SocketClient implements Client
     }
   }
 
+
   @Override public void joinGroupAsAPlayer(Account acc, Group groupname)
   {
     try
     {
-      socketHandler.joinGroup(acc, groupname);
+      socketHandler.joinGroup(acc,groupname);
     }
     catch (IOException e)
     {
@@ -142,7 +137,7 @@ public class SocketClient implements Client
   {
     try
     {
-      socketHandler.searchGroup(id, user);
+      socketHandler.searchGroup(id,user);
     }
     catch (IOException e)
     {
@@ -162,37 +157,22 @@ public class SocketClient implements Client
     }
   }
 
-  /**
-   *
-   * @param response Fires an event containing {@param response} with a boolean
-   */
-  public void createAccountInfo(boolean response)
+   public void createAccountInfo(boolean ac)
   {
 
-    support.firePropertyChange("createAccount", null, response);
+      support.firePropertyChange("createAccount",null,ac);
+
 
   }
-
-  /**
-   * Fires an event containing {@param container} with all the account data
-   *
-   * @param container Container with the account data
-   */
-  public void loginInfo(Container container)
+  public void loginInfo(Container c)
   {
-    support.firePropertyChange("acceptLogin", null, container);
+    support.firePropertyChange("acceptLogin",null,c);
     System.out.println("client prop change");
   }
-
   public void searchGroupInfo(Container inDataPack)
   {
-    support.firePropertyChange("searchGroup", null, inDataPack);
+    support.firePropertyChange("searchGroup",null,inDataPack);
     System.out.println("clientsocketfiresupportadcmid");
-  }
-  public void addPlayerToGroupUpdate(Container c)
-  {
-    support.firePropertyChange("addPlayerGroupUpdate",null,c);
-    System.out.println("group added to other player ui this is client speaking");
   }
 
   @Override public void addListener(String eventName,
@@ -208,4 +188,11 @@ public class SocketClient implements Client
     support.removePropertyChangeListener(eventName, listener);
   }
 
+
+
+
+  public void relayCharacterInformation(Character character)
+  {
+    support.firePropertyChange("incomingCharacter",null,character);
+  }
 }

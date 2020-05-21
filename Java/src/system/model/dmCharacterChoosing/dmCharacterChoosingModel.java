@@ -1,5 +1,10 @@
 package system.model.dmCharacterChoosing;
 
-public interface dmCharacterChoosingModel
+import system.model.businessModel.Character;
+import system.util.Subject;
+
+public interface dmCharacterChoosingModel extends Subject
 {
+  //void receiveCharacter(Character character);
+  void transmitCharacter(Character character);
 }

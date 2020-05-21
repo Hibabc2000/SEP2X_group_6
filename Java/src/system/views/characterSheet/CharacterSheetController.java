@@ -1,5 +1,6 @@
 package system.views.characterSheet;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
@@ -241,7 +242,63 @@ public class CharacterSheetController
   @FXML public CheckBox pactFourthSpellSlot;
   @FXML public CheckBox levelSixThirdSpellSlot;
 
-  public void initialization()
-  {}
-  
+
+
+
+  public void init()
+  {
+
+  }
+
+  public void spellSlotCheck(ActionEvent actionEvent)
+  {
+  }
+
+  public void removeSpellFromKnownSpells(ActionEvent actionEvent)
+  {
+  }
+
+  public void addSpellToKnownSpells(ActionEvent actionEvent)
+  {
+  }
+
+  public void prepareSpell(ActionEvent actionEvent)
+  {
+  }
+
+  public void unprepareSpell(ActionEvent actionEvent)
+  {
+  }
+
+  public void removeSpellFromSpellBook(ActionEvent actionEvent)
+  {
+  }
+
+  public void removeSelectedItemFromInventory(ActionEvent actionEvent)
+  {
+  }
+
+  public void equipSelectedItemFromInventory(ActionEvent actionEvent)
+  {
+  }
+
+  public void unequipSelectedItemFromInventory(ActionEvent actionEvent)
+  {
+  }
+
+  public void addSelectedItemToInventory(ActionEvent actionEvent)
+  {
+  }
+
+  public void addCurrency(ActionEvent actionEvent)
+  {
+  }
+
+  public void removeCurrency(ActionEvent actionEvent)
+  {
+  }
+
+  public void clearCurrencyTextFields(ActionEvent actionEvent)
+  {
+  }
 }

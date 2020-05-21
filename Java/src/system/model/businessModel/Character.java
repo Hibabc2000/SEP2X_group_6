@@ -20,7 +20,8 @@ public class Character
   private int level;
   private ArrayList<Spell> spells;
   private ArrayList<Spell> spellBook;
-  private ArrayList<String> physicalCharacteristics; //gender, eyes, size, height, hair, skin, age, weight - in this order
+  //private ArrayList<String> physicalCharacteristics; //gender, eyes, size, height, hair, skin, age, weight - in this order
+  private String physicalCharacteristics;
   private String alignment;
   private String faith;
   private String background;
@@ -35,6 +36,64 @@ public class Character
   private boolean[][] spellSlots;
   private ArrayList<String> treasures;
   private StaticModel staticModel;
+
+  public boolean equals(Object object)
+  {
+    if (!(object instanceof Character))
+    {
+      return false;
+    }
+    else
+    {
+      Character temporaryCharacter = (Character) object;
+      if ((id == temporaryCharacter.getId()) && (race.equals(temporaryCharacter.getRace()))
+          && (name.equals(temporaryCharacter.getName())) && (abilities.equals(temporaryCharacter.getAbilities()))
+          && (proficiencies.equals(temporaryCharacter.getProficiencies())) && (profLevel
+          .equals(temporaryCharacter.getProficiencies())) && (money.equals(temporaryCharacter.getMoney()))
+          && (equipmentList.equals(temporaryCharacter.getEquipmentList())) && (xp
+          == temporaryCharacter.getXp()) && (level == temporaryCharacter.getLevel())
+          && (spells.equals(temporaryCharacter.getSpells())) && (spellBook.equals(temporaryCharacter.getSpellBook()))
+          && (physicalCharacteristics.equals(temporaryCharacter.getPhysicalCharacteristics()))
+          && (alignment.equals(temporaryCharacter.getAlignment())) && (background.equals(temporaryCharacter.getBackground()))
+          && (feats.equals(temporaryCharacter.getFeats())) && (hp == temporaryCharacter
+          .getHp()) && (rolledHp == temporaryCharacter.getRolledHp()) && (
+          armorClass == temporaryCharacter.getArmorClass()) && (personalityTraits
+          .equals(temporaryCharacter.getPersonalityTraits())) && (faith.equals(temporaryCharacter.getFaith()))
+          && (ideals.equals(temporaryCharacter.getIdeals())) && (bonds.equals(temporaryCharacter.getBonds()))
+          && (flaws.equals(temporaryCharacter.getFlaws())) && (spellBook.equals(temporaryCharacter.getSpellSlots()))
+          && (treasures.equals(temporaryCharacter.getTreasures())))
+      {
+
+          if (characterClass.size() == temporaryCharacter.getCharacterClass().size())
+          {
+            for (int i = 0; i < characterClass.size(); i++)
+            {
+              if (!characterClass.get(i).getClassName().equals(
+                  temporaryCharacter.getCharacterClass().get(i).getClassName()))
+              {
+                return false;
+              }
+
+            }
+          }
+          else
+          {
+            return true;
+          }
+          return false;
+
+
+      }
+      else {return false;}
+    }
+
+  }
+
+
+
+
+
+
 
   public Character(StaticModel staticModel)   //staticmodel has to be uploaded at instantiation, so that we can have the proficiency parser
   {
@@ -171,12 +230,26 @@ public class Character
     this.spellBook = spellBook;
   }
 
+
+  /*
   public ArrayList<String> getPhysicalCharacteristics()
   {
     return physicalCharacteristics;
   }
 
+   */
+  public String getPhysicalCharacteristics()
+  {
+    return physicalCharacteristics;
+  }
+  /*
   public void setPhysicalCharacteristics(ArrayList<String> physicalCharacteristics)
+  {
+    this.physicalCharacteristics = physicalCharacteristics;
+  }
+   */
+
+  public void setPhysicalCharacteristics(String physicalCharacteristics)
   {
     this.physicalCharacteristics = physicalCharacteristics;
   }

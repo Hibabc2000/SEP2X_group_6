@@ -60,4 +60,10 @@ public class Equipment
     return "Equipment{" + "name='" + name + '\'' + ", description='"
         + description + '\'' + ", weight=" + weight + ", price=" + price + '}';
   }
+  public boolean equals(Object object)
+  {
+    if(! (object instanceof Equipment)){return false;}
+    else if(((Equipment) object).getName().equals(name)){return true;}
+    else{return true;}
+  }
 }

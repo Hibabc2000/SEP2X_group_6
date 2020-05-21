@@ -47,4 +47,10 @@ public class Feat
     return "Feat{" + "origin='" + origin + '\'' + ", name='" + name + '\''
         + ", description='" + description + '\'' + '}';
   }
+  public boolean equals(Object object)
+  {
+    if(!(object instanceof Feat)){return false;}
+    else if((((Feat) object).getName().equals(name))&&(((Feat) object).getOrigin().equals(origin))){return true;}
+    else {return false;}
+  }
 }

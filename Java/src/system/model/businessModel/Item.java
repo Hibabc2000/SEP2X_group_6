@@ -39,4 +39,11 @@ public class Item
   {
     return amount;
   }
+
+  public boolean equals(Object object)
+  {
+    if(!(object instanceof Item)){return false;}
+    else if((((Item) object).getAmount() == amount)&&(((Item) object).getGameItem().equals(gameItem))&&(((Item) object).isEquipped() == equipped)){return true;}
+    else {return false;}
+  }
 }

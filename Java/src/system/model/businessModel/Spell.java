@@ -125,4 +125,11 @@ public class Spell
   {
     this.classes = classes;
   }
+
+  public boolean equals(Object object)
+  {
+    if(!(object instanceof Spell)){return false;}
+    else if((((Spell) object).getName().equals(name))&&(((Spell) object).getSpellLevel() == spellLevel)){return true;}
+    else {return false;}
+  }
 }
