@@ -16,10 +16,15 @@ public class ChangePasswordController
   @FXML private PasswordField passwordNew;
   @FXML private PasswordField passwordNewAgain;
 
-  public void init(ChangePasswordViewModel cpvm, ViewHandler viewHandler)
+  /**
+   *
+   * @param changePasswordViewModel
+   * @param viewHandler
+   */
+  public void init(ChangePasswordViewModel changePasswordViewModel, ViewHandler viewHandler)
   {
 
-    cpvmodel = cpvm;
+    cpvmodel = changePasswordViewModel;
     vh = viewHandler;
     error.textProperty().bind(cpvmodel.getErrorProperty());
     username.textProperty().bindBidirectional(cpvmodel.getUserNameProperty());

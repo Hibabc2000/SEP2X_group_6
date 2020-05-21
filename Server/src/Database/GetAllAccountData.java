@@ -6,8 +6,6 @@ import system.transferobjects.login.Account;
 import system.transferobjects.login.DM;
 import system.transferobjects.login.Group;
 import system.transferobjects.login.Player;
-import system.transferobjects.ClassName;
-import system.transferobjects.Container;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -117,7 +115,6 @@ public class GetAllAccountData
   public void createAccount(String username, String password, String email)
       throws SQLException
   {
-
     boolean done = false;
     Statement st = c.createStatement();
     String query =

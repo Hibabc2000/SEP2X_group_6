@@ -57,6 +57,7 @@ public class OpenSystemController
       System.out.println("opening account");
       viewHandler.openAccount();
     }
+    // !!!! WE SHOULD DISPLAY THE ERROR IF SMTH GOES WRONG
   }
 
   /**

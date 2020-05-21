@@ -8,12 +8,22 @@ public class PasswordRecoveryViewModel
 { private AccountModel model;
 private StringProperty email;
 private StringProperty error;
+
+  /**
+   *  Initializes the class attributes
+   * @param accountModel
+   */
   public PasswordRecoveryViewModel(AccountModel accountModel)
   {model = accountModel;
   email= new SimpleStringProperty();
   error= new SimpleStringProperty();
   email.setValue("");
   }
+
+  /**
+   * Calls the model in order to check the credentials
+   * @return String message containing an error if it is the case
+   */
   public String checkEmail()
   {
     // Pars a message to view (confirmation message)

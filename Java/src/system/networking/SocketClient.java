@@ -67,6 +67,10 @@ public class SocketClient implements Client
     }
   }
 
+  /**
+   * Sends the {@param email} to the client socket handler
+   * @param email String containing the email
+   */
   @Override public void recoverPassword(String email)
   {
     try

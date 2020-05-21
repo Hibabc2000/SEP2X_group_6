@@ -372,21 +372,27 @@ public class AccountModelImpl implements AccountModel
   }
   // checking the email for password recovery whether the email is in the system
 
-  @Override public String checkEmail(String value)
+  /**
+   * Basic field checks(empty fields), after checking the {@param email} is
+   * send to the client socket
+   * @param email String containing the email
+   * @return String message containing an error if it is the case
+   */
+  @Override public String checkEmail(String email)
   {
     String temp = "Error";
 
-    if (value.equals(""))
+    if (email.equals(""))
     {
       temp = "Type in your email account,jezz...";
     }
 
     else
-      client.recoverPassword(value);
+      client.recoverPassword(email);
     //server
     for (int i = 0; i < tempAccounts.size(); i++)
     {
-      if (tempAccounts.get(i).getEmail().equals(value))
+      if (tempAccounts.get(i).getEmail().equals(email))
       {
         temp = "Ready";
         String pas = tempAccounts.get(i).getPassword();
