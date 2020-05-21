@@ -21,7 +21,8 @@ public enum ClassName
  REMOVE_USER,
 // STATIC
  STATIC_MODEL,
-
+//Character
+  CHARACTER,
 
 
 }
