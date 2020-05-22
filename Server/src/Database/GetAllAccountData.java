@@ -429,6 +429,15 @@ public class GetAllAccountData
 
   }
 
+  /**
+   * Checks the given {@param email} value in the database. If the user with this email
+   * is found the method will return a true, otherwise false
+   *
+   * @param email String containing the email
+   * @return boolean
+   * @throws SQLException An exception that provides information on a database
+   *                      access error or other errors
+   */
   public boolean checkEmail(String email) throws SQLException
   {
     boolean response = false;
@@ -450,6 +459,16 @@ public class GetAllAccountData
     return response;
   }
 
+  /**
+   * Creates an SQL statement that searches in the database the User by the given {@param email}.
+   * Extracts the users password and appends it to an ArrayList and a boolean value true. Afterwords
+   * a Container is created containing the created ArrayList and an identifier(ClassName).
+   *
+   * @param email String containing the email
+   * @return a Container of objects(boolean true and account password)
+   * @throws SQLException An exception that provides information
+   *                      on a database access error or other errors.
+   */
   public Container recoverPassword(String email) throws SQLException
   {
     String password = null;
@@ -469,4 +488,4 @@ public class GetAllAccountData
         ClassName.RECOVER_PASSWORD_RESPONSE);
     return datapack;
   }
-  }
+}

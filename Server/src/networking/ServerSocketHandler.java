@@ -109,6 +109,7 @@ public class ServerSocketHandler implements Runnable
             String email = (String) (m.get(0));
             try
             {
+//              Check the email in the database
               answer = database.checkEmail(email);
 
               if (answer)

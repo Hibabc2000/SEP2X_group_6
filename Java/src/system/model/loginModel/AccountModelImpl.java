@@ -53,6 +53,11 @@ public class AccountModelImpl implements AccountModel
     client.addListener("addPlayerGroupUpdate", this::updateGroups);
   }
 
+  /**
+   * Converts the Property Change Event to an ArrayList and fires an event containing {@param propertyChangeEvent}
+   *
+   * @param propertyChangeEvent Container contains an ArrayList of two objects(boolean and the recovered password)
+   */
   private void recoverPasswordBackFromServer(
       PropertyChangeEvent propertyChangeEvent)
   {

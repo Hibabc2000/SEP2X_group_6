@@ -208,6 +208,11 @@ public class SocketClient implements Client
     support.removePropertyChangeListener(eventName, listener);
   }
 
+  /**
+   * Fires an event containing {@param inDataPack}
+   *
+   * @param inDataPack Container contains an ArrayList of two objects(boolean and the recovered password)
+   */
   public void recoverPasswordResponse(Container inDataPack)
   {
     support.firePropertyChange("recoverPassword", null, inDataPack);
