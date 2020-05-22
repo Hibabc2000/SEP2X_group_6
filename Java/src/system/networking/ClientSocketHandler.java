@@ -140,6 +140,14 @@ public class ClientSocketHandler implements Runnable
     outToServer.writeObject(outDataPack);
   }
 
+  /**
+   * Appends the account obj to an ArrayList. Afterwords
+   * a Container is created containing the created ArrayList and an identifier(ClassName).
+   * The container is send to the server
+   *
+   * @param acc users account
+   * @throws IOException exceptions produced by failed or interrupted I/O operations.
+   */
   public void changePassword(Account acc) throws IOException
   {
     ArrayList<Object> objs = new ArrayList<>();

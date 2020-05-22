@@ -95,7 +95,11 @@ public class SocketClient implements Client
     }
   }
 
-  @Override public void changePassword(Account acc, String oldPassword)
+  /**
+   *  Sends the account the Socket Handler
+   * @param acc users account
+   */
+  @Override public void changePassword(Account acc)
   {
     try
     {

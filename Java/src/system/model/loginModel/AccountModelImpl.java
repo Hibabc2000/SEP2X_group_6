@@ -449,13 +449,13 @@ public class AccountModelImpl implements AccountModel
   // but it shouldn't be a problem , since its impossible to actually get null pointer exception, cause that variable will only be used if everything is right.
 
   /**
-   * Basic field checks(empty fields, password match), after checking the {@param email} is
-   *     send to the client socket
+   * Basic field checks(empty fields, password match), after checking the user account password is updated
+   * locally. Afterwards the Account is send send to the client socket
    * @param username String containing the username
    * @param passOld String containing the old password
    * @param passNew String containing the new password
    * @param passNewAgain String containing the new password confirmation
-   * @return a String message if there is an error
+   * @return a String message
    */
   @Override public String checkPasswordChangeInformation(String username,
       String passOld, String passNew, String passNewAgain)
@@ -480,8 +480,7 @@ public class AccountModelImpl implements AccountModel
     {
       usersAccount.setPassword(passNew);
       temp = "Ready"; // if no errors,then password is changed
-      client.changePassword(usersAccount,
-          passOld); // here we send it to the database so it changes, we dont need to check anything
+      client.changePassword(usersAccount); // here we send it to the database so it changes, we dont need to check anything
 
     }
 
