@@ -488,4 +488,16 @@ public class GetAllAccountData
         ClassName.RECOVER_PASSWORD_RESPONSE);
     return datapack;
   }
+
+  public void changePassword(Account account, String newPassword)
+      throws SQLException
+  {
+  String username= account.getUsername();
+
+    Statement st = c.createStatement();
+    String query =
+        "UPDATE \"Users\".\"Users\" SET password="+newPassword
+            + " WHERE  username  = " + username + " ;";
+    ResultSet rs = st.executeQuery(query);
+  }
 }

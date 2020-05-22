@@ -142,8 +142,8 @@ public class ServerSocketHandler implements Runnable
           {
             ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
             Account account = (Account) (m.get(0));
-            String newPassword = (String) (m.get(1));
-            String oldPassword = (String) (m.get(2));
+            String newPassword = account.getPassword();
+        database.changePassword(account,newPassword);
             break;
           }
           case CHECK_LOGIN:

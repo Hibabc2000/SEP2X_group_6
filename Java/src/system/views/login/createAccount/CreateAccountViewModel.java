@@ -19,6 +19,11 @@ public class CreateAccountViewModel implements Subject
   private StringProperty error;
   private PropertyChangeSupport support;
 
+  /**
+   * Initializes the class attributes, listens for updates from the model
+   *
+   * @param accountModel model
+   */
   public CreateAccountViewModel(AccountModel accountModel)
   {
     support = new PropertyChangeSupport(this);
