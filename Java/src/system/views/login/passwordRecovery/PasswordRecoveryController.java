@@ -17,7 +17,7 @@ public class PasswordRecoveryController
   /**
    * Initializes the class attributes, binds the fxml fields to view model properties.
    *
-   * @param passwordRecoveryViewModel
+   * @param passwordRecoveryViewModel view model
    * @param viewHandler used for changing the views
    */
    public void init(PasswordRecoveryViewModel passwordRecoveryViewModel, ViewHandler viewHandler)

@@ -195,11 +195,20 @@ public class ClientSocketHandler implements Runnable
     outToServer.writeObject(outDataPack);
   }
 
-  public void changeEmail(Account acc, String email) throws IOException
+  /**
+   * Appends the users account and email to an ArrayList. Afterwords
+   * a Container is created containing the created ArrayList and an identifier(ClassName).
+   * The container is send to the server
+   *
+   * @param account users account
+   * @param email   String containing the email
+   * @throws IOException exceptions produced by failed or interrupted I/O operations
+   */
+  public void changeEmail(Account account, String email) throws IOException
   {
     ArrayList<Object> objs = new ArrayList<>();
 
-    objs.add(acc);
+    objs.add(account);
     objs.add(email);
     Container outDataPack = new Container(objs, ClassName.CHECK_EMAIL_CHANGE);
     outToServer.writeObject(outDataPack);

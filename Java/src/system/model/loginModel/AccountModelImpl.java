@@ -451,9 +451,10 @@ public class AccountModelImpl implements AccountModel
   /**
    * Basic field checks(empty fields, password match), after checking the user account password is updated
    * locally. Afterwards the Account is send send to the client socket
-   * @param username String containing the username
-   * @param passOld String containing the old password
-   * @param passNew String containing the new password
+   *
+   * @param username     String containing the username
+   * @param passOld      String containing the old password
+   * @param passNew      String containing the new password
    * @param passNewAgain String containing the new password confirmation
    * @return a String message
    */
@@ -480,7 +481,8 @@ public class AccountModelImpl implements AccountModel
     {
       usersAccount.setPassword(passNew);
       temp = "Ready"; // if no errors,then password is changed
-      client.changePassword(usersAccount); // here we send it to the database so it changes, we dont need to check anything
+      client.changePassword(
+          usersAccount); // here we send it to the database so it changes, we dont need to check anything
 
     }
 
@@ -494,7 +496,15 @@ public class AccountModelImpl implements AccountModel
     return temp;
   }
 
-  // the same as the method above, but with emailchange
+  /**
+   * Basic field checks(empty fields, same email, password check), after checking the user account and the new email
+   * are sent send to the client socket
+   *
+   * @param username String containing the username
+   * @param password String containing the password
+   * @param email    String containing the email
+   * @return a String message with an error or "Ready" if the check Email Change Information is completed successfully
+   */
   @Override public String checkEmailChangeInformation(String username,
       String password, String email)
   {
@@ -516,32 +526,7 @@ public class AccountModelImpl implements AccountModel
     }
     else
       client.changeEmail(usersAccount, email);
-    //server
-    for (int i = 0; i < tempAccounts.size(); i++)
-    {
-      if (tempAccounts.get(i).getPassword().equals(password) && tempAccounts
-          .get(i).getUsername().equals(username))
-      {
-        change = tempAccounts.get(i);
 
-      }
-      if ((tempAccounts.get(i).getEmail().equals(email)))
-      {
-        temp = "This email is already registered.";
-        break;
-      }
-      else
-      {
-        temp = "Ready";
-      }
-    }
-    if (temp.equals("Ready"))
-    {
-
-      tempAccounts.get(tempAccounts.indexOf(change)).changeEmail(email);
-      usersAccount.changeEmail(email);
-
-    }
     return temp;
   }
 

@@ -17,7 +17,6 @@ public class SocketClient implements Client
   private ClientSocketHandler socketHandler;
   private Socket socket;
 
-
   private PropertyChangeSupport support;
 
   @Override public void start() throws IOException
@@ -34,7 +33,7 @@ public class SocketClient implements Client
    * Sends the the username,password,email to the client socket
    * handler in order to create an account
    *
-   * @param username     String containing the username
+   * @param username String containing the username
    * @param password String containing the password
    * @param email    String containing the email
    */
@@ -53,13 +52,18 @@ public class SocketClient implements Client
     }
   }
 
-
-
-  @Override public void changeEmail(Account acc, String email)
+  /**
+   * Sends the the {@param account} and {@param email} to the client socket
+   * handler in order to change the accounts email
+   *
+   * @param account users account
+   * @param email   String containing the email
+   */
+  @Override public void changeEmail(Account account, String email)
   {
     try
     {
-      socketHandler.changeEmail(acc, email);
+      socketHandler.changeEmail(account, email);
     }
     catch (IOException e)
     {
@@ -69,6 +73,7 @@ public class SocketClient implements Client
 
   /**
    * Sends the {@param email} to the client socket handler
+   *
    * @param email String containing the email
    */
   @Override public void recoverPassword(String email)
@@ -96,7 +101,8 @@ public class SocketClient implements Client
   }
 
   /**
-   *  Sends the account the Socket Handler
+   * Sends the account the Socket Handler
+   *
    * @param acc users account
    */
   @Override public void changePassword(Account acc)
@@ -167,7 +173,6 @@ public class SocketClient implements Client
   }
 
   /**
-   *
    * @param response Fires an event containing {@param response} with a boolean
    */
   public void createAccountInfo(boolean response)
@@ -193,10 +198,12 @@ public class SocketClient implements Client
     support.firePropertyChange("searchGroup", null, inDataPack);
     System.out.println("clientsocketfiresupportadcmid");
   }
+
   public void addPlayerToGroupUpdate(Container c)
   {
-    support.firePropertyChange("addPlayerGroupUpdate",null,c);
-    System.out.println("group added to other player ui this is client speaking");
+    support.firePropertyChange("addPlayerGroupUpdate", null, c);
+    System.out
+        .println("group added to other player ui this is client speaking");
   }
 
   @Override public void addListener(String eventName,
@@ -220,6 +227,6 @@ public class SocketClient implements Client
   public void recoverPasswordResponse(Container inDataPack)
   {
     support.firePropertyChange("recoverPassword", null, inDataPack);
-  //  System.out.println("clientsocketfiresupportadcmid");
+    //  System.out.println("clientsocketfiresupportadcmid");
   }
 }

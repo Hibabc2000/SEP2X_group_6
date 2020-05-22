@@ -1,6 +1,5 @@
 package system.views.login.changeEmail;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -16,10 +15,19 @@ public class ChangeEmailController
   @FXML private PasswordField passwordField;
   @FXML private TextField emailField;
 
-  public void init(ChangeEmailViewModel vm, ViewHandler viewHandler)
+  /**
+   * /**
+   * Initializes the class attributes, binds the fxml fields to view model properties.
+   *
+   * @param changeEmailViewModel view model
+   * @param viewHandler          used for changing the views
+   */
+
+  public void init(ChangeEmailViewModel changeEmailViewModel,
+      ViewHandler viewHandler)
   {
 
-    cevmodel = vm;
+    cevmodel = changeEmailViewModel;
     vh = viewHandler;
     errorMessage.textProperty().bind(cevmodel.getErrorProperty());
     usernameField.textProperty()
@@ -30,7 +38,10 @@ public class ChangeEmailController
 
   }
 
-  // checks the string if it equals ready then closes the stage
+  /**
+   * Sends a request to the view model in order to check the credentials. If the email is changed
+   * successfully the stage will be closed
+   */
   public void confirmEmailButton()
   {
     if (cevmodel.checkEmailChangeInformation().equals("Ready"))
@@ -40,7 +51,10 @@ public class ChangeEmailController
 
   }
 
-  public void cancelEmailChange(ActionEvent actionEvent)
+  /**
+   * Closes the stage
+   */
+  public void cancelEmailChange()
   {
     vh.closeStage4();
   }

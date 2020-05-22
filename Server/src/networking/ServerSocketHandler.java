@@ -99,7 +99,7 @@ public class ServerSocketHandler implements Runnable
             ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
             Account account = (Account) (m.get(0));
             String email = (String) (m.get(1));
-            break;
+           // database.changeEmail(account,email);
           }
           case RECOVER_PASSWORD:
           {
