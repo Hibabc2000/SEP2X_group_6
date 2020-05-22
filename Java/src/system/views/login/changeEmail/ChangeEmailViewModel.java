@@ -12,6 +12,11 @@ public class ChangeEmailViewModel
   private StringProperty password;
   private StringProperty error;
 
+  /**
+   * Initializes the class attributes and listens for updates from the model
+   *
+   * @param accountModel model
+   */
   public ChangeEmailViewModel(AccountModel accountModel)
   {
     this.accountModel = accountModel;
@@ -26,28 +31,51 @@ public class ChangeEmailViewModel
     username.setValue("");
   }
 
+  /**
+   * Gets the username StringProperty value
+   *
+   * @return StringProperty
+   */
   public StringProperty getUserNameProperty()
   {
     return username;
   }
 
+  /**
+   * Gets the password StringProperty value
+   *
+   * @return StringProperty
+   */
   public StringProperty getPasswordProperty()
   {
     return password;
   }
 
+  /**
+   * Gets the error StringProperty value
+   *
+   * @return StringProperty
+   */
   public StringProperty getErrorProperty()
   {
     return error;
   }
 
+  /**
+   * Gets the email StringProperty value
+   *
+   * @return StringProperty
+   */
   public StringProperty getEmailProperty()
   {
     return email;
   }
 
-  // calls the checkmethod on model, and after that resets the fields and gives the error for it if there is one, and passes the string to the view
-  // to checks if its ready or not.
+  /**
+   * Calls the model in order to check the credentials and sets the fields values to empty String
+   *
+   * @return String message containing an error if it is the case
+   */
   public String checkEmailChangeInformation()
   {
     String temp = accountModel

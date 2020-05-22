@@ -16,8 +16,7 @@ public interface Client extends Subject
   void recoverPassword(String email);
   void createGroup(Account acc, String groupName);
 
-  void changePassword(Account acc,
-      String oldPassword);
+  void changePassword(Account acc);
 
 
   void joinGroupAsAPlayer(Account acc, Group group);

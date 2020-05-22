@@ -14,9 +14,8 @@ public class PasswordRecoveryViewModel
   private StringProperty error;
 
   /**
-   * Initializes the class attributes
-   *
-   * @param accountModel
+   * Initializes the class attributes and listens for updates from the model
+   * @param accountModel model
    */
   public PasswordRecoveryViewModel(AccountModel accountModel)
   {
@@ -63,11 +62,19 @@ public class PasswordRecoveryViewModel
 
   }
 
+  /**
+   * Gets the email value StringProperty
+   * @return StringProperty
+   */
   public StringProperty getEmailProperty()
   {
     return email;
   }
 
+  /**
+   * Gets the error value StringProperty
+   * @return StringProperty
+   */
   public StringProperty getErrorProperty()
   {
     return error;

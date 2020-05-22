@@ -444,6 +444,14 @@ ResultSet rs = st.executeQuery(query);
    return data;
   }
 
+  /**
+   * Creates an SQL statement that UPDATED in the database the password {@param newPassword}. The username
+   * is retrieved from the {@param account}.
+   * @param account users account
+   * @param newPassword String containing the new password
+   * @throws SQLException  An exception that provides information
+   *                       on a database access error or other errors.
+   */
   public void changePassword(Account account, String newPassword)
       throws SQLException
   {
