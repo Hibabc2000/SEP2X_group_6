@@ -13,6 +13,11 @@ public class ChangePasswordViewModel
   private StringProperty passwordNewAgain;
   private StringProperty error;
 
+  /**
+   * Initializes the class attributes, listens for updates from the model
+   *
+   * @param accountModel model
+   */
   public ChangePasswordViewModel(AccountModel accountModel)
   {model=accountModel;
 
@@ -27,29 +32,63 @@ public class ChangePasswordViewModel
    passwordNew.setValue("");
    username.setValue("");
   }
-
+  /**
+   * Gets the username StringProperty
+   *
+   * @return StringProperty
+   */
   public StringProperty getUserNameProperty()
   {
     return username;
   }
+
+  /**
+   * Gets the passwordOld StringProperty
+   *
+   * @return StringProperty
+   */
   public StringProperty getPasswordOldProperty()
   {
     return passwordOld;
   }
+
+  /**
+   * Gets the error StringProperty
+   *
+   * @return StringProperty
+   */
   public StringProperty getErrorProperty()
   {
     return error;
   }
+
+  /**
+   * Gets the passwordNew StringProperty
+   *
+   * @return StringProperty
+   */
   public StringProperty getPasswordNewProperty()
   {
     return passwordNew;
   }
+
+  /**
+   * Gets the passwordNewAgain StringProperty
+   *
+   * @return StringProperty
+   */
   public StringProperty getPasswordNewAgainProperty()
   {
     return passwordNewAgain;
   }
   // calls the checkmethod on model, and after that resets the fields and gives the error for it if there is one, and passes the string to the view
   // to checks if its ready or not.
+
+  /**
+   * Calls the checkPasswordChangeInformation method on model, and after that resets the fields.
+   *
+   * @return a String containing a message
+   */
   public String checkPasswordChangeInformation()
   {
     String temp = model.checkPasswordChangeInformation(username.getValue(),passwordOld.getValue(),passwordNew.getValue(),passwordNewAgain.getValue());

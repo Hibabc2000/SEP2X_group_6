@@ -413,6 +413,16 @@ public class AccountModelImpl implements AccountModel
 
   // method for checking that everything is right for password change, field checks, I create an account variable which is null,
   // but it shouldn't be a problem , since its impossible to actually get null pointer exception, cause that variable will only be used if everything is right.
+
+  /**
+   * Basic field checks(empty fields, password match), after checking the {@param email} is
+   *     send to the client socket
+   * @param username String containing the username
+   * @param passOld String containing the old password
+   * @param passNew String containing the new password
+   * @param passNewAgain String containing the new password confirmation
+   * @return a String message if there is an error
+   */
   @Override public String checkPasswordChangeInformation(String username,
       String passOld, String passNew, String passNewAgain)
   {

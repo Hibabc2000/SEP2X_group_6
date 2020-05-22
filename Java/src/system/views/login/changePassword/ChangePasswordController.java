@@ -50,6 +50,9 @@ public class ChangePasswordController
 
   }
 
+  /**
+   * Open the OpenSystem view(main view)
+   */
   public void cancelGoBack()
   {
     vh.closeStage3();

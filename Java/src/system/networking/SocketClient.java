@@ -99,7 +99,7 @@ public class SocketClient implements Client
   {
     try
     {
-      socketHandler.changePassword(acc, oldPassword);
+      socketHandler.changePassword(acc);
     }
     catch (IOException e)
     {

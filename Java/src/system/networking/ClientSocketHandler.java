@@ -149,12 +149,11 @@ public class ClientSocketHandler implements Runnable
     outToServer.writeObject(outDataPack);
   }
 
-  public void changePassword(Account acc, String oldPassword) throws IOException
+  public void changePassword(Account acc) throws IOException
   {
     ArrayList<Object> objs = new ArrayList<>();
 
     objs.add(acc);
-    objs.add(oldPassword);
     Container outDataPack = new Container(objs,
         ClassName.CHECK_PASSWORD_CHANGE);
     outToServer.writeObject(outDataPack);

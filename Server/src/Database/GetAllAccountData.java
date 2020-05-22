@@ -443,4 +443,16 @@ ResultSet rs = st.executeQuery(query);
 
    return data;
   }
+
+  public void changePassword(Account account, String newPassword)
+      throws SQLException
+  {
+  String username= account.getUsername();
+
+    Statement st = c.createStatement();
+    String query =
+        "UPDATE \"Users\".\"Users\" SET password="+newPassword
+            + " WHERE  username  = " + username + " ;";
+    ResultSet rs = st.executeQuery(query);
+  }
 }
