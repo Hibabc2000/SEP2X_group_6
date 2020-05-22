@@ -82,14 +82,23 @@ public class ClientSocketHandler implements Runnable
 
             break;
           }
-          case RECOVER_PASSWORD_RESPONSE:
-            ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
+          case GROUP_JOIN_UPDATE:
+          {
 
-            Platform.runLater(() -> {
-              socketClient.recoverPasswordResponse(inDataPack);
+            Platform.runLater(()->{
+              socketClient.addPlayerToGroupUpdate(inDataPack);
             });
-
             break;
+          }
+          case CREATE_GROUP:
+          {
+            Platform.runLater(()->{
+              socketClient.addDMGroup(inDataPack);
+            });
+            break;
+
+          }
+
 
         }
 

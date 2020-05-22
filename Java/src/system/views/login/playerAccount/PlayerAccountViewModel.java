@@ -45,9 +45,10 @@ public class PlayerAccountViewModel
     System.out.println("Mosr plYWER adok hozza az fxml-hez te fasz");
     if(groupList.get(i).equals(propertyChangeEvent.getOldValue().toString()))
     {Group adgruop = (Group) propertyChangeEvent.getOldValue();
+      System.out.println("THIS IS OLD VALUE : \n"+propertyChangeEvent.getOldValue().toString());
     adgruop.addPlayer((Player)propertyChangeEvent.getNewValue());
       groupList.set(i,adgruop.toString());
-      System.out.println("THIS IS OLD VALUE : \n"+propertyChangeEvent.getOldValue().toString());
+
       System.out.println( adgruop.toString());
     }
 

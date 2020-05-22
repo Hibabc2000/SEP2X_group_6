@@ -184,7 +184,8 @@ public class SocketClient implements Client
     System.out.println("client prop change");
   }
 
-  public void searchGroupInfo(Container inDataPack)
+  public void
+  searchGroupInfo(Container inDataPack)
   {
     support.firePropertyChange("searchGroup", null, inDataPack);
     System.out.println("clientsocketfiresupportadcmid");
@@ -193,6 +194,10 @@ public class SocketClient implements Client
   {
     support.firePropertyChange("addPlayerGroupUpdate",null,c);
     System.out.println("group added to other player ui this is client speaking");
+  }
+  public void addDMGroup(Container inDataPack)
+  {
+    support.firePropertyChange("addDMGroup",null,inDataPack);
   }
 
   @Override public void addListener(String eventName,
@@ -208,14 +213,5 @@ public class SocketClient implements Client
     support.removePropertyChangeListener(eventName, listener);
   }
 
-  /**
-   * Fires an event containing {@param inDataPack}
-   *
-   * @param inDataPack Container contains an ArrayList of two objects(boolean and the recovered password)
-   */
-  public void recoverPasswordResponse(Container inDataPack)
-  {
-    support.firePropertyChange("recoverPassword", null, inDataPack);
-  //  System.out.println("clientsocketfiresupportadcmid");
-  }
+
 }

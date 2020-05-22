@@ -28,7 +28,7 @@ public class ConnectionPool
   {
     for (ServerSocketHandler handler : connections)
     {
-      if ((gp.isContainsUsername(handler.getAccount().getUsername()) || gp.getDM().getName().equals(handler.getAccount().getUsername())) && !handler.getAccount().equals(ac))
+      if ((gp.isContainsUsername(handler.getAccount().getUsername()) || gp.getDM().getName().equals(handler.getAccount().getUsername())))
       { Player  p = new Player(ac.getUsername());
         ArrayList<Object> m = new ArrayList<>();
         m.add(p);
