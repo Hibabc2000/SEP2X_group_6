@@ -6,7 +6,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import system.model.loginModel.AccountModel;
 import system.transferobjects.login.Group;
-import system.transferobjects.login.Player;
 
 import java.beans.PropertyChangeEvent;
 import java.util.ArrayList;
@@ -30,6 +29,16 @@ public class PlayerAccountViewModel
 
   }
 
+  private void addPlayerToGroup(PropertyChangeEvent propertyChangeEvent)
+  { ArrayList<Group> grps = (ArrayList<Group>) propertyChangeEvent.getNewValue();
+    groupList.clear();
+  for(int i=0; i<grps.size();i++)
+    {
+
+      groupList.add(grps.get(i).toString()+ "\n");
+    }
+  }
+
   private void searchFail(PropertyChangeEvent propertyChangeEvent)
   {
     error.setValue("A group with this ID does not exist.");
@@ -37,23 +46,29 @@ public class PlayerAccountViewModel
 
   // here we go through the grouplist and check whether the "oldgroup" variable equals one of the groups that are in the list right now.
   // if yes then  we will take that and change it to the new group which has been updated with your name in it.
-  private void addPlayerToGroup(PropertyChangeEvent propertyChangeEvent)
+ /* private void addPlayerToGroup(PropertyChangeEvent propertyChangeEvent)
   {
     System.out.println("this is addplayertogroup method in playeraccountvm");
   for(int i =0; i<groupList.size();i++)
   {
     System.out.println("Mosr plYWER adok hozza az fxml-hez te fasz");
     if(groupList.get(i).equals(propertyChangeEvent.getOldValue().toString()))
-    {Group adgruop = (Group) propertyChangeEvent.getOldValue();
+    {Group adgruop = (Group) propertyChangeEvent.getNewValue();
       System.out.println("THIS IS OLD VALUE : \n"+propertyChangeEvent.getOldValue().toString());
-    adgruop.addPlayer((Player)propertyChangeEvent.getNewValue());
+
       groupList.set(i,adgruop.toString());
 
       System.out.println( adgruop.toString());
+    break;
     }
 
   }
-  }
+
+  } */
+
+
+
+
 // this adds a new group to the group list.
   private void addToGroupList(PropertyChangeEvent propertyChangeEvent)
     {

@@ -196,7 +196,8 @@ public class ServerSocketHandler implements Runnable
             try
             {
               database.addPlayerToGroup(ac,group);
-              pool.addPlayerToGroup(group,ac);
+             Group gro=  database.getGroupForUpdate(group.getId());
+              pool.addPlayerToGroup(gro);
 
             }
             catch (SQLException e)

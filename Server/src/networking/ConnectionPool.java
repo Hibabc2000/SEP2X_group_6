@@ -4,7 +4,6 @@ import system.transferobjects.ClassName;
 import system.transferobjects.Container;
 import system.transferobjects.login.Account;
 import system.transferobjects.login.Group;
-import system.transferobjects.login.Player;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,16 +23,14 @@ public class ConnectionPool
     userLeft(handler.getAccount());
 
   }
-  public void addPlayerToGroup(Group gp, Account ac )
+  public void addPlayerToGroup(Group gp )
   {
     for (ServerSocketHandler handler : connections)
     {
       if ((gp.isContainsUsername(handler.getAccount().getUsername()) || gp.getDM().getName().equals(handler.getAccount().getUsername())))
-      { Player  p = new Player(ac.getUsername());
-        ArrayList<Object> m = new ArrayList<>();
-        m.add(p);
-        m.add(gp.getId());
-        Container dtp = new Container(m, ClassName.GROUP_JOIN_UPDATE);
+      {
+        System.out.println("Ez a player kapott group updatet: "+ handler.getAccount().getUsername());
+        Container dtp = new Container(gp, ClassName.GROUP_JOIN_UPDATE);
         handler.sendBackData(dtp);
       }
     }

@@ -95,7 +95,7 @@ public class SocketClient implements Client
     }
   }
 
-  @Override public void changePassword(Account acc, String oldPassword)
+  @Override public void changePassword(Account acc)
   {
     try
     {
@@ -217,5 +217,10 @@ public class SocketClient implements Client
   {
     support.firePropertyChange("recoverPassword", null, inDataPack);
   //  System.out.println("clientsocketfiresupportadcmid");
+  }
+
+  public void addDMGroup(Container inDataPack)
+  {
+    support.firePropertyChange("addDMGroup",null,inDataPack);
   }
 }

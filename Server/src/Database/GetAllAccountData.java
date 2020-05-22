@@ -367,14 +367,14 @@ public class GetAllAccountData
     while (rs.next())
     {
 
-      String k = rs.getString("usernamePlayers");
-      plys = sqlArrayToArrayListString(k);
-
-      String charid = rs.getString("characterIDs");
-      charIDs = sqlArrayToArrayListInteger(charid);
+      String k = rs.getString("usernamePlayers"); String charid = rs.getString("characterIDs");
 
       thisIsAGroupForTheGroupWithTheIDOfWhatTheUserInsertedIntoTheMethodToFindThisGroupDoYouUnderstandThisMarin = new Group(
           rs.getString("name"), rs.getInt("id"));
+      if(k!=null && charid!=null)
+      {
+        plys = sqlArrayToArrayListString(k);
+        charIDs = sqlArrayToArrayListInteger(charid);
 
       for (int i = 0; i < plys.size(); i++)
       {
@@ -390,12 +390,14 @@ public class GetAllAccountData
           a.addCharacterID(null);
         }
         thisIsAGroupForTheGroupWithTheIDOfWhatTheUserInsertedIntoTheMethodToFindThisGroupDoYouUnderstandThisMarin
-            .addDM(new DM(rs.getString("usernameDM")));
-
-        thisIsAGroupForTheGroupWithTheIDOfWhatTheUserInsertedIntoTheMethodToFindThisGroupDoYouUnderstandThisMarin
             .addPlayer(a);
+      }
+
+
 
       }
+      thisIsAGroupForTheGroupWithTheIDOfWhatTheUserInsertedIntoTheMethodToFindThisGroupDoYouUnderstandThisMarin
+          .addDM(new DM(rs.getString("usernameDM")));
 
     }
 
@@ -417,9 +419,9 @@ public class GetAllAccountData
       throws SQLException
   {
     Statement st = c.createStatement();
-    String query ="INSERT INTO  \"Groups\".\"Groups\" (\"name\",\"usernameDM\",\"usernamePlayers\",\"characterIDs\") VALUES ('" +groupname +"','"+account.getUsername()+"';)";
+    String query ="INSERT INTO  \"Groups\".\"Groups\" (\"name\",\"usernameDM\",\"usernamePlayers\",\"characterIDs\") VALUES ('" +groupname +"','"+account.getUsername()+"' , NULL,NULL);";
 
-    ResultSet rs = st.executeQuery(query);
+    st.execute(query);
 
 
   }
@@ -459,8 +461,49 @@ ResultSet rs = st.executeQuery(query);
 
     Statement st = c.createStatement();
     String query =
-        "UPDATE \"Users\".\"Users\" SET password="+newPassword
-            + " WHERE  username  = " + username + " ;";
+        "UPDATE \"Users\".\"Users\" SET password= '"+newPassword
+            + "' WHERE  username  = '" + username + "' ;";
     ResultSet rs = st.executeQuery(query);
+  }
+
+  public Group getGroupForUpdate(int id) throws SQLException
+  {
+    Statement st = c.createStatement();
+    String query = "SELECT * FROM \"Groups\".\"Groups\" WHERE id = "+ id +" ;";
+    ResultSet rs = st.executeQuery(query);
+    Group  geez = null;
+
+   ArrayList<String> plys;
+   ArrayList<Integer> charIDs;
+    while (rs.next())
+    {
+      geez = new Group(rs.getString("name"),rs.getInt("id"));
+      geez.addDM(new DM(rs.getString("usernameDM")));
+
+      String k = rs.getString("usernamePlayers");
+      plys = sqlArrayToArrayListString(k);
+
+      String charid = rs.getString("characterIDs");
+      charIDs = sqlArrayToArrayListInteger(charid);
+
+
+
+      for (int i = 0; i < plys.size(); i++)
+      {
+
+        Player a = new Player(plys.get(i));
+
+        if(charIDs.get(i)!=null)
+        { a.addCharacterID(charIDs.get(i));} else {a.addCharacterID(null);}
+
+
+
+        geez.addPlayer(a);
+
+      }
+
+    }
+    System.out.println("this is when you joind a group : "+geez.toString());
+    return geez;
   }
 }

@@ -6,7 +6,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import system.model.loginModel.AccountModel;
 import system.transferobjects.login.Group;
-import system.transferobjects.login.Player;
 import system.util.Subject;
 
 import java.beans.PropertyChangeEvent;
@@ -34,19 +33,14 @@ public class DMAccountViewModel implements Subject
   }
 
   private void addPlayerToGroup(PropertyChangeEvent propertyChangeEvent)
-  { System.out.println("this is addplayertogroup method in playeraccountvm");
-    for(int i =0; i<groupListDM.size();i++)
+  {ArrayList<Group> grps = (ArrayList<Group>) propertyChangeEvent.getNewValue();
+    groupListDM.clear();
+    for(int i=0; i<grps.size();i++)
     {
-      System.out.println("Mosr plYWER adok hozza az fxml-hez te fasz");
-      if(groupListDM.get(i).equals(propertyChangeEvent.getOldValue().toString()))
-      {Group adgruop = (Group) propertyChangeEvent.getOldValue();
-        adgruop.addPlayer((Player)propertyChangeEvent.getNewValue());
-        groupListDM.set(i,adgruop.toString());
-        System.out.println("THIS IS OLD VALUE : \n"+propertyChangeEvent.getOldValue().toString());
-        System.out.println( adgruop.toString());
-      }
 
+      groupListDM.add(grps.get(i).toString());
     }
+
   }
 
   // adds the new group to the group list.

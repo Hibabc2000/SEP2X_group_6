@@ -1,9 +1,6 @@
 package Database;
 
 import system.model.businessModel.Character;
-import system.model.businessModel.Feat;
-import system.model.businessModel.Item;
-import system.model.characterClasses.CharacterClass;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,7 +14,7 @@ public class InsertCharacter
    */
   private Connection c;
 
-  public InsertCharacter()
+public InsertCharacter()
   {
     /**
      * Constructor method for InsertCharacter. Gets the PostgreSQL connection via the JDBC driver.
@@ -48,6 +45,7 @@ public class InsertCharacter
             + cha.getRolledHp() + ", " + cha.getAlignment() + ", " + cha
             .getFaith() + ", \'{";
     //add physical traits
+    /*
     String[] physical = (String[]) cha.getPhysicalCharacteristics().toArray();
     for (int i = 0; i < physical.length; i++)
     {
@@ -143,6 +141,7 @@ public class InsertCharacter
     query += "}\');";
     st.executeUpdate(query);
     st.close();
-    c.close();
+    c.close();*/
   }
+
 }

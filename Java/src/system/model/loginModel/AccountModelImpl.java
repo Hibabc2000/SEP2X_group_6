@@ -1,7 +1,6 @@
 package system.model.loginModel;
 
 import system.AccountsForTesting;
-import system.model.businessModel.DiceRoll;
 import system.networking.Client;
 import system.transferobjects.Container;
 import system.transferobjects.login.Account;
@@ -44,89 +43,71 @@ public class AccountModelImpl implements AccountModel
     tempGroups = new ArrayList<>();
     groupsForDm = new ArrayList<>();
 
+
     // for testing
 
-    client.addListener("recoverPassword", this::recoverPasswordBackFromServer);
+
+
     client.addListener("createAccount", this::createAccountInfoBackFromServer);
     client.addListener("acceptLogin", this::loginInfo);
-    client.addListener("searchGroup", this::searchGroupInfo);
-    client.addListener("addPlayerGroupUpdate", this::updateGroups);
+    client.addListener("searchGroup",this::searchGroupInfo);
+    client.addListener("addPlayerGroupUpdate",this::updateGroups);
+    client.addListener("addDMGroup",this::addDMGroup);
   }
 
-  /**
-   * Converts the Property Change Event to an ArrayList and fires an event containing {@param propertyChangeEvent}
-   *
-   * @param propertyChangeEvent Container contains an ArrayList of two objects(boolean and the recovered password)
-   */
-  private void recoverPasswordBackFromServer(
-      PropertyChangeEvent propertyChangeEvent)
+  private void addDMGroup(PropertyChangeEvent propertyChangeEvent)
   {
-    ArrayList<Object> objs = (ArrayList<Object>) ((Container) propertyChangeEvent
-        .getNewValue()).getObject();
-    support.firePropertyChange("recoverPassword", null, objs);
-
+    Group gp = (Group)((ArrayList<Object>)((Container)propertyChangeEvent.getNewValue()).getObject()).get(0);
+    gp.addDM(usersAccount.getDM());
+    groupsForDm.add(gp);
+    support.firePropertyChange("GroupCreatedByDm", null, gp);
   }
 
   private void updateGroups(PropertyChangeEvent propertyChangeEvent)
   {
-    ArrayList<Object> objs = (ArrayList<Object>) ((Container) propertyChangeEvent
-        .getNewValue()).getObject();
-    Player playerToAdd = (Player) objs.get(0);
-    int idOfTheGroupToAddThePlayer = (int) objs.get(1);
-    Group oldGroup = null;
+    Group grp = (Group) ((Container) propertyChangeEvent.getNewValue()).getObject();
 
+    int idOfTheGroupToAddThePlayer = grp.getId();
+    Group oldGroup = null;
+    Group newGroup = grp;
+    System.out.println("******************************");
     for (int i = 0; i < tempGroups.size(); i++)
     {
       if (tempGroups.get(i).getId() == idOfTheGroupToAddThePlayer)
-        ;
       {
-        oldGroup = tempGroups.get(i);
-        support.firePropertyChange("PlayerAddedToGroup", oldGroup, playerToAdd);
-
-        break;
+        tempGroups.set(i, grp);
+        support.firePropertyChange("PlayerAddedToGroup", null, tempGroups);
       }
     }
-  /*   if(oldGroup!=null){
-       support.firePropertyChange("PlayerAddedToGroup", oldGroup,playerToAdd
-        );
+    for(int i=0; i<groupsForDm.size();i++)
 
-       }
-*/
-
-    for (int i = 0; i < groupsForDm.size(); i++)
     {
-
-      if (groupsForDm.get(i).getId() == idOfTheGroupToAddThePlayer)
+      if(groupsForDm.get(i).getId()==idOfTheGroupToAddThePlayer)
       {
-        oldGroup = groupsForDm.get(i);
-
-        support
-            .firePropertyChange("PlayerAddedToDMGroup", oldGroup, playerToAdd);
-        System.out.println("Im putting a person into this group which is DM");
+        groupsForDm.set(i,grp);
+        support.firePropertyChange("PlayerAddedToDMGroup",null,groupsForDm);
       }
     }
-
   }
+
 
   private void searchGroupInfo(PropertyChangeEvent propertyChangeEvent)
-  {
-    Container info = (Container) propertyChangeEvent.getNewValue();
-    ArrayList<Object> objs = (ArrayList<Object>) info.getObject();
-    boolean isIDValid = (boolean) objs.get(0);
+  { Container info = (Container) propertyChangeEvent.getNewValue();
+   ArrayList<Object> objs = (ArrayList<Object>) info.getObject();
+   boolean isIDValid = (boolean)objs.get(0);
 
     System.out.println("id :" + isIDValid);
-    if (isIDValid)
+    if(isIDValid)
     {
-      Group groupWithTheIDWeFound = (Group) objs.get(1);
-      tempGroups.add(
-          groupWithTheIDWeFound);   //I'm not sure about this one, maybe it will cause problems.
-      support.firePropertyChange("GroupAdded", null, groupWithTheIDWeFound);
+      Group groupWithTheIDWeFound= (Group)objs.get(1);
+      tempGroups.add(groupWithTheIDWeFound);   //I'm not sure about this one, maybe it will cause problems.
+      support.firePropertyChange("GroupAdded", null,
+          groupWithTheIDWeFound);
     }
-    else
-    {
-      support.firePropertyChange("searchFailed", null, isIDValid);
-    }
+    else {support.firePropertyChange("searchFailed",null,isIDValid);}
   }
+
+
 
   private void loginInfo(PropertyChangeEvent propertyChangeEvent)
   {
@@ -134,12 +115,12 @@ public class AccountModelImpl implements AccountModel
     Container info = (Container) propertyChangeEvent.getNewValue();
     ArrayList<Object> objs = (ArrayList<Object>) info.getObject();
     boolean isLoginValid = (boolean) objs.get(0);
-    System.out.println("log response:" + isLoginValid);
+    System.out.println("log response:"+isLoginValid );
 
     if (isLoginValid)
     {
       distributeAccountInfo(objs);
-      support.firePropertyChange("acceptLogin", null, isLoginValid);
+      support.firePropertyChange("acceptLogin",null,isLoginValid);
     }
     else
     {
@@ -150,20 +131,19 @@ public class AccountModelImpl implements AccountModel
   public void distributeAccountInfo(ArrayList<Object> o)
   {
 
-    usersAccount = (Account) o.get(1);
+    usersAccount= (Account) o.get(1);
 
     System.out.println(usersAccount.getUsername());
     try
     {
-      if (o.get(2) != null)
+      if (o.get(2)!=null)
       {
         System.out.println("nézem agroupokat");
         ArrayList<Group> groups = (ArrayList<Group>) o.get(2);
 
         for (int i = 0; i < groups.size(); i++)
         {
-          if (groups.get(i).getDM().getName()
-              .equals(usersAccount.getUsername()))
+          if (groups.get(i).getDM().getName().equals(usersAccount.getUsername()))
           {
             groupsForDm.add(groups.get(i));
           }
@@ -171,8 +151,7 @@ public class AccountModelImpl implements AccountModel
             tempGroups.add(groups.get(i));
         }
       }
-    }
-    catch (IndexOutOfBoundsException e)
+    } catch (IndexOutOfBoundsException e)
     {
       System.out.println("no groups");
     }
@@ -202,26 +181,16 @@ public class AccountModelImpl implements AccountModel
   // fire propchange to update the viewmodel and view with the new group,
   @Override public String createGroup(String name)
   {
-    String temp;
+    String temp= "Creating...";
     client.createGroup(usersAccount, name);
     //serve
-    DiceRoll roll = new DiceRoll();
-    ArrayList<Integer> ids = new ArrayList<>();
-    //server
-    for (int i = 0; i < findingUnknownGroupsGroup.size(); i++)
-    {
-      ids.add(findingUnknownGroupsGroup.get(i).getId());
-    }
-    int id = 0;
-    do
-    {
-      id = roll.RollDice(1000000, 2);
-    }
-    while ((ids.contains(id)));
-    Group newGroup = new Group(name, id);
+
+
+   //
+    Group newGroup = new Group(name, 11);
     newGroup.addDM(usersAccount.getDM());
     groupsForDm.add(newGroup);
-    System.out.println(id);
+
     findingUnknownGroupsGroup.add(newGroup);
     support.firePropertyChange("GroupCreatedByDm", null, newGroup);
 
@@ -261,16 +230,13 @@ public class AccountModelImpl implements AccountModel
         break;
       }
     }
-    for (int i = 0; i < groupsForDm.size(); i++)
+    for(int i =0; i<groupsForDm.size();i++)
     {
-      if (groupsForDm.get(i).getId() == id)
-      {
-        temp = "You are the DM of this group\n so you cannot join a player.";
-        break;
-      }
+      if(groupsForDm.get(i).getId()==id)
+       {temp="You are the DM of this group\n so you cannot join a player.";break;}
 
     }
-    if (temp.equals("Searching..."))
+    if(temp.equals("Searching..."))
     {
       client.searchGroup(id, usersAccount.getUsername());
     }
@@ -290,17 +256,18 @@ public class AccountModelImpl implements AccountModel
     // server
     for (int i = 0; i < tempGroups.size(); i++)
     {
-      if (tempGroups.get(i).toString().equals(groupName) && (!tempGroups.get(i)
+      if (tempGroups.get(i).toString().equals(groupName) &&  (!tempGroups.get(i)
           .isContainsUsername(usersAccount.getUsername())))
       {
         Group oldGroup = tempGroups.get(i);
 
         temp = "You have been added to the group";
 
-        support.firePropertyChange("PlayerAddedToGroup", oldGroup,
-            usersAccount.getPlayer());
+        //support.firePropertyChange("PlayerAddedToGroup", oldGroup,
+        //usersAccount.getPlayer());
         tempGroups.get(i).addPlayer(usersAccount.getPlayer());
         client.joinGroupAsAPlayer(usersAccount, tempGroups.get(i));
+        System.out.println("MÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓ");
         break;
       }
       else
@@ -318,6 +285,7 @@ public class AccountModelImpl implements AccountModel
     }
     return temp;
   }
+
 
   /**
    * Basic fields checking functionality(empty fields, fields length).
@@ -371,10 +339,9 @@ public class AccountModelImpl implements AccountModel
   /**
    * Checks the given username and password and sends them forward to the
    * Client network
-   *
    * @param username String containing the username
    * @param password String containing the password
-   * @return a String with an error if it is the case
+   * @return  a String with an error if it is the case
    */
   @Override public String checkLogin(String username, String password)
   {
@@ -397,7 +364,6 @@ public class AccountModelImpl implements AccountModel
   /**
    * Basic field checks(empty fields), after checking the {@param email} is
    * send to the client socket
-   *
    * @param email String containing the email
    * @return String message containing an error if it is the case
    */
@@ -478,10 +444,8 @@ public class AccountModelImpl implements AccountModel
     }
     else
     {
-      usersAccount.setPassword(passNew);
-      temp = "Ready"; // if no errors,then password is changed
-      client.changePassword(usersAccount,
-          passOld); // here we send it to the database so it changes, we dont need to check anything
+      usersAccount.setPassword(passNew);temp = "Ready"; // if no errors,then password is changed
+      client.changePassword(usersAccount); // here we send it to the database so it changes, we dont need to check anything
 
     }
 
