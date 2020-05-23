@@ -82,16 +82,20 @@ public class ServerSocketHandler implements Runnable
                 account = new Account(name,password,email);
                 pool.userJoin(account);
                 pool.addHandler(this);
+                Container outDataPack = new Container(unique,
+                    ClassName.CREATE_ACCOUNT);
+                sendBackData(outDataPack);
               }
               catch (SQLException e)
               {
                 e.printStackTrace();
               }
+            }else{
+              ArrayList<Object> objs=new ArrayList();
+              objs.add(unique);
+              Container datapack=new Container(objs, ClassName.CREATE_ACCOUNT);
+              sendBackData(datapack);
             }
-
-            Container outDataPack = new Container(unique,
-                ClassName.CREATE_ACCOUNT);
-            sendBackData(outDataPack);
             break;
           }
           case CHECK_EMAIL_CHANGE:

@@ -27,7 +27,7 @@ public class GetAllAccountData
       Class.forName("org.postgresql.Driver");
       c = DriverManager
           .getConnection("jdbc:postgresql://localhost:5432/SEP2", "postgres",
-              "almafast325");
+              "123456");
     }
     catch (SQLException | ClassNotFoundException e)
     {
@@ -198,9 +198,6 @@ public class GetAllAccountData
   public Container acceptLogin(String username, String password)
       throws SQLException
   {
-
-
-
     Statement st = c.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
     String query ="SELECT u.username, u.password, u.email, u.\"groupIDs\", g.name, g.id, g.\"usernameDM\", g.\"usernamePlayers\", g.\"characterIDs\" FROM \"Groups\".\"Groups\" g, \"Users\".\"Users\" u     WHERE u.username = '"+username +"' AND u.password= '"+password +"' AND u.\"groupIDs\" IS NOT NULL  AND  g.id IN (select(unnest(u.\"groupIDs\")));;";
 
@@ -429,7 +426,7 @@ public class GetAllAccountData
     String emails = null;
     Statement st = c.createStatement();
     String query =
-        "SELECT * FROM \"Users\".\"Users\" WHERE  email  = " + email + " ;";
+        "SELECT * FROM \"Users\".\"Users\" WHERE  email  = '" + email + "' ;";
     ResultSet rs = st.executeQuery(query);
     while (rs.next())
     {
@@ -443,12 +440,23 @@ public class GetAllAccountData
       response = true;
     return response;
   }
+
+  /**
+   * Creates an SQL statement that searches in the database the User by the given {@param email}.
+   * Extracts the users password and appends it to an ArrayList and a boolean value true. Afterwords
+   * a Container is created containing the created ArrayList and an identifier(ClassName).
+   *
+   * @param email String containing the email
+   * @return a Container of objects(boolean true and account password)
+   * @throws SQLException An exception that provides information
+   *                      on a database access error or other errors.
+   */
   public Container recoverPassword(String email) throws SQLException
   {
     String password = null;
     Statement st = c.createStatement();
     String query =
-        "SELECT * FROM \"Users\".\"Users\" WHERE  email  = " + email + " ;";
+        "SELECT * FROM \"Users\".\"Users\" WHERE  email  = '" + email + "' ;";
     ResultSet rs = st.executeQuery(query);
     while (rs.next())
     {
@@ -510,7 +518,7 @@ ResultSet rs = st.executeQuery(query);
     String query =
         "UPDATE \"Users\".\"Users\" SET password= '"+newPassword
             + "' WHERE  username  = '" + username + "' ;";
-    ResultSet rs = st.executeQuery(query);
+    st.executeUpdate(query);
   }
 
   public Group getGroupForUpdate(int id) throws SQLException
@@ -561,7 +569,7 @@ ResultSet rs = st.executeQuery(query);
     String query =
         "UPDATE \"Users\".\"Users\" SET email = '"+ email
             + "' WHERE  username  = '" + username + "' ;";
-    ResultSet rs = st.executeQuery(query);
+     st.executeUpdate(query);
     boolean answer = true;
     Container dps = new Container(answer,ClassName.CHECK_EMAIL_CHANGE);
     return dps;

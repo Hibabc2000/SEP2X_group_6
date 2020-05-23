@@ -57,7 +57,8 @@ public class AccountModelImpl implements AccountModel
 
   private void answerToEmailChange(PropertyChangeEvent propertyChangeEvent)
   {
-    boolean answer = (boolean)((ArrayList<Object>)((Container)propertyChangeEvent.getNewValue()).getObject()).get(0);
+    Object obj=((Container)propertyChangeEvent.getNewValue()).getObject();
+    boolean answer = (boolean)obj;
     if(answer)
     {
       support.firePropertyChange("emailChange",null,true);
@@ -83,6 +84,7 @@ public class AccountModelImpl implements AccountModel
     ArrayList<Object> objs = (ArrayList<Object>) ((Container) propertyChangeEvent
         .getNewValue()).getObject();
     support.firePropertyChange("recoverPassword", null, objs);
+
 
   }
 

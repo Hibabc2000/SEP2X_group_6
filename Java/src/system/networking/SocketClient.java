@@ -216,7 +216,7 @@ public class SocketClient implements Client
   public void recoverPasswordResponse(Container inDataPack)
   {
     support.firePropertyChange("recoverPassword", null, inDataPack);
-  //  System.out.println("clientsocketfiresupportadcmid");
+
   }
 
   public void addDMGroup(Container inDataPack)
