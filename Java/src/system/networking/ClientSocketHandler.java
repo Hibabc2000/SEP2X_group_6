@@ -79,7 +79,6 @@ public class ClientSocketHandler implements Runnable
             Platform.runLater(() -> {
               socketClient.searchGroupInfo(inDataPack);
             });
-
             break;
           }
           case GROUP_JOIN_UPDATE:
@@ -104,10 +103,15 @@ public class ClientSocketHandler implements Runnable
               socketClient.answerToEmailChange(inDataPack);
             });
             break;
-
           }
+          case RECOVER_PASSWORD_RESPONSE:
+            ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
 
+            Platform.runLater(() -> {
+              socketClient.recoverPasswordResponse(inDataPack);
+            });
 
+            break;
         }
 
       }

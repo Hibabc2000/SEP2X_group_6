@@ -38,6 +38,7 @@ public class PasswordRecoveryViewModel
   {
     ArrayList<Object> objs = (ArrayList<Object>)  propertyChangeEvent.getNewValue();
     boolean answer = (boolean) objs.get(0);
+    System.out.println(answer);
     String password = (String) objs.get(1);
     if (answer)
     {

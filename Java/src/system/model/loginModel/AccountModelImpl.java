@@ -85,6 +85,7 @@ public class AccountModelImpl implements AccountModel
         .getNewValue()).getObject();
     support.firePropertyChange("recoverPassword", null, objs);
 
+
   }
 
   private void updateGroups(PropertyChangeEvent propertyChangeEvent)
