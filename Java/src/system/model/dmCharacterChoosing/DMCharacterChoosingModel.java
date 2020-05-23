@@ -5,6 +5,8 @@ import system.util.Subject;
 
 public interface DMCharacterChoosingModel extends Subject
 {
-  void receiveCharacter(Character character);
+  //void receiveCharacter(Character character);
   void transmitCharacter(Character character);
+  void setCharacter(Character character);
+  void sendCharacterForDmEditing(String characterName);
 }

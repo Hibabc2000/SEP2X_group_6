@@ -1,5 +1,6 @@
 package system.networking;
 
+import system.model.businessModel.Character;
 import system.transferobjects.Container;
 import system.transferobjects.login.Account;
 import system.transferobjects.login.Group;
@@ -106,6 +107,18 @@ public class SocketClient implements Client
       e.printStackTrace();
     }
   }
+  @Override public void submitCharacter(Character character)
+  {
+    try
+    {
+      socketHandler.transmitCharacter(character);
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
+
+  }
 
   /**
    * Sends the username and password to the Socket Handler
@@ -193,6 +206,10 @@ public class SocketClient implements Client
   {
     support.firePropertyChange("addPlayerGroupUpdate",null,c);
     System.out.println("group added to other player ui this is client speaking");
+  }
+  public void useReceivedCharacterFromServer(Container container)
+  {
+    support.firePropertyChange("incomingCharacter",null,container);
   }
 
   @Override public void addListener(String eventName,
