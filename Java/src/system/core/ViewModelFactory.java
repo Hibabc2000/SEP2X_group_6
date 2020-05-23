@@ -38,7 +38,6 @@ public class ViewModelFactory
   public ViewModelFactory(ModelFactory mf)
   {
     model = mf;
-    accountModel = new AccountViewModel(model.getAccountModel());
     createAccountModel = new CreateAccountViewModel(model.getAccountModel());
 
     openSystemViewModel = new OpenSystemViewModel(model.getAccountModel());
@@ -53,6 +52,9 @@ public class ViewModelFactory
 
   public AccountViewModel getAccountVM()
   {
+    if(accountModel==null){
+      accountModel = new AccountViewModel(model.getAccountModel());
+    }
     return accountModel;
   }
   public ChangeEmailViewModel getChangeEmailVM(){return changeEmailViewModel;}

@@ -22,4 +22,5 @@ public interface AccountModel extends Subject
 
  String joinGroupAsPlayer(String groupName);
   String checkEmailChangeInformation(String value, String value1, String value2);
+  String getUsername();
 }
