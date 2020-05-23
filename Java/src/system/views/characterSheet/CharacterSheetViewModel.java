@@ -2,7 +2,7 @@ package system.views.characterSheet;
 
 import javafx.beans.property.StringProperty;
 import system.model.businessModel.Character;
-import system.model.dmCharacterChoosing.DMCharacterChoosingModel;
+import system.model.characterManagement.CharacterManagementModel;
 
 import java.beans.PropertyChangeEvent;
 
@@ -86,10 +86,10 @@ public class CharacterSheetViewModel
 
   private Character sheetCharacter;
 
-  private DMCharacterChoosingModel model;
+  private CharacterManagementModel model;
 
 
-  public CharacterSheetViewModel(DMCharacterChoosingModel model1)
+  public CharacterSheetViewModel(CharacterManagementModel model1)
   {
     model = model1;
     model.addListener("characterToSheetViewModel",this::setCharacter);

@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="Create group/ Join group/ works mostly.">
+    <list default="true" id="a77ae39f-d08d-418e-a04c-5e66d42df965" name="Default Changelist" comment="started the controllers, minor changes to the fxml files">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSS/common/frame.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/core/ModelFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/core/ModelFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/dmCharacterChoosing/DMCharacterChoosingImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/dmCharacterChoosing/DMCharacterChoosingImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/dmAccount/DMAccount.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/dmAccount/DMAccount.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/openSystem/OpenSystem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/openSystem/OpenSystem.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/model/characterCreation/CharacterCreationModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/model/characterSheet/CharacterSheetModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/model/dmCharacterChoosing/DMCharacterChoosingImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/characterManagement/CharacterManagementModelImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/model/dmCharacterChoosing/DMCharacterChoosingModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/characterManagement/CharacterManagementModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/views/characterSheet/CharacterSheetViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/characterSheet/CharacterSheetViewModel.java" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,15 +18,13 @@
   <component name="CodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
-  <component name="CoverageViewManager">
-    <option name="myElementSize" value="241" />
-  </component>
   <component name="FavoritesManager">
     <favorites_list name="SEP2X_group_6" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="FxmlFile" />
         <option value="Class" />
       </list>
@@ -41,13 +38,14 @@
     <option name="files">
       <list>
         <option value="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-        <option value="$PROJECT_DIR$/.idea/dictionaries/Felhasználó.xml" />
       </list>
     </option>
   </component>
   <component name="ProjectId" id="1XkNw7BvC3whQ4rXm7gHqlbnXNo" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="Downloaded.Files.Path.Enabled" value="false" />
@@ -55,17 +53,18 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="jdk.selected.JAVA_MODULE" value="13" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../postgresql-42.2.11.jar!/" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Documents/Java/javafx-sdk-14.0.1/bin" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15332031" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="account" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="system.networking" />
       <recent name="" />
       <recent name="testing" />
       <recent name="login" />
@@ -77,25 +76,13 @@
       <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\views" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Application.Run">
-    <configuration name="EnumTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="networking.EnumTest" />
+  <component name="RunManager" selected="Application.Start">
+    <configuration name="GetAllTest (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Database.GetAllTest" />
       <module name="SEP2X_group_6" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="networking.*" />
+          <option name="PATTERN" value="Database.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -116,21 +103,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GetAllTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Database.GetAllTest" />
-      <module name="SEP2X_group_6" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Database.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Run" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="system.Run" />
+    <configuration name="Start" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="system.Start" />
       <module name="Java" />
       <extension name="coverage">
         <pattern>
@@ -142,19 +116,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RunServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="RunServer" />
-      <module name="SEP2X_group_6" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Start" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="system.Start" />
+    <configuration name="TestDtbs" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="system.Server.Database.TestDtbs" />
       <module name="Java" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="system.model.businessModel.*" />
+          <option name="PATTERN" value="system.Server.Database.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -162,20 +129,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Application.EnumTest" />
-      <item itemvalue="Application.GetAllTest" />
-      <item itemvalue="Application.RunServer" />
-      <item itemvalue="Application.Start" />
-      <item itemvalue="Application.Run" />
-    </list>
+    <configuration name="AccountModelImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SEP2X_group_6" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AccountModelImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Run" />
-        <item itemvalue="Application.Start" />
-        <item itemvalue="Application.RunServer" />
-        <item itemvalue="Application.EnumTest" />
+        <item itemvalue="JUnit.AccountModelImplTest" />
+        <item itemvalue="Application.GetAllTest (1)" />
         <item itemvalue="Application.GetAllTest" />
+        <item itemvalue="Application.TestDtbs" />
       </list>
     </recent_temporary>
   </component>
@@ -184,7 +152,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="" />
+      <changelist id="a77ae39f-d08d-418e-a04c-5e66d42df965" name="Default Changelist" comment="Character creation page UI fixed" />
       <created>1585730812033</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -253,78 +221,130 @@
       <option name="project" value="LOCAL" />
       <updated>1589630717180</updated>
     </task>
-    <task id="LOCAL-00010" summary="Updated equipment, worked on database equipment loading (probably finished)">
-      <created>1589713839509</created>
+    <task id="LOCAL-00010" summary="Character creation page UI fixed">
+      <created>1589722058705</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1589713839509</updated>
+      <updated>1589722058705</updated>
     </task>
-    <task id="LOCAL-00011" summary="Spell rework">
-      <created>1589794411284</created>
+    <task id="LOCAL-00011" summary="Character creation page UI fixed">
+      <created>1589727611720</created>
       <option name="number" value="00011" />
       <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
-      <updated>1589794411284</updated>
+      <updated>1589727611720</updated>
     </task>
-    <task id="LOCAL-00012" summary="Started making parser for proficiency/other modifiers.&#10;Made StaticModel.">
-      <created>1589800620724</created>
+    <task id="LOCAL-00012" summary="added container to client side">
+      <created>1589813773549</created>
       <option name="number" value="00012" />
       <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
-      <updated>1589800620724</updated>
+      <updated>1589813773549</updated>
     </task>
-    <task id="LOCAL-00013" summary="Character work">
-      <created>1589880379805</created>
+    <task id="LOCAL-00013" summary="made them container compatible">
+      <created>1589816475062</created>
       <option name="number" value="00013" />
       <option name="presentableId" value="LOCAL-00013" />
       <option name="project" value="LOCAL" />
-      <updated>1589880379806</updated>
+      <updated>1589816475062</updated>
     </task>
-    <task id="LOCAL-00014" summary="Character work">
-      <created>1589880429084</created>
+    <task id="LOCAL-00014" summary="updated character">
+      <created>1589820137655</created>
       <option name="number" value="00014" />
       <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
-      <updated>1589880429084</updated>
+      <updated>1589820137655</updated>
     </task>
-    <task id="LOCAL-00015" summary="Deprecated GetAllFromDatabase, since it was overridden by other classes.">
-      <created>1589967214130</created>
+    <task id="LOCAL-00015" summary="Character sheet and creation remodeled">
+      <created>1589824010650</created>
       <option name="number" value="00015" />
       <option name="presentableId" value="LOCAL-00015" />
       <option name="project" value="LOCAL" />
-      <updated>1589967214130</updated>
+      <updated>1589824010650</updated>
     </task>
-    <task id="LOCAL-00016" summary="Started working on InsertCharacter.">
-      <created>1589994409865</created>
+    <task id="LOCAL-00016" summary="added a button">
+      <created>1589893413291</created>
       <option name="number" value="00016" />
       <option name="presentableId" value="LOCAL-00016" />
       <option name="project" value="LOCAL" />
-      <updated>1589994409865</updated>
+      <updated>1589893413291</updated>
     </task>
-    <task id="LOCAL-00017" summary="Join group finished">
-      <created>1590067831500</created>
+    <task id="LOCAL-00017" summary="added IDs nStuff">
+      <created>1589898682302</created>
       <option name="number" value="00017" />
       <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
-      <updated>1590067831500</updated>
+      <updated>1589898682302</updated>
     </task>
-    <task id="LOCAL-00018" summary="Something got overwritten so i put back like 2 methods in connection pool and one in serversockethandler">
-      <created>1590068999560</created>
+    <task id="LOCAL-00018" summary="added ids">
+      <created>1589898901487</created>
       <option name="number" value="00018" />
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
-      <updated>1590068999560</updated>
+      <updated>1589898901487</updated>
     </task>
-    <task id="LOCAL-00019" summary="Create group/ Join group/ works mostly.">
-      <created>1590170822710</created>
+    <task id="LOCAL-00019" summary="started the controllers, minor changes to the fxml files">
+      <created>1589903931436</created>
       <option name="number" value="00019" />
       <option name="presentableId" value="LOCAL-00019" />
       <option name="project" value="LOCAL" />
-      <updated>1590170822710</updated>
+      <updated>1589903931436</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="added character to the enum">
+      <created>1590064613171</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1590064613171</updated>
+    </task>
+    <task id="LOCAL-00021" summary="created the files">
+      <created>1590065997956</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1590065997956</updated>
+    </task>
+    <task id="LOCAL-00022" summary="started the controllers, minor changes to the fxml files">
+      <created>1590076685320</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1590076685320</updated>
+    </task>
+    <task id="LOCAL-00023" summary="just the basics">
+      <created>1590236178100</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1590236178100</updated>
+    </task>
+    <task id="LOCAL-00024" summary="started the controllers, minor changes to the fxml files">
+      <created>1590239922148</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1590239922148</updated>
+    </task>
+    <task id="LOCAL-00025" summary="finally, the character receiving from the system &quot;should&quot; work now&#10;(there might be a threading problem)">
+      <created>1590241756173</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1590241756173</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -347,38 +367,125 @@
     <MESSAGE value="Started Database loading" />
     <MESSAGE value="Database loading, model rework started" />
     <MESSAGE value="Model rework" />
-    <MESSAGE value="Updated equipment, worked on database equipment loading (probably finished)" />
-    <MESSAGE value="Spell rework" />
-    <MESSAGE value="Started making parser for proficiency/other modifiers.&#10;Made StaticModel." />
-    <MESSAGE value="Character work" />
-    <MESSAGE value="Deprecated GetAllFromDatabase, since it was overridden by other classes." />
-    <MESSAGE value="Started working on InsertCharacter." />
-    <MESSAGE value="Join group finished" />
-    <MESSAGE value="Something got overwritten so i put back like 2 methods in connection pool and one in serversockethandler" />
-    <MESSAGE value="Create group/ Join group/ works mostly." />
-    <option name="LAST_COMMIT_MESSAGE" value="Create group/ Join group/ works mostly." />
+    <MESSAGE value="Character creation page UI fixed" />
+    <MESSAGE value="added container to client side" />
+    <MESSAGE value="made them container compatible" />
+    <MESSAGE value="updated character" />
+    <MESSAGE value="Character sheet and creation remodeled" />
+    <MESSAGE value="added a button" />
+    <MESSAGE value="added IDs nStuff" />
+    <MESSAGE value="added ids" />
+    <MESSAGE value="added character to the enum" />
+    <MESSAGE value="created the files" />
+    <MESSAGE value="just the basics" />
+    <MESSAGE value="started the controllers, minor changes to the fxml files" />
+    <MESSAGE value="finally, the character receiving from the system &quot;should&quot; work now&#10;(there might be a threading problem)" />
+    <option name="LAST_COMMIT_MESSAGE" value="finally, the character receiving from the system &quot;should&quot; work now&#10;(there might be a threading problem)" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint type="java-method">
-          <url>file://$PROJECT_DIR$/Java/src/system/Background.java</url>
-          <line>28</line>
-          <properties class="system.Background">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="temporary" value="true" />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SEP2X_group_6$Start.ic" NAME="Start Coverage Results" MODIFIED="1590234975707" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>system.model.businessModel.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SEP2X_group_6$Run.ic" NAME="Run Coverage Results" MODIFIED="1590235006349" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>system.*</FILTER>
-    </SUITE>
+  <component name="WindowStateProjectService">
+    <state x="361" y="71" key="#Notifications" timestamp="1590075621071">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="71" key="#Notifications/0.0.1536.824@0.0.1536.824" timestamp="1590075621071" />
+    <state x="499" y="167" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1590076340121">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="167" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1590076340121" />
+    <state x="813" y="118" key="#com.intellij.ide.util.MemberChooser" timestamp="1590072458172">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="813" y="118" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1590072458172" />
+    <state x="410" y="338" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1590064987733">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="410" y="338" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1590064987733" />
+    <state x="566" y="272" width="403" height="287" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1589815164503">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="566" y="272" width="403" height="287" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1589815164503" />
+    <state x="343" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1590243506509">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="343" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1590243506509" />
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590233473421">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1590233473421" />
+    <state x="499" y="167" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1590063905085">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="167" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1536.824@0.0.1536.824" timestamp="1590063905085" />
+    <state x="424" y="7" key="CommitChangelistDialog2" timestamp="1590241755660">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="424" y="7" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1590241755660" />
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1590076238509">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1590076238509" />
+    <state x="473" y="154" key="FileChooserDialogImpl" timestamp="1589996211308">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="473" y="154" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1589996211308" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1590079285500">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1590079285500" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1590079285500">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1590079285500" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1590079285499">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1590079285499" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1590079285500">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1590079285500" />
+    <state x="214" y="60" key="MergeDialog" timestamp="1590239877044">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="214" y="60" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1590239877044" />
+    <state x="548" y="123" key="MultipleFileMergeDialog" timestamp="1590241478845">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="548" y="123" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1590241478845" />
+    <state x="249" y="0" key="SettingsEditor" timestamp="1590063907677">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1590063907677" />
+    <state x="650" y="128" key="VCS.ChangeListViewerDialog" timestamp="1590075878362">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="650" y="128" key="VCS.ChangeListViewerDialog/0.0.1536.824@0.0.1536.824" timestamp="1590075878362" />
+    <state x="93" y="93" width="1350" height="638" key="VCS.FileHistoryDialog" timestamp="1590072443604">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="93" y="93" width="1350" height="638" key="VCS.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1590072443604" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1590241759051">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1590241759051" />
+    <state x="129" y="95" width="1350" height="638" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1590075490385">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="129" y="95" width="1350" height="638" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1590075490385" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1590226767289">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1590226767289" />
+    <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1590243535071">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1590243535071" />
+    <state x="572" y="313" key="git4idea.ui.GitStashDialog" timestamp="1590075675263">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="572" y="313" key="git4idea.ui.GitStashDialog/0.0.1536.824@0.0.1536.824" timestamp="1590075675263" />
+    <state x="427" y="167" key="git4idea.ui.GitUnstashDialog" timestamp="1590075879750">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="427" y="167" key="git4idea.ui.GitUnstashDialog/0.0.1536.824@0.0.1536.824" timestamp="1590075879750" />
   </component>
 </project>

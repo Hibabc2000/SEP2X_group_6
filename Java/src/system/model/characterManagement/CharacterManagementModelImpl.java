@@ -1,4 +1,4 @@
-package system.model.dmCharacterChoosing;
+package system.model.characterManagement;
 
 import system.model.businessModel.Character;
 import system.networking.Client;
@@ -11,13 +11,13 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 
-public class DMCharacterChoosingImpl implements DMCharacterChoosingModel
+public class CharacterManagementModelImpl implements CharacterManagementModel
 {
   private ArrayList<Character> characters;
   private Account account;
   private PropertyChangeSupport support;
   private Client client;
-  public DMCharacterChoosingImpl()
+  public CharacterManagementModelImpl()
   {
 
     characters = new ArrayList<>();
@@ -96,6 +96,7 @@ public class DMCharacterChoosingImpl implements DMCharacterChoosingModel
        support.firePropertyChange("characterToSheetViewModel",null, characters.get(0));
      }
     }
+    sendCharacterList();
   }
 
   @Override public void setCharacter(Character character)
