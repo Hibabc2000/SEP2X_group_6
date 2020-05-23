@@ -97,14 +97,42 @@ public class ServerSocketHandler implements Runnable
           case CHECK_EMAIL_CHANGE:
           {
             ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
-            Account account = (Account) (m.get(0));
-            String email = (String) (m.get(1));
-           // database.changeEmail(account,email);
+            boolean answer= true;
+            Container dataPack =null;
+            String email = (String) (m.get(0));
+            String username =(String) (m.get(1));
+            System.out.println("ez történik");
+            try
+            {
+              dataPack = database.checkChangeEmail(email);
+               answer = (boolean)((ArrayList<Object>)dataPack.getObject()).get(0);
+               dataPack.setClassName(ClassName.CHECK_EMAIL_CHANGE);
+            }
+            catch (SQLException e)
+            {
+              e.printStackTrace();
+            }
+            if(answer)
+            {
+              try
+              {
+                dataPack = database.changeEmail(email,username);
+               dataPack.setClassName(ClassName.CHECK_EMAIL_CHANGE);
+              }
+              catch (SQLException e)
+              {
+                e.printStackTrace();
+              }
+            }
+            sendBackData(dataPack);
+
           }
           case RECOVER_PASSWORD:
           {
             ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
             String email = (String) (m.get(0));
+
+
             break;
           }
           case CREATE_GROUP:

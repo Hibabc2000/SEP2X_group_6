@@ -506,4 +506,51 @@ ResultSet rs = st.executeQuery(query);
     System.out.println("this is when you joind a group : "+geez.toString());
     return geez;
   }
+
+  public Container changeEmail(String email,String username) throws SQLException
+  {
+
+    Statement st = c.createStatement();
+    String query =
+        "UPDATE \"Users\".\"Users\" SET email = '"+ email
+            + "' WHERE  username  = '" + username + "' ;";
+    ResultSet rs = st.executeQuery(query);
+    boolean answer = true;
+    Container dps = new Container(answer,ClassName.CHECK_EMAIL_CHANGE);
+    return null;
+  }
+
+
+
+  public Container checkChangeEmail(String email) throws SQLException
+  {
+    boolean  answer = true;
+    Statement st = c.createStatement();
+    String query =
+        "SELECT FROM \"Users\".\"Users\" WHERE username = '"+ email
+            + "' ;";
+    ResultSet rs = st.executeQuery(query);
+
+    String ema = null;
+
+    while (rs.next())
+    {
+
+      ema = rs.getString("email");
+
+      System.out.println("email = " + ema);
+
+      if (ema != null)
+      {
+        answer = false;
+        System.out.println("ans1" + answer);
+        break;
+      }
+    }
+    System.out.println("ans3" + answer);
+    ArrayList<Object> obj = new ArrayList<>();
+    obj.add(answer);
+    Container datapack = new Container(obj, ClassName.CHECK_EMAIL_CHANGE);
+    return datapack;
+  }
 }

@@ -3,14 +3,20 @@ package system.views.login.changeEmail;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import system.model.loginModel.AccountModel;
+import system.util.Subject;
 
-public class ChangeEmailViewModel
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+
+public class ChangeEmailViewModel implements Subject
 {
   private AccountModel accountModel;
   private StringProperty username;
   private StringProperty email;
   private StringProperty password;
   private StringProperty error;
+  private PropertyChangeSupport support;
 
   /**
    * Initializes the class attributes and listens for updates from the model
@@ -20,7 +26,7 @@ public class ChangeEmailViewModel
   public ChangeEmailViewModel(AccountModel accountModel)
   {
     this.accountModel = accountModel;
-
+     support = new PropertyChangeSupport(this);
     username = new SimpleStringProperty();
     password = new SimpleStringProperty();
     email = new SimpleStringProperty();
@@ -29,6 +35,17 @@ public class ChangeEmailViewModel
     password.setValue("");
     email.setValue("");
     username.setValue("");
+   accountModel.addListener("emailChange",this::answerFromServer);
+  }
+
+  private void answerFromServer(PropertyChangeEvent propertyChangeEvent)
+  {
+    if((boolean)propertyChangeEvent.getNewValue())
+    {
+      error.setValue("Your email change was successful");  support.firePropertyChange("done",null,true);
+    }
+    else {error.setValue("This email is already in use");}
+
   }
 
   /**
@@ -86,5 +103,17 @@ public class ChangeEmailViewModel
     email.setValue("");
     username.setValue("");
     return temp;
+  }
+
+  @Override public void addListener(String eventName,
+      PropertyChangeListener listener)
+  {
+    support.addPropertyChangeListener(eventName, listener);
+  }
+
+  @Override public void removeListener(String eventName,
+      PropertyChangeListener listener)
+  {
+    support.removePropertyChangeListener(eventName, listener);
   }
 }

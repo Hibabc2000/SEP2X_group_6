@@ -55,11 +55,11 @@ public class SocketClient implements Client
 
 
 
-  @Override public void changeEmail(Account acc, String email)
+  @Override public void changeEmail( String email,String username)
   {
     try
     {
-      socketHandler.changeEmail(acc, email);
+      socketHandler.changeEmail(email,username);
     }
     catch (IOException e)
     {
@@ -222,5 +222,9 @@ public class SocketClient implements Client
   public void addDMGroup(Container inDataPack)
   {
     support.firePropertyChange("addDMGroup",null,inDataPack);
+  }
+  public void answerToEmailChange(Container inDatPack)
+  {
+    support.firePropertyChange("answerToEmailChange",null,inDatPack);
   }
 }

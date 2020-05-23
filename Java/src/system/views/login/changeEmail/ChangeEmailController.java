@@ -6,6 +6,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import system.core.ViewHandler;
 
+import java.beans.PropertyChangeEvent;
+
 public class ChangeEmailController
 {
   private ViewHandler vh;
@@ -35,7 +37,13 @@ public class ChangeEmailController
     passwordField.textProperty()
         .bindBidirectional(cevmodel.getPasswordProperty());
     emailField.textProperty().bindBidirectional(cevmodel.getEmailProperty());
+    changeEmailViewModel.addListener("done",this::doneChange);
 
+  }
+
+  private void doneChange(PropertyChangeEvent propertyChangeEvent)
+  {
+    vh.closeStage4();
   }
 
   /**

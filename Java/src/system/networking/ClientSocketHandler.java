@@ -98,6 +98,14 @@ public class ClientSocketHandler implements Runnable
             break;
 
           }
+          case CHECK_EMAIL_CHANGE:
+          {
+            Platform.runLater(()->{
+              socketClient.answerToEmailChange(inDataPack);
+            });
+            break;
+
+          }
 
 
         }
@@ -209,17 +217,18 @@ public class ClientSocketHandler implements Runnable
    * a Container is created containing the created ArrayList and an identifier(ClassName).
    * The container is send to the server
    *
-   * @param account users account
+   *
    * @param email   String containing the email
    * @throws IOException exceptions produced by failed or interrupted I/O operations
    */
-  public void changeEmail(Account account, String email) throws IOException
+  public void changeEmail( String email,String username) throws IOException
   {
     ArrayList<Object> objs = new ArrayList<>();
 
-    objs.add(account);
     objs.add(email);
+    objs.add(username);
     Container outDataPack = new Container(objs, ClassName.CHECK_EMAIL_CHANGE);
+    System.out.println("sending change email to server");
     outToServer.writeObject(outDataPack);
   }
 

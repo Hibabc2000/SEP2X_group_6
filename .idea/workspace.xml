@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="Something got overwritten so i put back like 2 methods in connection pool and one in serversockethandler">
+    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/networking/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/networking/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/networking/ClientSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/networking/ClientSocketHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java/src/system/networking/SocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/networking/SocketClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/dmAccount/DMAccountViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/dmAccount/DMAccountViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/playerAccount/PlayerAccountViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/playerAccount/PlayerAccountViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/changeEmail/ChangeEmailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/changeEmail/ChangeEmailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/changeEmail/ChangeEmailViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/changeEmail/ChangeEmailViewModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/Database/GetAllAccountData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/GetAllAccountData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Database/InsertCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/InsertCharacter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/networking/ConnectionPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/networking/ConnectionPool.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -311,7 +311,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590068999560</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Create group/ Join group/ works mostly.">
+      <created>1590170822710</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1590170822710</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -343,7 +350,8 @@
     <MESSAGE value="Started working on InsertCharacter." />
     <MESSAGE value="Join group finished" />
     <MESSAGE value="Something got overwritten so i put back like 2 methods in connection pool and one in serversockethandler" />
-    <option name="LAST_COMMIT_MESSAGE" value="Something got overwritten so i put back like 2 methods in connection pool and one in serversockethandler" />
+    <MESSAGE value="Create group/ Join group/ works mostly." />
+    <option name="LAST_COMMIT_MESSAGE" value="Create group/ Join group/ works mostly." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

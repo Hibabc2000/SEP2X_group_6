@@ -53,6 +53,17 @@ public class AccountModelImpl implements AccountModel
     client.addListener("searchGroup",this::searchGroupInfo);
     client.addListener("addPlayerGroupUpdate",this::updateGroups);
     client.addListener("addDMGroup",this::addDMGroup);
+    client.addListener("answerToEmailChange",this::answerToEmailChange);
+  }
+
+  private void answerToEmailChange(PropertyChangeEvent propertyChangeEvent)
+  {
+    boolean answer = (boolean)((ArrayList<Object>)((Container)propertyChangeEvent.getNewValue()).getObject()).get(0);
+    if(answer)
+    {
+      support.firePropertyChange("emailChange",null,true);
+    }
+    else {support.firePropertyChange("emailChange",null,false);}
   }
 
   private void addDMGroup(PropertyChangeEvent propertyChangeEvent)
@@ -84,6 +95,7 @@ public class AccountModelImpl implements AccountModel
     {
       if(groupsForDm.get(i).getId()==idOfTheGroupToAddThePlayer)
       {
+        System.out.println("alm alm alma  csapat ");
         groupsForDm.set(i,grp);
         support.firePropertyChange("PlayerAddedToDMGroup",null,groupsForDm);
       }
@@ -187,12 +199,9 @@ public class AccountModelImpl implements AccountModel
 
 
    //
-    Group newGroup = new Group(name, 11);
-    newGroup.addDM(usersAccount.getDM());
-    groupsForDm.add(newGroup);
 
-    findingUnknownGroupsGroup.add(newGroup);
-    support.firePropertyChange("GroupCreatedByDm", null, newGroup);
+
+   // support.firePropertyChange("GroupCreatedByDm", null, newGroup);
 
     return temp = "Group created";
 
@@ -451,7 +460,7 @@ public class AccountModelImpl implements AccountModel
 
     if (temp.equals("Ready"))
     {
-      tempAccounts.get(tempAccounts.indexOf(change)).setPassword(passNew);
+
       System.out.println(usersAccount.getEmail());
       usersAccount.setPassword(passNew);
     }
@@ -480,33 +489,10 @@ public class AccountModelImpl implements AccountModel
       temp = "Wrong  password or username";
     }
     else
-      client.changeEmail(usersAccount, email);
+      client.changeEmail(email,usersAccount.getUsername());
     //server
-    for (int i = 0; i < tempAccounts.size(); i++)
-    {
-      if (tempAccounts.get(i).getPassword().equals(password) && tempAccounts
-          .get(i).getUsername().equals(username))
-      {
-        change = tempAccounts.get(i);
 
-      }
-      if ((tempAccounts.get(i).getEmail().equals(email)))
-      {
-        temp = "This email is already registered.";
-        break;
-      }
-      else
-      {
-        temp = "Ready";
-      }
-    }
-    if (temp.equals("Ready"))
-    {
-
-      tempAccounts.get(tempAccounts.indexOf(change)).changeEmail(email);
-      usersAccount.changeEmail(email);
-
-    }
+   
     return temp;
   }
 

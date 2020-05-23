@@ -11,7 +11,7 @@ public interface Client extends Subject
   void start() throws IOException;
   void createAccount(String name, String password, String email);
 
-  void changeEmail(Account acc, String email);
+  void changeEmail(String email, String username);
 
   void recoverPassword(String email);
   void createGroup(Account acc, String groupName);
