@@ -1,6 +1,10 @@
 package system.views.characterSheet;
 
 import javafx.beans.property.StringProperty;
+import system.model.businessModel.Character;
+import system.model.dmCharacterChoosing.DMCharacterChoosingModel;
+
+import java.beans.PropertyChangeEvent;
 
 public class CharacterSheetViewModel
 {
@@ -80,16 +84,22 @@ public class CharacterSheetViewModel
   ///////////////////////////////////////////////////////////
 
 
+  private Character sheetCharacter;
+
+  private DMCharacterChoosingModel model;
 
 
-
-
-
-
-  public CharacterSheetViewModel()
+  public CharacterSheetViewModel(DMCharacterChoosingModel model1)
   {
-
+    model = model1;
+    model.addListener("characterToSheetViewModel",this::setCharacter);
   }
+
+  private void setCharacter(PropertyChangeEvent propertyChangeEvent)
+  {
+    sheetCharacter = (Character) propertyChangeEvent.getNewValue();
+  }
+
 
 
 

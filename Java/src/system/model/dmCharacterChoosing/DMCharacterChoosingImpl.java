@@ -2,26 +2,27 @@ package system.model.dmCharacterChoosing;
 
 import system.model.businessModel.Character;
 import system.networking.Client;
+import system.transferobjects.login.Account;
 import system.transferobjects.login.DM;
-import system.transferobjects.login.User;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 
-public class dmCharacterChoosingImpl implements dmCharacterChoosingModel
+public class DMCharacterChoosingImpl implements DMCharacterChoosingModel
 {
   private ArrayList<Character> characters;
-  private User user;
+  private Account account;
   private PropertyChangeSupport support;
   private Client client;
-  public dmCharacterChoosingImpl(User user)
+  public DMCharacterChoosingImpl()
   {
-    this.user=user;
+
     characters = new ArrayList<>();
     support = new PropertyChangeSupport(this);
     client.addListener("incomingCharacter",this::setCharacter);
+
   }
 
   /*
@@ -42,7 +43,7 @@ public class dmCharacterChoosingImpl implements dmCharacterChoosingModel
   public void setCharacter(PropertyChangeEvent propertyChangeEvent)
   {
     Character temporaryCharacter = (Character) propertyChangeEvent.getNewValue();
-    if(user instanceof DM)
+    if(account.getUser() instanceof DM)
     {
       if(characters.size() == 0)
       {
@@ -70,10 +71,41 @@ public class dmCharacterChoosingImpl implements dmCharacterChoosingModel
      {
        characters.remove(0);
        characters.add(temporaryCharacter);
+       support.firePropertyChange("characterToSheetViewModel",null, characters.get(0));
      }
     }
   }
 
+  public void setCharacter(Character character)
+  {
+    if(account.getUser() instanceof DM)
+    {
+      if(characters.size() == 0)
+      {
+        characters.add(character);
+      }
+      else
+      {
+        for(int i = 0; i < characters.size(); i++)
+        {
+          if(characters.get(i).getId() == character.getId())
+          {
+            characters.remove(characters.get(i));
+            characters.add(i,character);
+          }
+          else
+          {
+            characters.add(character);
+          }
+        }
+      }
+    }
+    else
+    {
+      characters.remove(0);
+      characters.add(character);
+    }
+  }
 
   @Override public void addListener(String eventName,
       PropertyChangeListener listener)
