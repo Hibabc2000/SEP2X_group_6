@@ -429,7 +429,7 @@ public class GetAllAccountData
     String emails = null;
     Statement st = c.createStatement();
     String query =
-        "SELECT * FROM \"Users\".\"Users\" WHERE  email  = " + email + " ;";
+        "SELECT * FROM \"Users\".\"Users\" WHERE  email  = '" + email + "' ;";
     ResultSet rs = st.executeQuery(query);
     while (rs.next())
     {
@@ -448,7 +448,7 @@ public class GetAllAccountData
     String password = null;
     Statement st = c.createStatement();
     String query =
-        "SELECT * FROM \"Users\".\"Users\" WHERE  email  = " + email + " ;";
+        "SELECT * FROM \"Users\".\"Users\" WHERE  email  = '" + email + "' ;";
     ResultSet rs = st.executeQuery(query);
     while (rs.next())
     {
@@ -510,7 +510,7 @@ ResultSet rs = st.executeQuery(query);
     String query =
         "UPDATE \"Users\".\"Users\" SET password= '"+newPassword
             + "' WHERE  username  = '" + username + "' ;";
-    ResultSet rs = st.executeQuery(query);
+    st.executeQuery(query);
   }
 
   public Group getGroupForUpdate(int id) throws SQLException
@@ -561,7 +561,7 @@ ResultSet rs = st.executeQuery(query);
     String query =
         "UPDATE \"Users\".\"Users\" SET email = '"+ email
             + "' WHERE  username  = '" + username + "' ;";
-    ResultSet rs = st.executeQuery(query);
+     st.executeUpdate(query);
     boolean answer = true;
     Container dps = new Container(answer,ClassName.CHECK_EMAIL_CHANGE);
     return dps;
