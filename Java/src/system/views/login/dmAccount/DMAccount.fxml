@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="515.0" prefWidth="697.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.views.login.dmAccount.DMAccountController">
+<AnchorPane id="mainPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="497.0" prefWidth="697.0" stylesheets="@../../../../../../CSS/common/css.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.views.login.dmAccount.DMAccountController">
    <children>
       <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="74.0" prefWidth="360.0">
          <children>
@@ -13,7 +16,7 @@
                   <Font size="19.0" />
                </font>
             </Label>
-            <ListView fx:id="groupListDM" layoutX="12.0" layoutY="79.0" prefHeight="357.0" prefWidth="356.0" />
+            <ListView fx:id="groupListDM" layoutX="12.0" layoutY="79.0" prefHeight="319.0" prefWidth="356.0" />
             <Label layoutX="475.0" layoutY="11.0" prefHeight="68.0" prefWidth="238.0" text="Create new group">
                <font>
                   <Font size="19.0" />
@@ -21,11 +24,20 @@
             </Label>
          </children>
       </AnchorPane>
-      <Button fx:id="joinDMButton" layoutX="134.0" layoutY="457.0" mnemonicParsing="false" onAction="#joinGroupAsDM" prefHeight="44.0" prefWidth="112.0" text="Start game with group" />
+      <Button fx:id="joinDMButton" layoutX="134.0" layoutY="422.0" mnemonicParsing="false" onAction="#joinGroupAsDM" prefHeight="44.0" prefWidth="112.0" style="-fx-background-color: #7cc987;" text="Start game with group">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
       <Label fx:id="errorMessageDM" layoutX="385.0" layoutY="224.0" prefHeight="123.0" prefWidth="298.0" text="ERROR MESSAGE" />
-      <Button fx:id="backButton" layoutX="478.0" layoutY="391.0" mnemonicParsing="false" onAction="#backToAccount" prefHeight="44.0" prefWidth="112.0" text="Back" />
+      <Button fx:id="backButton" layoutX="478.0" layoutY="422.0" mnemonicParsing="false" onAction="#backToAccount" prefHeight="44.0" prefWidth="112.0" style="-fx-background-color: #7cc987;" text="Back">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
       <Label layoutX="385.0" layoutY="114.0" prefHeight="25.0" prefWidth="75.0" text="Group name" />
-      <TextField fx:id="groupName" layoutX="478.0" layoutY="114.0" />
-      <Button fx:id="createGroupButton" layoutX="478.0" layoutY="155.0" mnemonicParsing="false" onAction="#createGroup" prefHeight="44.0" prefWidth="112.0" text="Create group" />
+      <TextField fx:id="groupName" layoutX="478.0" layoutY="114.0" prefHeight="25.0" prefWidth="168.0" />
+      <Button fx:id="createGroupButton" layoutX="478.0" layoutY="155.0" mnemonicParsing="false" onAction="#createGroup" prefHeight="44.0" prefWidth="112.0" style="-fx-background-color: #7cc987;" text="Create group">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
    </children>
 </AnchorPane>

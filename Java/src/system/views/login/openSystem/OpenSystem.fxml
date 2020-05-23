@@ -4,30 +4,58 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<FlowPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.views.login.openSystem.OpenSystemController">
+<FlowPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.views.login.openSystem.OpenSystemController">
    <children>
       <AnchorPane id="mainPane" prefHeight="449.0" prefWidth="630.0" stylesheets="@../../../../../../CSS/common/css.css">
          <children>
-            <Button fx:id="createAccountButton" layoutX="101.0" layoutY="325.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="47.0" prefWidth="114.0" style="-fx-background-color: #7cc987;" text="Create account" />
-            <Button fx:id="loginButton" layoutX="341.0" layoutY="271.0" mnemonicParsing="false" onAction="#login" prefHeight="34.0" prefWidth="70.0" style="-fx-background-color: #7cc987;" text="Login " />
+            <Button fx:id="createAccountButton" layoutX="101.0" layoutY="325.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="47.0" prefWidth="114.0" style="-fx-background-color: #7cc987;" text="Create account">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Button fx:id="loginButton" layoutX="341.0" layoutY="271.0" mnemonicParsing="false" onAction="#login" prefHeight="34.0" prefWidth="70.0" style="-fx-background-color: #7cc987;" text="Login ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
             <Label layoutX="71.0" layoutY="27.0" prefHeight="62.0" prefWidth="489.0" text="Dungeons and Dragons Assistance System">
                <font>
-                  <Font name="Colonna MT" size="27.0" />
+                  <Font name="Book Antiqua Bold" size="25.0" />
                </font>
+               <textFill>
+                  <LinearGradient endX="0.004761904761904762" endY="0.7238095238095237" startX="0.004761904761904762" startY="0.3190476190476189">
+                     <stops>
+                        <Stop color="RED" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
                <effect>
-                  <DropShadow color="#7cc987" height="75.85" radius="20.005" spread="0.81" width="6.17" />
+                  <Lighting diffuseConstant="1.21" specularConstant="2.0">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#033c17" />
+                     </light>
+                  </Lighting>
                </effect>
             </Label>
             <TextField fx:id="userNameField" layoutX="341.0" layoutY="120.0" prefHeight="44.0" prefWidth="255.0" />
             <Label layoutX="341.0" layoutY="164.0" prefHeight="20.0" prefWidth="82.0" text="Username" />
             <PasswordField fx:id="passwordField" layoutX="341.0" layoutY="194.0" prefHeight="44.0" prefWidth="255.0" />
             <Label layoutX="341.0" layoutY="240.0" prefHeight="20.0" prefWidth="82.0" text="Password" />
-            <Button fx:id="forgotPasswordButton" layoutX="429.0" layoutY="271.0" mnemonicParsing="false" onAction="#recoverPassword" prefHeight="34.0" prefWidth="167.0" style="-fx-background-color: #7cc987;" text="I forgot my pass" />
+            <Button fx:id="forgotPasswordButton" layoutX="429.0" layoutY="271.0" mnemonicParsing="false" onAction="#recoverPassword" prefHeight="34.0" prefWidth="167.0" style="-fx-background-color: #7cc987;" text="I forgot my pass">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
             <Label fx:id="errorMessageLabel" layoutX="341.0" layoutY="305.0" prefHeight="62.0" prefWidth="276.0" text="ErrorMessage" />
             <Label id="createAcc" layoutX="38.0" layoutY="97.0" prefHeight="228.0" prefWidth="240.0" stylesheets="@../../../../../../CSS/common/css.css" textFill="#e51c1c">
                <font>

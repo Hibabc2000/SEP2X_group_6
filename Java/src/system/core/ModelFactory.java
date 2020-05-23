@@ -13,6 +13,7 @@ public class ModelFactory
 
 private CharacterCreationModel characterCreationModel;
 private CharacterSheetModel characterSheetModel;
+
   public ModelFactory(ClientFactory clientFactory)
   {
     this.clientFactory = clientFactory;
