@@ -18,6 +18,14 @@ public class DM implements User, Serializable
   {
     return nameDM;
   }
+  public Group getGroupDM()
+  {
+    return groupDM;
+  }
+  public void setGroupDM(Group grp)
+  {
+    groupDM= grp;
+  }
 
   @Override public int rollDice(int diceType, int diceCount)
   {
