@@ -87,6 +87,7 @@ public class AccountModelImpl implements AccountModel
   {
     ArrayList<Object> objs = (ArrayList<Object>) ((Container) propertyChangeEvent
         .getNewValue()).getObject();
+    System.out.println("almamatarastrigo");
     support.firePropertyChange("recoverPassword", null, objs);
 
   }

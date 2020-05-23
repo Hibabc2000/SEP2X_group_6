@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a77ae39f-d08d-418e-a04c-5e66d42df965" name="Default Changelist" comment="started the controllers, minor changes to the fxml files">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/characterCreation/CharacterCreationModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/characterSheet/CharacterSheetModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/dmCharacterChoosing/DMCharacterChoosingImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/characterManagement/CharacterManagementModelImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/dmCharacterChoosing/DMCharacterChoosingModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/characterManagement/CharacterManagementModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/views/characterSheet/CharacterSheetViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/characterSheet/CharacterSheetViewModel.java" afterDir="false" />
+    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="Create group/ Join group/ works mostly.">
+      <change beforePath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Database/GetAllAccountData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/GetAllAccountData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +71,18 @@
       <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\views" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="RunManager" selected="Application.Start">
     <configuration name="GetAllTest (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Database.GetAllTest" />
@@ -99,6 +106,13 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RunServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="RunServer" />
+      <module name="SEP2X_group_6" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -138,8 +152,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Start" />
+      <item itemvalue="Application.GetAllTest (1)" />
+      <item itemvalue="Application.GetAllTest" />
+      <item itemvalue="Application.TestDtbs" />
+      <item itemvalue="JUnit.AccountModelImplTest" />
+      <item itemvalue="Application.RunServer" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.RunServer" />
         <item itemvalue="JUnit.AccountModelImplTest" />
         <item itemvalue="Application.GetAllTest (1)" />
         <item itemvalue="Application.GetAllTest" />

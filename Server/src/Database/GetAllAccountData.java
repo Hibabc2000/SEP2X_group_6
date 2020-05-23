@@ -27,7 +27,7 @@ public class GetAllAccountData
       Class.forName("org.postgresql.Driver");
       c = DriverManager
           .getConnection("jdbc:postgresql://localhost:5432/SEP2", "postgres",
-              "123456");
+              "almafast325");
     }
     catch (SQLException | ClassNotFoundException e)
     {
@@ -199,7 +199,7 @@ public class GetAllAccountData
       throws SQLException
   {
     Statement st = c.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-    String query ="SELECT u.username, u.password, u.email, u.\"groupIDs\", g.name, g.id, g.\"usernameDM\", g.\"usernamePlayers\", g.\"characterIDs\" FROM \"Groups\".\"Groups\" g, \"Users\".\"Users\" u     WHERE u.username = '"+username +"' AND u.password= '"+password +"' AND u.\"groupIDs\" IS NOT NULL  AND  g.id IN (select(unnest(u.\"groupIDs\")));;";
+    String query ="SELECT u.username, u.password, u.email, u.\"groupIDs\", g.name, g.id, g.\"usernameDM\", g.\"usernamePlayers\", g.\"characterIDs\" FROM \"Groups\".\"Groups\" g, \"Users\".\"Users\" u     WHERE u.username = '"+username +"' AND u.password= '"+password +"' AND u.\"groupIDs\" IS NOT NULL  AND  g.id IN (select(unnest(u.\"groupIDs\")));";
 
     ResultSet rs = st.executeQuery(query);
 
@@ -239,32 +239,34 @@ public class GetAllAccountData
       System.out.println(doesAccountHaveGroups + "why isnt if true?");
       //groupidz = rs.getString("groupIDs");
 
+
+
       String k = rs.getString("usernamePlayers");
-      plys = sqlArrayToArrayListString(k);
-
       String charid = rs.getString("characterIDs");
-      charIDs = sqlArrayToArrayListInteger(charid);
-
       Group ng = null;
       ng  = new Group(rs.getString("name"), rs.getInt("id"));
-
-      for (int i = 0; i < plys.size(); i++)
+      ng.addDM(new DM(rs.getString("usernameDM")));
+      if(k!=null)
       {
+        plys = sqlArrayToArrayListString(k);
 
-        Player a = new Player(plys.get(i));
+        charIDs = sqlArrayToArrayListInteger(charid);
 
-        if(charIDs.get(i)!=null)
-        { a.addCharacterID(charIDs.get(i));} else {a.addCharacterID(null);}
-        ng.addDM(new DM(rs.getString("usernameDM")));
+        for (int i = 0; i < plys.size(); i++)
+        {
+          if(plys.get(i)!=null)
+          {
+            Player a = new Player(plys.get(i));
 
+            if(charIDs.get(i)!=null)
+            { a.addCharacterID(charIDs.get(i));} else {a.addCharacterID(null);}
+            ng.addPlayer(a);
+          }
 
-        ng.addPlayer(a);
-
+        }
       }
 
-
-
-
+      System.out.println("group : "+ng.toString());
       groupList.add(ng);
 
 
@@ -281,7 +283,7 @@ public class GetAllAccountData
       objs.add(groupList);
 
     }
-    System.out.println("acc: " + acc.getUsername() + "pas "+ acc.getPassword() + "ema "+ acc.getEmail());
+
 
 
     Container dataPack = new Container(objs, ClassName.LOGIN_RESPONSE);
@@ -496,6 +498,9 @@ ResultSet rs = st.executeQuery(query);
 
    ArrayList<Object> obj = new ArrayList<>();
    obj.add(gp);
+    Statement mt = c.createStatement();
+    String curry = "UPDATE \"Users\".\"Users\" SET \"groupIDs\" = \"groupIDs\" || '{"+gp.getId()+"}' WHERE username = '" + account.getUsername() + "' ;";
+    mt.executeUpdate(curry);
    Container data = new Container(obj,ClassName.CREATE_GROUP);
 
    return data;
