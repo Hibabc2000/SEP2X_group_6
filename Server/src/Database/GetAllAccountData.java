@@ -517,7 +517,7 @@ ResultSet rs = st.executeQuery(query);
     ResultSet rs = st.executeQuery(query);
     boolean answer = true;
     Container dps = new Container(answer,ClassName.CHECK_EMAIL_CHANGE);
-    return null;
+    return dps;
   }
 
 
