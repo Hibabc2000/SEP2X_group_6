@@ -2,6 +2,7 @@ package system.model.dmCharacterChoosing;
 
 import system.model.businessModel.Character;
 import system.networking.Client;
+import system.transferobjects.Container;
 import system.transferobjects.login.Account;
 import system.transferobjects.login.DM;
 
@@ -25,11 +26,6 @@ public class DMCharacterChoosingImpl implements DMCharacterChoosingModel
 
   }
 
-  @Override public void receiveCharacter(Character character)
-  {
-
-  }
-
   /*
     @Override public void receiveCharacter(Character character)
     {
@@ -38,16 +34,37 @@ public class DMCharacterChoosingImpl implements DMCharacterChoosingModel
      */
   @Override public void transmitCharacter(Character character)
   {
-
+    client.submitCharacter(character);
   }
 
   public void getCharacter()
   {
 
   }
+  public void sendCharacterList()
+  {
+    ArrayList<String> charactersNameList = new ArrayList<>();
+    for(int i = 0; i < characters.size(); i++)
+    {
+      charactersNameList.add(characters.get(i).getName()+", "+characters.get(i).getId());
+    }
+    support.firePropertyChange("charactersNameListToDmChoosing",null,charactersNameList);
+  }
+  @Override public void sendCharacterForDmEditing(String characterName)
+  {
+    for(int i = 0; i < characters.size();i++)
+    {
+      String temporaryStringOne = characters.get(i).getName()+", "+characters.get(i).getId();
+      if(temporaryStringOne.equals(characterName))
+      {
+        support.firePropertyChange("characterToSheetViewModel",null, characters.get(i));
+      }
+    }
+  }
   public void setCharacter(PropertyChangeEvent propertyChangeEvent)
   {
-    Character temporaryCharacter = (Character) propertyChangeEvent.getNewValue();
+
+    Character temporaryCharacter = (Character) ((Container) propertyChangeEvent.getNewValue()).getObject();
     if(account.getUser() instanceof DM)
     {
       if(characters.size() == 0)
@@ -81,7 +98,7 @@ public class DMCharacterChoosingImpl implements DMCharacterChoosingModel
     }
   }
 
-  public void setCharacter(Character character)
+  @Override public void setCharacter(Character character)
   {
     if(account.getUser() instanceof DM)
     {
@@ -97,10 +114,12 @@ public class DMCharacterChoosingImpl implements DMCharacterChoosingModel
           {
             characters.remove(characters.get(i));
             characters.add(i,character);
+            transmitCharacter(character);
           }
           else
           {
             characters.add(character);
+            transmitCharacter(character);
           }
         }
       }
@@ -109,7 +128,9 @@ public class DMCharacterChoosingImpl implements DMCharacterChoosingModel
     {
       characters.remove(0);
       characters.add(character);
+      transmitCharacter(character);
     }
+
   }
 
   @Override public void addListener(String eventName,

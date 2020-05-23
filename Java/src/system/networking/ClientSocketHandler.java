@@ -1,6 +1,7 @@
 package system.networking;
 
 import javafx.application.Platform;
+import system.model.businessModel.Character;
 import system.transferobjects.ClassName;
 import system.transferobjects.Container;
 import system.transferobjects.login.Account;
@@ -79,6 +80,7 @@ public class ClientSocketHandler implements Runnable
             Platform.runLater(() -> {
               socketClient.searchGroupInfo(inDataPack);
             });
+
             break;
           }
           case GROUP_JOIN_UPDATE:
@@ -104,7 +106,13 @@ public class ClientSocketHandler implements Runnable
             });
             break;
           }
+          case CHARACTER:
+          {
+            socketClient.useReceivedCharacterFromServer(inDataPack);
+            break;
+          }
           case RECOVER_PASSWORD_RESPONSE:
+          {
             ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
 
             Platform.runLater(() -> {
@@ -112,6 +120,7 @@ public class ClientSocketHandler implements Runnable
             });
 
             break;
+          }
         }
 
       }
@@ -141,6 +150,11 @@ public class ClientSocketHandler implements Runnable
     outToServer.writeObject(outDataPack);
   }
 
+  public void transmitCharacter(Character character) throws IOException
+  {
+    Container outDataPack = new Container(character, ClassName.CHARACTER);
+    outToServer.writeObject(outDataPack);
+  }
   /**
    * Appends the username and password to an ArrayList. Afterwords
    * a Container is created containing the created ArrayList and an identifier(ClassName).

@@ -1,5 +1,6 @@
 package system.networking;
 
+import system.model.businessModel.Character;
 import system.transferobjects.login.Account;
 import system.transferobjects.login.Group;
 import system.util.Subject;
@@ -25,4 +26,6 @@ public interface Client extends Subject
 
 //  open system
 void checkLogin(String username, String password);
+
+  void submitCharacter(Character character);
 }
