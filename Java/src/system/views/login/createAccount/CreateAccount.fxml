@@ -11,21 +11,35 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
 <FlowPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.views.login.createAccount.CreateAccountController">
    <children>
-      <Pane id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="356.0" prefWidth="500.0" stylesheets="@../../../../../../CSS/common/css.css">
+      <Pane id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="356.0" prefWidth="500.0" style="-fx-background-color: #898888;" stylesheets="@../../../../../../CSS/common/css.css">
          <children>
-            <Button fx:id="createButton" alignment="CENTER" layoutX="93.0" layoutY="277.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="35.0" prefWidth="297.0" style="-fx-background-color: #7cc987;" text="Create" />
+            <Button fx:id="createButton" alignment="CENTER" layoutX="93.0" layoutY="277.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="35.0" prefWidth="297.0" style="-fx-background-color: #7cc987;" text="Create">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
             <Label alignment="CENTER" layoutX="84.0" layoutY="14.0" prefHeight="58.0" prefWidth="333.0" text="Create your account">
                <font>
                   <Font size="30.0" />
                </font>
             </Label>
-            <Button fx:id="backButton" layoutX="405.0" layoutY="30.0" mnemonicParsing="false" onAction="#goBack" prefHeight="22.0" prefWidth="46.0" style="-fx-background-color: #7cc987;" text="Back" />
-            <Label alignment="CENTER" layoutX="76.0" layoutY="88.0" prefHeight="22.0" prefWidth="126.0" text="Username" />
-            <Label alignment="CENTER" layoutX="76.0" layoutY="138.0" prefHeight="22.0" prefWidth="126.0" text="Password" />
-            <Label alignment="CENTER" layoutX="76.0" layoutY="184.0" prefHeight="22.0" prefWidth="126.0" text="Password again" />
+            <Button fx:id="backButton" layoutX="405.0" layoutY="31.0" mnemonicParsing="false" onAction="#goBack" prefHeight="22.0" prefWidth="46.0" style="-fx-background-color: #7cc987;" text="Back">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Label alignment="CENTER" layoutX="76.0" layoutY="88.0" prefHeight="22.0" prefWidth="126.0" text="Username">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label alignment="CENTER" layoutX="76.0" layoutY="138.0" prefHeight="22.0" prefWidth="126.0" text="Password">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label alignment="CENTER" layoutX="76.0" layoutY="184.0" prefHeight="22.0" prefWidth="126.0" text="Password again">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
             <TextField fx:id="userName" alignment="CENTER" layoutX="230.0" layoutY="87.0">
                <effect>
                   <DropShadow color="#7cc987" />
@@ -42,7 +56,10 @@
                </effect>
             </PasswordField>
             <Label fx:id="errorMessage" alignment="CENTER" layoutX="116.0" layoutY="318.0" prefHeight="25.0" prefWidth="251.0" text="Errormessage" />
-            <Label alignment="CENTER" layoutX="76.0" layoutY="231.0" prefHeight="22.0" prefWidth="126.0" text="E-mail" />
+            <Label alignment="CENTER" layoutX="76.0" layoutY="231.0" prefHeight="22.0" prefWidth="126.0" text="E-mail">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
             <TextField fx:id="email" alignment="CENTER" layoutX="230.0" layoutY="229.0">
                <effect>
                   <DropShadow color="#7cc987">

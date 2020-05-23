@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="mainPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="497.0" prefWidth="697.0" stylesheets="@../../../../../../CSS/common/css.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.views.login.dmAccount.DMAccountController">
+<AnchorPane id="mainPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="497.0" prefWidth="697.0" style="-fx-background-color: #898888;" stylesheets="@../../../../../../CSS/common/css.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.views.login.dmAccount.DMAccountController">
    <children>
       <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="74.0" prefWidth="360.0">
          <children>
@@ -16,7 +16,7 @@
                   <Font size="19.0" />
                </font>
             </Label>
-            <ListView fx:id="groupListDM" layoutX="12.0" layoutY="79.0" prefHeight="319.0" prefWidth="356.0" />
+            <ListView fx:id="groupListDM" layoutX="19.0" layoutY="79.0" prefHeight="319.0" prefWidth="349.0" />
             <Label layoutX="475.0" layoutY="11.0" prefHeight="68.0" prefWidth="238.0" text="Create new group">
                <font>
                   <Font size="19.0" />
@@ -24,7 +24,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <Button fx:id="joinDMButton" layoutX="134.0" layoutY="422.0" mnemonicParsing="false" onAction="#joinGroupAsDM" prefHeight="44.0" prefWidth="112.0" style="-fx-background-color: #7cc987;" text="Start game with group">
+      <Button fx:id="joinDMButton" layoutX="114.0" layoutY="422.0" mnemonicParsing="false" onAction="#joinGroupAsDM" prefHeight="44.0" prefWidth="152.0" style="-fx-background-color: #7cc987;" text="Start game with group">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>

@@ -8,15 +8,30 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<FlowPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.views.login.account.AccountController">
+<FlowPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.views.login.account.AccountController">
    <children>
-      <AnchorPane id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="411.0" prefWidth="578.0" stylesheets="@../../../../../../CSS/common/css.css">
+      <AnchorPane id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="411.0" prefWidth="578.0" style="-fx-background-color: #898888;" stylesheets="@../../../../../../CSS/common/css.css">
          <children>
-            <Button fx:id="logoutButton" layoutX="51.0" layoutY="339.0" mnemonicParsing="false" onAction="#logout" prefHeight="48.0" prefWidth="132.0" style="-fx-background-color: #7cc987;" text="Logout" />
-            <Button fx:id="changePasswordButton" layoutX="385.0" layoutY="328.0" mnemonicParsing="false" onAction="#changePassword" prefHeight="48.0" prefWidth="132.0" style="-fx-background-color: #7cc987;" text="Change Password" />
-            <Button fx:id="buttonDM" layoutX="385.0" layoutY="42.0" mnemonicParsing="false" onAction="#changeToDM" prefHeight="48.0" prefWidth="132.0" style="-fx-background-color: #7cc987;" text="Create group" />
-            <Button fx:id="buttonPlayer" layoutX="385.0" layoutY="113.0" mnemonicParsing="false" onAction="#changeToPlayer" prefHeight="48.0" prefWidth="132.0" style="-fx-background-color: #7cc987;" text="Join group" />
-            <Button fx:id="changeEmailButton" layoutX="385.0" layoutY="259.0" mnemonicParsing="false" onAction="#changeEmail" prefHeight="48.0" prefWidth="132.0" style="-fx-background-color: #7cc987;" text="Change Email" />
+            <Button fx:id="logoutButton" layoutX="51.0" layoutY="339.0" mnemonicParsing="false" onAction="#logout" prefHeight="48.0" prefWidth="132.0" style="-fx-background-color: #7cc987;" text="Logout">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Button fx:id="changePasswordButton" layoutX="385.0" layoutY="283.0" mnemonicParsing="false" onAction="#changePassword" prefHeight="48.0" prefWidth="132.0" style="-fx-background-color: #7cc987;" text="Change Password">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Button fx:id="buttonDM" layoutX="385.0" layoutY="65.0" mnemonicParsing="false" onAction="#changeToDM" prefHeight="48.0" prefWidth="132.0" style="-fx-background-color: #7cc987;" text="Create/Continue">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Button fx:id="buttonPlayer" layoutX="385.0" layoutY="136.0" mnemonicParsing="false" onAction="#changeToPlayer" prefHeight="48.0" prefWidth="132.0" style="-fx-background-color: #7cc987;" text="Join group">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Button fx:id="changeEmailButton" layoutX="385.0" layoutY="209.0" mnemonicParsing="false" onAction="#changeEmail" prefHeight="48.0" prefWidth="132.0" style="-fx-background-color: #7cc987;" text="Change Email">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
             <Label layoutX="84.0" layoutY="42.0" prefHeight="57.0" prefWidth="287.0" text="oli.moly.give@shit.com">
                <font>
                   <Font size="18.0" />
@@ -32,7 +47,6 @@
                   <Font size="17.0" />
                </font>
             </TextArea>
-            <Button fx:id="logoutButton1" layoutX="385.0" layoutY="184.0" mnemonicParsing="false" onAction="#logout" prefHeight="48.0" prefWidth="132.0" style="-fx-background-color: #7cc987;" text="Continue Campaign" />
             <Line endX="107.0" layoutX="228.0" layoutY="89.0" startX="-175.0" stroke="#117c1f" />
          </children>
       </AnchorPane>

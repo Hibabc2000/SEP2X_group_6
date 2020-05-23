@@ -15,7 +15,7 @@
 
 <FlowPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.views.login.openSystem.OpenSystemController">
    <children>
-      <AnchorPane id="mainPane" prefHeight="449.0" prefWidth="630.0" stylesheets="@../../../../../../CSS/common/css.css">
+      <AnchorPane id="mainPane" prefHeight="449.0" prefWidth="630.0" style="-fx-background-color: #898888;" stylesheets="@../../../../../../CSS/common/css.css">
          <children>
             <Button fx:id="createAccountButton" layoutX="101.0" layoutY="325.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="47.0" prefWidth="114.0" style="-fx-background-color: #7cc987;" text="Create account">
                <font>
