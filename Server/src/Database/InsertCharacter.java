@@ -1,6 +1,9 @@
 package Database;
 
 import system.model.businessModel.Character;
+import system.model.businessModel.Feat;
+import system.model.businessModel.Item;
+import system.model.characterClasses.CharacterClass;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -43,19 +46,7 @@ public InsertCharacter()
         "INSERT INTO \"Characters\".\"Characters\" (\"name\", \"level\", \"XP\", \"hitPointRolled\", \"alignment\", \"faith\", \"physicalTraits\", \"money\", \"abilities\", \"backgroundName\", \"classes\", \"classLevels\", \"extraFeatNames\", \"username\", \"groupName\", \"equipment_names\", \"equipment_amount\") VALUES ("
             + cha.getName() + ", " + cha.getLevel() + ", " + cha.getXp() + ", "
             + cha.getRolledHp() + ", " + cha.getAlignment() + ", " + cha
-            .getFaith() + ", \'{";
-    //add physical traits
-    /*
-    String[] physical = (String[]) cha.getPhysicalCharacteristics().toArray();
-    for (int i = 0; i < physical.length; i++)
-    {
-      query += physical[i];
-      if (i < physical.length - 1)
-      {
-        query += ", ";
-      }
-    }
-    query += "}\', ";
+            .getFaith() + ", " + cha.getPhysicalCharacteristics() + ", ";
     //add money
     int[] money = cha.getMoney();
     for (int i = 0; i < money.length; i++)
@@ -141,7 +132,7 @@ public InsertCharacter()
     query += "}\');";
     st.executeUpdate(query);
     st.close();
-    c.close();*/
+    c.close();
   }
 
 }
