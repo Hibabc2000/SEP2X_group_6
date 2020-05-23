@@ -7,6 +7,10 @@ public class ClientFactory
 {
   private Client client;
 
+  /**
+   * Created a new instance of the SocketClient or the returns the existing one
+   * @return instance of the SocketClient
+   */
   public Client getClient()
   {
     if(client==null){

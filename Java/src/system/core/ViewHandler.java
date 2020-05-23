@@ -34,6 +34,11 @@ public class ViewHandler
   private Stage stage3;
   private Stage stage4;
 
+  /**
+   * Initializes the stages
+   *
+   * @param vmf view model factory
+   */
   public ViewHandler(ViewModelFactory vmf)
   {
     this.vmf = vmf;
@@ -44,11 +49,22 @@ public class ViewHandler
 
   }
 
+  /**
+   * Opens the openSystem view
+   */
   public void start()
   {
     openSystem();
   }
-// 1* LOGIN VIEWS
+  // 1* LOGIN VIEWS
+
+  /**
+   * If the scene(openSystem) is null, the method will find the FXML file by the given root
+   * using the method getRootByPath(), an object hierarchy from an XML document will be loaded(FXML controller)
+   * and the init method will be called on that object.
+   * Otherwise the method will return the already created scene.
+   * A title and the scene will be assigned to the stage.
+   */
   public void openSystem()
   {
     FXMLLoader loader = new FXMLLoader();
@@ -59,20 +75,26 @@ public class ViewHandler
       OpenSystemController osc = loader.getController();
       osc.init(vmf.getOpenSystemViewModel(), this);
       openSystem = new Scene(root);
-
     }
-
     stage.setTitle("DnDAS");
     stage.setScene(openSystem);
     stage.show();
   }
 
+  /**
+   * If the scene(openAccount) is null, the method will find the FXML file by the given root
+   * using the method getRootByPath(), an object hierarchy from an XML document will be loaded(FXML controller)
+   * and the init method will be called on that object.
+   * Otherwise the method will return the already created scene.
+   * A title and the scene will be assigned to the stage.
+   */
   public void openAccount()
   {
     FXMLLoader loader = new FXMLLoader();
     if (account == null)
     {
-      Parent root = getRootByPath("../views/login/account/Account.fxml", loader);
+      Parent root = getRootByPath("../views/login/account/Account.fxml",
+          loader);
       AccountController ac = loader.getController();
       ac.init(vmf.getAccountVM(), this);
       account = new Scene(root);
@@ -84,12 +106,20 @@ public class ViewHandler
     stage.show();
   }
 
+  /**
+   * If the scene(openAccountPlayer) is null, the method will find the FXML file by the given root
+   * using the method getRootByPath(), an object hierarchy from an XML document will be loaded(FXML controller)
+   * and the init method will be called on that object.
+   * Otherwise the method will return the already created scene.
+   * A title and the scene will be assigned to the stage.
+   */
   public void openAccountPlayer()
   {
     FXMLLoader loader = new FXMLLoader();
     if (accountPlayer == null)
     {
-      Parent root = getRootByPath("../views/login/playerAccount/PlayerAccount.fxml", loader);
+      Parent root = getRootByPath(
+          "../views/login/playerAccount/PlayerAccount.fxml", loader);
       PlayerAccountController pac = loader.getController();
       pac.init(vmf.getPlayerAccountViewModel(), this);
       accountPlayer = new Scene(root);
@@ -101,12 +131,20 @@ public class ViewHandler
     stage.show();
   }
 
+  /**
+   * If the scene(openAccountDM) is null, the method will find the FXML file by the given root
+   * using the method getRootByPath(), an object hierarchy from an XML document will be loaded(FXML controller)
+   * and the init method will be called on that object.
+   * Otherwise the method will return the already created scene.
+   * A title and the scene will be assigned to the stage.
+   */
   public void openAccountDM()
   {
     FXMLLoader loader = new FXMLLoader();
     if (accountDM == null)
     {
-      Parent root = getRootByPath("../views/login/dmAccount/DMAccount.fxml", loader);
+      Parent root = getRootByPath("../views/login/dmAccount/DMAccount.fxml",
+          loader);
       DMAccountController dmac = loader.getController();
       dmac.init(vmf.getDMAccountViewModel(), this);
       accountDM = new Scene(root);
@@ -118,27 +156,44 @@ public class ViewHandler
     stage.show();
   }
 
+  /**
+   * Closes the stage
+   */
   public void closeStage2()
   {
     stage2.close();
   }
 
+  /**
+   * Closes the stage
+   */
   public void closeStage3()
   {
     stage3.close();
   }
 
+  /**
+   * Closes the stage
+   */
   public void closeStage4()
   {
     stage4.close();
   }
 
+  /**
+   * If the scene(openCreateAccount) is null, the method will find the FXML file by the given root
+   * using the method getRootByPath(), an object hierarchy from an XML document will be loaded(FXML controller)
+   * and the init method will be called on that object.
+   * Otherwise the method will return the already created scene.
+   * A title and the scene will be assigned to the stage.
+   */
   public void openCreateAccount()
   {
     FXMLLoader loader = new FXMLLoader();
     if (createAccount == null)
     {
-      Parent root = getRootByPath("../views/login/createAccount/CreateAccount.fxml", loader);
+      Parent root = getRootByPath(
+          "../views/login/createAccount/CreateAccount.fxml", loader);
       CreateAccountController cac = loader.getController();
       cac.init(vmf.getCreateAccountVM(), this);
       createAccount = new Scene(root);
@@ -150,13 +205,21 @@ public class ViewHandler
     stage.show();
   }
 
+  /**
+   * If the scene(openPasswordRecovery) is null, the method will find the FXML file by the given root
+   * using the method getRootByPath(), an object hierarchy from an XML document will be loaded(FXML controller)
+   * and the init method will be called on that object.
+   * Otherwise the method will return the already created scene.
+   * A title and the scene will be assigned to the stage.
+   */
   public void openPasswordRecovery()
   {
 
     FXMLLoader loader = new FXMLLoader();
     if (passwordRecovery == null)
     {
-      Parent root = getRootByPath("../views/login/passwordRecovery/PasswordRecovery.fxml", loader);
+      Parent root = getRootByPath(
+          "../views/login/passwordRecovery/PasswordRecovery.fxml", loader);
       PasswordRecoveryController controller = loader.getController();
       controller.init(vmf.getPasswordRecoveryVM(), this);
       passwordRecovery = new Scene(root);
@@ -166,13 +229,21 @@ public class ViewHandler
     stage2.show();
   }
 
+  /**
+   * If the scene(openChangePassword) is null, the method will find the FXML file by the given root
+   * using the method getRootByPath(), an object hierarchy from an XML document will be loaded(FXML controller)
+   * and the init method will be called on that object.
+   * Otherwise the method will return the already created scene.
+   * A title and the scene will be assigned to the stage.
+   */
   public void openChangePassword()
   {
 
     FXMLLoader loader = new FXMLLoader();
     if (passwordChange == null)
     {
-      Parent root = getRootByPath("../views/login/changePassword/ChangePassword.fxml", loader);
+      Parent root = getRootByPath(
+          "../views/login/changePassword/ChangePassword.fxml", loader);
       ChangePasswordController controller = loader.getController();
       controller.init(vmf.getChangePasswordViewModel(), this);
       passwordChange = new Scene(root);
@@ -182,13 +253,21 @@ public class ViewHandler
     stage3.show();
   }
 
+  /**
+   * If the scene(openChangeEmail) is null, the method will find the FXML file by the given root
+   * using the method getRootByPath(), an object hierarchy from an XML document will be loaded(FXML controller)
+   * and the init method will be called on that object.
+   * Otherwise the method will return the already created scene.
+   * A title and the scene will be assigned to the stage.
+   */
   public void openChangeEmail()
   {
 
     FXMLLoader loader = new FXMLLoader();
     if (emailChange == null)
     {
-      Parent root = getRootByPath("../views/login/changeEmail/ChangeEmail.fxml", loader);
+      Parent root = getRootByPath("../views/login/changeEmail/ChangeEmail.fxml",
+          loader);
       ChangeEmailController controller = loader.getController();
       controller.init(vmf.getChangeEmailVM(), this);
       emailChange = new Scene(root);
@@ -197,25 +276,33 @@ public class ViewHandler
     stage4.setScene(emailChange);
     stage4.show();
   }
-//  1** END LOGIN VIEWS
+  //  1** END LOGIN VIEWS
 
-//  CharacterSheet
-public void openCharacterSheet()
-{
-
-  FXMLLoader loader = new FXMLLoader();
-  if (emailChange == null)
+  //  CharacterSheet
+  public void openCharacterSheet()
   {
-    Parent root = getRootByPath("../views/characterSheet/ChangeEmail.fxml", loader);
-    ChangeEmailController controller = loader.getController();
-    controller.init(vmf.getChangeEmailVM(), this);
-    emailChange = new Scene(root);
+    //METHOD NOT WORKING
+    FXMLLoader loader = new FXMLLoader();
+    if (emailChange == null)
+    {
+      Parent root = getRootByPath("../views/characterSheet/ChangeEmail.fxml",
+          loader);
+      ChangeEmailController controller = loader.getController();
+      controller.init(vmf.getChangeEmailVM(), this);
+      emailChange = new Scene(root);
+    }
+    stage4.setTitle("DnDAS");
+    stage4.setScene(emailChange);
+    stage4.show();
   }
-  stage4.setTitle("DnDAS");
-  stage4.setScene(emailChange);
-  stage4.show();
-}
 
+  /**
+   * Returns the root of the object hierarchy.
+   *
+   * @param path   path to the object
+   * @param loader
+   * @return root of the object hierarchy
+   */
   private Parent getRootByPath(String path, FXMLLoader loader)
   {
     loader.setLocation(getClass().getResource(path));

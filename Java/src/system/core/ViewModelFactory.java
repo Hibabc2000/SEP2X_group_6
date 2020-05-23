@@ -1,7 +1,5 @@
 package system.core;
 
-import system.model.characterCreation.CharacterCreationModel;
-import system.model.characterSheet.CharacterSheetModel;
 import system.views.characterCreation.CharacterCreationViewModel;
 import system.views.characterSheet.CharacterSheetViewModel;
 import system.views.login.account.AccountViewModel;
@@ -9,14 +7,13 @@ import system.views.login.changeEmail.ChangeEmailViewModel;
 import system.views.login.changePassword.ChangePasswordViewModel;
 import system.views.login.createAccount.CreateAccountViewModel;
 import system.views.login.dmAccount.DMAccountViewModel;
-
 import system.views.login.openSystem.OpenSystemViewModel;
 import system.views.login.passwordRecovery.PasswordRecoveryViewModel;
 import system.views.login.playerAccount.PlayerAccountViewModel;
 
 public class ViewModelFactory
 {
-//  LOGIN
+  //  LOGIN
   private ModelFactory model;
   private AccountViewModel accountModel;
   private CreateAccountViewModel createAccountModel;
@@ -28,57 +25,113 @@ public class ViewModelFactory
   private ChangePasswordViewModel changePasswordViewModel;
   private ChangeEmailViewModel changeEmailViewModel;
 
-//  characterSheet
+  //  characterSheet
   private CharacterSheetViewModel characterSheetViewModel;
-  private CharacterSheetModel characterSheetModel;
-//  characterCreation
-  private CharacterCreationViewModel characterCreationViewModel;
-  private CharacterCreationModel characterCreationModel;
 
+  //  characterCreation
+  private CharacterCreationViewModel characterCreationViewModel;
+
+  /**
+   * Initializes the class attributes(not all)
+   *
+   * @param mf model factory
+   */
   public ViewModelFactory(ModelFactory mf)
   {
     model = mf;
     createAccountModel = new CreateAccountViewModel(model.getAccountModel());
 
     openSystemViewModel = new OpenSystemViewModel(model.getAccountModel());
-    passwordRecoveryViewModel = new PasswordRecoveryViewModel(model.getAccountModel());
+    passwordRecoveryViewModel = new PasswordRecoveryViewModel(
+        model.getAccountModel());
     dmAccountViewModel = new DMAccountViewModel(model.getAccountModel());
-    playerAccountViewModel = new PlayerAccountViewModel(model.getAccountModel());
-    changePasswordViewModel = new ChangePasswordViewModel(model.getAccountModel());
+    playerAccountViewModel = new PlayerAccountViewModel(
+        model.getAccountModel());
+    changePasswordViewModel = new ChangePasswordViewModel(
+        model.getAccountModel());
     changeEmailViewModel = new ChangeEmailViewModel(model.getAccountModel());
-
 
   }
 
+  /**
+   * Lazy instantiation of the AccountViewModel
+   *
+   * @return an instance of the AccountViewModel
+   */
   public AccountViewModel getAccountVM()
   {
-    if(accountModel==null){
+    if (accountModel == null)
+    {
       accountModel = new AccountViewModel(model.getAccountModel());
     }
     return accountModel;
   }
-  public ChangeEmailViewModel getChangeEmailVM(){return changeEmailViewModel;}
+
+  /**
+   * Gets the ChangeEmailViewModel object
+   *
+   * @return ChangeEmailViewModel object
+   */
+  public ChangeEmailViewModel getChangeEmailVM()
+  {
+    return changeEmailViewModel;
+  }
+
+  /**
+   * Gets the CreateAccountViewModel object
+   *
+   * @return CreateAccountViewModel object
+   */
   public CreateAccountViewModel getCreateAccountVM()
   {
     return createAccountModel;
   }
 
+  /**
+   * Gets the OpenSystemViewModel object
+   *
+   * @return OpenSystemViewModel object
+   */
   public OpenSystemViewModel getOpenSystemViewModel()
   {
     return openSystemViewModel;
   }
+
+  /**
+   * Gets the PasswordRecoveryViewModel object
+   *
+   * @return PasswordRecoveryViewModel object
+   */
   public PasswordRecoveryViewModel getPasswordRecoveryVM()
   {
     return passwordRecoveryViewModel;
   }
+
+  /**
+   * Gets the DMAccountViewModel object
+   *
+   * @return DMAccountViewModel object
+   */
   public DMAccountViewModel getDMAccountViewModel()
   {
     return dmAccountViewModel;
   }
+
+  /**
+   * Gets the PlayerAccountViewModel object
+   *
+   * @return PlayerAccountViewModel object
+   */
   public PlayerAccountViewModel getPlayerAccountViewModel()
   {
     return playerAccountViewModel;
   }
+
+  /**
+   * Gets the ChangePasswordViewModel object
+   *
+   * @return ChangePasswordViewModel object
+   */
   public ChangePasswordViewModel getChangePasswordViewModel()
   {
     return changePasswordViewModel;
