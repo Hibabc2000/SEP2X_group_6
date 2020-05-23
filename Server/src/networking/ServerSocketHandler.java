@@ -129,9 +129,30 @@ public class ServerSocketHandler implements Runnable
           }
           case RECOVER_PASSWORD:
           {
+            Container outDataPack = null;
+            boolean answer = false;
             ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
             String email = (String) (m.get(0));
+            try
+            {
+//              Check the email in the database
+              answer = database.checkEmail(email);
 
+              if (answer)
+              {
+                outDataPack = database.recoverPassword(email);
+                sendBackData(outDataPack);
+              }
+              else if (!answer)
+              {
+                outDataPack = new Container(answer, ClassName.RECOVER_PASSWORD_RESPONSE);
+                sendBackData(outDataPack);
+              }
+            }
+            catch (SQLException e)
+            {
+              e.printStackTrace();
+            }
 
             break;
           }

@@ -46,8 +46,7 @@ public class AccountModelImpl implements AccountModel
 
     // for testing
 
-
-
+    client.addListener("recoverPassword", this::recoverPasswordBackFromServer);
     client.addListener("createAccount", this::createAccountInfoBackFromServer);
     client.addListener("acceptLogin", this::loginInfo);
     client.addListener("searchGroup",this::searchGroupInfo);
@@ -65,13 +64,26 @@ public class AccountModelImpl implements AccountModel
     }
     else {support.firePropertyChange("emailChange",null,false);}
   }
-
   private void addDMGroup(PropertyChangeEvent propertyChangeEvent)
   {
     Group gp = (Group)((ArrayList<Object>)((Container)propertyChangeEvent.getNewValue()).getObject()).get(0);
     gp.addDM(usersAccount.getDM());
     groupsForDm.add(gp);
     support.firePropertyChange("GroupCreatedByDm", null, gp);
+  }
+
+  /**
+   * Converts the Property Change Event to an ArrayList and fires an event containing {@param propertyChangeEvent}
+   *
+   * @param propertyChangeEvent Container contains an ArrayList of two objects(boolean and the recovered password)
+   */
+  private void recoverPasswordBackFromServer(
+      PropertyChangeEvent propertyChangeEvent)
+  {
+    ArrayList<Object> objs = (ArrayList<Object>) ((Container) propertyChangeEvent
+        .getNewValue()).getObject();
+    support.firePropertyChange("recoverPassword", null, objs);
+
   }
 
   private void updateGroups(PropertyChangeEvent propertyChangeEvent)
@@ -387,24 +399,6 @@ public class AccountModelImpl implements AccountModel
 
     else
       client.recoverPassword(email);
-    //server
-    for (int i = 0; i < tempAccounts.size(); i++)
-    {
-      if (tempAccounts.get(i).getEmail().equals(email))
-      {
-        temp = "Ready";
-        String pas = tempAccounts.get(i).getPassword();
-        String nam = tempAccounts.get(i).getUsername();
-        System.out.println("You got a new email: \n  For the account " + nam
-            + " your password is : " + pas);
-        break;
-      }
-      else
-      {
-        temp = "This email is not registered in our system.";
-      }
-    }
-
     return temp;
   }
 
@@ -453,22 +447,24 @@ public class AccountModelImpl implements AccountModel
     }
     else
     {
-      usersAccount.setPassword(passNew);temp = "Ready"; // if no errors,then password is changed
-      client.changePassword(usersAccount); // here we send it to the database so it changes, we dont need to check anything
-
-    }
-
-    if (temp.equals("Ready"))
-    {
-
-      System.out.println(usersAccount.getEmail());
       usersAccount.setPassword(passNew);
+      temp = "Ready"; // if no errors,then password is changed
+      client.changePassword(
+          usersAccount); // here we send it to the database so it changes, we dont need to check anything
     }
 
     return temp;
   }
 
-  // the same as the method above, but with emailchange
+  /**
+   * Basic field checks(empty fields, same email, password check), after checking the user account and the new email
+   * are sent send to the client socket
+   *
+   * @param username String containing the username
+   * @param password String containing the password
+   * @param email    String containing the email
+   * @return a String message with an error or "Ready" if the check Email Change Information is completed successfully
+   */
   @Override public String checkEmailChangeInformation(String username,
       String password, String email)
   {

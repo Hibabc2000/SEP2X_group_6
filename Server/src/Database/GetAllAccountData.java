@@ -414,7 +414,54 @@ public class GetAllAccountData
     return dataPack;
 
   }
-
+  /**
+   * Checks the given {@param email} value in the database. If the user with this email
+   * is found the method will return a true, otherwise false
+   *
+   * @param email String containing the email
+   * @return boolean
+   * @throws SQLException An exception that provides information on a database
+   *                      access error or other errors
+   */
+  public boolean checkEmail(String email) throws SQLException
+  {
+    boolean response = false;
+    String emails = null;
+    Statement st = c.createStatement();
+    String query =
+        "SELECT * FROM \"Users\".\"Users\" WHERE  email  = " + email + " ;";
+    ResultSet rs = st.executeQuery(query);
+    while (rs.next())
+    {
+      emails = rs.getString("email");
+    }
+    if (email == null)
+    {
+      response = false;
+    }
+    else
+      response = true;
+    return response;
+  }
+  public Container recoverPassword(String email) throws SQLException
+  {
+    String password = null;
+    Statement st = c.createStatement();
+    String query =
+        "SELECT * FROM \"Users\".\"Users\" WHERE  email  = " + email + " ;";
+    ResultSet rs = st.executeQuery(query);
+    while (rs.next())
+    {
+      password = rs.getString("password");
+    }
+    ArrayList<Object> objs = new ArrayList<>();
+    boolean answer = true;
+    objs.add(answer);
+    objs.add(password);
+    Container datapack = new Container(objs,
+        ClassName.RECOVER_PASSWORD_RESPONSE);
+    return datapack;
+  }
   public void createGroup(Account account, String groupname)
       throws SQLException
   {
