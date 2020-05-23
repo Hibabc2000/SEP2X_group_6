@@ -111,6 +111,7 @@ public class SocketClient implements Client
   {
     try
     {
+
       socketHandler.transmitCharacter(character);
     }
     catch (IOException e)

@@ -540,7 +540,7 @@ public class AccountModelImpl implements AccountModel
   }
 
   //everything under this is for testing  since I have no idea how to test these things.
-  public Account getAccount()
+  @Override public Account getAccount()
   {
     return usersAccount;
   }

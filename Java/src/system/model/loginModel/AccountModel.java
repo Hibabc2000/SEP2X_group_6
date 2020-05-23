@@ -1,5 +1,6 @@
 package system.model.loginModel;
 
+import system.transferobjects.login.Account;
 import system.transferobjects.login.Group;
 import system.util.Subject;
 
@@ -23,4 +24,5 @@ public interface AccountModel extends Subject
  String joinGroupAsPlayer(String groupName);
   String checkEmailChangeInformation(String value, String value1, String value2);
   String getUsername();
+  Account getAccount();
 }
