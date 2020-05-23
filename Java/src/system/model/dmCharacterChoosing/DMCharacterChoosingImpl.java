@@ -25,12 +25,17 @@ public class DMCharacterChoosingImpl implements DMCharacterChoosingModel
 
   }
 
-  /*
   @Override public void receiveCharacter(Character character)
   {
 
   }
-   */
+
+  /*
+    @Override public void receiveCharacter(Character character)
+    {
+
+    }
+     */
   @Override public void transmitCharacter(Character character)
   {
 
