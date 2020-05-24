@@ -9,7 +9,7 @@ public class Player implements User
 
   private String playerName;
   private Group playerGroup;
- private int characterID;
+ private Integer characterID;
   public Player(String name)                   // more information needed about player class
   {
     playerName = name;
@@ -24,7 +24,7 @@ public class Player implements User
   {
     characterID = i;
   }
-  public int getCharacterID()
+  public Integer getCharacterID()
   {
     return  characterID;
   }

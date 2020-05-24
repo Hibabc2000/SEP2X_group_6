@@ -24,7 +24,7 @@ public class LoadCharacter
       Class.forName("org.postgresql.Driver");
       c = DriverManager
           .getConnection("jdbc:postgresql://localhost:5432/SEP2", "postgres",
-              "");
+              "almafast325");
     }
     catch (SQLException | ClassNotFoundException e)
     {
@@ -55,5 +55,22 @@ public class LoadCharacter
     e.printStackTrace();
   }
     return character;
+  }
+
+  public Integer getIDOfTheNewlyCreatedCharacter(int id, String username)
+      throws SQLException
+  {
+    Integer idOfTheCreatedCharacter=0;
+
+    Statement st = c.createStatement();
+    String query = "SELECT * FROM \"Characters\".\"Characters\" WHERE username = '" + username + "' AND \"groupID\" = "+ id   +    " ;";
+   ResultSet rs = st.executeQuery(query);
+
+   while(rs.next())
+   { idOfTheCreatedCharacter = rs.getInt("id");
+
+
+   }
+   return idOfTheCreatedCharacter;
   }
 }

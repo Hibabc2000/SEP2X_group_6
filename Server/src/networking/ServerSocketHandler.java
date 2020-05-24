@@ -1,6 +1,9 @@
 package networking;
 
 import Database.GetAllAccountData;
+import Database.InsertCharacter;
+import Database.LoadCharacter;
+import system.model.businessModel.Character;
 import system.transferobjects.ClassName;
 import system.transferobjects.Container;
 import system.transferobjects.login.Account;
@@ -21,12 +24,16 @@ public class ServerSocketHandler implements Runnable
   private ObjectOutputStream outToClient;
   private ObjectInputStream inFromClient;
   private GetAllAccountData database;
+  private InsertCharacter ich;
+  private LoadCharacter loch;
 
   private Account account;
 
   public ServerSocketHandler(Socket socket, ConnectionPool pool,
-      GetAllAccountData gaa) throws IOException
+      GetAllAccountData gaa, InsertCharacter i, LoadCharacter lc) throws IOException
   {
+    loch = lc;
+    ich = i;
     database = gaa;
     this.socket = socket;
     this.pool = pool;
@@ -304,6 +311,47 @@ public class ServerSocketHandler implements Runnable
 
             break;
 
+          }
+          case CREATE_CHARACTER:
+          { // this is when a player creates his character
+             Integer id =0;
+            ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
+             String username = (String)m.get(0);
+             Group gp = (Group)m.get(1);
+             Character character = (Character)m.get(2);
+           // here we first load the character in the database;
+            try
+            {
+              ich.insertCharacter(character);
+            }
+            catch (SQLException e)
+            {
+              e.printStackTrace();
+            }
+            // here we get the character ID from the database, so we can update the groups
+            // with the username of the player and the groupID, since we don't know the char ID yet.
+            try
+            {
+             id = loch.getIDOfTheNewlyCreatedCharacter(gp.getId(),username);
+            }
+            catch (SQLException e)
+            {
+              e.printStackTrace();
+            }
+            // here we update the player charID in the groups
+            if(id!=0)
+            {
+              try
+              {
+                database.updateGroupsAfterCharacterCreation(gp.getId(),username,id);
+              }
+              catch (SQLException e)
+              {
+                e.printStackTrace();
+              }
+            }
+
+            break;
           }
         }
       }

@@ -587,7 +587,7 @@ ResultSet rs = st.executeQuery(query);
     boolean  answer = true;
     Statement st = c.createStatement();
     String query =
-        "SELECT FROM \"Users\".\"Users\" WHERE username = '"+ email
+        "SELECT FROM \"Users\".\"Users\" WHERE email = '"+ email
             + "' ;";
     ResultSet rs = st.executeQuery(query);
 
@@ -612,5 +612,34 @@ ResultSet rs = st.executeQuery(query);
     obj.add(answer);
     Container datapack = new Container(obj, ClassName.CHECK_EMAIL_CHANGE);
     return datapack;
+  }
+
+
+  public void updateGroupsAfterCharacterCreation(int id, String username, Integer charID)
+      throws SQLException
+  {
+    Statement st = c.createStatement();
+    Group groupForUpdate = getGroupForUpdate(id);
+    ArrayList<Player> arrayOfPlayers = groupForUpdate.getAllPlayers();
+String curry = "";
+    for(int i =0; i<arrayOfPlayers.size();i++)
+    {
+      if(arrayOfPlayers.get(i).getName().equals(username))
+      {
+       curry += charID;
+      }
+      else if(arrayOfPlayers.get(i).getCharacterID()!=null)
+      {
+        curry +=  arrayOfPlayers.get(i).getCharacterID();
+      }
+      else if(arrayOfPlayers.get(i).getCharacterID()==null)
+      {
+         curry +="NULL";
+      }
+      if(1<arrayOfPlayers.size()-1)
+      {curry +=",";}
+    }
+    String query = "UPDATE \"Characters\".\"Characters\" SET \"characterIDs\"  = '{"+ curry +"}'  WHERE id =" + id +" ;" ;
+    st.executeUpdate(query);
   }
 }

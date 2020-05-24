@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="Create group/ Join group/ works mostly.">
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" afterDir="false" />
+    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/transferobjects/ClassName.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/transferobjects/ClassName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/transferobjects/login/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/transferobjects/login/Group.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/transferobjects/login/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/transferobjects/login/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/Database/GetAllAccountData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/GetAllAccountData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Database/InsertCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/InsertCharacter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Database/LoadCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/LoadCharacter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/networking/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/networking/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,7 +35,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectConfigurationFiles">
     <option name="files">
@@ -157,8 +164,8 @@
       <item itemvalue="Application.GetAllTest (1)" />
       <item itemvalue="Application.GetAllTest" />
       <item itemvalue="Application.TestDtbs" />
-      <item itemvalue="JUnit.AccountModelImplTest" />
       <item itemvalue="Application.RunServer" />
+      <item itemvalue="JUnit.AccountModelImplTest" />
     </list>
     <recent_temporary>
       <list>
@@ -175,7 +182,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a77ae39f-d08d-418e-a04c-5e66d42df965" name="Default Changelist" comment="Character creation page UI fixed" />
+      <changelist id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="" />
       <created>1585730812033</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -356,7 +363,21 @@
       <option name="project" value="LOCAL" />
       <updated>1590241756173</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Okay, account client-server-database communication is now officialy finished, i think, i hope so. It better be or Im gonna be mad af.">
+      <created>1590248819654</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1590248819654</updated>
+    </task>
+    <task id="LOCAL-00027" summary="nothing">
+      <created>1590251386063</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1590251386063</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -403,7 +424,9 @@
     <MESSAGE value="just the basics" />
     <MESSAGE value="started the controllers, minor changes to the fxml files" />
     <MESSAGE value="finally, the character receiving from the system &quot;should&quot; work now&#10;(there might be a threading problem)" />
-    <option name="LAST_COMMIT_MESSAGE" value="finally, the character receiving from the system &quot;should&quot; work now&#10;(there might be a threading problem)" />
+    <MESSAGE value="Okay, account client-server-database communication is now officialy finished, i think, i hope so. It better be or Im gonna be mad af." />
+    <MESSAGE value="nothing" />
+    <option name="LAST_COMMIT_MESSAGE" value="nothing" />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="71" key="#Notifications" timestamp="1590075621071">
