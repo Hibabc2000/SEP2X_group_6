@@ -23,4 +23,9 @@ public abstract class CharacterClass
   {
     return levelInClass;
   }
+
+  public int getHitDiceType()
+  {
+    return hitDiceType;
+  }
 }
