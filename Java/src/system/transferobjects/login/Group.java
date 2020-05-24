@@ -31,6 +31,10 @@ public class Group implements Serializable
   {
     players = plys;
   }
+  public ArrayList<Player> getAllPlayers()
+  {
+    return players;
+  }
 
   public Player getPlayer(
       String player) // returns the Player from the group by searching for him by name

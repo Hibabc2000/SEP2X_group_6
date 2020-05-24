@@ -24,8 +24,12 @@ public enum ClassName
 // STATIC
  STATIC_MODEL,
 //Character
+CHARACTER_INFO_FOR_START_GAME,
+  CREATE_CHARACTER,
   CHARACTER,
-  ;
+
+
+
 
 
 }
