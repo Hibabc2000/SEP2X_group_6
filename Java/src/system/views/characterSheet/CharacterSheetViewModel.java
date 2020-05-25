@@ -519,39 +519,62 @@ public class CharacterSheetViewModel
     for (Proficiency p : sheetCharacter.getProficiencies())
     {
       StaticModel staticModel = new StaticModel();
-      if(p.getType().toLowerCase().equals("skill"))
+      for (Skill s : staticModel.getSkills())
       {
-        for (Skill s : staticModel.getSkills())
+        if (p.getName().toLowerCase().contains(s.getName().toLowerCase()))
         {
-          if (p.getName().equals(s.getName()))
+
+        }
+      }
+      for (Ability a : staticModel.getAbilities())
+      {
+        if (p.getName().toLowerCase().contains(a.getName().toLowerCase()))
+        {
+          if(a.getName().toLowerCase().equals("strength"))
           {
-            //send to viewmodel
+            double strSave = Integer.parseInt(String.valueOf(strengthModifier)) + (Integer.parseInt(String.valueOf(proficiencyBonus)) * p.getMod());
+            strengthSavingThrow.setValue(String.valueOf(strSave));
+          }
+          else if(a.getName().toLowerCase().equals("dexterity"))
+          {
+            double dexSave = Integer.parseInt(String.valueOf(strengthModifier)) + (Integer.parseInt(String.valueOf(proficiencyBonus)) * p.getMod());
+            strengthSavingThrow.setValue(String.valueOf(dexSave));
+          }
+          else if(a.getName().toLowerCase().equals("constitution"))
+          {
+            double conSave = Integer.parseInt(String.valueOf(strengthModifier)) + (Integer.parseInt(String.valueOf(proficiencyBonus)) * p.getMod());
+            strengthSavingThrow.setValue(String.valueOf(conSave));
+          }
+          else if(a.getName().toLowerCase().equals("intelligence"))
+          {
+            double intSave = Integer.parseInt(String.valueOf(strengthModifier)) + (Integer.parseInt(String.valueOf(proficiencyBonus)) * p.getMod());
+            strengthSavingThrow.setValue(String.valueOf(intSave));
+          }
+          else if(a.getName().toLowerCase().equals("wisdom"))
+          {
+            double wisSave = Integer.parseInt(String.valueOf(strengthModifier)) + (Integer.parseInt(String.valueOf(proficiencyBonus)) * p.getMod());
+            strengthSavingThrow.setValue(String.valueOf(wisSave));
+          }
+          else if(a.getName().toLowerCase().equals("charisma"))
+          {
+            double chaSave = Integer.parseInt(String.valueOf(strengthModifier)) + (Integer.parseInt(String.valueOf(proficiencyBonus)) * p.getMod());
+            strengthSavingThrow.setValue(String.valueOf(chaSave));
           }
         }
       }
-      else if (p.getType().toLowerCase().equals("ability"))
-      {
-        for (Ability a : staticModel.getAbilities())
-        {
-          if (p.getName().equals(a.getName()))
-          {
-            //send to viewmodel
-          }
-        }
-      }
-      else if (p.getType().toLowerCase().contains("weapon"))
+      if (p.getName().toLowerCase().contains("weapon"))
       {
         if(p.getName().toLowerCase().contains("martial"))
         {
-          //send to viewmodel
+
         }
         else if (p.getName().toLowerCase().contains("simple"))
         {
-          //send to viewmodel
+
         }
         else
         {
-          //send to viewmodel, select weapon
+
         }
       }
       else if (p.getType().toLowerCase().contains("armor"))
