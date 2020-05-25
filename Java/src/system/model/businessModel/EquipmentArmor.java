@@ -1,22 +1,11 @@
 package system.model.businessModel;
 
-public class EquipmentArmor
+public class EquipmentArmor extends Equipment
 {
-  private Equipment equipment;
   private int armorClass;
   private String dexMod;
   private boolean stealth;
   private int strength;
-
-  public Equipment getEquipment()
-  {
-    return equipment;
-  }
-
-  public void setEquipment(Equipment equipment)
-  {
-    this.equipment = equipment;
-  }
 
   public int getArmorClass()
   {
@@ -61,7 +50,7 @@ public class EquipmentArmor
   public EquipmentArmor(Equipment equipment, int armorClass, String dexMod,
       boolean stealth, int strength)
   {
-    this.equipment = equipment;
+    super(equipment);
     this.armorClass = armorClass;
     this.dexMod = dexMod;
     this.stealth = stealth;
@@ -70,7 +59,7 @@ public class EquipmentArmor
 
   @Override public String toString()
   {
-    return "EquipmentArmor{" + "equipment='" + equipment + '\''
+    return "EquipmentArmor{" + "equipment='" + super.toString() + '\''
         + ", armorClass='" + armorClass + '\'' + ", dexMod='" + dexMod + '\''
         + ", stealth='" + stealth + '\'' + ", strength='" + strength + '\''
         + '}';

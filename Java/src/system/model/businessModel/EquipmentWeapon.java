@@ -1,36 +1,18 @@
 package system.model.businessModel;
 
-public class EquipmentWeapon
+public class EquipmentWeapon extends Equipment
 {
-  private Equipment equipment;
   private String damage;
   private String properties;
   private String weaponType;
 
-  public EquipmentWeapon(Equipment equipment, String damage, String properties,
+  public EquipmentWeapon(String name, String desc, double weight, double price, String damage, String properties,
       String weaponType)
   {
-    this.equipment = equipment;
+    super(name, desc, weight, price);
     this.damage = damage;
     this.properties = properties;
     this.weaponType = weaponType;
-  }
-
-  @Override public String toString()
-  {
-    return "EquipmentWeapon{" + "equipment='" + equipment + '\'' + ", damage='"
-        + damage + '\'' + ", properties='" + properties + '\''
-        + ", weaponType='" + weaponType + '\'' + '}';
-  }
-
-  public Equipment getEquipment()
-  {
-    return equipment;
-  }
-
-  public void setEquipment(Equipment equipment)
-  {
-    this.equipment = equipment;
   }
 
   public String getDamage()

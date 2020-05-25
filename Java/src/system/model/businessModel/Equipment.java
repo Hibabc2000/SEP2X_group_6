@@ -1,6 +1,6 @@
 package system.model.businessModel;
 
-public class Equipment
+public abstract class Equipment
 {
   private String name;
   private String description;
@@ -13,6 +13,14 @@ public class Equipment
     this.description = description;
     this.weight = weight;
     this.price = price;
+  }
+
+  public Equipment(Equipment equipment)
+  {
+    this.name = equipment.getName();
+    this.description = equipment.getDescription();
+    this.weight = equipment.getWeight();
+    this.price = equipment.getPrice();
   }
 
   public String getName()

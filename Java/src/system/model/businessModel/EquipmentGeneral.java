@@ -1,26 +1,15 @@
 package system.model.businessModel;
 
-public class EquipmentGeneral
+public class EquipmentGeneral extends Equipment
 {
-  private Equipment equipment;
 
   public EquipmentGeneral(Equipment equipment)
   {
-    this.equipment = equipment;
-  }
-
-  public Equipment getEquipment()
-  {
-    return equipment;
-  }
-
-  public void setEquipment(Equipment equipment)
-  {
-    this.equipment = equipment;
+    super(equipment.getName(), equipment.getDescription(), equipment.getWeight(), equipment.getPrice());
   }
 
   @Override public String toString()
   {
-    return "EquipmentGeneral{" + "equipment='" + equipment + '\'' + '}';
+    return super.toString();
   }
 }

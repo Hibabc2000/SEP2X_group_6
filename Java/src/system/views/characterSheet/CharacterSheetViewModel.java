@@ -1,10 +1,8 @@
 package system.views.characterSheet;
 
 import javafx.beans.property.StringProperty;
-import system.model.businessModel.Ability;
 import system.model.businessModel.Character;
-import system.model.businessModel.Proficiency;
-import system.model.businessModel.Skill;
+import system.model.businessModel.*;
 import system.model.businessModel.staticModel.StaticModel;
 import system.model.characterClasses.CharacterClass;
 import system.model.characterManagement.CharacterManagementModel;
@@ -562,22 +560,28 @@ public class CharacterSheetViewModel
           }
         }
       }
-      if (p.getName().toLowerCase().contains("weapon"))
+      for (Item i : sheetCharacter.getEquipmentList())
       {
-        if(p.getName().toLowerCase().contains("martial"))
+        if (p.getName().toLowerCase().contains("weapon"))
         {
+          if (p.getName().toLowerCase().contains("martial"))
+          {
+            if (i.getGameItem() instanceof EquipmentWeapon)
+            {
 
-        }
-        else if (p.getName().toLowerCase().contains("simple"))
-        {
+            }
+          }
+          else if (p.getName().toLowerCase().contains("simple"))
+          {
 
-        }
-        else
-        {
+          }
+          else
+          {
 
+          }
         }
       }
-      else if (p.getType().toLowerCase().contains("armor"))
+      if (p.getType().toLowerCase().contains("armor"))
       {
         if(p.getName().toLowerCase().contains("all"))
         {
