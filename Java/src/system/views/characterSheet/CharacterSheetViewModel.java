@@ -12,7 +12,6 @@ import java.beans.PropertyChangeEvent;
 public class CharacterSheetViewModel
 {
 
-
   private StringProperty strengthModifier;
   private StringProperty strength;
   private StringProperty dexterityModifier;
@@ -86,16 +85,14 @@ public class CharacterSheetViewModel
   private StringProperty changeCopperAmountStringProperty;
   ///////////////////////////////////////////////////////////
 
-
   private Character sheetCharacter;
 
   private CharacterManagementModel model;
 
-
   public CharacterSheetViewModel(CharacterManagementModel model1)
   {
     model = model1;
-    model.addListener("characterToSheetViewModel",this::setCharacter);
+    model.addListener("characterToSheetViewModel", this::setCharacter);
   }
 
   private void setCharacter(PropertyChangeEvent propertyChangeEvent)
@@ -115,356 +112,415 @@ public class CharacterSheetViewModel
 
     //strength
 
-
-    if(sheetCharacter.getAbilities()[0] == 10 ||sheetCharacter.getAbilities()[0] == 11)
+    if (sheetCharacter.getAbilities()[0] == 10
+        || sheetCharacter.getAbilities()[0] == 11)
     {
       strengthModifier.setValue(String.valueOf(0));
     }
-    else if(sheetCharacter.getAbilities()[0] == 12 ||sheetCharacter.getAbilities()[0] == 13)
+    else if (sheetCharacter.getAbilities()[0] == 12
+        || sheetCharacter.getAbilities()[0] == 13)
     {
       strengthModifier.setValue(String.valueOf(1));
     }
-    else if(sheetCharacter.getAbilities()[0] == 14 ||sheetCharacter.getAbilities()[0] == 15)
+    else if (sheetCharacter.getAbilities()[0] == 14
+        || sheetCharacter.getAbilities()[0] == 15)
     {
       strengthModifier.setValue(String.valueOf(2));
     }
-    else if(sheetCharacter.getAbilities()[0] == 16||sheetCharacter.getAbilities()[0] == 17)
+    else if (sheetCharacter.getAbilities()[0] == 16
+        || sheetCharacter.getAbilities()[0] == 17)
     {
       strengthModifier.setValue(String.valueOf(3));
     }
-    else if(sheetCharacter.getAbilities()[0] == 18 ||sheetCharacter.getAbilities()[0] == 19)
+    else if (sheetCharacter.getAbilities()[0] == 18
+        || sheetCharacter.getAbilities()[0] == 19)
     {
       strengthModifier.setValue(String.valueOf(4));
     }
-    else if(sheetCharacter.getAbilities()[0] == 20 || sheetCharacter.getAbilities()[0] == 21)
+    else if (sheetCharacter.getAbilities()[0] == 20
+        || sheetCharacter.getAbilities()[0] == 21)
     {
       strengthModifier.setValue(String.valueOf(5));
     }
-    else if(sheetCharacter.getAbilities()[0] == 22 || sheetCharacter.getAbilities()[0] == 23)
+    else if (sheetCharacter.getAbilities()[0] == 22
+        || sheetCharacter.getAbilities()[0] == 23)
     {
       strengthModifier.setValue(String.valueOf(6));
     }
-    else if(sheetCharacter.getAbilities()[0] == 24)
+    else if (sheetCharacter.getAbilities()[0] == 24)
     {
       strengthModifier.setValue(String.valueOf(7));
     }
-    else if(sheetCharacter.getAbilities()[0] == 1)
+    else if (sheetCharacter.getAbilities()[0] == 1)
     {
       strengthModifier.setValue(String.valueOf(-5));
     }
-    else if(sheetCharacter.getAbilities()[0] == 2||sheetCharacter.getAbilities()[0] == 3)
+    else if (sheetCharacter.getAbilities()[0] == 2
+        || sheetCharacter.getAbilities()[0] == 3)
     {
       strengthModifier.setValue(String.valueOf(-4));
     }
-    else if(sheetCharacter.getAbilities()[0] == 4 ||sheetCharacter.getAbilities()[0] == 5)
+    else if (sheetCharacter.getAbilities()[0] == 4
+        || sheetCharacter.getAbilities()[0] == 5)
     {
       strengthModifier.setValue(String.valueOf(-3));
     }
-    else if(sheetCharacter.getAbilities()[0] == 6 || sheetCharacter.getAbilities()[0] == 7)
+    else if (sheetCharacter.getAbilities()[0] == 6
+        || sheetCharacter.getAbilities()[0] == 7)
     {
       strengthModifier.setValue(String.valueOf(-2));
     }
-    else if(sheetCharacter.getAbilities()[0] == 8 || sheetCharacter.getAbilities()[0] == 9)
+    else if (sheetCharacter.getAbilities()[0] == 8
+        || sheetCharacter.getAbilities()[0] == 9)
     {
       strengthModifier.setValue(String.valueOf(-1));
     }
 
-
     //dexterity
 
-
-    if(sheetCharacter.getAbilities()[1] == 10 ||sheetCharacter.getAbilities()[1] == 11)
+    if (sheetCharacter.getAbilities()[1] == 10
+        || sheetCharacter.getAbilities()[1] == 11)
     {
       dexterityModifier.setValue(String.valueOf(0));
     }
-    else if(sheetCharacter.getAbilities()[1] == 12 ||sheetCharacter.getAbilities()[1] == 13)
+    else if (sheetCharacter.getAbilities()[1] == 12
+        || sheetCharacter.getAbilities()[1] == 13)
     {
       dexterityModifier.setValue(String.valueOf(1));
     }
-    else if(sheetCharacter.getAbilities()[1] == 14 ||sheetCharacter.getAbilities()[1] == 15)
+    else if (sheetCharacter.getAbilities()[1] == 14
+        || sheetCharacter.getAbilities()[1] == 15)
     {
       dexterityModifier.setValue(String.valueOf(2));
     }
-    else if(sheetCharacter.getAbilities()[1] == 16||sheetCharacter.getAbilities()[1] == 17)
+    else if (sheetCharacter.getAbilities()[1] == 16
+        || sheetCharacter.getAbilities()[1] == 17)
     {
       dexterityModifier.setValue(String.valueOf(3));
     }
-    else if(sheetCharacter.getAbilities()[1] == 18 ||sheetCharacter.getAbilities()[1] == 19)
+    else if (sheetCharacter.getAbilities()[1] == 18
+        || sheetCharacter.getAbilities()[1] == 19)
     {
       dexterityModifier.setValue(String.valueOf(4));
     }
-    else if(sheetCharacter.getAbilities()[1] == 20 || sheetCharacter.getAbilities()[1] == 21)
+    else if (sheetCharacter.getAbilities()[1] == 20
+        || sheetCharacter.getAbilities()[1] == 21)
     {
       dexterityModifier.setValue(String.valueOf(5));
     }
-    else if(sheetCharacter.getAbilities()[1] == 22 || sheetCharacter.getAbilities()[1] == 23)
+    else if (sheetCharacter.getAbilities()[1] == 22
+        || sheetCharacter.getAbilities()[1] == 23)
     {
       dexterityModifier.setValue(String.valueOf(6));
     }
-    else if(sheetCharacter.getAbilities()[1] == 24)
+    else if (sheetCharacter.getAbilities()[1] == 24)
     {
       dexterityModifier.setValue(String.valueOf(7));
     }
-    else if(sheetCharacter.getAbilities()[1] == 1)
+    else if (sheetCharacter.getAbilities()[1] == 1)
     {
       dexterityModifier.setValue(String.valueOf(-5));
     }
-    else if(sheetCharacter.getAbilities()[1] == 2||sheetCharacter.getAbilities()[1] == 3)
+    else if (sheetCharacter.getAbilities()[1] == 2
+        || sheetCharacter.getAbilities()[1] == 3)
     {
       dexterityModifier.setValue(String.valueOf(-4));
     }
-    else if(sheetCharacter.getAbilities()[1] == 4 ||sheetCharacter.getAbilities()[1] == 5)
+    else if (sheetCharacter.getAbilities()[1] == 4
+        || sheetCharacter.getAbilities()[1] == 5)
     {
       dexterityModifier.setValue(String.valueOf(-3));
     }
-    else if(sheetCharacter.getAbilities()[1] == 6 || sheetCharacter.getAbilities()[1] == 7)
+    else if (sheetCharacter.getAbilities()[1] == 6
+        || sheetCharacter.getAbilities()[1] == 7)
     {
       dexterityModifier.setValue(String.valueOf(-2));
     }
-    else if(sheetCharacter.getAbilities()[1] == 8 || sheetCharacter.getAbilities()[1] == 9)
+    else if (sheetCharacter.getAbilities()[1] == 8
+        || sheetCharacter.getAbilities()[1] == 9)
     {
       dexterityModifier.setValue(String.valueOf(-1));
     }
 
     //constitution
 
-
-    if(sheetCharacter.getAbilities()[2] == 10 ||sheetCharacter.getAbilities()[2] == 11)
+    if (sheetCharacter.getAbilities()[2] == 10
+        || sheetCharacter.getAbilities()[2] == 11)
     {
       constitutionModifier.setValue(String.valueOf(0));
     }
-    else if(sheetCharacter.getAbilities()[2] == 12 ||sheetCharacter.getAbilities()[2] == 13)
+    else if (sheetCharacter.getAbilities()[2] == 12
+        || sheetCharacter.getAbilities()[2] == 13)
     {
       constitutionModifier.setValue(String.valueOf(1));
     }
-    else if(sheetCharacter.getAbilities()[2] == 14 ||sheetCharacter.getAbilities()[2] == 15)
+    else if (sheetCharacter.getAbilities()[2] == 14
+        || sheetCharacter.getAbilities()[2] == 15)
     {
       constitutionModifier.setValue(String.valueOf(2));
     }
-    else if(sheetCharacter.getAbilities()[2] == 16||sheetCharacter.getAbilities()[2] == 17)
+    else if (sheetCharacter.getAbilities()[2] == 16
+        || sheetCharacter.getAbilities()[2] == 17)
     {
       constitutionModifier.setValue(String.valueOf(3));
     }
-    else if(sheetCharacter.getAbilities()[2] == 18 ||sheetCharacter.getAbilities()[2] == 19)
+    else if (sheetCharacter.getAbilities()[2] == 18
+        || sheetCharacter.getAbilities()[2] == 19)
     {
       constitutionModifier.setValue(String.valueOf(4));
     }
-    else if(sheetCharacter.getAbilities()[2] == 20 || sheetCharacter.getAbilities()[2] == 21)
+    else if (sheetCharacter.getAbilities()[2] == 20
+        || sheetCharacter.getAbilities()[2] == 21)
     {
       constitutionModifier.setValue(String.valueOf(5));
     }
-    else if(sheetCharacter.getAbilities()[2] == 22 || sheetCharacter.getAbilities()[2] == 23)
+    else if (sheetCharacter.getAbilities()[2] == 22
+        || sheetCharacter.getAbilities()[2] == 23)
     {
       constitutionModifier.setValue(String.valueOf(6));
     }
-    else if(sheetCharacter.getAbilities()[2] == 24)
+    else if (sheetCharacter.getAbilities()[2] == 24)
     {
       constitutionModifier.setValue(String.valueOf(7));
     }
-    else if(sheetCharacter.getAbilities()[2] == 1)
+    else if (sheetCharacter.getAbilities()[2] == 1)
     {
       constitutionModifier.setValue(String.valueOf(-5));
     }
-    else if(sheetCharacter.getAbilities()[2] == 2||sheetCharacter.getAbilities()[2] == 3)
+    else if (sheetCharacter.getAbilities()[2] == 2
+        || sheetCharacter.getAbilities()[2] == 3)
     {
       constitutionModifier.setValue(String.valueOf(-4));
     }
-    else if(sheetCharacter.getAbilities()[2] == 4 ||sheetCharacter.getAbilities()[2] == 5)
+    else if (sheetCharacter.getAbilities()[2] == 4
+        || sheetCharacter.getAbilities()[2] == 5)
     {
       constitutionModifier.setValue(String.valueOf(-3));
     }
-    else if(sheetCharacter.getAbilities()[2] == 6 || sheetCharacter.getAbilities()[2] == 7)
+    else if (sheetCharacter.getAbilities()[2] == 6
+        || sheetCharacter.getAbilities()[2] == 7)
     {
       constitutionModifier.setValue(String.valueOf(-2));
     }
-    else if(sheetCharacter.getAbilities()[2] == 8 || sheetCharacter.getAbilities()[2] == 9)
+    else if (sheetCharacter.getAbilities()[2] == 8
+        || sheetCharacter.getAbilities()[2] == 9)
     {
       constitutionModifier.setValue(String.valueOf(-1));
     }
 
     //intelligence
 
-
-    if(sheetCharacter.getAbilities()[3] == 10 ||sheetCharacter.getAbilities()[3] == 11)
+    if (sheetCharacter.getAbilities()[3] == 10
+        || sheetCharacter.getAbilities()[3] == 11)
     {
       intelligenceModifier.setValue(String.valueOf(0));
     }
-    else if(sheetCharacter.getAbilities()[3] == 12 ||sheetCharacter.getAbilities()[3] == 13)
+    else if (sheetCharacter.getAbilities()[3] == 12
+        || sheetCharacter.getAbilities()[3] == 13)
     {
       intelligenceModifier.setValue(String.valueOf(1));
     }
-    else if(sheetCharacter.getAbilities()[3] == 14 ||sheetCharacter.getAbilities()[3] == 15)
+    else if (sheetCharacter.getAbilities()[3] == 14
+        || sheetCharacter.getAbilities()[3] == 15)
     {
       intelligenceModifier.setValue(String.valueOf(2));
     }
-    else if(sheetCharacter.getAbilities()[3] == 16||sheetCharacter.getAbilities()[3] == 17)
+    else if (sheetCharacter.getAbilities()[3] == 16
+        || sheetCharacter.getAbilities()[3] == 17)
     {
       intelligenceModifier.setValue(String.valueOf(3));
     }
-    else if(sheetCharacter.getAbilities()[3] == 18 ||sheetCharacter.getAbilities()[3] == 19)
+    else if (sheetCharacter.getAbilities()[3] == 18
+        || sheetCharacter.getAbilities()[3] == 19)
     {
       intelligenceModifier.setValue(String.valueOf(4));
     }
-    else if(sheetCharacter.getAbilities()[3] == 20 || sheetCharacter.getAbilities()[3] == 21)
+    else if (sheetCharacter.getAbilities()[3] == 20
+        || sheetCharacter.getAbilities()[3] == 21)
     {
       intelligenceModifier.setValue(String.valueOf(5));
     }
-    else if(sheetCharacter.getAbilities()[3] == 22 || sheetCharacter.getAbilities()[3] == 23)
+    else if (sheetCharacter.getAbilities()[3] == 22
+        || sheetCharacter.getAbilities()[3] == 23)
     {
       intelligenceModifier.setValue(String.valueOf(6));
     }
-    else if(sheetCharacter.getAbilities()[3] == 24)
+    else if (sheetCharacter.getAbilities()[3] == 24)
     {
       intelligenceModifier.setValue(String.valueOf(7));
     }
-    else if(sheetCharacter.getAbilities()[3] == 1)
+    else if (sheetCharacter.getAbilities()[3] == 1)
     {
       intelligenceModifier.setValue(String.valueOf(-5));
     }
-    else if(sheetCharacter.getAbilities()[3] == 2||sheetCharacter.getAbilities()[3] == 3)
+    else if (sheetCharacter.getAbilities()[3] == 2
+        || sheetCharacter.getAbilities()[3] == 3)
     {
       intelligenceModifier.setValue(String.valueOf(-4));
     }
-    else if(sheetCharacter.getAbilities()[3] == 4 ||sheetCharacter.getAbilities()[3] == 5)
+    else if (sheetCharacter.getAbilities()[3] == 4
+        || sheetCharacter.getAbilities()[3] == 5)
     {
       intelligenceModifier.setValue(String.valueOf(-3));
     }
-    else if(sheetCharacter.getAbilities()[3] == 6 || sheetCharacter.getAbilities()[3] == 7)
+    else if (sheetCharacter.getAbilities()[3] == 6
+        || sheetCharacter.getAbilities()[3] == 7)
     {
       intelligenceModifier.setValue(String.valueOf(-2));
     }
-    else if(sheetCharacter.getAbilities()[3] == 8 || sheetCharacter.getAbilities()[3] == 9)
+    else if (sheetCharacter.getAbilities()[3] == 8
+        || sheetCharacter.getAbilities()[3] == 9)
     {
       intelligenceModifier.setValue(String.valueOf(-1));
     }
 
     //wisdom
 
-
-    if(sheetCharacter.getAbilities()[4] == 10 ||sheetCharacter.getAbilities()[4] == 11)
+    if (sheetCharacter.getAbilities()[4] == 10
+        || sheetCharacter.getAbilities()[4] == 11)
     {
       wisdomModifier.setValue(String.valueOf(0));
     }
-    else if(sheetCharacter.getAbilities()[4] == 12 ||sheetCharacter.getAbilities()[4] == 13)
+    else if (sheetCharacter.getAbilities()[4] == 12
+        || sheetCharacter.getAbilities()[4] == 13)
     {
       wisdomModifier.setValue(String.valueOf(1));
     }
-    else if(sheetCharacter.getAbilities()[4] == 14 ||sheetCharacter.getAbilities()[4] == 15)
+    else if (sheetCharacter.getAbilities()[4] == 14
+        || sheetCharacter.getAbilities()[4] == 15)
     {
       wisdomModifier.setValue(String.valueOf(2));
     }
-    else if(sheetCharacter.getAbilities()[4] == 16||sheetCharacter.getAbilities()[4] == 17)
+    else if (sheetCharacter.getAbilities()[4] == 16
+        || sheetCharacter.getAbilities()[4] == 17)
     {
       wisdomModifier.setValue(String.valueOf(3));
     }
-    else if(sheetCharacter.getAbilities()[4] == 18 ||sheetCharacter.getAbilities()[4] == 19)
+    else if (sheetCharacter.getAbilities()[4] == 18
+        || sheetCharacter.getAbilities()[4] == 19)
     {
       wisdomModifier.setValue(String.valueOf(4));
     }
-    else if(sheetCharacter.getAbilities()[4] == 20 || sheetCharacter.getAbilities()[4] == 21)
+    else if (sheetCharacter.getAbilities()[4] == 20
+        || sheetCharacter.getAbilities()[4] == 21)
     {
       wisdomModifier.setValue(String.valueOf(5));
     }
-    else if(sheetCharacter.getAbilities()[4] == 22 || sheetCharacter.getAbilities()[4] == 23)
+    else if (sheetCharacter.getAbilities()[4] == 22
+        || sheetCharacter.getAbilities()[4] == 23)
     {
       wisdomModifier.setValue(String.valueOf(6));
     }
-    else if(sheetCharacter.getAbilities()[4] == 24)
+    else if (sheetCharacter.getAbilities()[4] == 24)
     {
       wisdomModifier.setValue(String.valueOf(7));
     }
-    else if(sheetCharacter.getAbilities()[4] == 1)
+    else if (sheetCharacter.getAbilities()[4] == 1)
     {
       wisdomModifier.setValue(String.valueOf(-5));
     }
-    else if(sheetCharacter.getAbilities()[4] == 2||sheetCharacter.getAbilities()[4] == 3)
+    else if (sheetCharacter.getAbilities()[4] == 2
+        || sheetCharacter.getAbilities()[4] == 3)
     {
       wisdomModifier.setValue(String.valueOf(-4));
     }
-    else if(sheetCharacter.getAbilities()[4] == 4 ||sheetCharacter.getAbilities()[4] == 5)
+    else if (sheetCharacter.getAbilities()[4] == 4
+        || sheetCharacter.getAbilities()[4] == 5)
     {
       wisdomModifier.setValue(String.valueOf(-3));
     }
-    else if(sheetCharacter.getAbilities()[4] == 6 || sheetCharacter.getAbilities()[4] == 7)
+    else if (sheetCharacter.getAbilities()[4] == 6
+        || sheetCharacter.getAbilities()[4] == 7)
     {
       wisdomModifier.setValue(String.valueOf(-2));
     }
-    else if(sheetCharacter.getAbilities()[4] == 8 || sheetCharacter.getAbilities()[4] == 9)
+    else if (sheetCharacter.getAbilities()[4] == 8
+        || sheetCharacter.getAbilities()[4] == 9)
     {
       wisdomModifier.setValue(String.valueOf(-1));
     }
 
     //charisma
 
-
-    if(sheetCharacter.getAbilities()[5] == 10 ||sheetCharacter.getAbilities()[5] == 11)
+    if (sheetCharacter.getAbilities()[5] == 10
+        || sheetCharacter.getAbilities()[5] == 11)
     {
       charismaModifier.setValue(String.valueOf(0));
     }
-    else if(sheetCharacter.getAbilities()[5] == 12 ||sheetCharacter.getAbilities()[5] == 13)
+    else if (sheetCharacter.getAbilities()[5] == 12
+        || sheetCharacter.getAbilities()[5] == 13)
     {
       charismaModifier.setValue(String.valueOf(1));
     }
-    else if(sheetCharacter.getAbilities()[5] == 14 ||sheetCharacter.getAbilities()[5] == 15)
+    else if (sheetCharacter.getAbilities()[5] == 14
+        || sheetCharacter.getAbilities()[5] == 15)
     {
       charismaModifier.setValue(String.valueOf(2));
     }
-    else if(sheetCharacter.getAbilities()[5] == 16||sheetCharacter.getAbilities()[5] == 17)
+    else if (sheetCharacter.getAbilities()[5] == 16
+        || sheetCharacter.getAbilities()[5] == 17)
     {
       charismaModifier.setValue(String.valueOf(3));
     }
-    else if(sheetCharacter.getAbilities()[5] == 18 ||sheetCharacter.getAbilities()[5] == 19)
+    else if (sheetCharacter.getAbilities()[5] == 18
+        || sheetCharacter.getAbilities()[5] == 19)
     {
       charismaModifier.setValue(String.valueOf(4));
     }
-    else if(sheetCharacter.getAbilities()[5] == 20 || sheetCharacter.getAbilities()[5] == 21)
+    else if (sheetCharacter.getAbilities()[5] == 20
+        || sheetCharacter.getAbilities()[5] == 21)
     {
       charismaModifier.setValue(String.valueOf(5));
     }
-    else if(sheetCharacter.getAbilities()[5] == 22 || sheetCharacter.getAbilities()[5] == 23)
+    else if (sheetCharacter.getAbilities()[5] == 22
+        || sheetCharacter.getAbilities()[5] == 23)
     {
       charismaModifier.setValue(String.valueOf(6));
     }
-    else if(sheetCharacter.getAbilities()[5] == 24)
+    else if (sheetCharacter.getAbilities()[5] == 24)
     {
       charismaModifier.setValue(String.valueOf(7));
     }
-    else if(sheetCharacter.getAbilities()[5] == 1)
+    else if (sheetCharacter.getAbilities()[5] == 1)
     {
       charismaModifier.setValue(String.valueOf(-5));
     }
-    else if(sheetCharacter.getAbilities()[5] == 2||sheetCharacter.getAbilities()[5] == 3)
+    else if (sheetCharacter.getAbilities()[5] == 2
+        || sheetCharacter.getAbilities()[5] == 3)
     {
       charismaModifier.setValue(String.valueOf(-4));
     }
-    else if(sheetCharacter.getAbilities()[5] == 4 ||sheetCharacter.getAbilities()[5] == 5)
+    else if (sheetCharacter.getAbilities()[5] == 4
+        || sheetCharacter.getAbilities()[5] == 5)
     {
       charismaModifier.setValue(String.valueOf(-3));
     }
-    else if(sheetCharacter.getAbilities()[5] == 6 || sheetCharacter.getAbilities()[5] == 7)
+    else if (sheetCharacter.getAbilities()[5] == 6
+        || sheetCharacter.getAbilities()[5] == 7)
     {
       charismaModifier.setValue(String.valueOf(-2));
     }
-    else if(sheetCharacter.getAbilities()[5] == 8 || sheetCharacter.getAbilities()[5] == 9)
+    else if (sheetCharacter.getAbilities()[5] == 8
+        || sheetCharacter.getAbilities()[5] == 9)
     {
       charismaModifier.setValue(String.valueOf(-1));
     }
 
     //proficiency bonus
 
-    if(sheetCharacter.getLevel() <= 4)
+    if (sheetCharacter.getLevel() <= 4)
     {
       proficiencyBonus.setValue(String.valueOf(2));
     }
-    else if(sheetCharacter.getLevel() <= 8)
+    else if (sheetCharacter.getLevel() <= 8)
     {
       proficiencyBonus.setValue(String.valueOf(3));
     }
-    else if(sheetCharacter.getLevel() <= 12)
+    else if (sheetCharacter.getLevel() <= 12)
     {
       proficiencyBonus.setValue(String.valueOf(4));
     }
-    else if(sheetCharacter.getLevel() <= 16)
+    else if (sheetCharacter.getLevel() <= 16)
     {
       proficiencyBonus.setValue(String.valueOf(5));
     }
@@ -479,7 +535,7 @@ public class CharacterSheetViewModel
     characterRace.setValue(sheetCharacter.getRace().getName());
     characterLevel.setValue(String.valueOf(sheetCharacter.getLevel()));
     String classes = "";
-    if(sheetCharacter.getCharacterClass().size() == 1)
+    if (sheetCharacter.getCharacterClass().size() == 1)
     {
       classes = sheetCharacter.getCharacterClass().get(0).getClassName();
     }
@@ -488,7 +544,7 @@ public class CharacterSheetViewModel
       for (int i = 0; i < sheetCharacter.getCharacterClass().size(); i++)
       {
         classes += sheetCharacter.getCharacterClass().get(i).getClassName();
-        if(i != sheetCharacter.getCharacterClass().size() -1)
+        if (i != sheetCharacter.getCharacterClass().size() - 1)
         {
           classes += ", ";
         }
@@ -497,17 +553,24 @@ public class CharacterSheetViewModel
     characterClass.setValue(classes);
     int maxHP = calculateMaxHP();
     characterHPMax.setValue(String.valueOf(maxHP));
+    xpCount.setValue(String.valueOf(sheetCharacter.getXp()));
+    if (sheetCharacter.getRace().getTraits().contains("25 feet"))
+    {
+      speed.setValue(String.valueOf(25));
+    }
+    else speed.setValue(String.valueOf(30));
   }
 
   private int calculateMaxHP()
   {
     int i = 0;
-    for (CharacterClass c: sheetCharacter.getCharacterClass())
+    for (CharacterClass c : sheetCharacter.getCharacterClass())
     {
       //add level 1 base HP
       i += c.getHitDiceType();
     }
-    i += (Integer.parseInt(constitutionModifier.getValue()) * sheetCharacter.getLevel());
+    i += (Integer.parseInt(constitutionModifier.getValue()) * sheetCharacter
+        .getLevel());
     i += sheetCharacter.getRolledHp();
     return i;
   }
@@ -528,91 +591,146 @@ public class CharacterSheetViewModel
       {
         if (p.getName().toLowerCase().contains(a.getName().toLowerCase()))
         {
-          if(a.getName().toLowerCase().equals("strength"))
+          if (a.getName().toLowerCase().equals("strength"))
           {
-            double strSave = Integer.parseInt(String.valueOf(strengthModifier)) + (Integer.parseInt(String.valueOf(proficiencyBonus)) * p.getMod());
+            double strSave =
+                Integer.parseInt(String.valueOf(strengthModifier)) + (
+                    Integer.parseInt(String.valueOf(proficiencyBonus)) * p
+                        .getMod());
             strengthSavingThrow.setValue(String.valueOf(strSave));
           }
-          else if(a.getName().toLowerCase().equals("dexterity"))
+          else if (a.getName().toLowerCase().equals("dexterity"))
           {
-            double dexSave = Integer.parseInt(String.valueOf(strengthModifier)) + (Integer.parseInt(String.valueOf(proficiencyBonus)) * p.getMod());
+            double dexSave =
+                Integer.parseInt(String.valueOf(strengthModifier)) + (
+                    Integer.parseInt(String.valueOf(proficiencyBonus)) * p
+                        .getMod());
             strengthSavingThrow.setValue(String.valueOf(dexSave));
           }
-          else if(a.getName().toLowerCase().equals("constitution"))
+          else if (a.getName().toLowerCase().equals("constitution"))
           {
-            double conSave = Integer.parseInt(String.valueOf(strengthModifier)) + (Integer.parseInt(String.valueOf(proficiencyBonus)) * p.getMod());
+            double conSave =
+                Integer.parseInt(String.valueOf(strengthModifier)) + (
+                    Integer.parseInt(String.valueOf(proficiencyBonus)) * p
+                        .getMod());
             strengthSavingThrow.setValue(String.valueOf(conSave));
           }
-          else if(a.getName().toLowerCase().equals("intelligence"))
+          else if (a.getName().toLowerCase().equals("intelligence"))
           {
-            double intSave = Integer.parseInt(String.valueOf(strengthModifier)) + (Integer.parseInt(String.valueOf(proficiencyBonus)) * p.getMod());
+            double intSave =
+                Integer.parseInt(String.valueOf(strengthModifier)) + (
+                    Integer.parseInt(String.valueOf(proficiencyBonus)) * p
+                        .getMod());
             strengthSavingThrow.setValue(String.valueOf(intSave));
           }
-          else if(a.getName().toLowerCase().equals("wisdom"))
+          else if (a.getName().toLowerCase().equals("wisdom"))
           {
-            double wisSave = Integer.parseInt(String.valueOf(strengthModifier)) + (Integer.parseInt(String.valueOf(proficiencyBonus)) * p.getMod());
+            double wisSave =
+                Integer.parseInt(String.valueOf(strengthModifier)) + (
+                    Integer.parseInt(String.valueOf(proficiencyBonus)) * p
+                        .getMod());
             strengthSavingThrow.setValue(String.valueOf(wisSave));
           }
-          else if(a.getName().toLowerCase().equals("charisma"))
+          else if (a.getName().toLowerCase().equals("charisma"))
           {
-            double chaSave = Integer.parseInt(String.valueOf(strengthModifier)) + (Integer.parseInt(String.valueOf(proficiencyBonus)) * p.getMod());
+            double chaSave =
+                Integer.parseInt(String.valueOf(strengthModifier)) + (
+                    Integer.parseInt(String.valueOf(proficiencyBonus)) * p
+                        .getMod());
             strengthSavingThrow.setValue(String.valueOf(chaSave));
           }
         }
       }
-      for (Item i : sheetCharacter.getEquipmentList())
+      if (p.getName().toLowerCase().contains("weapon"))
       {
-        if (p.getName().toLowerCase().contains("weapon"))
+        for (Item i : sheetCharacter.getEquipmentList())
         {
           if (p.getName().toLowerCase().contains("martial"))
           {
-            if (i.getGameItem() instanceof EquipmentWeapon)
+            if (i.getGameItem() instanceof EquipmentWeapon && i.isEquipped()
+                && ((EquipmentWeapon) i.getGameItem()).getWeaponType()
+                .toLowerCase().contains("martial"))
             {
-
+              //show
             }
           }
           else if (p.getName().toLowerCase().contains("simple"))
           {
-
+            if (i.getGameItem() instanceof EquipmentWeapon && i.isEquipped()
+                && ((EquipmentWeapon) i.getGameItem()).getWeaponType()
+                .toLowerCase().contains("simple"))
+            {
+              //show
+            }
           }
-          else
+          else //all others are all weapons (individual weapons are identified by name)
           {
-
+            if (i.getGameItem() instanceof EquipmentWeapon && i.isEquipped())
+            {
+              //show
+            }
           }
         }
       }
-      if (p.getType().toLowerCase().contains("armor"))
+      if (p.getName().toLowerCase().contains("armor"))
       {
-        if(p.getName().toLowerCase().contains("all"))
+        for (Item i : sheetCharacter.getEquipmentList())
         {
-
-        }
-        else if(p.getName().contains("light"))
-        {
-
-        }
-        else if (p.getName().contains("medium"))
-        {
-
-        }
-        else if(p.getName().contains("heavy"))
-        {
-
+          if (p.getName().toLowerCase().contains("all"))
+          {
+            if (i.getGameItem() instanceof EquipmentArmor && i.isEquipped())
+            {
+              //show
+            }
+          }
+          else if (p.getName().contains("light"))
+          {
+            if (i.getGameItem() instanceof EquipmentArmor && i.isEquipped()
+                && ((EquipmentArmor) i.getGameItem()).getDexMod().toLowerCase()
+                .equals("full"))
+            {
+              //show
+            }
+          }
+          else if (p.getName().contains("medium"))
+          {
+            if (i.getGameItem() instanceof EquipmentArmor && i.isEquipped()
+                && ((EquipmentArmor) i.getGameItem()).getDexMod().toLowerCase()
+                .equals("limited"))
+            {
+              //show
+            }
+          }
+          else if (p.getName().contains("heavy"))
+          {
+            if (i.getGameItem() instanceof EquipmentArmor && i.isEquipped()
+                && ((EquipmentArmor) i.getGameItem()).getDexMod().toLowerCase()
+                .equals("none"))
+            {
+              //show
+            }
+          }
         }
       }
-      else if(p.getType().toLowerCase().contains("shield"))
+      else if (p.getType().toLowerCase().contains("shield"))
+      {
+        for(Item i : sheetCharacter.getEquipmentList())
+        {
+          if(i.getGameItem().getName().toLowerCase().equals("shield") && i.isEquipped())
+          {
+            //show prof
+          }
+        }
+      }
+      else if (p.getType().toLowerCase().contains("language"))
+      {
+        //display in prof bar
+      }
+      else if (p.getType().toLowerCase().contains("cantrip"))
       {
 
       }
-      else if(p.getType().toLowerCase().contains("language"))
-      {
-
-      }
-      else if(p.getType().toLowerCase().contains("cantrip"))
-      {
-        //add a cantrip
-      }
-      else if(p.getType().toLowerCase().contains("spell"))
+      else if (p.getType().toLowerCase().contains("spell"))
       {
         //add a spell (1st-level), but not a spell slot
       }
