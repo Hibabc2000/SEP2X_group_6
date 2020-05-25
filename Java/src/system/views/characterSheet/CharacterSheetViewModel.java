@@ -640,6 +640,58 @@ public class CharacterSheetViewModel
           {
             deceptionModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(charismaModifier.toString())));
           }
+          else if (s.getName().equals("History"))
+          {
+            historyModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(intelligenceModifier.toString())));
+          }
+          else if (s.getName().equals("Insight"))
+          {
+            insightModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(wisdomModifier.toString())));
+          }
+          else if (s.getName().equals("Intimidation"))
+          {
+            intimidationModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(charismaModifier.toString())));
+          }
+          else if (s.getName().equals("Investigation"))
+          {
+            investigationModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(intelligenceModifier.toString())));
+          }
+          else if (s.getName().equals("Medicine"))
+          {
+            medicineModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(wisdomModifier.toString())));
+          }
+          else if (s.getName().equals("Nature"))
+          {
+            natureModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(intelligenceModifier.toString())));
+          }
+          else if (s.getName().equals("Perception"))
+          {
+            perceptionModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(wisdomModifier.toString())));
+          }
+          else if (s.getName().equals("Performance"))
+          {
+            performanceModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(charismaModifier.toString())));
+          }
+          else if (s.getName().equals("Persuasion"))
+          {
+            persuasionModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(charismaModifier.toString())));
+          }
+          else if (s.getName().equals("Religion"))
+          {
+            religionModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(intelligenceModifier.toString())));
+          }
+          else if (s.getName().equals("Sleight of Hand"))
+          {
+            sleightOfHandModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(dexterityModifier.toString())));
+          }
+          else if (s.getName().equals("Stealth"))
+          {
+            stealthModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(dexterityModifier.toString())));
+          }
+          else if (s.getName().equals("Survival"))
+          {
+            survivalModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(wisdomModifier.toString())));
+          }
         }
       }
       for (Ability a : staticModel.getAbilities())
@@ -783,11 +835,13 @@ public class CharacterSheetViewModel
       }
       else if (p.getType().toLowerCase().contains("cantrip"))
       {
-
+        //add cantrip
       }
       else if (p.getType().toLowerCase().contains("spell"))
       {
-        //add a spell (1st-level), but not a spell slot
+        int spells = Integer.parseInt(knownSpellAmount.toString());
+        spells++;
+        knownSpellAmount.setValue(String.valueOf(spells));
       }
       else
       {
