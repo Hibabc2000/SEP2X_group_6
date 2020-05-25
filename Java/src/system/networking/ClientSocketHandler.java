@@ -121,6 +121,24 @@ public class ClientSocketHandler implements Runnable
 
             break;
           }
+          // implement it in model class and vm,etc
+          case START_GAME_PLAYER:
+          {Platform.runLater(() -> {
+            socketClient.gameBeginsPlayer(inDataPack);
+          });
+
+            break;
+
+          }
+          // implement it in model class and vm,etc
+          case START_GAME_DM:
+          {Platform.runLater(() -> {
+            socketClient.gameBeginsDM(inDataPack);
+          });
+
+            break;
+
+          }
         }
 
       }
@@ -272,5 +290,13 @@ public class ClientSocketHandler implements Runnable
     Container outDataPack = new Container(objs, ClassName.CREATE_ACCOUNT);
     outToServer.writeObject(outDataPack);
 
+  }
+
+  public void startGame(Group groupToPlayWith) throws IOException
+  {
+    ArrayList<Object> objs = new ArrayList<>();
+    objs.add(groupToPlayWith);
+    Container outDataPack = new Container(objs,ClassName.START_GAME);
+    outToServer.writeObject(outDataPack);
   }
 }

@@ -121,6 +121,19 @@ public class SocketClient implements Client
 
   }
 
+  @Override public void startGame(Group groupToPlayWith)
+  {
+    try
+      {
+        socketHandler.startGame(groupToPlayWith);
+      }
+      catch (IOException e)
+      {
+        e.printStackTrace();
+      }
+
+  }
+
   /**
    * Sends the username and password to the Socket Handler
    *
@@ -244,5 +257,14 @@ public class SocketClient implements Client
   public void answerToEmailChange(Container inDatPack)
   {
     support.firePropertyChange("answerToEmailChange",null,inDatPack);
+  }
+
+  public void gameBeginsPlayer(Container inDataPack)
+  {
+    support.firePropertyChange("startGameAsPlayer",null,inDataPack);
+  }
+  public void gameBeginsDM(Container inDataPack)
+  {
+    support.firePropertyChange("startGameAsDM",null,inDataPack);
   }
 }

@@ -90,10 +90,7 @@ public class DMAccountViewModel implements Subject
     error.setValue(temp);
   }
 
-  public void joinGroupAsDM()
-  {
 
-  }
 
   @Override public void addListener(String eventName,
       PropertyChangeListener listener)
@@ -105,5 +102,13 @@ public class DMAccountViewModel implements Subject
       PropertyChangeListener listener)
   {
 
+  }
+
+  public void startGame(String group)
+  {
+    if(group.equals("")) {error.setValue("Choose a group to start the game with.");}
+    else
+    model.startGame(group);
+    error.setValue("Connecting...");
   }
 }

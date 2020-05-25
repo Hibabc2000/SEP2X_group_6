@@ -25,4 +25,5 @@ public interface AccountModel extends Subject
   String checkEmailChangeInformation(String value, String value1, String value2);
   String getUsername();
   Account getAccount();
+  void startGame(String group);
 }

@@ -32,7 +32,16 @@ public class DMAccountController
 
   public void joinGroupAsDM()
   {
-    dmAccountViewModel.joinGroupAsDM();
+    if(groupListDM.getSelectionModel().getSelectedItems().isEmpty()){
+      dmAccountViewModel.startGame("");
+    }else
+    {
+      String group =  groupListDM.getSelectionModel().getSelectedItems().get(0);
+      dmAccountViewModel.startGame(group);
+      vh.openDMCharacterChoosingPage();
+    }
+
+
   }
 
   public void backToAccount()

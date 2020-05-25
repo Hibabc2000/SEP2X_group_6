@@ -8,6 +8,7 @@ import system.transferobjects.ClassName;
 import system.transferobjects.Container;
 import system.transferobjects.login.Account;
 import system.transferobjects.login.Group;
+import system.transferobjects.login.Player;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -310,6 +311,50 @@ public class ServerSocketHandler implements Runnable
             Account user = (Account) (m.get(0));
 
             break;
+
+          }
+
+          case START_GAME:
+          {
+            ArrayList<Object> m =(ArrayList<Object>)inDataPack.getObject();
+            Group groupToStartGameWith = (Group)m.get(0);
+            // here I go throught the players who are part of this group AND Online and put them in an arraylist
+           ArrayList<Player> playersOnline =  pool.selectTheOnesThatAreOnlineInThePool(groupToStartGameWith);
+
+
+            boolean doIhaveACharacter = false;
+
+
+           for(int i=0;i<playersOnline.size();i++)
+           {// here If the player doesnt have a charID, then we will send him a boolean "false" so the client will know that means
+             // we have to create a character.
+             if(playersOnline.get(i).getCharacterID()==null)
+             {  ArrayList<Object> objs = new ArrayList<>();
+             doIhaveACharacter = false;
+               objs.add(doIhaveACharacter);
+               Container data = new Container(objs,ClassName.START_GAME_PLAYER);
+               pool.sendDataToUser(playersOnline.get(i).getName(),data);
+             }
+             // here if the player has a charID then we actually get back the character from the dbs, and send that back to him
+             else if(playersOnline.get(i).getCharacterID()!=null)
+             { doIhaveACharacter =true;
+               ArrayList<Object> objs = new ArrayList<>();
+               Character characterFromDBS =  loch.loadCharacter(playersOnline.get(i).getCharacterID());
+               Player playerWithChar = playersOnline.get(i);
+               playerWithChar.setCharacter(characterFromDBS);
+               objs.add(doIhaveACharacter);
+               objs.add(playerWithChar);
+               Container data = new Container(objs,ClassName.START_GAME_PLAYER);
+               pool.sendDataToUser(playersOnline.get(i).getName(),data);
+               // data to DM
+               playersOnline.get(i).setCharacter(characterFromDBS);
+             }
+           }
+           // after the loop is done an all the players have been updated with characters, then we send this arraylist back to the DM.
+            ArrayList<Object> objs = new ArrayList<>();
+           objs.add(playersOnline);
+            Container playerAndCharacterDataForDM = new Container(objs,ClassName.START_GAME_DM);
+            sendBackData(playerAndCharacterDataForDM);
 
           }
           case CREATE_CHARACTER:

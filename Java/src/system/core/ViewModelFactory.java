@@ -2,6 +2,7 @@ package system.core;
 
 import system.views.characterCreation.CharacterCreationViewModel;
 import system.views.characterSheet.CharacterSheetViewModel;
+import system.views.dmCharacterSheetChoosing.DMCharacterSheetChoosingViewModel;
 import system.views.login.account.AccountViewModel;
 import system.views.login.changeEmail.ChangeEmailViewModel;
 import system.views.login.changePassword.ChangePasswordViewModel;
@@ -24,6 +25,7 @@ public class ViewModelFactory
   private PlayerAccountViewModel playerAccountViewModel;
   private ChangePasswordViewModel changePasswordViewModel;
   private ChangeEmailViewModel changeEmailViewModel;
+  private DMCharacterSheetChoosingViewModel dmcscv;
 
   //  characterSheet
   private CharacterSheetViewModel characterSheetViewModel;
@@ -50,6 +52,7 @@ public class ViewModelFactory
     changePasswordViewModel = new ChangePasswordViewModel(
         model.getAccountModel());
     changeEmailViewModel = new ChangeEmailViewModel(model.getAccountModel());
+    dmcscv = new DMCharacterSheetChoosingViewModel(model.getAccountModel());
 
   }
 
@@ -65,6 +68,14 @@ public class ViewModelFactory
       accountModel = new AccountViewModel(model.getAccountModel());
     }
     return accountModel;
+  }
+  public DMCharacterSheetChoosingViewModel getDMStartGameVM()
+  {
+    if (dmcscv == null)
+    {
+      dmcscv = new DMCharacterSheetChoosingViewModel(model.getAccountModel());
+    }
+    return dmcscv;
   }
 
   /**

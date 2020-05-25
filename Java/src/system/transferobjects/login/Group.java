@@ -50,7 +50,7 @@ public class Group implements Serializable
     return temp;
   }
 
-  public void addPlayer(
+    public void addPlayer(
       Player player)               // adds a player to the group
   {
     players.add(player);

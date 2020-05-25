@@ -20,6 +20,10 @@ public class Player implements User
   {
 
   }
+  public void setCharacter(Character ch)
+  {
+    character = ch;
+  }
   public void addCharacterID(Integer i)
   {
     characterID = i;

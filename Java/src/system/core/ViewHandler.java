@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import system.views.dmCharacterSheetChoosing.DmCharacterChoosingPageController;
 import system.views.login.account.AccountController;
 import system.views.login.changeEmail.ChangeEmailController;
 import system.views.login.changePassword.ChangePasswordController;
@@ -28,6 +29,7 @@ public class ViewHandler
   private Scene passwordChange;
   private Scene emailChange;
   private Scene characterSheet;
+  private Scene dmStartGamePage;
   private Stage stage;
 
   private Stage stage2;
@@ -204,6 +206,25 @@ public class ViewHandler
     stage.setScene(createAccount);
     stage.show();
   }
+
+  public void openDMCharacterChoosingPage()
+  {
+    FXMLLoader loader = new FXMLLoader();
+    if (dmStartGamePage == null)
+    {
+      Parent root = getRootByPath(
+          "../views/dmCharacterSheetChoosing/dmCharacterChoosingPage.fxml", loader);
+      DmCharacterChoosingPageController dccpc = loader.getController();
+      dccpc.init(vmf.getDMStartGameVM(), this);
+      dmStartGamePage = new Scene(root);
+
+    }
+
+    stage.setTitle("DnDAS");
+    stage.setScene(dmStartGamePage);
+    stage.show();
+  }
+
 
   /**
    * If the scene(openPasswordRecovery) is null, the method will find the FXML file by the given root

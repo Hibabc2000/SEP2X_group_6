@@ -295,8 +295,6 @@ public class AccountModelImpl implements AccountModel
 
         temp = "You have been added to the group";
 
-        //support.firePropertyChange("PlayerAddedToGroup", oldGroup,
-        //usersAccount.getPlayer());
         tempGroups.get(i).addPlayer(usersAccount.getPlayer());
         client.joinGroupAsAPlayer(usersAccount, tempGroups.get(i));
         System.out.println("MÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓ");
@@ -543,6 +541,22 @@ public class AccountModelImpl implements AccountModel
   @Override public Account getAccount()
   {
     return usersAccount;
+  }
+
+  @Override public void startGame(String group)
+  {
+    for (int i = 0; i < tempGroups.size(); i++)
+    {
+      if (groupsForDm.get(i).toString().equals(group))
+      {
+        Group groupToPlayWith = tempGroups.get(i);
+
+        client.startGame(groupToPlayWith);
+        break;
+      }
+
+
+    }
   }
 
   public ArrayList<Account> getTempAccounts()
