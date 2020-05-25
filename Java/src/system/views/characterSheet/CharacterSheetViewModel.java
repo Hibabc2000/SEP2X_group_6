@@ -60,6 +60,7 @@ public class CharacterSheetViewModel
   private StringProperty passiveWisdom;
   private StringProperty speed;
   private StringProperty armorClass;
+  private int armorClassInt;
   private StringProperty knownSpellAmount;
   private StringProperty preparedSpellAmount;
   private StringProperty addItemSelectedItemName;
@@ -554,11 +555,46 @@ public class CharacterSheetViewModel
     int maxHP = calculateMaxHP();
     characterHPMax.setValue(String.valueOf(maxHP));
     xpCount.setValue(String.valueOf(sheetCharacter.getXp()));
+
+
+    //speed difference based on race
+
+
     if (sheetCharacter.getRace().getTraits().contains("25 feet"))
     {
       speed.setValue(String.valueOf(25));
     }
     else speed.setValue(String.valueOf(30));
+
+
+    //armor class calculation
+
+
+    for(Item i : sheetCharacter.getEquipmentList())
+    {
+      if(i.isEquipped() && i.getGameItem() instanceof EquipmentArmor)
+      {
+        armorClassInt = ((EquipmentArmor) i.getGameItem()).getArmorClass();
+        if(((EquipmentArmor) i.getGameItem()).getDexMod().equals("full"))
+        {
+          armorClassInt += Integer.parseInt(dexterityModifier.getValue());
+        }
+        else if(((EquipmentArmor) i.getGameItem()).getDexMod().equals("limited"))
+        {
+          int temp = Integer.parseInt(dexterityModifier.getValue());
+          if(temp <= 2)
+          {
+            armorClassInt += temp;
+          }
+          else armorClassInt += 2;
+        }
+      }
+      else if(i.isEquipped() && i.getGameItem().getName().toLowerCase().equals("shield"))
+      {
+        armorClassInt += 2;
+      }
+    }
+    armorClass.setValue(String.valueOf(armorClassInt));
   }
 
   private int calculateMaxHP()
@@ -584,7 +620,26 @@ public class CharacterSheetViewModel
       {
         if (p.getName().toLowerCase().contains(s.getName().toLowerCase()))
         {
-
+          if (s.getName().equals("Acrobatics"))
+          {
+            acrobaticsModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(dexterityModifier.toString())));
+          }
+          else if (s.getName().equals("Animal Handling"))
+          {
+            animalHandlingModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(wisdomModifier.toString())));
+          }
+          else if (s.getName().equals("Arcana"))
+          {
+            arcanaModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(intelligenceModifier.toString())));
+          }
+          else if (s.getName().equals("Athletics"))
+          {
+            athleticsModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(strengthModifier.toString())));
+          }
+          else if (s.getName().equals("Deception"))
+          {
+            deceptionModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(charismaModifier.toString())));
+          }
         }
       }
       for (Ability a : staticModel.getAbilities())
