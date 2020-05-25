@@ -6,10 +6,10 @@ public class EquipmentWeapon extends Equipment
   private String properties;
   private String weaponType;
 
-  public EquipmentWeapon(String name, String desc, double weight, double price, String damage, String properties,
+  public EquipmentWeapon(Equipment equipment, String damage, String properties,
       String weaponType)
   {
-    super(name, desc, weight, price);
+    super(equipment);
     this.damage = damage;
     this.properties = properties;
     this.weaponType = weaponType;
