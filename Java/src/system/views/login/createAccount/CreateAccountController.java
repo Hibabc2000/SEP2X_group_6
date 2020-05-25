@@ -67,7 +67,6 @@ public class CreateAccountController
    */
   private void createAccountReally(PropertyChangeEvent propertyChangeEvent)
   {
-
     if (propertyChangeEvent.getNewValue().equals("Ready"))
     {
       System.out.println("opening account");

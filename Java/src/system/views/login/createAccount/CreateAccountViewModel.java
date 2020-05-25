@@ -38,6 +38,7 @@ public class CreateAccountViewModel implements Subject
     password2.setValue("");
     email.setValue("");
     model.addListener("createAccount", this::accountCreationInfo);
+
   }
 
   /**

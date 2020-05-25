@@ -16,26 +16,28 @@ public class PlayerAccountViewModel
   private StringProperty searchGroup;
   private StringProperty error;
   private ObservableList<String> groupList;
+
   public PlayerAccountViewModel(AccountModel accountModel)
   {
     model = accountModel;
     searchGroup = new SimpleStringProperty();
     error = new SimpleStringProperty();
     groupList = FXCollections.observableArrayList();
-    model.addListener("GroupAdded",this::addToGroupList);
-    model.addListener("PlayerAddedToGroup",this::addPlayerToGroup);
-    model.addListener("searchFailed",this::searchFail);
-
+    model.addListener("GroupAdded", this::addToGroupList);
+    model.addListener("PlayerAddedToGroup", this::addPlayerToGroup);
+    model.addListener("searchFailed", this::searchFail);
 
   }
 
   private void addPlayerToGroup(PropertyChangeEvent propertyChangeEvent)
-  { ArrayList<Group> grps = (ArrayList<Group>) propertyChangeEvent.getNewValue();
+  {
+    ArrayList<Group> grps = (ArrayList<Group>) propertyChangeEvent
+        .getNewValue();
     groupList.clear();
-  for(int i=0; i<grps.size();i++)
+    for (int i = 0; i < grps.size(); i++)
     {
 
-      groupList.add(grps.get(i).toString()+ "\n");
+      groupList.add(grps.get(i).toString() + "\n");
     }
   }
 
@@ -66,54 +68,64 @@ public class PlayerAccountViewModel
 
   } */
 
-
-
-
-// this adds a new group to the group list.
+  // this adds a new group to the group list.
   private void addToGroupList(PropertyChangeEvent propertyChangeEvent)
-    {
-      groupList.add(((Group)propertyChangeEvent.getNewValue()).toString());
-      error.set("Group added to your group list");
-    }
-// this method creates the grouplist  when the scene is opened
+  {
+    groupList.add(((Group) propertyChangeEvent.getNewValue()).toString());
+    error.set("Group added to your group list");
+  }
+
+  // this method creates the grouplist  when the scene is opened
   // the getGroups method returns the groups the player already knows or is part of.
   // all of them are added to an arraylist<string> and that list is added to the observablelist and returned to the accountcontroller and view.
-    public ObservableList<String> getGroupList()
-  { ArrayList<String> groupsInString= new ArrayList<>();
+  public ObservableList<String> getGroupList()
+  {
+    ArrayList<String> groupsInString = new ArrayList<>();
     ArrayList<Group> temp = model.getGroups();
-    for (int i =0; i<temp.size();i++)
-    {groupsInString.add(temp.get(i).toString());
+    for (int i = 0; i < temp.size(); i++)
+    {
+      groupsInString.add(temp.get(i).toString());
 
     }
     groupList.addAll(groupsInString);
     return groupList;
   }
+
   public StringProperty getSearchGroupProperty()
   {
     return searchGroup;
   }
+
   public StringProperty getErrorProperty()
   {
     return error;
   }
 
-
   // I parse the group ID string into integer so I can work with it. + also a numberformatexception is needed.
   public void addGroup(String text)
-  {  try {
-    int temp = Integer.parseInt(text);error.setValue(model.searchGroup(temp));}
-    catch(NumberFormatException e)
+  {
+    try
     {
-       error.setValue("Incorrect ID");}
+      int temp = Integer.parseInt(text);
+      error.setValue(model.searchGroup(temp));
+    }
+    catch (NumberFormatException e)
+    {
+      error.setValue("Incorrect ID");
+    }
 
   }
-// if nothing was selected in view then it just shows an error.
+
+  // if nothing was selected in view then it just shows an error.
   // else it call a method on accoutmodel to join the group and also at the same time sets the error value because that method also gives back a string.
   public void joinGroupAsPlayer(String groupname)
-  {   if(groupname.equals("")) {error.setValue("Select a group from the list");}
-  else
-     error.setValue(model.joinGroupAsPlayer(groupname));
+  {
+    if (groupname.equals(""))
+    {
+      error.setValue("Select a group from the list");
+    }
+    else
+      error.setValue(model.joinGroupAsPlayer(groupname));
   }
-
 
 }

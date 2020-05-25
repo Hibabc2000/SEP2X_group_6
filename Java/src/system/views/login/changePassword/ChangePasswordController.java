@@ -9,7 +9,7 @@ import system.core.ViewHandler;
 public class ChangePasswordController
 {
   private ViewHandler vh;
-  private ChangePasswordViewModel cpvmodel;
+  private ChangePasswordViewModel changePasswordViewModel;
   @FXML private Label error;
   @FXML private TextField username;
   @FXML private PasswordField passwordOld;
@@ -25,16 +25,16 @@ public class ChangePasswordController
   public void init(ChangePasswordViewModel changePasswordViewModel, ViewHandler viewHandler)
   {
 
-    cpvmodel = changePasswordViewModel;
+    this.changePasswordViewModel = changePasswordViewModel;
     vh = viewHandler;
-    error.textProperty().bind(cpvmodel.getErrorProperty());
-    username.textProperty().bindBidirectional(cpvmodel.getUserNameProperty());
+    error.textProperty().bind(this.changePasswordViewModel.getErrorProperty());
+    username.textProperty().bindBidirectional(this.changePasswordViewModel.getUserNameProperty());
     passwordNew.textProperty()
-        .bindBidirectional(cpvmodel.getPasswordNewProperty());
+        .bindBidirectional(this.changePasswordViewModel.getPasswordNewProperty());
     passwordNewAgain.textProperty()
-        .bindBidirectional(cpvmodel.getPasswordNewAgainProperty());
+        .bindBidirectional(this.changePasswordViewModel.getPasswordNewAgainProperty());
     passwordOld.textProperty()
-        .bindBidirectional(cpvmodel.getPasswordOldProperty());
+        .bindBidirectional(this.changePasswordViewModel.getPasswordOldProperty());
   }
 
   /**
@@ -43,7 +43,7 @@ public class ChangePasswordController
   public void saveChanges()
   {
 
-    if (cpvmodel.checkPasswordChangeInformation().equals("Ready"))
+    if (changePasswordViewModel.checkPasswordChangeInformation().equals("Ready"))
     {
       vh.closeStage3();
     }

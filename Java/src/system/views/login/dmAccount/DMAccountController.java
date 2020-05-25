@@ -1,6 +1,5 @@
 package system.views.login.dmAccount;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -15,29 +14,28 @@ public class DMAccountController
   @FXML private TextField groupName;
   @FXML private Label errorMessageDM;
 
-  public void init(DMAccountViewModel dmavm, ViewHandler viewHandler)
+  public void init(DMAccountViewModel dmAccountViewModel, ViewHandler viewHandler)
   {
-    dmAccountViewModel = dmavm;
+    this.dmAccountViewModel = dmAccountViewModel;
     vh = viewHandler;
-    groupListDM.setItems(dmAccountViewModel.getGroupList());
+    groupListDM.setItems(this.dmAccountViewModel.getGroupList());
     errorMessageDM.textProperty()
-        .bind(dmAccountViewModel.getErrorProperty());
+        .bind(this.dmAccountViewModel.getErrorProperty());
     groupName.textProperty().bindBidirectional(
-        dmAccountViewModel.getTextFieldProperty());
-
+        this.dmAccountViewModel.getTextFieldProperty());
   }
 
-  public void createGroup(ActionEvent actionEvent)
+  public void createGroup()
   {
     dmAccountViewModel.createGroup();
   }
 
-  public void joinGroupAsDM(ActionEvent actionEvent)
+  public void joinGroupAsDM()
   {
     dmAccountViewModel.joinGroupAsDM();
   }
 
-  public void backToAccount(ActionEvent actionEvent)
+  public void backToAccount()
   {
     vh.openAccount();
   }

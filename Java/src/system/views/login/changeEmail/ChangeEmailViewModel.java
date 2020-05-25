@@ -104,13 +104,23 @@ public class ChangeEmailViewModel implements Subject
     username.setValue("");
     return temp;
   }
-
+  /**
+   * Adds the listener.
+   *
+   * @param eventName String containing the event name
+   * @param listener  source bean so as to be notified of any bound property updates.
+   */
   @Override public void addListener(String eventName,
       PropertyChangeListener listener)
   {
     support.addPropertyChangeListener(eventName, listener);
   }
-
+  /**
+   * Removes the listener.
+   *
+   * @param eventName String containing the event name
+   * @param listener  source bean so as to be notified of any bound property updates.
+   */
   @Override public void removeListener(String eventName,
       PropertyChangeListener listener)
   {

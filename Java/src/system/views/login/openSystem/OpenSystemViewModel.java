@@ -20,7 +20,7 @@ public class OpenSystemViewModel implements Subject
   /**
    * Initializes the class attributes, listens for updates from the model
    *
-   * @param accountModel
+   * @param accountModel model
    */
   public OpenSystemViewModel(AccountModel accountModel)
   {
@@ -110,6 +110,8 @@ public class OpenSystemViewModel implements Subject
   {
     return username;
   }
+
+
 
   /**
    * Gets the password StringProperty

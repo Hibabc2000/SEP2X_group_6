@@ -27,7 +27,8 @@ public class GetAllAccountData
       Class.forName("org.postgresql.Driver");
       c = DriverManager
           .getConnection("jdbc:postgresql://localhost:5432/SEP2", "postgres",
-              "almafast325");
+              "123456");
+//      almafast325
     }
     catch (SQLException | ClassNotFoundException e)
     {
