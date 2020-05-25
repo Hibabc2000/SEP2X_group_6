@@ -1,5 +1,5 @@
 package system.model.characterClasses;
 
-public class Barbarian
+public class Barbarian extends CharacterClass
 {
 }

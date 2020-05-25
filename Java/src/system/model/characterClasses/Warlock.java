@@ -1,5 +1,5 @@
 package system.model.characterClasses;
 
-public class Warlock
+public class Warlock extends CharacterClass
 {
 }

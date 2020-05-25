@@ -1,5 +1,5 @@
 package system.model.characterClasses;
 
-public class Bard
+public class Bard extends CharacterClass
 {
 }

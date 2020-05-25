@@ -1,7 +1,11 @@
 package system.model.businessModel;
 
-public abstract class Equipment
+public class Equipment //DO NOT INSTANTIATE UNLESS NECESSARY.
 {
+  /**
+   * Class for equipment. DO NOT INSTANTIATE.
+   * Use EquipmentWeapon, EquipmentArmor and EquipmentGeneral instead.
+   */
   private String name;
   private String description;
   private double weight;

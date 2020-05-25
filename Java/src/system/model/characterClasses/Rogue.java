@@ -1,5 +1,5 @@
 package system.model.characterClasses;
 
-public class Rogue
+public class Rogue extends CharacterClass
 {
 }

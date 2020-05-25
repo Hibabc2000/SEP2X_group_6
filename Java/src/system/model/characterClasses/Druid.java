@@ -1,5 +1,5 @@
 package system.model.characterClasses;
 
-public class Druid
+public class Druid extends CharacterClass
 {
 }

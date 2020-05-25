@@ -41,36 +41,41 @@ public class LoadCharacter
      */
     character = new Character(staticModel);
     try
-  {
-    Statement st = c.createStatement();
-    String query = "SELECT * FROM \"Characters\".\"Characters\" WHERE id = " + id + ";";
-    ResultSet rs = st.executeQuery(query);
-    while (rs.next())
     {
-      //call character set methods
+      Statement st = c.createStatement();
+      String query =
+          "SELECT * FROM \"Characters\".\"Characters\" WHERE id = " + id + ";";
+      ResultSet rs = st.executeQuery(query);
+      while (rs.next())
+      {
+        int[] abilityArray = (int[]) rs.getArray("abilities").getArray();
+        character.setAbilities(abilityArray);
+
+
+      }
     }
-  }
-  catch (SQLException e)
-  {
-    e.printStackTrace();
-  }
+    catch (SQLException e)
+    {
+      e.printStackTrace();
+    }
     return character;
   }
 
   public Integer getIDOfTheNewlyCreatedCharacter(int id, String username)
       throws SQLException
   {
-    Integer idOfTheCreatedCharacter=0;
+    int idOfTheCreatedCharacter = 0;
 
     Statement st = c.createStatement();
-    String query = "SELECT * FROM \"Characters\".\"Characters\" WHERE username = '" + username + "' AND \"groupID\" = "+ id   +    " ;";
-   ResultSet rs = st.executeQuery(query);
+    String query =
+        "SELECT * FROM \"Characters\".\"Characters\" WHERE username = '"
+            + username + "' AND \"groupID\" = " + id + " ;";
+    ResultSet rs = st.executeQuery(query);
 
-   while(rs.next())
-   { idOfTheCreatedCharacter = rs.getInt("id");
-
-
-   }
-   return idOfTheCreatedCharacter;
+    while (rs.next())
+    {
+      idOfTheCreatedCharacter = rs.getInt("id");
+    }
+    return idOfTheCreatedCharacter;
   }
 }

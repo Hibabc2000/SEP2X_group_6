@@ -1,5 +1,5 @@
 package system.model.characterClasses;
 
-public class Paladin
+public class Paladin extends CharacterClass
 {
 }

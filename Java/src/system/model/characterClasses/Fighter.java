@@ -1,5 +1,5 @@
 package system.model.characterClasses;
 
-public class Fighter
+public class Fighter extends CharacterClass
 {
 }

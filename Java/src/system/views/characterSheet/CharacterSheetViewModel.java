@@ -843,6 +843,7 @@ public class CharacterSheetViewModel
         spells++;
         knownSpellAmount.setValue(String.valueOf(spells));
       }
+
       else
       {
         //parse for individual weapons, if not, then just note prof in Features and Traits bar

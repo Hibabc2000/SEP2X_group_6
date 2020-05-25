@@ -1,5 +1,5 @@
 package system.model.characterClasses;
 
-public class Sorcerer
+public class Sorcerer extends CharacterClass
 {
 }
