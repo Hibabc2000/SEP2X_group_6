@@ -1,9 +1,14 @@
 package Database;
 
 import system.model.businessModel.Character;
+import system.model.businessModel.Feat;
+import system.model.businessModel.Item;
 import system.model.businessModel.staticModel.StaticModel;
+import system.model.characterClasses.Barbarian;
+import system.model.characterClasses.CharacterClass;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class LoadCharacter
 {
@@ -48,10 +53,43 @@ public class LoadCharacter
       ResultSet rs = st.executeQuery(query);
       while (rs.next())
       {
-        int[] abilityArray = (int[]) rs.getArray("abilities").getArray();
-        character.setAbilities(abilityArray);
-
-
+        character.setAbilities((int[]) rs.getArray("abilities").getArray());
+        character.setId(id);
+        ArrayList<String> classNames = (ArrayList<String>) rs.getArray("classes").getArray();
+        ArrayList<Integer> classLevels = (ArrayList<Integer>) rs.getArray("classLevels").getArray();
+        ArrayList<CharacterClass> classes = new ArrayList<>();
+        for(String s : classNames)
+        {
+          if(s.equals("Barbarian")) //make the rest of the classes
+          {
+            Barbarian barbarian = new Barbarian();
+            barbarian.setLevelInClass(classLevels.get(classNames.indexOf(s)));
+            classes.add(barbarian);
+          }
+        }
+        character.setCharacterClass(classes);
+        character.setAlignment(rs.getString("alignment"));
+        character.setBackground(rs.getString("backgroundName"));
+        character.setName(rs.getString("name"));
+        character.setLevel(rs.getInt("level"));
+        character.setXp(rs.getInt("XP"));
+        character.setRolledHp(rs.getInt("hitPointRolled"));
+        character.setFaith(rs.getString("faith"));
+        character.setPhysicalCharacteristics(rs.getString("physicalTraits"));
+        character.setMoney((int[]) rs.getArray("money").getArray());
+        character.setFeats((ArrayList<Feat>) rs.getArray("extraFeatNames").getArray());
+        character.setUsername(rs.getString("username"));
+        ArrayList<String> equipment_names = (ArrayList<String>) rs.getArray("equipment_names").getArray();
+        ArrayList<Integer> equipment_amounts = (ArrayList<Integer>) rs.getArray("eqiupment_amount").getArray(); //typo is in database
+        ArrayList<Item> items = new ArrayList<>();
+        ArrayList<String> treasures = new ArrayList<>();
+        for(String s : equipment_names)
+        {
+          //write equipment setter
+        }
+        character.setTreasures(treasures);
+        character.setEquipmentList(items);
+        character.setGroupID(rs.getInt("groupID"));
       }
     }
     catch (SQLException e)

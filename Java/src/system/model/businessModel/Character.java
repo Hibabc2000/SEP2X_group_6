@@ -35,6 +35,8 @@ public class Character
   private ArrayList<String> flaws;
   private boolean[][] spellSlots;
   private ArrayList<String> treasures;
+  private String username;
+  private int groupID;
   private StaticModel staticModel;
 
   public boolean equals(Object object)
@@ -387,13 +389,21 @@ public class Character
 
   public String getUsername()
   {
-    //write username getter
-    return "";
+    return username;
   }
 
-  public String getGroup()
+  public void setUsername(String username)
   {
-    //write groupname getter
-    return "";
+    this.username = username;
+  }
+
+  public int getGroup()
+  {
+    return groupID;
+  }
+
+  public void setGroupID(int groupID)
+  {
+    this.groupID = groupID;
   }
 }
