@@ -225,6 +225,10 @@ public class SocketClient implements Client
   {
     support.firePropertyChange("incomingCharacter",null,container);
   }
+  public void useReceivedStaticModelFromServer(Container container)
+  {
+    support.firePropertyChange("incomingStaticModel", null, container);
+  }
 
   @Override public void addListener(String eventName,
       PropertyChangeListener listener)

@@ -1,6 +1,7 @@
 package system.model.characterManagement;
 
 import system.model.businessModel.Character;
+import system.model.businessModel.staticModel.StaticModel;
 import system.networking.Client;
 import system.transferobjects.Container;
 import system.transferobjects.login.Account;
@@ -17,6 +18,7 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
   private Account account;
   private PropertyChangeSupport support;
   private Client client;
+  private StaticModel staticModel;
 
   public CharacterManagementModelImpl(Client client,Account account)
   {
@@ -25,6 +27,7 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
     characters = new ArrayList<>();
     support = new PropertyChangeSupport(this);
     client.addListener("incomingCharacter", this::setCharacter);
+    client.addListener("incomingStaticModel", this::setStaticModel);
   }
 
   /*
@@ -68,7 +71,15 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
       }
     }
   }
-
+  public void setStaticModel(PropertyChangeEvent propertyChangeEvent)
+  {
+    staticModel = (StaticModel)(StaticModel) ((Container) propertyChangeEvent
+        .getNewValue()).getObject();
+  }
+  @Override public StaticModel getStaticModel()
+  {
+    return staticModel;
+  }
   public void setCharacter(PropertyChangeEvent propertyChangeEvent)
   {
 

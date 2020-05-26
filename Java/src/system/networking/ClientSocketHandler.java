@@ -111,6 +111,11 @@ public class ClientSocketHandler implements Runnable
             socketClient.useReceivedCharacterFromServer(inDataPack);
             break;
           }
+          case STATIC_MODEL:
+          {
+            socketClient.useReceivedStaticModelFromServer(inDataPack);
+            break;
+          }
           case RECOVER_PASSWORD_RESPONSE:
           {
             ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
