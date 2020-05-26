@@ -1,4 +1,4 @@
-package system.model.businessModel;
+package system.model.businessModel.staticModel;
 
 public class Subclass
 {

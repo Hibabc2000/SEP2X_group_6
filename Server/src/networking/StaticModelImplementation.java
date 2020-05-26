@@ -2,6 +2,10 @@ package networking;
 
 import Database.GetCoreFromDatabase;
 import system.model.businessModel.*;
+import system.model.businessModel.staticModel.Ability;
+import system.model.businessModel.staticModel.Skill;
+import system.model.businessModel.staticModel.Subclass;
+import system.model.businessModel.staticModel.Subrace;
 
 import java.util.ArrayList;
 

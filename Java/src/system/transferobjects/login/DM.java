@@ -2,9 +2,7 @@ package system.transferobjects.login;
 
 import system.model.businessModel.DiceRoll;
 
-import java.io.Serializable;
-
-public class DM implements User, Serializable
+public class DM implements User
 {
   private String nameDM;
   private Group groupDM;

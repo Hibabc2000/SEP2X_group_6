@@ -1,26 +1,17 @@
-package system.model.businessModel;
+package system.model.businessModel.staticModel;
 
-public class Skill
+public class Ability
 {
-  private String ability;
+  /**
+   * Class for storing DnD abilities.
+   */
   private String name;
   private String description;
 
-  public Skill(String ability, String name, String description)
+  public Ability(String name, String description)
   {
-    this.ability = ability;
     this.name = name;
     this.description = description;
-  }
-
-  public String getAbility()
-  {
-    return ability;
-  }
-
-  public void setAbility(String ability)
-  {
-    this.ability = ability;
   }
 
   public String getName()
@@ -45,8 +36,6 @@ public class Skill
 
   @Override public String toString()
   {
-    return "Skill{" + "ability=" + ability
-        + ", name='" + name + '\'' + ", description='" + description + '\''
-        + '}';
+    return "Ability{" + "name='" + name + '\'' + ", description='" + description + "'}'";
   }
 }

@@ -1,6 +1,6 @@
 package system.model.characterClasses;
 
-import system.model.businessModel.Ability;
+import system.model.businessModel.staticModel.Ability;
 import system.model.businessModel.Feat;
 
 import java.util.ArrayList;

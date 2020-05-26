@@ -3,6 +3,8 @@ package system.views.characterSheet;
 import javafx.beans.property.StringProperty;
 import system.model.businessModel.Character;
 import system.model.businessModel.*;
+import system.model.businessModel.staticModel.Ability;
+import system.model.businessModel.staticModel.Skill;
 import system.model.businessModel.staticModel.StaticModel;
 import system.model.characterClasses.CharacterClass;
 import system.model.characterManagement.CharacterManagementModel;
@@ -556,40 +558,40 @@ public class CharacterSheetViewModel
     characterHPMax.setValue(String.valueOf(maxHP));
     xpCount.setValue(String.valueOf(sheetCharacter.getXp()));
 
-
     //speed difference based on race
-
 
     if (sheetCharacter.getRace().getTraits().contains("25 feet"))
     {
       speed.setValue(String.valueOf(25));
     }
-    else speed.setValue(String.valueOf(30));
-
+    else
+      speed.setValue(String.valueOf(30));
 
     //armor class calculation
 
-
-    for(Item i : sheetCharacter.getEquipmentList())
+    for (Item i : sheetCharacter.getEquipmentList())
     {
-      if(i.isEquipped() && i.getGameItem() instanceof EquipmentArmor)
+      if (i.isEquipped() && i.getGameItem() instanceof EquipmentArmor)
       {
         armorClassInt = ((EquipmentArmor) i.getGameItem()).getArmorClass();
-        if(((EquipmentArmor) i.getGameItem()).getDexMod().equals("full"))
+        if (((EquipmentArmor) i.getGameItem()).getDexMod().equals("full"))
         {
           armorClassInt += Integer.parseInt(dexterityModifier.getValue());
         }
-        else if(((EquipmentArmor) i.getGameItem()).getDexMod().equals("limited"))
+        else if (((EquipmentArmor) i.getGameItem()).getDexMod()
+            .equals("limited"))
         {
           int temp = Integer.parseInt(dexterityModifier.getValue());
-          if(temp <= 2)
+          if (temp <= 2)
           {
             armorClassInt += temp;
           }
-          else armorClassInt += 2;
+          else
+            armorClassInt += 2;
         }
       }
-      else if(i.isEquipped() && i.getGameItem().getName().toLowerCase().equals("shield"))
+      else if (i.isEquipped() && i.getGameItem().getName().toLowerCase()
+          .equals("shield"))
       {
         armorClassInt += 2;
       }
@@ -622,75 +624,111 @@ public class CharacterSheetViewModel
         {
           if (s.getName().equals("Acrobatics"))
           {
-            acrobaticsModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(dexterityModifier.toString())));
+            acrobaticsModifier.setValue(String.valueOf(
+                Integer.parseInt(proficiencyBonus.toString()) + Integer
+                    .parseInt(dexterityModifier.toString())));
           }
           else if (s.getName().equals("Animal Handling"))
           {
-            animalHandlingModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(wisdomModifier.toString())));
+            animalHandlingModifier.setValue(String.valueOf(
+                Integer.parseInt(proficiencyBonus.toString()) + Integer
+                    .parseInt(wisdomModifier.toString())));
           }
           else if (s.getName().equals("Arcana"))
           {
-            arcanaModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(intelligenceModifier.toString())));
+            arcanaModifier.setValue(String.valueOf(
+                Integer.parseInt(proficiencyBonus.toString()) + Integer
+                    .parseInt(intelligenceModifier.toString())));
           }
           else if (s.getName().equals("Athletics"))
           {
-            athleticsModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(strengthModifier.toString())));
+            athleticsModifier.setValue(String.valueOf(
+                Integer.parseInt(proficiencyBonus.toString()) + Integer
+                    .parseInt(strengthModifier.toString())));
           }
           else if (s.getName().equals("Deception"))
           {
-            deceptionModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(charismaModifier.toString())));
+            deceptionModifier.setValue(String.valueOf(
+                Integer.parseInt(proficiencyBonus.toString()) + Integer
+                    .parseInt(charismaModifier.toString())));
           }
           else if (s.getName().equals("History"))
           {
-            historyModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(intelligenceModifier.toString())));
+            historyModifier.setValue(String.valueOf(
+                Integer.parseInt(proficiencyBonus.toString()) + Integer
+                    .parseInt(intelligenceModifier.toString())));
           }
           else if (s.getName().equals("Insight"))
           {
-            insightModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(wisdomModifier.toString())));
+            insightModifier.setValue(String.valueOf(
+                Integer.parseInt(proficiencyBonus.toString()) + Integer
+                    .parseInt(wisdomModifier.toString())));
           }
           else if (s.getName().equals("Intimidation"))
           {
-            intimidationModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(charismaModifier.toString())));
+            intimidationModifier.setValue(String.valueOf(
+                Integer.parseInt(proficiencyBonus.toString()) + Integer
+                    .parseInt(charismaModifier.toString())));
           }
           else if (s.getName().equals("Investigation"))
           {
-            investigationModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(intelligenceModifier.toString())));
+            investigationModifier.setValue(String.valueOf(
+                Integer.parseInt(proficiencyBonus.toString()) + Integer
+                    .parseInt(intelligenceModifier.toString())));
           }
           else if (s.getName().equals("Medicine"))
           {
-            medicineModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(wisdomModifier.toString())));
+            medicineModifier.setValue(String.valueOf(
+                Integer.parseInt(proficiencyBonus.toString()) + Integer
+                    .parseInt(wisdomModifier.toString())));
           }
           else if (s.getName().equals("Nature"))
           {
-            natureModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(intelligenceModifier.toString())));
+            natureModifier.setValue(String.valueOf(
+                Integer.parseInt(proficiencyBonus.toString()) + Integer
+                    .parseInt(intelligenceModifier.toString())));
           }
           else if (s.getName().equals("Perception"))
           {
-            perceptionModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(wisdomModifier.toString())));
+            perceptionModifier.setValue(String.valueOf(
+                Integer.parseInt(proficiencyBonus.toString()) + Integer
+                    .parseInt(wisdomModifier.toString())));
           }
           else if (s.getName().equals("Performance"))
           {
-            performanceModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(charismaModifier.toString())));
+            performanceModifier.setValue(String.valueOf(
+                Integer.parseInt(proficiencyBonus.toString()) + Integer
+                    .parseInt(charismaModifier.toString())));
           }
           else if (s.getName().equals("Persuasion"))
           {
-            persuasionModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(charismaModifier.toString())));
+            persuasionModifier.setValue(String.valueOf(
+                Integer.parseInt(proficiencyBonus.toString()) + Integer
+                    .parseInt(charismaModifier.toString())));
           }
           else if (s.getName().equals("Religion"))
           {
-            religionModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(intelligenceModifier.toString())));
+            religionModifier.setValue(String.valueOf(
+                Integer.parseInt(proficiencyBonus.toString()) + Integer
+                    .parseInt(intelligenceModifier.toString())));
           }
           else if (s.getName().equals("Sleight of Hand"))
           {
-            sleightOfHandModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(dexterityModifier.toString())));
+            sleightOfHandModifier.setValue(String.valueOf(
+                Integer.parseInt(proficiencyBonus.toString()) + Integer
+                    .parseInt(dexterityModifier.toString())));
           }
           else if (s.getName().equals("Stealth"))
           {
-            stealthModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(dexterityModifier.toString())));
+            stealthModifier.setValue(String.valueOf(
+                Integer.parseInt(proficiencyBonus.toString()) + Integer
+                    .parseInt(dexterityModifier.toString())));
           }
           else if (s.getName().equals("Survival"))
           {
-            survivalModifier.setValue(String.valueOf(Integer.parseInt(proficiencyBonus.toString()) + Integer.parseInt(wisdomModifier.toString())));
+            survivalModifier.setValue(String.valueOf(
+                Integer.parseInt(proficiencyBonus.toString()) + Integer
+                    .parseInt(wisdomModifier.toString())));
           }
         }
       }
@@ -821,9 +859,10 @@ public class CharacterSheetViewModel
       }
       else if (p.getType().toLowerCase().contains("shield"))
       {
-        for(Item i : sheetCharacter.getEquipmentList())
+        for (Item i : sheetCharacter.getEquipmentList())
         {
-          if(i.getGameItem().getName().toLowerCase().equals("shield") && i.isEquipped())
+          if (i.getGameItem().getName().toLowerCase().equals("shield") && i
+              .isEquipped())
           {
             //show prof
           }

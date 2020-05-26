@@ -1,7 +1,7 @@
 package Database;
 
 import system.model.businessModel.*;
-import system.model.businessModel.staticModel.StaticModel;
+import system.model.businessModel.staticModel.*;
 import system.transferobjects.ClassName;
 import system.transferobjects.Container;
 
