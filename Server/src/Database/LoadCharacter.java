@@ -54,6 +54,7 @@ public class LoadCharacter
       while (rs.next())
       {
         character.setAbilities((int[]) rs.getArray("abilities").getArray());
+        character.setAbilitiesRolled((int[]) rs.getArray("abilitiesRolled").getArray());
         character.setId(id);
         ArrayList<String> classNames = (ArrayList<String>) rs.getArray("classes").getArray();
         ArrayList<Integer> classLevels = (ArrayList<Integer>) rs.getArray("classLevels").getArray();

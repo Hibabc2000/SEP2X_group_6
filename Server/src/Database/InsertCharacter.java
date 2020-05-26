@@ -43,12 +43,13 @@ public InsertCharacter()
      */
     Statement st = c.createStatement();
     String query =
-        "INSERT INTO \"Characters\".\"Characters\" (\"name\", \"level\", \"XP\", \"hitPointRolled\", \"alignment\", \"faith\", \"physicalTraits\", \"money\", \"abilities\", \"backgroundName\", \"classes\", \"classLevels\", \"extraFeatNames\", \"username\", \"groupName\", \"equipment_names\", \"equipment_amount\") VALUES ("
+        "INSERT INTO \"Characters\".\"Characters\" (\"name\", \"level\", \"XP\", \"hitPointRolled\", \"alignment\", \"faith\", \"physicalTraits\", \"money\", \"abilities\", \"backgroundName\", \"classes\", \"classLevels\", \"extraFeatNames\", \"username\", \"groupName\", \"equipment_names\", \"equipment_amount\", \"abilitiesRolled\") VALUES ("
             + cha.getName() + ", " + cha.getLevel() + ", " + cha.getXp() + ", "
             + cha.getRolledHp() + ", " + cha.getAlignment() + ", " + cha
             .getFaith() + ", " + cha.getPhysicalCharacteristics() + ", ";
     //add money
     int[] money = cha.getMoney();
+    query += "{";
     for (int i = 0; i < money.length; i++)
     {
       query += money[i];
@@ -60,6 +61,7 @@ public InsertCharacter()
     query += "}\', ";
     //ability array converter
     int[] ability = cha.getAbilities();
+    query += "{";
     for (int i = 0; i < ability.length; i++)
     {
       query += ability[i];
@@ -74,6 +76,7 @@ public InsertCharacter()
     //class names converter
     CharacterClass[] classNames = (CharacterClass[]) cha.getCharacterClass()
         .toArray();
+    query += "{";
     for (int i = 0; i < classNames.length; i++)
     {
       query += classNames[i].getClassName();
@@ -84,6 +87,7 @@ public InsertCharacter()
     }
     query += "}\', ";
     //class levels converter
+    query += "{";
     for (int i = 0; i < classNames.length; i++)
     {
       query += classNames[i].getLevelInClass();
@@ -95,6 +99,7 @@ public InsertCharacter()
     query += "}\', ";
     //extraFeatNames converter
     Feat[] extraFeats = (Feat[]) cha.getFeats().toArray();
+    query += "{";
     for (int i = 0; i < extraFeats.length; i++)
     {
       if (extraFeats[i].getOrigin().toLowerCase().equals("general"))
@@ -111,6 +116,7 @@ public InsertCharacter()
     query += cha.getGroup() + ", ";
     //write equipment name getter
     Item[] equipment = (Item[]) cha.getEquipmentList().toArray();
+    query += "{";
     for (int i = 0; i < equipment.length; i++)
     {
       query += equipment[i].getGameItem().getName();
@@ -121,6 +127,7 @@ public InsertCharacter()
     }
     query += "}\', ";
     //write equipment amount getter
+    query += "{";
     for (int i = 0; i < equipment.length; i++)
     {
       query += equipment[i].getAmount();
@@ -128,6 +135,13 @@ public InsertCharacter()
       {
         query += ", ";
       }
+    }
+    query += "}\', ";
+    //abilitiesRolled setter
+    query += "{";
+    for (int i = 0; i < 6; i++)
+    {
+      query += cha.getAbilitiesRolled()[i] + ", ";
     }
     query += "}\');";
     st.executeUpdate(query);

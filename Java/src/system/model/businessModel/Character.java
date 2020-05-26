@@ -12,6 +12,7 @@ public class Character
   private ArrayList<CharacterClass> characterClass;
   private String name;
   private int[] abilities; //6-element array
+  private int[] abilitiesRolled;
   private ArrayList<Proficiency> proficiencies; //Stores all proficiencies
   private ArrayList<Double> profLevel; //half (x0.5), full (x1), expert (x2) - just write multiplier
   private int[] money; //platinum, gold, electrum, silver, copper
@@ -405,5 +406,15 @@ public class Character
   public void setGroupID(int groupID)
   {
     this.groupID = groupID;
+  }
+
+  public int[] getAbilitiesRolled()
+  {
+    return abilitiesRolled;
+  }
+
+  public void setAbilitiesRolled(int[] abilitiesRolled)
+  {
+    this.abilitiesRolled = abilitiesRolled;
   }
 }
