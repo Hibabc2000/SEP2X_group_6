@@ -43,10 +43,17 @@ public class Race
     this.traits = traits;
   }
 
-  @Override public String toString()
+
+
+  public String getInfo()
   {
     return "Race{" + "traits=" + traits + ", name='" + name + '\''
         + ", description='" + description + "'}'";
+  }
+
+  @Override public String toString()
+  {
+    return name;
   }
   public boolean equals(Object object)
   {

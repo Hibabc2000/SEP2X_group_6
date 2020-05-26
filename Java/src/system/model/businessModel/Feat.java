@@ -42,10 +42,14 @@ public class Feat
     this.description = description;
   }
 
-  @Override public String toString()
+  public String getInfo()
   {
     return "Feat{" + "origin='" + origin + '\'' + ", name='" + name + '\''
         + ", description='" + description + '\'' + '}';
+  }
+  @Override public String toString()
+  {
+    return name;
   }
   public boolean equals(Object object)
   {

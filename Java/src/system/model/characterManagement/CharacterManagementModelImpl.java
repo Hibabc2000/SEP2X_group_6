@@ -143,6 +143,17 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
     }
 
   }
+  @Override public boolean getAccountDmStatus()
+  {
+    if(account.getUser() instanceof DM)
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
 
   @Override public void addListener(String eventName,
       PropertyChangeListener listener)

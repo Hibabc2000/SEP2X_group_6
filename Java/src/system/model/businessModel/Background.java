@@ -49,5 +49,13 @@ public class Background
   {
     flaws.add(flaw);
   }
+  @Override public String toString()
+  {
+    return name;
+  }
 
+  public String getDescription()
+  {
+    return description;
+  }
 }

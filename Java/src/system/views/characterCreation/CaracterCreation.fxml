@@ -58,12 +58,12 @@
                             <RowConstraints maxHeight="783.6000045776367" minHeight="10.0" prefHeight="770.3999908447265" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <ComboBox fx:id="raceComboBox" prefHeight="13.0" prefWidth="910.0" promptText="RACE" style="-fx-font-size: 30; -fx-background-color: white; -fx-border-color: black; -fx-border-radius: 5;">
+                              <ComboBox fx:id="raceComboBox" onAction="#onRaceChange" prefHeight="13.0" prefWidth="910.0" promptText="RACE" style="-fx-font-size: 30; -fx-background-color: white; -fx-border-color: black; -fx-border-radius: 5;">
                                  <GridPane.margin>
                                     <Insets left="20.0" top="15.0" />
                                  </GridPane.margin>
                               </ComboBox>
-                              <ComboBox fx:id="classComboBox" prefHeight="60.0" prefWidth="909.0" promptText="CLass" style="-fx-font-size: 30; -fx-background-color: white; -fx-border-color: black; -fx-border-radius: 5;" GridPane.columnIndex="1">
+                              <ComboBox fx:id="classComboBox" onAction="#onClassChange" prefHeight="60.0" prefWidth="909.0" promptText="CLass" style="-fx-font-size: 30; -fx-background-color: white; -fx-border-color: black; -fx-border-radius: 5;" GridPane.columnIndex="1">
                                  <GridPane.margin>
                                     <Insets left="29.0" top="15.0" />
                                  </GridPane.margin>
@@ -853,7 +853,7 @@
                                           <Insets left="190.0" top="20.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <ComboBox fx:id="subClassComboBox" prefHeight="72.0" prefWidth="458.0">
+                                    <ComboBox fx:id="subClassComboBox" onAction="#setSubClass" prefHeight="72.0" prefWidth="458.0">
                                        <VBox.margin>
                                           <Insets left="20.0" right="20.0" top="20.0" />
                                        </VBox.margin>
@@ -1001,7 +1001,7 @@
                                                 <Insets left="10.0" top="85.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <ComboBox fx:id="featComboBox" prefHeight="40.0" prefWidth="479.0">
+                                          <ComboBox fx:id="featComboBox" onAction="#setFeatFromCB" prefHeight="40.0" prefWidth="479.0">
                                              <HBox.margin>
                                                 <Insets left="20.0" right="20.0" top="80.0" />
                                              </HBox.margin>
@@ -1059,7 +1059,7 @@
                                           <Insets left="20.0" right="20.0" top="20.0" />
                                        </VBox.margin>
                                     </ComboBox>
-                                    <Button fx:id="addAbilityScoreImprovementConfirmationButton" mnemonicParsing="false" onAction="#addAbilityScoreImprovment" prefHeight="51.0" prefWidth="90.0" text="ADD">
+                                    <Button fx:id="addAbilityScoreImprovementConfirmationButton" mnemonicParsing="false" onAction="#addAbilityScoreImprovement" prefHeight="51.0" prefWidth="90.0" text="ADD">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -1079,7 +1079,7 @@
                                           <Insets left="110.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <ListView fx:id="featsAndFeaturesListView" editable="true" prefHeight="367.0" prefWidth="368.0" style="-fx-border-color: black; -fx-border-radius: 6;">
+                                    <ListView fx:id="featsAndFeaturesListView" prefHeight="367.0" prefWidth="368.0" style="-fx-border-color: black; -fx-border-radius: 6;">
                                        <VBox.margin>
                                           <Insets bottom="17.0" left="17.0" right="17.0" top="5.0" />
                                        </VBox.margin>
@@ -1117,10 +1117,10 @@
                                                 <Font size="24.0" />
                                              </font>
                                              <HBox.margin>
-                                                <Insets left="20.0" top="20.0" />
+                                                <Insets left="20.0" top="15.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <TextField fx:id="nameTextField" prefHeight="38.0" prefWidth="361.0">
+                                          <TextField fx:id="nameTextField" prefHeight="38.0" prefWidth="361.0" style="-fx-border-color: black;">
                                              <HBox.margin>
                                                 <Insets left="5.0" right="10.0" top="15.0" />
                                              </HBox.margin>
@@ -1135,11 +1135,24 @@
                                           <Insets left="20.0" right="20.0" top="30.0" />
                                        </VBox.margin>
                                     </ComboBox>
-                                    <ComboBox fx:id="backgroundComboBox" prefHeight="50.0" prefWidth="490.0" promptText="Background">
+                                    <ComboBox fx:id="backgroundComboBox" onAction="#setBackgroundFN" prefHeight="50.0" prefWidth="490.0" promptText="Background">
                                        <VBox.margin>
                                           <Insets left="20.0" right="20.0" top="20.0" />
                                        </VBox.margin>
                                     </ComboBox>
+                                    <Label text="Background Description:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="20.0" top="30.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <TextArea fx:id="backgroundDescriptionTextArea" prefHeight="134.0" prefWidth="450.0" style="-fx-border-color: black;">
+                                       <VBox.margin>
+                                          <Insets left="20.0" right="20.0" />
+                                       </VBox.margin>
+                                    </TextArea>
                                     <Label text="Languages:">
                                        <font>
                                           <Font size="18.0" />
@@ -1161,7 +1174,7 @@
                                           <Insets left="20.0" top="20.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <TextArea fx:id="physicalCharacteristicsTextArea" prefHeight="334.0" prefWidth="440.0" style="-fx-border-color: black;">
+                                    <TextArea fx:id="physicalCharacteristicsTextArea" prefHeight="140.0" prefWidth="440.0" style="-fx-border-color: black;">
                                        <VBox.margin>
                                           <Insets left="20.0" right="20.0" top="10.0" />
                                        </VBox.margin>
@@ -1170,7 +1183,7 @@
                               </VBox>
                               <VBox prefHeight="852.0" prefWidth="480.0">
                                  <children>
-                                    <Label text="Allies and Organizations:">
+                                    <Label text="Treasure:">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
@@ -1178,24 +1191,126 @@
                                           <Insets left="20.0" top="50.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <TextArea fx:id="alliesAndOrganizationsTextArea" prefHeight="349.0" prefWidth="440.0" style="-fx-border-color: black;">
+                                    <ListView fx:id="treasuresListView" editable="true" prefHeight="87.0" prefWidth="480.0" style="-fx-border-color: black;">
                                        <VBox.margin>
-                                          <Insets left="20.0" right="20.0" top="10.0" />
+                                          <Insets left="20.0" right="20.0" />
+                                       </VBox.margin>
+                                    </ListView>
+                                    <TextArea fx:id="newTreasureTextARea" prefHeight="46.0" prefWidth="440.0" style="-fx-border-color: black;">
+                                       <VBox.margin>
+                                          <Insets left="20.0" right="20.0" top="5.0" />
                                        </VBox.margin>
                                     </TextArea>
-                                    <Label text="Treasure:">
+                                    <HBox prefHeight="28.0" prefWidth="480.0">
+                                       <children>
+                                          <Button fx:id="removeTreasureButton" mnemonicParsing="false" onAction="#removeTreasure" text="Remove">
+                                             <HBox.margin>
+                                                <Insets left="20.0" top="2.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button fx:id="addTreasureButton" mnemonicParsing="false" onAction="#addTreasure" text="Add">
+                                             <HBox.margin>
+                                                <Insets left="330.0" top="2.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <Label text="Personality Traits:">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                        <VBox.margin>
-                                          <Insets left="20.0" top="17.0" />
+                                          <Insets left="20.0" top="35.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <TextArea fx:id="treasureTextArea" prefHeight="340.0" prefWidth="440.0" style="-fx-border-color: black;">
+                                    <ListView fx:id="personalityTraitsListView" editable="true" prefHeight="87.0" prefWidth="480.0" style="-fx-border-color: black;">
                                        <VBox.margin>
-                                          <Insets left="20.0" right="20.0" top="11.0" />
+                                          <Insets left="20.0" right="20.0" />
+                                       </VBox.margin>
+                                    </ListView>
+                                    <TextArea fx:id="newPersonalityTraitTextArea" prefHeight="46.0" prefWidth="440.0" style="-fx-border-color: black;">
+                                       <VBox.margin>
+                                          <Insets left="20.0" right="20.0" top="5.0" />
                                        </VBox.margin>
                                     </TextArea>
+                                    <HBox prefHeight="28.0" prefWidth="480.0">
+                                       <children>
+                                          <Button fx:id="removePersonalityTraitButton" mnemonicParsing="false" onAction="#removePersonalityTrait" text="Remove">
+                                             <HBox.margin>
+                                                <Insets left="20.0" top="2.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button fx:id="addPersonalityTraitButton" mnemonicParsing="false" onAction="#addPersonalityTrait" text="Add">
+                                             <HBox.margin>
+                                                <Insets left="330.0" top="2.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <Label text="Ideals:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="20.0" top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <ListView fx:id="idealsListView" editable="true" prefHeight="87.0" prefWidth="480.0" style="-fx-border-color: black;">
+                                       <VBox.margin>
+                                          <Insets left="20.0" right="20.0" />
+                                       </VBox.margin>
+                                    </ListView>
+                                    <TextArea fx:id="newIdealTextArea" prefHeight="46.0" prefWidth="440.0" style="-fx-border-color: black;">
+                                       <VBox.margin>
+                                          <Insets left="20.0" right="20.0" top="5.0" />
+                                       </VBox.margin>
+                                    </TextArea>
+                                    <HBox prefHeight="28.0" prefWidth="480.0">
+                                       <children>
+                                          <Button fx:id="removeIdealButton" mnemonicParsing="false" onAction="#removeIdeal" text="Remove">
+                                             <HBox.margin>
+                                                <Insets left="20.0" top="2.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button fx:id="addIdealButton" mnemonicParsing="false" onAction="#addIdeal" text="Add">
+                                             <HBox.margin>
+                                                <Insets left="330.0" top="2.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <Label text="Bonds:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="20.0" right="20.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <ListView fx:id="bondsListView" editable="true" prefHeight="87.0" prefWidth="480.0" style="-fx-border-color: black;">
+                                       <VBox.margin>
+                                          <Insets left="20.0" right="20.0" />
+                                       </VBox.margin>
+                                    </ListView>
+                                    <TextArea fx:id="newBondTextArea" prefHeight="46.0" prefWidth="440.0" style="-fx-border-color: black;">
+                                       <VBox.margin>
+                                          <Insets left="20.0" right="20.0" top="5.0" />
+                                       </VBox.margin>
+                                    </TextArea>
+                                    <HBox prefHeight="28.0" prefWidth="480.0">
+                                       <children>
+                                          <Button fx:id="removeBondButton" mnemonicParsing="false" onAction="#removeBond" text="Remove">
+                                             <HBox.margin>
+                                                <Insets left="20.0" top="2.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button fx:id="addBondButton" mnemonicParsing="false" onAction="#addBond" text="Add">
+                                             <HBox.margin>
+                                                <Insets left="330.0" top="2.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
                                  </children>
                               </VBox>
                               <VBox prefHeight="852.0" prefWidth="480.0">
@@ -1213,17 +1328,49 @@
                                           <Insets left="10.0" right="10.0" top="10.0" />
                                        </VBox.margin>
                                     </TextArea>
-                                    <Label text="Personal Characteristics:">
-                                       <VBox.margin>
-                                          <Insets left="10.0" top="17.0" />
-                                       </VBox.margin>
+                                    <Label text="Flaws:">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
-                                    </Label>
-                                    <TextArea fx:id="personalCharacteristicsTextArea" prefHeight="340.0" prefWidth="480.0" style="-fx-border-color: black;">
                                        <VBox.margin>
-                                          <Insets left="10.0" right="10.0" top="11.0" />
+                                          <Insets left="10.0" right="20.0" top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <ListView fx:id="flawsListView" editable="true" prefHeight="87.0" prefWidth="480.0" style="-fx-border-color: black;">
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </ListView>
+                                    <TextArea fx:id="newFlawTextArea" prefHeight="46.0" prefWidth="440.0" style="-fx-border-color: black;">
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" top="5.0" />
+                                       </VBox.margin>
+                                    </TextArea>
+                                    <HBox prefHeight="28.0" prefWidth="480.0">
+                                       <children>
+                                          <Button fx:id="removeFLawButton" mnemonicParsing="false" onAction="#removeFlaw" text="Remove">
+                                             <HBox.margin>
+                                                <Insets left="20.0" top="2.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button fx:id="addFlawButton" mnemonicParsing="false" onAction="#addFlaw" text="Add">
+                                             <HBox.margin>
+                                                <Insets left="330.0" top="2.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <Label text="Allies and Organizations:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="20.0" top="20.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <TextArea fx:id="alliesAndOrganizationsTextArea" prefHeight="135.0" prefWidth="440.0" style="-fx-border-color: black;">
+                                       <VBox.margin>
+                                          <Insets left="20.0" right="20.0" top="10.0" />
                                        </VBox.margin>
                                     </TextArea>
                                  </children>
@@ -1235,10 +1382,10 @@
                                           <Font size="22.0" />
                                        </font>
                                        <VBox.margin>
-                                          <Insets top="45.0" />
+                                          <Insets left="10.0" top="45.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <TextArea fx:id="characterDescriptionTextArea" prefHeight="620.0" prefWidth="459.0" style="-fx-border-color: black;">
+                                    <TextArea fx:id="characterDescriptionTextArea" editable="false" prefHeight="620.0" prefWidth="459.0" style="-fx-border-color: black;">
                                        <VBox.margin>
                                           <Insets left="10.0" right="10.0" top="10.0" />
                                        </VBox.margin>

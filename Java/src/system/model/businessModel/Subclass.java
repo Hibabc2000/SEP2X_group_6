@@ -43,9 +43,13 @@ public class Subclass
     this.name = name;
   }
 
-  @Override public String toString()
+  public String getInfo()
   {
     return "Subclass{" + "mainClass='" + mainClass + '\'' + ", description='"
         + description + '\'' + ", name='" + name + '\'' + '}';
+  }
+  public String toString()
+  {
+    return name;
   }
 }

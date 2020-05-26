@@ -39,7 +39,7 @@ public class Character
   private String username;
   private int groupID;
   private StaticModel staticModel;
-
+  private String backstory;
   public boolean equals(Object object)
   {
     if (!(object instanceof Character))
@@ -408,13 +408,18 @@ public class Character
     this.groupID = groupID;
   }
 
-  public int[] getAbilitiesRolled()
+  public StaticModel getStaticModel()
   {
-    return abilitiesRolled;
+    return staticModel;
   }
 
-  public void setAbilitiesRolled(int[] abilitiesRolled)
+  public String getBackstory()
   {
-    this.abilitiesRolled = abilitiesRolled;
+    return backstory;
+  }
+
+  public void setBackstory(String backstory)
+  {
+    this.backstory = backstory;
   }
 }
