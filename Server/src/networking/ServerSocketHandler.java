@@ -357,13 +357,17 @@ public class ServerSocketHandler implements Runnable
             sendBackData(playerAndCharacterDataForDM);
 
           }
-          case CREATE_CHARACTER:
-          { // this is when a player creates his character
-             Integer id =0;
-            ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
+          case INSERT_CHARACTER:
+          { // HAS 2 parts,  first part when a character is created, and the second if it is just an update to an already existing one.
+
+
+            if(inDataPack.getObject().equals(ClassName.CREATE_CHARACTER)){
+            Integer id =0;
+              ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
              String username = (String)m.get(0);
              Group gp = (Group)m.get(1);
              Character character = (Character)m.get(2);
+             Character characterBackToClient=null;
            // here we first load the character in the database;
             try
             {
@@ -378,6 +382,9 @@ public class ServerSocketHandler implements Runnable
             try
             {
              id = loch.getIDOfTheNewlyCreatedCharacter(gp.getId(),username);
+             characterBackToClient = loch.loadCharacter(id);
+             Container data = new Container(characterBackToClient,ClassName.CHARACTER);
+             sendBackData(data);
             }
             catch (SQLException e)
             {
@@ -394,6 +401,20 @@ public class ServerSocketHandler implements Runnable
               {
                 e.printStackTrace();
               }
+            }
+            } else if (inDataPack.getClassName().equals(ClassName.UPDATE_CHARACTER))
+            {
+              Character characterToUpdate = (Character) inDataPack.getObject();
+              try
+              {
+                ich.updateCharacter(characterToUpdate);
+                loch.loadCharacter(characterToUpdate.getId());
+              }
+              catch (SQLException e)
+              {
+                e.printStackTrace();
+              }
+
             }
 
             break;

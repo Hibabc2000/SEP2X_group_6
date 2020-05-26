@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="Worked on CharacterSheetViewModel and relevant changes">
-      <change beforePath="$PROJECT_DIR$/.idea/SEP2X_group_6.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SEP2X_group_6.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/Java.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Java/Java.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/views/characterSheet/CharacterSheetViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/characterSheet/CharacterSheetViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/networking/ClientSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/networking/ClientSocketHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/transferobjects/ClassName.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/transferobjects/ClassName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Database/InsertCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/InsertCharacter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,6 +16,9 @@
   </component>
   <component name="CodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="15" />
   </component>
   <component name="FavoritesManager">
     <favorites_list name="SEP2X_group_6" />
@@ -121,6 +124,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Run" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="system.Run" />
+      <module name="Java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="system.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RunServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="RunServer" />
       <module name="SEP2X_group_6" />
@@ -141,33 +157,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestDtbs" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="system.Server.Database.TestDtbs" />
-      <module name="Java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="system.Server.Database.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.EnumTest" />
       <item itemvalue="Application.GetAllTest" />
       <item itemvalue="Application.RunServer" />
       <item itemvalue="Application.Start" />
-      <item itemvalue="Application.TestDtbs" />
+      <item itemvalue="Application.Run" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Start" />
         <item itemvalue="Application.RunServer" />
+        <item itemvalue="Application.Run" />
         <item itemvalue="Application.EnumTest" />
         <item itemvalue="Application.GetAllTest" />
-        <item itemvalue="Application.TestDtbs" />
       </list>
     </recent_temporary>
   </component>
@@ -357,7 +360,21 @@
       <option name="project" value="LOCAL" />
       <updated>1590405556517</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Worked on start game as a DM, client part not done yet, only the firePropertyChange">
+      <created>1590424018634</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1590424018635</updated>
+    </task>
+    <task id="LOCAL-00027" summary="naming">
+      <created>1590511609653</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1590511609654</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -391,7 +408,9 @@
     <MESSAGE value="Something got overwritten so i put back like 2 methods in connection pool and one in serversockethandler" />
     <MESSAGE value="Fixed InsertCharacter" />
     <MESSAGE value="Worked on CharacterSheetViewModel and relevant changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Worked on CharacterSheetViewModel and relevant changes" />
+    <MESSAGE value="Worked on start game as a DM, client part not done yet, only the firePropertyChange" />
+    <MESSAGE value="naming" />
+    <option name="LAST_COMMIT_MESSAGE" value="naming" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -407,5 +426,13 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/SEP2X_group_6$Start.ic" NAME="Start Coverage Results" MODIFIED="1590503757189" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>system.model.characterClasses.feats.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SEP2X_group_6$Run.ic" NAME="Run Coverage Results" MODIFIED="1590503603605" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>system.*</FILTER>
+    </SUITE>
   </component>
 </project>
