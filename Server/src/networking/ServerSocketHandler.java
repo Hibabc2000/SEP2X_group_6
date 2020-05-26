@@ -318,7 +318,7 @@ public class ServerSocketHandler implements Runnable
           {
             ArrayList<Object> m =(ArrayList<Object>)inDataPack.getObject();
             Group groupToStartGameWith = (Group)m.get(0);
-            // here I go throught the players who are part of this group AND Online and put them in an arraylist
+            // here I go through the players who are part of this group AND Online and put them in an arraylist
            ArrayList<Player> playersOnline =  pool.selectTheOnesThatAreOnlineInThePool(groupToStartGameWith);
 
 
@@ -332,7 +332,8 @@ public class ServerSocketHandler implements Runnable
              {  ArrayList<Object> objs = new ArrayList<>();
              doIhaveACharacter = false;
                objs.add(doIhaveACharacter);
-               Container data = new Container(objs,ClassName.START_GAME_PLAYER);
+
+               Container data = new Container(doIhaveACharacter,ClassName.PLAYER_HAS_NOCHAR);
                pool.sendDataToUser(playersOnline.get(i).getName(),data);
              }
              // here if the player has a charID then we actually get back the character from the dbs, and send that back to him
@@ -342,9 +343,8 @@ public class ServerSocketHandler implements Runnable
                Character characterFromDBS =  loch.loadCharacter(playersOnline.get(i).getCharacterID());
                Player playerWithChar = playersOnline.get(i);
                playerWithChar.setCharacter(characterFromDBS);
-               objs.add(doIhaveACharacter);
-               objs.add(playerWithChar);
-               Container data = new Container(objs,ClassName.START_GAME_PLAYER);
+
+               Container data = new Container(characterFromDBS,ClassName.PLAYER_HAS_CHAR);
                pool.sendDataToUser(playersOnline.get(i).getName(),data);
                // data to DM
                playersOnline.get(i).setCharacter(characterFromDBS);
