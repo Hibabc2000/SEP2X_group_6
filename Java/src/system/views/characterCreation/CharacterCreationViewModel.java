@@ -7,7 +7,8 @@ import javafx.collections.ObservableList;
 import system.model.businessModel.Character;
 import system.model.businessModel.Feat;
 import system.model.businessModel.Race;
-import system.model.businessModel.Subclass;
+import system.model.businessModel.staticModel.Subclass;
+import system.model.businessModel.staticModel.StaticModel;
 import system.model.characterManagement.CharacterManagementModel;
 
 import java.beans.PropertyChangeEvent;
@@ -74,10 +75,12 @@ public class CharacterCreationViewModel
   private ObservableList<String> bonds;
   private ObservableList<String> flaws;
   private boolean characterEditorAccountDmStatus;
+  private StaticModel staticModel;
 
   public CharacterCreationViewModel(CharacterManagementModel model1)
   {
     model = model1;
+    staticModel = model.getStaticModel();
     characterEditorAccountDmStatus = model.getAccountDmStatus();
     treasures = FXCollections.observableArrayList();
     treasures.addAll(character.getTreasures());
@@ -623,5 +626,10 @@ public class CharacterCreationViewModel
   public void calculateAbilities()
   {
 
+  }
+
+  public StaticModel getStaticModel()
+  {
+    return staticModel;
   }
 }

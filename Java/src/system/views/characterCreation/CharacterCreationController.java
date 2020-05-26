@@ -128,7 +128,7 @@ public class CharacterCreationController
     backgrounds.add(new Background("noble","advanced retard"));
     //</editor-fold>
 
-    raceComboBox.setItems(FXCollections.observableList(characterCreationViewModel.getCharacter().getStaticModel().getRaces()));
+    raceComboBox.setItems(FXCollections.observableList(characterCreationViewModel.getStaticModel().getRaces()));
     raceComboBox.getSelectionModel().select(characterCreationViewModel.getCharacter().getRace());
     raceDescription.textProperty().bind(characterCreationViewModel.raceDesProperty());
     //<editor-fold desc="intelligenceRolledNumber">
@@ -144,7 +144,7 @@ public class CharacterCreationController
     //////
     strengthRolledNumber.textProperty().bindBidirectional(characterCreationViewModel.intelligencePropertyProperty());
     strengthRolledNumber.textProperty().addListener((observable, oldValue, newValue) -> {
-      characterCreationViewModel.calculate();
+      characterCreationViewModel.calculateAbilities();
     });
     //</editor-fold>
     //<editor-fold desc="strengthRolledNumber">
@@ -160,7 +160,7 @@ public class CharacterCreationController
     //////
     strengthRolledNumber.textProperty().bindBidirectional(characterCreationViewModel.strengthPropertyProperty());
     strengthRolledNumber.textProperty().addListener((observable, oldValue, newValue) -> {
-      characterCreationViewModel.calculate();
+      characterCreationViewModel.calculateAbilities();
     });
     //</editor-fold>
     //<editor-fold desc="dexterityRolledNumber">
@@ -176,7 +176,7 @@ public class CharacterCreationController
     //////
     dexterityRolledNumber.textProperty().bindBidirectional(characterCreationViewModel.dexterityPropertyProperty());
     dexterityRolledNumber.textProperty().addListener((observable, oldValue, newValue) -> {
-      characterCreationViewModel.calculate();
+      characterCreationViewModel.calculateAbilities();
     });
     //</editor-fold>
     //<editor-fold desc="constitutionRolledNumber">
@@ -192,7 +192,7 @@ public class CharacterCreationController
     //////
     constitutionRolledNumber.textProperty().bindBidirectional(characterCreationViewModel.constitutionPropertyProperty());
     constitutionRolledNumber.textProperty().addListener((observable, oldValue, newValue) -> {
-      characterCreationViewModel.calculate();
+      characterCreationViewModel.calculateAbilities();
     });
     //</editor-fold>
     //<editor-fold desc="wisdomRolledNumber">
@@ -208,7 +208,7 @@ public class CharacterCreationController
     //////
     wisdomRolledNumber.textProperty().bindBidirectional(characterCreationViewModel.wisdomPropertyProperty());
     wisdomRolledNumber.textProperty().addListener((observable, oldValue, newValue) -> {
-      characterCreationViewModel.calculate();
+      characterCreationViewModel.calculateAbilities();
     });
     //</editor-fold>
     //<editor-fold desc="charismaRolledNumber">
@@ -224,7 +224,7 @@ public class CharacterCreationController
     //////
     charismaRolledNumber.textProperty().bindBidirectional(characterCreationViewModel.charismaPropertyProperty());
     charismaRolledNumber.textProperty().addListener((observable, oldValue, newValue) -> {
-      characterCreationViewModel.calculate();
+      characterCreationViewModel.calculateAbilities();
     });
     //</editor-fold>
 
