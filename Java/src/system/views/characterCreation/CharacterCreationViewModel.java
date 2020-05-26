@@ -77,7 +77,8 @@ public class CharacterCreationViewModel
 
   public CharacterCreationViewModel(CharacterManagementModel model1)
   {
-    characterEditorAccountDmStatus = model1.getAccountDmStatus();
+    model = model1;
+    characterEditorAccountDmStatus = model.getAccountDmStatus();
     treasures = FXCollections.observableArrayList();
     treasures.addAll(character.getTreasures());
     personalityTraits = FXCollections.observableArrayList();
@@ -88,13 +89,14 @@ public class CharacterCreationViewModel
     ideals.addAll(character.getIdeals());
     flaws.addAll(character.getFlaws());
     bonds.addAll(character.getBonds());
-    model = model1;
+
     model.addListener("characterToSheetViewModel", this::setCharacter);
 
   }
   public void setCharacter(PropertyChangeEvent propertyChangeEvent)
   {
      character = (Character) propertyChangeEvent.getNewValue();
+    temporaryCharacter = character;
   }
   public void calculate()
   {
@@ -111,6 +113,7 @@ public class CharacterCreationViewModel
     raceDes = new SimpleStringProperty(temporaryCharacter.getRace().getInfo());
   }
 
+  //<editor-fold desc="immense pain">
   public String getRaceDes()
   {
     return raceDes.get();
@@ -615,5 +618,10 @@ public class CharacterCreationViewModel
   public boolean isCharacterEditorAccountDmStatus()
   {
     return characterEditorAccountDmStatus;
+  }
+  //</editor-fold>
+  public void calculateAbilities()
+  {
+
   }
 }

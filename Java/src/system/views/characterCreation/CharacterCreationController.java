@@ -371,6 +371,7 @@ public class CharacterCreationController
   public void onRaceChange(ActionEvent actionEvent)
   {
     characterCreationViewModel.setTemporaryCharacterRace((Race)raceComboBox.getValue());
+
   }
 
   public void onClassChange(ActionEvent actionEvent)

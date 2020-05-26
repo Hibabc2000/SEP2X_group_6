@@ -6,7 +6,7 @@ public class Race
   private String traits;
   private String name;
   private String description;
-
+  //private int[] abilityIncrease;
   public Race(String name, String description, String traits)
   {
     this.traits = traits;
@@ -61,4 +61,17 @@ public class Race
     else if(((Race) object).getName().equals(name)){return true;}
     else{return false;}
   }
+  /*
+
+  public int[] getAbilityIncrease()
+  {
+    return abilityIncrease;
+  }
+
+  public void setAbilityIncrease(int[] abilityIncrease)
+  {
+    this.abilityIncrease = abilityIncrease;
+  }
+
+   */
 }
