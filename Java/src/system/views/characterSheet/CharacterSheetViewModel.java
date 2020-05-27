@@ -6,10 +6,7 @@ import system.model.businessModel.*;
 import system.model.businessModel.staticModel.Ability;
 import system.model.businessModel.staticModel.Skill;
 import system.model.businessModel.staticModel.StaticModel;
-import system.model.characterClasses.Barbarian;
-import system.model.characterClasses.Bard;
-import system.model.characterClasses.CharacterClass;
-import system.model.characterClasses.Cleric;
+import system.model.characterClasses.*;
 import system.model.characterManagement.CharacterManagementModel;
 
 import java.beans.PropertyChangeEvent;
@@ -899,7 +896,7 @@ public class CharacterSheetViewModel
                 Integer.parseInt(String.valueOf(dexterityModifier)) + (
                     Integer.parseInt(String.valueOf(proficiencyBonus)) * p
                         .getMod());
-            strengthSavingThrow.setValue(String.valueOf(dexSave));
+            dexteritySavingThrow.setValue(String.valueOf(dexSave));
           }
           else if (a.getName().toLowerCase().equals("constitution"))
           {
@@ -907,7 +904,7 @@ public class CharacterSheetViewModel
                 Integer.parseInt(String.valueOf(constitutionModifier)) + (
                     Integer.parseInt(String.valueOf(proficiencyBonus)) * p
                         .getMod());
-            strengthSavingThrow.setValue(String.valueOf(conSave));
+            constitutionSavingThrow.setValue(String.valueOf(conSave));
           }
           else if (a.getName().toLowerCase().equals("intelligence"))
           {
@@ -915,7 +912,7 @@ public class CharacterSheetViewModel
                 Integer.parseInt(String.valueOf(intelligenceModifier)) + (
                     Integer.parseInt(String.valueOf(proficiencyBonus)) * p
                         .getMod());
-            strengthSavingThrow.setValue(String.valueOf(intSave));
+            intelligenceSavingThrow.setValue(String.valueOf(intSave));
           }
           else if (a.getName().toLowerCase().equals("wisdom"))
           {
@@ -923,7 +920,7 @@ public class CharacterSheetViewModel
                 Integer.parseInt(String.valueOf(wisdomModifier)) + (
                     Integer.parseInt(String.valueOf(proficiencyBonus)) * p
                         .getMod());
-            strengthSavingThrow.setValue(String.valueOf(wisSave));
+            wisdomSavingThrow.setValue(String.valueOf(wisSave));
           }
           else if (a.getName().toLowerCase().equals("charisma"))
           {
@@ -931,7 +928,7 @@ public class CharacterSheetViewModel
                 Integer.parseInt(String.valueOf(charismaModifier)) + (
                     Integer.parseInt(String.valueOf(proficiencyBonus)) * p
                         .getMod());
-            strengthSavingThrow.setValue(String.valueOf(chaSave));
+            charismaSavingThrow.setValue(String.valueOf(chaSave));
           }
         }
       }
@@ -1067,10 +1064,12 @@ public class CharacterSheetViewModel
           }
         }
       }
-      else if (c instanceof Bard)
+      else if (c instanceof Bard && sheetCharacter.getLevelInClass()
+          .get(sheetCharacter.getCharacterClass().indexOf(c)) >= 2)
       {
         for (Feat f : c.getClassFeats())
         {
+          //Jack of all Trades
           StaticModel staticModel = sheetCharacter.getStaticModel();
           for (Skill s : staticModel.getSkills())
           {
@@ -1185,9 +1184,106 @@ public class CharacterSheetViewModel
           }
         }
       }
-      else if(c instanceof Cleric)
+      else if (c instanceof Monk)
       {
+        for (Feat f : c.getClassFeats())
+        {
+          //Unarmored Defense
+          boolean isArmorEquipped = false;
+          for (Item i : sheetCharacter.getEquipmentList())
+          {
+            if (i.getGameItem() instanceof EquipmentArmor && i.isEquipped())
+            {
+              isArmorEquipped = true;
+            }
+          }
+          if (!isArmorEquipped)
+          {
+            armorClassInt =
+                10 + Integer.parseInt(dexterityModifier.getValue()) + Integer
+                    .parseInt(wisdomModifier.getValue());
+            armorClass.setValue(String.valueOf(armorClassInt));
+          }
 
+          //Unarmored Movement
+          if (sheetCharacter.getLevelInClass()
+              .get(sheetCharacter.getCharacterClass().indexOf(c)) >= 2)
+          {
+            isArmorEquipped = false;
+            for (Item i : sheetCharacter.getEquipmentList())
+            {
+              if ((i.getGameItem() instanceof EquipmentArmor && i.isEquipped())
+                  || i.getGameItem().getName().toLowerCase().contains("shield"))
+              {
+                isArmorEquipped = true;
+              }
+            }
+            if (!isArmorEquipped)
+            {
+              speed.setValue(
+                  String.valueOf(Integer.parseInt(speed.getValue()) + 10));
+            }
+          }
+
+          //Diamond Soul
+          if (sheetCharacter.getLevelInClass()
+              .get(sheetCharacter.getCharacterClass().indexOf(c)) >= 14)
+          {
+            double strSave =
+                Integer.parseInt(String.valueOf(strengthModifier)) + (Integer
+                    .parseInt(String.valueOf(proficiencyBonus)));
+            if (strSave >= Integer.parseInt(charismaSavingThrow.getValue()))
+            {
+              strengthSavingThrow.setValue(String.valueOf(strSave));
+            }
+            double dexSave =
+                Integer.parseInt(String.valueOf(dexterityModifier)) + (Integer
+                    .parseInt(String.valueOf(proficiencyBonus)));
+            if (dexSave >= Integer.parseInt(charismaSavingThrow.getValue()))
+            {
+              dexteritySavingThrow.setValue(String.valueOf(dexSave));
+            }
+            double conSave =
+                Integer.parseInt(String.valueOf(constitutionModifier))
+                    + (Integer.parseInt(String.valueOf(proficiencyBonus)));
+            if (conSave >= Integer.parseInt(charismaSavingThrow.getValue()))
+            {
+              constitutionSavingThrow.setValue(String.valueOf(conSave));
+            }
+            double intSave =
+                Integer.parseInt(String.valueOf(intelligenceModifier))
+                    + (Integer.parseInt(String.valueOf(proficiencyBonus)));
+            if (intSave >= Integer.parseInt(charismaSavingThrow.getValue()))
+            {
+              intelligenceSavingThrow.setValue(String.valueOf(intSave));
+            }
+            double wisSave =
+                Integer.parseInt(String.valueOf(wisdomModifier)) + (Integer
+                    .parseInt(String.valueOf(proficiencyBonus)));
+            if (wisSave >= Integer.parseInt(charismaSavingThrow.getValue()))
+            {
+              wisdomSavingThrow.setValue(String.valueOf(wisSave));
+            }
+            double chaSave =
+                Integer.parseInt(String.valueOf(charismaModifier)) + (Integer
+                    .parseInt(String.valueOf(proficiencyBonus)));
+            if (chaSave >= Integer.parseInt(charismaSavingThrow.getValue()))
+            {
+              charismaSavingThrow.setValue(String.valueOf(chaSave));
+            }
+          }
+        }
+      }
+      else if (c instanceof Rogue && sheetCharacter.getLevelInClass()
+          .get(sheetCharacter.getCharacterClass().indexOf(c)) >= 15)
+      {
+        double wisSave =
+            Integer.parseInt(String.valueOf(wisdomModifier)) + (Integer
+                .parseInt(String.valueOf(proficiencyBonus)));
+        if (wisSave >= Integer.parseInt(charismaSavingThrow.getValue()))
+        {
+          wisdomSavingThrow.setValue(String.valueOf(wisSave));
+        }
       }
     }
   }
