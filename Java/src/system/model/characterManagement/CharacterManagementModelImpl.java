@@ -1,11 +1,13 @@
 package system.model.characterManagement;
 
+import javafx.beans.property.BooleanProperty;
 import system.model.businessModel.Character;
 import system.model.businessModel.staticModel.StaticModel;
 import system.networking.Client;
 import system.transferobjects.Container;
 import system.transferobjects.login.Account;
 import system.transferobjects.login.DM;
+import system.transferobjects.login.Group;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -19,6 +21,7 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
   private PropertyChangeSupport support;
   private Client client;
   private StaticModel staticModel;
+  private Group group;
 
   public CharacterManagementModelImpl(Client client,Account account)
   {
@@ -28,6 +31,8 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
     support = new PropertyChangeSupport(this);
     client.addListener("incomingCharacter", this::setCharacter);
     client.addListener("incomingStaticModel", this::setStaticModel);
+    client.addListener("incomingServerRequestToCreateANewCharacterForTheFirstTime",this::createNewCharacterForTheFirstTime);
+    client.addListener("joinedGroupK",this::setGroup);
   }
 
   /*
@@ -41,9 +46,24 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
     client.submitCharacter(character);
   }
 
+  public void setGroup(PropertyChangeEvent propertyChangeEvent)
+  {
+    this.group = (Group)propertyChangeEvent.getNewValue();
+  }
+
   public void getCharacter()
   {
 
+  }
+  public void createNewCharacterForTheFirstTime(PropertyChangeEvent propertyChangeEvent)
+  {
+    boolean k = ((BooleanProperty)((Container)propertyChangeEvent.getNewValue()).getObject()).getValue();
+    if(k)
+    {
+      Character temporaryCharacter = new Character(staticModel);
+      temporaryCharacter.setUsername(account.getUsername());
+      temporaryCharacter.setGroupID(group.getId());
+    }
   }
 
   public void sendCharacterList()

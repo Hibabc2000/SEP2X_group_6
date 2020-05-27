@@ -41,6 +41,40 @@ public class Character
   private int groupID;
   private StaticModel staticModel;
   private String backstory;
+
+  public Character(StaticModel staticModel)//staticmodel has to be uploaded at instantiation, so that we can have the proficiency parser
+  {
+    this.staticModel = staticModel;
+    id = 0;
+    name = "";
+    abilities = new int[] {0,0,0,0,0,0};
+    abilitiesRolled = new int[] {0,0,0,0,0,0};
+    characterClass = new ArrayList<>();
+    proficiencies = new ArrayList<>();
+    profLevel = new ArrayList<>();
+    money = new int[]{0,0,0,0,0};
+    equipmentList = new ArrayList<>();
+    xp = 0;
+    level = 1;
+    spells = new ArrayList<>();
+    spellBook = new ArrayList<>();
+    physicalCharacteristics = "";
+    alignment = "";
+    faith = "";
+    background = "";
+    feats = new ArrayList<>();
+    hp = 0;
+    rolledHp = 0;
+    armorClass = 0;
+    personalityTraits = new ArrayList<>();
+    ideals = new ArrayList<>();
+    bonds = new ArrayList<>();
+    flaws = new ArrayList<>();
+    spellSlots = new boolean[][]{{false, false, false, false},{false, false, false, false},{false, false, false, false},{false, false, false, false},{false, false, false, false},{false, false, false, false},{false, false, false, false},{false, false, false, false},{false, false, false, false},{false, false, false, false}};
+    treasures = new ArrayList<>();
+    backstory= "";
+  }
+
   public boolean equals(Object object)
   {
     if (!(object instanceof Character))
@@ -99,10 +133,7 @@ public class Character
 
 
 
-  public Character(StaticModel staticModel)   //staticmodel has to be uploaded at instantiation, so that we can have the proficiency parser
-  {
-    this.staticModel = staticModel;
-  }
+
 
   public int getId()
   {

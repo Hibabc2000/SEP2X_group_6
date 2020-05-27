@@ -155,9 +155,15 @@ public class SocketClient implements Client
 
   @Override public void joinGroupAsAPlayer(Account acc, Group groupname)
   {
+    /*
+    this is a very dumb "solution"
+    we needed to know the group that the player is in to create the character
+    please implement the proper solution
+     */
     try
     {
       socketHandler.joinGroup(acc, groupname);
+      support.firePropertyChange("joinedGroupK",null,groupname);
     }
     catch (IOException e)
     {
@@ -228,6 +234,10 @@ public class SocketClient implements Client
   public void useReceivedStaticModelFromServer(Container container)
   {
     support.firePropertyChange("incomingStaticModel", null, container);
+  }
+  public void initiateFirstTimeCharacterCreationOnBasisOfServerRequest(Container container)
+  {
+    support.firePropertyChange("incomingServerRequestToCreateANewCharacterForTheFirstTime",null,container);
   }
 
   @Override public void addListener(String eventName,

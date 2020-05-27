@@ -105,6 +105,10 @@ public class CharacterCreationViewModel
   {
 
   }
+  public void createCharacter()
+  {
+
+  }
 
   public Character getCharacter()
   {
