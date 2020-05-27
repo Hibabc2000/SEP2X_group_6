@@ -1,6 +1,7 @@
 package networking;
 
 import Database.GetAllAccountData;
+import Database.GetCoreFromDatabase;
 import Database.InsertCharacter;
 import Database.LoadCharacter;
 import javafx.beans.property.BooleanProperty;
@@ -94,6 +95,9 @@ public class ServerSocketHandler implements Runnable
                 Container outDataPack = new Container(unique,
                     ClassName.CREATE_ACCOUNT);
                 sendBackData(outDataPack);
+                GetCoreFromDatabase gcfd = new GetCoreFromDatabase();
+
+                sendBackData(gcfd.loadDatabase());
               }
               catch (SQLException e)
               {
@@ -234,6 +238,9 @@ public class ServerSocketHandler implements Runnable
                 account = (Account) ((ArrayList<Object>)(ArrayList<Object>) dataPack.getObject()).get(1);
                 pool.userJoin(account);
                 pool.addHandler(this);
+                GetCoreFromDatabase gcfd = new GetCoreFromDatabase();
+
+                sendBackData(gcfd.loadDatabase());
 
               }
               catch (SQLException e)

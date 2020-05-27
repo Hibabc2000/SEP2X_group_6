@@ -80,29 +80,7 @@ public class GetAllAccountData
     return unique;
   }
 
-  public void loadGroups() throws SQLException
-  {
-    Statement st = c.createStatement();
-    String query = "SELECT * FROM \"Groups\".\"Groups\"";
-    ResultSet rs = st.executeQuery(query);
 
-    while (rs.next())
-    {
-      Group gr = new Group(rs.getString("name"), rs.getInt("id"));
-      gr.addDM(new DM(rs.getString("usernameDM")));
-      ArrayList<String> players = (ArrayList<String>) rs
-          .getArray("usernamePlayers");
-
-      for (int i = 0; i < players.size(); i++)
-      {
-        Player pl = new Player(players.get(i));
-        gr.addPlayer(pl);
-
-      }
-
-    }
-
-  }
 
   /**
    * Creates an SQL statement that will create an account in the Database

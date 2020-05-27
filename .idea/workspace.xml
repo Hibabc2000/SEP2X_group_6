@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="LoadCharacterClasses and relevant changes.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/views/characterSheet/CharacterSheetViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/characterSheet/CharacterSheetViewModel.java" afterDir="false" />
+    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="Client-server-db communication with CharacterCreation/Update done">
+      <change beforePath="$PROJECT_DIR$/Server/src/Database/Create.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Database/GetAllAccountData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/GetAllAccountData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Database/Insert.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Database/Select.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/AccountModelImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/AccountModelImplTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
