@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Character
 {
-  private int id;
+  private Integer id;
   private Race race;
   private ArrayList<CharacterClass> characterClass;
   private ArrayList<Integer> levelInClass;
@@ -45,7 +45,7 @@ public class Character
   public Character(StaticModel staticModel)//staticmodel has to be uploaded at instantiation, so that we can have the proficiency parser
   {
     this.staticModel = staticModel;
-    id = 0;
+    id = null;
     name = "";
     abilities = new int[] {0,0,0,0,0,0};
     abilitiesRolled = new int[] {0,0,0,0,0,0};
@@ -74,7 +74,8 @@ public class Character
     treasures = new ArrayList<>();
     backstory= "";
   }
-
+  //equals method
+/*
   public boolean equals(Object object)
   {
     if (!(object instanceof Character))
@@ -126,6 +127,7 @@ public class Character
     }
 
   }
+*/
 
 
 
@@ -135,15 +137,6 @@ public class Character
 
 
 
-  public int getId()
-  {
-    return id;
-  }
-
-  public void setId(int id)
-  {
-    this.id = id;
-  }
 
   public Race getRace()
   {
