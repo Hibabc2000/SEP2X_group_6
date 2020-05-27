@@ -3,6 +3,7 @@ package networking;
 import Database.GetAllAccountData;
 import Database.InsertCharacter;
 import Database.LoadCharacter;
+import javafx.beans.property.BooleanProperty;
 import system.model.businessModel.Character;
 import system.transferobjects.ClassName;
 import system.transferobjects.Container;
@@ -323,15 +324,15 @@ public class ServerSocketHandler implements Runnable
 
 
             boolean doIhaveACharacter = false;
-            Container playerAndCharacterDataForDM = null;
+            BooleanProperty playerAndCharacterDataForDM = null;
 
            for(int i=0;i<playersOnline.size();i++)
            {// here If the player doesnt have a charID, then we will send him a boolean "false" so the client will know that means
              // we have to create a character.
              if(playersOnline.get(i).getCharacterID()==null)
-             {  ArrayList<Object> objs = new ArrayList<>();
+             {
              doIhaveACharacter = false;
-               objs.add(doIhaveACharacter);
+
 
                Container data = new Container(doIhaveACharacter,ClassName.CLIENT_PLEASE_CREATE_A_CHARACTER);
                pool.sendDataToUser(playersOnline.get(i).getName(),data);
