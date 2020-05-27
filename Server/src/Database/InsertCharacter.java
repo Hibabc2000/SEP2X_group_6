@@ -90,7 +90,7 @@ public InsertCharacter()
     query += "{";
     for (int i = 0; i < classNames.length; i++)
     {
-      query += classNames[i].getLevelInClass();
+      query += cha.getLevelInClass().get(i);
       if (i < classNames.length - 1)
       {
         query += ", ";
@@ -212,7 +212,7 @@ public InsertCharacter()
     query += "{";
     for (int i = 0; i < classNames.length; i++)
     {
-      query += classNames[i].getLevelInClass();
+      query += cha.getLevelInClass().get(i);
       if (i < classNames.length - 1)
       {
         query += ", ";

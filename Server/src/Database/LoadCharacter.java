@@ -64,11 +64,12 @@ public class LoadCharacter
           if(s.equals("Barbarian")) //make the rest of the classes
           {
             Barbarian barbarian = new Barbarian();
-            barbarian.setLevelInClass(classLevels.get(classNames.indexOf(s)));
+            classLevels.add(0);
             classes.add(barbarian);
           }
         }
         character.setCharacterClass(classes);
+        character.setLevelInClass(classLevels);
         character.setAlignment(rs.getString("alignment"));
         character.setBackground(rs.getString("backgroundName"));
         character.setName(rs.getString("name"));

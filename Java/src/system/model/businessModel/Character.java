@@ -10,6 +10,7 @@ public class Character
   private int id;
   private Race race;
   private ArrayList<CharacterClass> characterClass;
+  private ArrayList<Integer> levelInClass;
   private String name;
   private int[] abilities; //6-element array
   private int[] abilitiesRolled;
@@ -431,5 +432,15 @@ public class Character
   public void setAbilitiesRolled(int[] abilitiesRolled)
   {
     this.abilitiesRolled = abilitiesRolled;
+  }
+
+  public ArrayList<Integer> getLevelInClass()
+  {
+    return levelInClass;
+  }
+
+  public void setLevelInClass(ArrayList<Integer> levelInClass)
+  {
+    this.levelInClass = levelInClass;
   }
 }

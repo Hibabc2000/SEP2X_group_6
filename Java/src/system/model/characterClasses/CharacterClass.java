@@ -8,7 +8,6 @@ import java.util.ArrayList;
 public class CharacterClass
 {
   private int hitDiceType;
-  private int levelInClass;
   private ArrayList<Feat> classFeats;
   private ArrayList<Integer> classFeatLevels;
   private String description;
@@ -18,12 +17,10 @@ public class CharacterClass
   {
   }
 
-  public CharacterClass(int hitDiceType, int levelInClass,
-      ArrayList<Feat> classFeats, ArrayList<Integer> classFeatLevels,
+  public CharacterClass(int hitDiceType, ArrayList<Feat> classFeats, ArrayList<Integer> classFeatLevels,
       String description, Ability primary)
   {
     this.hitDiceType = hitDiceType;
-    this.levelInClass = levelInClass;
     this.classFeats = classFeats;
     this.classFeatLevels = classFeatLevels;
     this.description = description;
@@ -34,11 +31,6 @@ public class CharacterClass
   public void setHitDiceType(int hitDiceType)
   {
     this.hitDiceType = hitDiceType;
-  }
-
-  public void setLevelInClass(int levelInClass)
-  {
-    this.levelInClass = levelInClass;
   }
 
   public ArrayList<Feat> getClassFeats()
@@ -85,11 +77,6 @@ public class CharacterClass
   public String getClassName()
   {
     return getClass().getName();
-  }
-
-  public int getLevelInClass()
-  {
-    return levelInClass;
   }
 
   public int getHitDiceType()
