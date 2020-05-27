@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import system.core.ViewHandler;
 import system.model.businessModel.Background;
 import system.model.businessModel.Race;
 
@@ -103,12 +104,15 @@ public class CharacterCreationController
   @FXML public ListView flawsListView;
   ////////////////////
   private CharacterCreationViewModel characterCreationViewModel;
+  private ViewHandler viewHandler;
   private ObservableList<String> alignments;
   private ObservableList<Background> backgrounds;
 
 
-  public void init()
+  public void init(CharacterCreationViewModel cCVM,ViewHandler vh)
   {
+    this.characterCreationViewModel = cCVM;
+    viewHandler = vh;
     alignments =  FXCollections.observableArrayList();
     //<editor-fold desc="alignments">
     alignments.add("Chaotic Good");

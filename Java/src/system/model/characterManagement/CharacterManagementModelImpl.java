@@ -63,6 +63,7 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
       Character temporaryCharacter = new Character(staticModel);
       temporaryCharacter.setUsername(account.getUsername());
       temporaryCharacter.setGroupID(group.getId());
+      support.firePropertyChange("displayCharacterCreationScene",null,null);
     }
   }
 

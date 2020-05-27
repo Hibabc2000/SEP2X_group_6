@@ -636,4 +636,9 @@ public class CharacterCreationViewModel
   {
     return staticModel;
   }
+  //this exists because we dont load the feats from the database into the static model
+  public void addFeat()
+  {
+
+  }
 }

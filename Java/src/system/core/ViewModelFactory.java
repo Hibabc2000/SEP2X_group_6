@@ -147,5 +147,14 @@ public class ViewModelFactory
   {
     return changePasswordViewModel;
   }
+  //bruh
+  public ModelFactory getModel()
+  {
+    return model;
+  }
 
+  public CharacterCreationViewModel getCharacterCreationViewModel()
+  {
+    return characterCreationViewModel;
+  }
 }

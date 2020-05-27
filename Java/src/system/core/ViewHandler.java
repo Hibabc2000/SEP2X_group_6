@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import system.views.characterCreation.CharacterCreationController;
 import system.views.dmCharacterSheetChoosing.DmCharacterChoosingPageController;
 import system.views.login.account.AccountController;
 import system.views.login.changeEmail.ChangeEmailController;
@@ -14,6 +15,7 @@ import system.views.login.openSystem.OpenSystemController;
 import system.views.login.passwordRecovery.PasswordRecoveryController;
 import system.views.login.playerAccount.PlayerAccountController;
 
+import java.beans.PropertyChangeEvent;
 import java.io.IOException;
 
 public class ViewHandler
@@ -29,6 +31,7 @@ public class ViewHandler
   private Scene passwordChange;
   private Scene emailChange;
   private Scene characterSheet;
+  private Scene characterCreation;
   private Scene dmStartGamePage;
   private Stage stage;
 
@@ -48,6 +51,8 @@ public class ViewHandler
     stage2 = new Stage();
     stage3 = new Stage();
     stage4 = new Stage();
+    //bruh
+    vmf.getModel().getCharacterManagementModel().addListener("displayCharacterCreationScene",this::openCharacterCreation);
 
   }
 
@@ -315,6 +320,36 @@ public class ViewHandler
     stage4.setTitle("DnDAS");
     stage4.setScene(emailChange);
     stage4.show();
+  }
+  public void openCharacterCreation()
+  {
+    FXMLLoader loader = new FXMLLoader();
+    if (characterCreation == null)
+    {
+      Parent root = getRootByPath("../views/characterCreation/CharacterCreation.fxml",
+          loader);
+      CharacterCreationController controller = loader.getController();
+      controller.init(vmf.getCharacterCreationViewModel(), this);
+      openSystem = new Scene(root);
+    }
+    stage.setTitle("DnDAS");
+    stage.setScene(characterCreation);
+    stage.show();
+  }
+  public void openCharacterCreation(PropertyChangeEvent propertyChangeEvent)
+  {
+    FXMLLoader loader = new FXMLLoader();
+    if (characterCreation == null)
+    {
+      Parent root = getRootByPath("../views/characterCreation/CharacterCreation.fxml",
+          loader);
+      CharacterCreationController controller = loader.getController();
+      controller.init(vmf.getCharacterCreationViewModel(), this);
+      openSystem = new Scene(root);
+    }
+    stage.setTitle("DnDAS");
+    stage.setScene(characterCreation);
+    stage.show();
   }
 
   /**
