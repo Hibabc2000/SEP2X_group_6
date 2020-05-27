@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="LoadCharacterClasses.">
+    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Barbarian.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Barbarian.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Bard.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Bard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/characterClasses/CharacterClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/characterClasses/CharacterClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Cleric.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Cleric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Druid.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Druid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Fighter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Fighter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Monk.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Monk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Paladin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Paladin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Ranger.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Ranger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Rogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Rogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Sorcerer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Sorcerer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Warlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Warlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Wizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Wizard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/Database/LoadCharacterClasses.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/LoadCharacterClasses.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -413,7 +420,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590582227323</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="LoadCharacterClasses and relevant changes.">
+      <created>1590583623467</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1590583623467</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -430,7 +444,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="created a test class" />
     <MESSAGE value="Corrected formatting and typos" />
     <MESSAGE value="Added e-mail check to account model impl." />
     <MESSAGE value="Started Database loading" />
@@ -455,7 +468,8 @@
     <MESSAGE value="Reworked CharacterClass and relevant changes." />
     <MESSAGE value="LoadCharacterClass, design decision: integrate class feats into actual classes (ie. FeatBarbarian.java integrated into Barbarian.java)." />
     <MESSAGE value="LoadCharacterClass, LoadCharacter." />
-    <option name="LAST_COMMIT_MESSAGE" value="LoadCharacterClass, LoadCharacter." />
+    <MESSAGE value="LoadCharacterClasses and relevant changes." />
+    <option name="LAST_COMMIT_MESSAGE" value="LoadCharacterClasses and relevant changes." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

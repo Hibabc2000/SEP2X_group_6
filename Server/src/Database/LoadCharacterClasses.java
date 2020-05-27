@@ -2,9 +2,7 @@ package Database;
 
 import system.model.businessModel.Feat;
 import system.model.businessModel.Proficiency;
-import system.model.characterClasses.Barbarian;
-import system.model.characterClasses.Bard;
-import system.model.characterClasses.CharacterClass;
+import system.model.characterClasses.*;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -73,6 +71,166 @@ public class LoadCharacterClasses
         ArrayList<Feat> feats = new ArrayList<>();
         ArrayList<Integer> featLevels = new ArrayList<>();
         Bard b = new Bard(rs.getInt("hitDiceType"), feats, featLevels,
+            rs.getString("description"), rs.getString("primaryAbility"), featModifiers);
+      }
+      else if (rs.getString("name").equals("Cleric"))
+      {
+        query = "SELECT * FROM \"Core\".\"Feat_bard\";";
+        ResultSet feat = st.executeQuery(query);
+        ArrayList<Proficiency> featModifiers = new ArrayList<>();
+        while (feat.next())
+        {
+          String[] temp = feat.getString("feat").split(",\"");
+          Feat feat1 = new Feat("class", temp[0], temp[1]);
+          featModifiers = new ArrayList<>(parseModifiers(temp[2]));
+        }
+        ArrayList<Feat> feats = new ArrayList<>();
+        ArrayList<Integer> featLevels = new ArrayList<>();
+        Cleric b = new Cleric(rs.getInt("hitDiceType"), feats, featLevels,
+            rs.getString("description"), rs.getString("primaryAbility"), featModifiers);
+      }
+      else if (rs.getString("name").equals("Druid"))
+      {
+        query = "SELECT * FROM \"Core\".\"Feat_bard\";";
+        ResultSet feat = st.executeQuery(query);
+        ArrayList<Proficiency> featModifiers = new ArrayList<>();
+        while (feat.next())
+        {
+          String[] temp = feat.getString("feat").split(",\"");
+          Feat feat1 = new Feat("class", temp[0], temp[1]);
+          featModifiers = new ArrayList<>(parseModifiers(temp[2]));
+        }
+        ArrayList<Feat> feats = new ArrayList<>();
+        ArrayList<Integer> featLevels = new ArrayList<>();
+        Druid b = new Druid(rs.getInt("hitDiceType"), feats, featLevels,
+            rs.getString("description"), rs.getString("primaryAbility"), featModifiers);
+      }
+      else if (rs.getString("name").equals("Fighter"))
+      {
+        query = "SELECT * FROM \"Core\".\"Feat_bard\";";
+        ResultSet feat = st.executeQuery(query);
+        ArrayList<Proficiency> featModifiers = new ArrayList<>();
+        while (feat.next())
+        {
+          String[] temp = feat.getString("feat").split(",\"");
+          Feat feat1 = new Feat("class", temp[0], temp[1]);
+          featModifiers = new ArrayList<>(parseModifiers(temp[2]));
+        }
+        ArrayList<Feat> feats = new ArrayList<>();
+        ArrayList<Integer> featLevels = new ArrayList<>();
+        Fighter b = new Fighter(rs.getInt("hitDiceType"), feats, featLevels,
+            rs.getString("description"), rs.getString("primaryAbility"), featModifiers);
+      }
+      else if (rs.getString("name").equals("Monk"))
+      {
+        query = "SELECT * FROM \"Core\".\"Feat_bard\";";
+        ResultSet feat = st.executeQuery(query);
+        ArrayList<Proficiency> featModifiers = new ArrayList<>();
+        while (feat.next())
+        {
+          String[] temp = feat.getString("feat").split(",\"");
+          Feat feat1 = new Feat("class", temp[0], temp[1]);
+          featModifiers = new ArrayList<>(parseModifiers(temp[2]));
+        }
+        ArrayList<Feat> feats = new ArrayList<>();
+        ArrayList<Integer> featLevels = new ArrayList<>();
+        Monk b = new Monk(rs.getInt("hitDiceType"), feats, featLevels,
+            rs.getString("description"), rs.getString("primaryAbility"), featModifiers);
+      }
+      else if (rs.getString("name").equals("Paladin"))
+      {
+        query = "SELECT * FROM \"Core\".\"Feat_bard\";";
+        ResultSet feat = st.executeQuery(query);
+        ArrayList<Proficiency> featModifiers = new ArrayList<>();
+        while (feat.next())
+        {
+          String[] temp = feat.getString("feat").split(",\"");
+          Feat feat1 = new Feat("class", temp[0], temp[1]);
+          featModifiers = new ArrayList<>(parseModifiers(temp[2]));
+        }
+        ArrayList<Feat> feats = new ArrayList<>();
+        ArrayList<Integer> featLevels = new ArrayList<>();
+        Paladin b = new Paladin(rs.getInt("hitDiceType"), feats, featLevels,
+            rs.getString("description"), rs.getString("primaryAbility"), featModifiers);
+      }
+      else if (rs.getString("name").equals("Ranger"))
+      {
+        query = "SELECT * FROM \"Core\".\"Feat_bard\";";
+        ResultSet feat = st.executeQuery(query);
+        ArrayList<Proficiency> featModifiers = new ArrayList<>();
+        while (feat.next())
+        {
+          String[] temp = feat.getString("feat").split(",\"");
+          Feat feat1 = new Feat("class", temp[0], temp[1]);
+          featModifiers = new ArrayList<>(parseModifiers(temp[2]));
+        }
+        ArrayList<Feat> feats = new ArrayList<>();
+        ArrayList<Integer> featLevels = new ArrayList<>();
+        Ranger b = new Ranger(rs.getInt("hitDiceType"), feats, featLevels,
+            rs.getString("description"), rs.getString("primaryAbility"), featModifiers);
+      }
+      else if (rs.getString("name").equals("Rogue"))
+      {
+        query = "SELECT * FROM \"Core\".\"Feat_bard\";";
+        ResultSet feat = st.executeQuery(query);
+        ArrayList<Proficiency> featModifiers = new ArrayList<>();
+        while (feat.next())
+        {
+          String[] temp = feat.getString("feat").split(",\"");
+          Feat feat1 = new Feat("class", temp[0], temp[1]);
+          featModifiers = new ArrayList<>(parseModifiers(temp[2]));
+        }
+        ArrayList<Feat> feats = new ArrayList<>();
+        ArrayList<Integer> featLevels = new ArrayList<>();
+        Rogue b = new Rogue(rs.getInt("hitDiceType"), feats, featLevels,
+            rs.getString("description"), rs.getString("primaryAbility"), featModifiers);
+      }
+      else if (rs.getString("name").equals("Sorcerer"))
+      {
+        query = "SELECT * FROM \"Core\".\"Feat_bard\";";
+        ResultSet feat = st.executeQuery(query);
+        ArrayList<Proficiency> featModifiers = new ArrayList<>();
+        while (feat.next())
+        {
+          String[] temp = feat.getString("feat").split(",\"");
+          Feat feat1 = new Feat("class", temp[0], temp[1]);
+          featModifiers = new ArrayList<>(parseModifiers(temp[2]));
+        }
+        ArrayList<Feat> feats = new ArrayList<>();
+        ArrayList<Integer> featLevels = new ArrayList<>();
+        Sorcerer b = new Sorcerer(rs.getInt("hitDiceType"), feats, featLevels,
+            rs.getString("description"), rs.getString("primaryAbility"), featModifiers);
+      }
+      else if (rs.getString("name").equals("Warlock"))
+      {
+        query = "SELECT * FROM \"Core\".\"Feat_bard\";";
+        ResultSet feat = st.executeQuery(query);
+        ArrayList<Proficiency> featModifiers = new ArrayList<>();
+        while (feat.next())
+        {
+          String[] temp = feat.getString("feat").split(",\"");
+          Feat feat1 = new Feat("class", temp[0], temp[1]);
+          featModifiers = new ArrayList<>(parseModifiers(temp[2]));
+        }
+        ArrayList<Feat> feats = new ArrayList<>();
+        ArrayList<Integer> featLevels = new ArrayList<>();
+        Warlock b = new Warlock(rs.getInt("hitDiceType"), feats, featLevels,
+            rs.getString("description"), rs.getString("primaryAbility"), featModifiers);
+      }
+      else if (rs.getString("name").equals("Wizard"))
+      {
+        query = "SELECT * FROM \"Core\".\"Feat_bard\";";
+        ResultSet feat = st.executeQuery(query);
+        ArrayList<Proficiency> featModifiers = new ArrayList<>();
+        while (feat.next())
+        {
+          String[] temp = feat.getString("feat").split(",\"");
+          Feat feat1 = new Feat("class", temp[0], temp[1]);
+          featModifiers = new ArrayList<>(parseModifiers(temp[2]));
+        }
+        ArrayList<Feat> feats = new ArrayList<>();
+        ArrayList<Integer> featLevels = new ArrayList<>();
+        Wizard b = new Wizard(rs.getInt("hitDiceType"), feats, featLevels,
             rs.getString("description"), rs.getString("primaryAbility"), featModifiers);
       }
     }
