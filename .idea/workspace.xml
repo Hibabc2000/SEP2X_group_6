@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="Reworked CharacterClass and relevant changes.">
+    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="LoadCharacterClasses and relevant changes.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/transferobjects/ClassName.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/transferobjects/ClassName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Database/GetAllAccountData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/GetAllAccountData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Database/LoadCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/LoadCharacter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/views/characterSheet/CharacterSheetViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/characterSheet/CharacterSheetViewModel.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -74,7 +71,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.RunServer">
+  <component name="RunManager" selected="Application.Start">
     <configuration name="EnumTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="networking.EnumTest" />
       <module name="SEP2X_group_6" />
@@ -156,8 +153,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.RunServer" />
         <item itemvalue="Application.Start" />
+        <item itemvalue="Application.RunServer" />
         <item itemvalue="Application.EnumTest" />
         <item itemvalue="Application.GetAllTest" />
         <item itemvalue="Application.TestDtbs" />
@@ -420,7 +417,28 @@
       <option name="project" value="LOCAL" />
       <updated>1590583623467</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="LoadCharacterClasses and relevant changes.">
+      <created>1590584244316</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1590584244316</updated>
+    </task>
+    <task id="LOCAL-00037" summary="LoadCharacterClasses and relevant changes, some Javadocs.">
+      <created>1590587346785</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1590587346785</updated>
+    </task>
+    <task id="LOCAL-00038" summary="CSVM.">
+      <created>1590588025223</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1590588025223</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -437,8 +455,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Corrected formatting and typos" />
-    <MESSAGE value="Added e-mail check to account model impl." />
     <MESSAGE value="Started Database loading" />
     <MESSAGE value="Database loading, model rework started" />
     <MESSAGE value="Model rework" />
@@ -462,7 +478,9 @@
     <MESSAGE value="LoadCharacterClass, design decision: integrate class feats into actual classes (ie. FeatBarbarian.java integrated into Barbarian.java)." />
     <MESSAGE value="LoadCharacterClass, LoadCharacter." />
     <MESSAGE value="LoadCharacterClasses and relevant changes." />
-    <option name="LAST_COMMIT_MESSAGE" value="LoadCharacterClasses and relevant changes." />
+    <MESSAGE value="LoadCharacterClasses and relevant changes, some Javadocs." />
+    <MESSAGE value="CSVM." />
+    <option name="LAST_COMMIT_MESSAGE" value="CSVM." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -605,6 +605,110 @@ public class CharacterSheetViewModel
     parseProficiencies();
   }
 
+  private void setSkills()
+  {
+    for (Proficiency p : sheetCharacter.getProficiencies())
+    {
+      StaticModel staticModel = new StaticModel();
+      for (Skill s : staticModel.getSkills())
+      {
+        if (p.getName().toLowerCase().contains(s.getName().toLowerCase()))
+        {
+          if (s.getName().equals("Acrobatics"))
+          {
+            acrobaticsModifier.setValue(
+                String.valueOf(Integer.parseInt(dexterityModifier.toString())));
+          }
+          else if (s.getName().equals("Animal Handling"))
+          {
+            animalHandlingModifier.setValue(
+                String.valueOf(Integer.parseInt(wisdomModifier.toString())));
+          }
+          else if (s.getName().equals("Arcana"))
+          {
+            arcanaModifier.setValue(String
+                .valueOf(Integer.parseInt(intelligenceModifier.toString())));
+          }
+          else if (s.getName().equals("Athletics"))
+          {
+            athleticsModifier.setValue(
+                String.valueOf(Integer.parseInt(strengthModifier.toString())));
+          }
+          else if (s.getName().equals("Deception"))
+          {
+            deceptionModifier.setValue(
+                String.valueOf(Integer.parseInt(charismaModifier.toString())));
+          }
+          else if (s.getName().equals("History"))
+          {
+            historyModifier.setValue(String
+                .valueOf(Integer.parseInt(intelligenceModifier.toString())));
+          }
+          else if (s.getName().equals("Insight"))
+          {
+            insightModifier.setValue(
+                String.valueOf(Integer.parseInt(wisdomModifier.toString())));
+          }
+          else if (s.getName().equals("Intimidation"))
+          {
+            intimidationModifier.setValue(
+                String.valueOf(Integer.parseInt(charismaModifier.toString())));
+          }
+          else if (s.getName().equals("Investigation"))
+          {
+            investigationModifier.setValue(String
+                .valueOf(Integer.parseInt(intelligenceModifier.toString())));
+          }
+          else if (s.getName().equals("Medicine"))
+          {
+            medicineModifier.setValue(
+                String.valueOf(Integer.parseInt(wisdomModifier.toString())));
+          }
+          else if (s.getName().equals("Nature"))
+          {
+            natureModifier.setValue(String
+                .valueOf(Integer.parseInt(intelligenceModifier.toString())));
+          }
+          else if (s.getName().equals("Perception"))
+          {
+            perceptionModifier.setValue(
+                String.valueOf(Integer.parseInt(wisdomModifier.toString())));
+          }
+          else if (s.getName().equals("Performance"))
+          {
+            performanceModifier.setValue(
+                String.valueOf(Integer.parseInt(charismaModifier.toString())));
+          }
+          else if (s.getName().equals("Persuasion"))
+          {
+            persuasionModifier.setValue(
+                String.valueOf(Integer.parseInt(charismaModifier.toString())));
+          }
+          else if (s.getName().equals("Religion"))
+          {
+            religionModifier.setValue(String
+                .valueOf(Integer.parseInt(intelligenceModifier.toString())));
+          }
+          else if (s.getName().equals("Sleight of Hand"))
+          {
+            sleightOfHandModifier.setValue(
+                String.valueOf(Integer.parseInt(dexterityModifier.toString())));
+          }
+          else if (s.getName().equals("Stealth"))
+          {
+            stealthModifier.setValue(
+                String.valueOf(Integer.parseInt(dexterityModifier.toString())));
+          }
+          else if (s.getName().equals("Survival"))
+          {
+            survivalModifier.setValue(
+                String.valueOf(Integer.parseInt(wisdomModifier.toString())));
+          }
+        }
+      }
+    }
+  }
+
   private void setSavingThrows()
   {
     StaticModel staticModel = sheetCharacter.getStaticModel();
