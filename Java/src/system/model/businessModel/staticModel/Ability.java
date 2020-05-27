@@ -1,6 +1,8 @@
 package system.model.businessModel.staticModel;
 
-public class Ability
+import java.io.Serializable;
+
+public class Ability implements Serializable
 {
   /**
    * Class for storing DnD abilities.

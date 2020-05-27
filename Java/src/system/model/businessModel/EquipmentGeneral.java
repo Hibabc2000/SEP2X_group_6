@@ -1,6 +1,8 @@
 package system.model.businessModel;
 
-public class EquipmentGeneral extends Equipment
+import java.io.Serializable;
+
+public class EquipmentGeneral extends Equipment implements Serializable
 {
 
   public EquipmentGeneral(Equipment equipment)

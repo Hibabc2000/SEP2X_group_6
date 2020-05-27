@@ -1,6 +1,8 @@
 package system.model.businessModel;
 
-public class Item
+import java.io.Serializable;
+
+public class Item implements Serializable
 {
  private Equipment gameItem;
  private int amount;

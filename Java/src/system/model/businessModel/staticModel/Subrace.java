@@ -1,6 +1,8 @@
 package system.model.businessModel.staticModel;
 
-public class Subrace
+import java.io.Serializable;
+
+public class Subrace implements Serializable
 {
   private String mainRace;
   private String raceName;

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="Client-server-db communication with CharacterCreation/Update done">
-      <change beforePath="$PROJECT_DIR$/Server/src/Database/Create.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Database/GetAllAccountData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/GetAllAccountData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Database/Insert.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Database/Select.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/AccountModelImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/AccountModelImplTest.java" afterDir="false" />
+    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/model/businessModel/staticModel/StaticModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/businessModel/staticModel/StaticModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/transferobjects/login/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/transferobjects/login/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/transferobjects/login/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/transferobjects/login/Group.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Database/GetCoreFromDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/GetCoreFromDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -441,7 +442,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590588025223</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Clean up, static model sent to client .">
+      <created>1590590447308</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1590590447308</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -458,7 +466,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Started Database loading" />
     <MESSAGE value="Database loading, model rework started" />
     <MESSAGE value="Model rework" />
     <MESSAGE value="Updated equipment, worked on database equipment loading (probably finished)" />
@@ -483,7 +490,8 @@
     <MESSAGE value="LoadCharacterClasses and relevant changes." />
     <MESSAGE value="LoadCharacterClasses and relevant changes, some Javadocs." />
     <MESSAGE value="CSVM." />
-    <option name="LAST_COMMIT_MESSAGE" value="CSVM." />
+    <MESSAGE value="Clean up, static model sent to client ." />
+    <option name="LAST_COMMIT_MESSAGE" value="Clean up, static model sent to client ." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

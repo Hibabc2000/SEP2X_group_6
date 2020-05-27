@@ -1,6 +1,8 @@
 package system.model.businessModel;
 
-public class Spell
+import java.io.Serializable;
+
+public class Spell implements Serializable
 {
   private String name;
   private int spellLevel;

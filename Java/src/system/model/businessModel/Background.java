@@ -1,8 +1,9 @@
 package system.model.businessModel;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Background
+public class Background implements Serializable
 {
   /**
    * Class for storing DnD backgrounds.

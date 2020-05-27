@@ -102,7 +102,7 @@ public class Group implements Serializable
   }
 
   public boolean isContainsUsername(
-      String username)           // returns whether the player with the entered player's name is part of the group
+      String username)
   {
     boolean temp = false;
     if(players!=null){

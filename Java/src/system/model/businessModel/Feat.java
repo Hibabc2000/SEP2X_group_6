@@ -1,6 +1,8 @@
 package system.model.businessModel;
 
-public class Feat
+import java.io.Serializable;
+
+public class Feat implements Serializable
 {
   private String origin;
   private String name;

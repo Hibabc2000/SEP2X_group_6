@@ -96,8 +96,8 @@ public class ServerSocketHandler implements Runnable
                     ClassName.CREATE_ACCOUNT);
                 sendBackData(outDataPack);
                 GetCoreFromDatabase gcfd = new GetCoreFromDatabase();
-
-                sendBackData(gcfd.loadDatabase());
+                Container staticmod = gcfd.loadDatabase();
+                sendBackData(staticmod);
               }
               catch (SQLException e)
               {
@@ -239,8 +239,8 @@ public class ServerSocketHandler implements Runnable
                 pool.userJoin(account);
                 pool.addHandler(this);
                 GetCoreFromDatabase gcfd = new GetCoreFromDatabase();
-
-                sendBackData(gcfd.loadDatabase());
+                Container staticmod = gcfd.loadDatabase();
+                sendBackData(staticmod);
 
               }
               catch (SQLException e)

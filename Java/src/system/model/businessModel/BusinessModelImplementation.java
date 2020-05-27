@@ -1,5 +1,5 @@
 package system.model.businessModel;
 
-public class BusinessModelImplementation
+public class  BusinessModelImplementation
 {
 }

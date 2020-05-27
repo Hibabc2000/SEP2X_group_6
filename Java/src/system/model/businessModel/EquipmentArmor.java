@@ -1,6 +1,8 @@
 package system.model.businessModel;
 
-public class EquipmentArmor extends Equipment
+import java.io.Serializable;
+
+public class EquipmentArmor extends Equipment implements Serializable
 {
   private int armorClass;
   private String dexMod;

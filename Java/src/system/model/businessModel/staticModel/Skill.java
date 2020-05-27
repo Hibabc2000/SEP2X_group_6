@@ -1,6 +1,8 @@
 package system.model.businessModel.staticModel;
 
-public class Skill
+import java.io.Serializable;
+
+public class Skill implements Serializable
 {
   private String ability;
   private String name;

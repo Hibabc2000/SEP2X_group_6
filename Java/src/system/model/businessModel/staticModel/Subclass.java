@@ -1,6 +1,8 @@
 package system.model.businessModel.staticModel;
 
-public class Subclass
+import java.io.Serializable;
+
+public class Subclass implements Serializable
 {
   private String mainClass;
   private String description;

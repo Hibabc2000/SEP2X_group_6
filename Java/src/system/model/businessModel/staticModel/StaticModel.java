@@ -2,9 +2,10 @@ package system.model.businessModel.staticModel;
 
 import system.model.businessModel.*;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class StaticModel
+public class StaticModel implements Serializable
 {
   /**
    * Class for transporting static (ie. non-changing during runtime, not Java static) objects between server and client.

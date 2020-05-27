@@ -1,6 +1,8 @@
 package system.model.businessModel;
 
-public class Proficiency
+import java.io.Serializable;
+
+public class Proficiency implements Serializable
 {
   /**
    * Class for storing proficiencies. Used in Character and CharacterSheetViewModel to calculate proper values.

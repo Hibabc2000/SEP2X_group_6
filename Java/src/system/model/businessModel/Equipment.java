@@ -1,6 +1,9 @@
 package system.model.businessModel;
 
-public class Equipment //DO NOT INSTANTIATE UNLESS NECESSARY.
+import java.io.Serializable;
+
+public class Equipment implements
+    Serializable //DO NOT INSTANTIATE UNLESS NECESSARY.
 {
   /**
    * Class for equipment. DO NOT INSTANTIATE.

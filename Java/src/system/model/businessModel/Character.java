@@ -4,9 +4,10 @@ import system.model.businessModel.staticModel.Ability;
 import system.model.characterClasses.CharacterClass;
 import system.model.businessModel.staticModel.StaticModel;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Character
+public class Character implements Serializable
 {
   private Integer id;
   private Race race;

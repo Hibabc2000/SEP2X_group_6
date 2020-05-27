@@ -1,6 +1,8 @@
 package system.model.businessModel;
 
-public class Race
+import java.io.Serializable;
+
+public class Race implements Serializable
 {
 
   private String traits;
