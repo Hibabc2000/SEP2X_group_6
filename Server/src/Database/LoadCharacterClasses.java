@@ -1,7 +1,9 @@
 package Database;
 
 import system.model.businessModel.Feat;
+import system.model.businessModel.Proficiency;
 import system.model.characterClasses.Barbarian;
+import system.model.characterClasses.Bard;
 import system.model.characterClasses.CharacterClass;
 
 import java.sql.*;
@@ -39,18 +41,70 @@ public class LoadCharacterClasses
     Statement st = c.createStatement();
     String query = "SELECT * FROM \"Core\".\"CharacterClass\";";
     ResultSet rs = st.executeQuery(query);
-    while(rs.next())
+    while (rs.next())
     {
-      if(rs.getString("name").equals("Barbarian"))
+      if (rs.getString("name").equals("Barbarian"))
       {
         query = "SELECT * FROM \"Core\".\"Feat_barbarian\";";
         ResultSet feat = st.executeQuery(query);
-
+        ArrayList<Proficiency> featModifiers = new ArrayList<>();
+        while (feat.next())
+        {
+          String[] temp = feat.getString("feat").split(",\"");
+          Feat feat1 = new Feat("class", temp[0], temp[1]);
+          featModifiers = new ArrayList<>(parseModifiers(temp[2]));
+        }
         ArrayList<Feat> feats = new ArrayList<>();
         ArrayList<Integer> featLevels = new ArrayList<>();
         Barbarian b = new Barbarian(rs.getInt("hitDiceType"), feats, featLevels,
-            rs.getString("description"), rs.getString("primaryAbility"));
+            rs.getString("description"), rs.getString("primaryAbility"), featModifiers);
+      }
+      else if (rs.getString("name").equals("Bard"))
+      {
+        query = "SELECT * FROM \"Core\".\"Feat_bard\";";
+        ResultSet feat = st.executeQuery(query);
+        ArrayList<Proficiency> featModifiers = new ArrayList<>();
+        while (feat.next())
+        {
+          String[] temp = feat.getString("feat").split(",\"");
+          Feat feat1 = new Feat("class", temp[0], temp[1]);
+          featModifiers = new ArrayList<>(parseModifiers(temp[2]));
+        }
+        ArrayList<Feat> feats = new ArrayList<>();
+        ArrayList<Integer> featLevels = new ArrayList<>();
+        Bard b = new Bard(rs.getInt("hitDiceType"), feats, featLevels,
+            rs.getString("description"), rs.getString("primaryAbility"), featModifiers);
       }
     }
+  }
+
+  private ArrayList<Proficiency> parseModifiers(String modifiers)
+  {
+    /**
+     * Special parser method for proficiencies and other modifiers.
+     */
+    ArrayList<Proficiency> arr = new ArrayList<>();
+    String[] temp = modifiers.split("|");
+    for (String s : temp)
+    {
+      String[] s2 = s.split(":");
+      double d;
+      if (s.toLowerCase().contains("expert"))
+      {
+        d = 2;
+      }
+      else if (s.toLowerCase().contains("proficiency"))
+      {
+        d = 1;
+      }
+      else if (s.toLowerCase().contains("half"))
+      {
+        d = 0.5;
+      }
+      else d = 1;
+      Proficiency p = new Proficiency(s2[1], s2[0], "class", d);
+      arr.add(p);
+    }
+    return arr;
   }
 }

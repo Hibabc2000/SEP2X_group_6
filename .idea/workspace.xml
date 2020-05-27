@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="Reworked CharacterClass and relevant changes.">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Felhasználó.xml" afterDir="false" />
+    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="LoadCharacterClasses.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Barbarian.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Barbarian.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Bard.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Bard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java/src/system/model/characterClasses/CharacterClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/characterClasses/CharacterClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Database/GetCoreFromDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/GetCoreFromDatabase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/Database/LoadCharacterClasses.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/LoadCharacterClasses.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,6 +39,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="13" />
+    <property name="last.edited.regexp" value="(Rage,&quot; In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action.&#10;&#10;While raging, you gain the following benefits if you aren’t wearing heavy armor:&#10;&#10;You have advantage on Strength checks and Strength saving throws.&#10;When you make a melee weapon attack using Strength, you gain a bonus to the damage roll that increases as you gain levels as a barbarian, as shown in the Rage Damage column of the Barbarian table.&#10;You have resistance to bludgeoning, piercing, and slashing damage.&#10;&#10;If you are able to cast spells, you can’t cast them or concentrate on them while raging.&#10;&#10;Your rage lasts for 1 minute. It ends early if you are knocked unconscious or if your turn ends and you haven’t attacked a hostile creature since your last turn or taken damage since then. You can also end your rage on your turn as a bonus action.&#10;&#10;Once you have raged the number of times shown for your barbarian level in the Rages column of the Barbarian table, you must finish a long rest before you can rage again.&quot;,&quot; &quot;)" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../postgresql-42.2.11.jar!/" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15332031" />
@@ -398,7 +399,21 @@
       <option name="project" value="LOCAL" />
       <updated>1590581192764</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="LoadCharacterClass, design decision: integrate class feats into actual classes (ie. FeatBarbarian.java integrated into Barbarian.java).">
+      <created>1590581586433</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1590581586433</updated>
+    </task>
+    <task id="LOCAL-00034" summary="LoadCharacterClass, LoadCharacter.">
+      <created>1590582227323</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1590582227323</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -415,7 +430,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="So it begins.&#10;added basic login part without any client server stuff," />
     <MESSAGE value="created a test class" />
     <MESSAGE value="Corrected formatting and typos" />
     <MESSAGE value="Added e-mail check to account model impl." />
@@ -439,7 +453,9 @@
     <MESSAGE value="Fixed some Javadocs" />
     <MESSAGE value="2 extra methods" />
     <MESSAGE value="Reworked CharacterClass and relevant changes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Reworked CharacterClass and relevant changes." />
+    <MESSAGE value="LoadCharacterClass, design decision: integrate class feats into actual classes (ie. FeatBarbarian.java integrated into Barbarian.java)." />
+    <MESSAGE value="LoadCharacterClass, LoadCharacter." />
+    <option name="LAST_COMMIT_MESSAGE" value="LoadCharacterClass, LoadCharacter." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

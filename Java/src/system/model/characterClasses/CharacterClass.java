@@ -1,6 +1,7 @@
 package system.model.characterClasses;
 
 import system.model.businessModel.Feat;
+import system.model.businessModel.Proficiency;
 
 import java.util.ArrayList;
 
@@ -11,19 +12,21 @@ public class CharacterClass
   private ArrayList<Integer> classFeatLevels;
   private String description;
   private String primaryAbility;
+  private ArrayList<Proficiency> featModifiers;
 
   public CharacterClass()
   {
   }
 
   public CharacterClass(int hitDiceType, ArrayList<Feat> classFeats, ArrayList<Integer> classFeatLevels,
-      String description, String primary)
+      String description, String primary, ArrayList<Proficiency> featModifiers)
   {
     this.hitDiceType = hitDiceType;
     this.classFeats = classFeats;
     this.classFeatLevels = classFeatLevels;
     this.description = description;
     this.primaryAbility = primary;
+    this.featModifiers = featModifiers;
   }
 
 
@@ -82,4 +85,13 @@ public class CharacterClass
     this.primaryAbility = primaryAbility;
   }
 
+  public ArrayList<Proficiency> getFeatModifiers()
+  {
+    return featModifiers;
+  }
+
+  public void setFeatModifiers(ArrayList<Proficiency> featModifiers)
+  {
+    this.featModifiers = featModifiers;
+  }
 }
