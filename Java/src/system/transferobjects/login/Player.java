@@ -20,27 +20,37 @@ public class Player implements User
   {
 
   }
+  /**
+ * Sets a character.
+ * @param ch Character
+ */
   public void setCharacter(Character ch)
   {
     character = ch;
   }
+
+  /**
+   * Sets the character's ID.
+   * @param i Integer
+   */
   public void addCharacterID(Integer i)
   {
     characterID = i;
   }
+  /**
+   * Returns the ID of the character.
+   * @return  value of characterID
+   */
   public Integer getCharacterID()
   {
     return  characterID;
   }
-  public void addGroup(Group gr)
-  {
-    playerGroup = gr;
-  }
-  public Group getPlayerGroup()
-  {
-    return playerGroup;
-  }
 
+
+  /**
+   * Returns the name of the player.
+   * @return  String playerName
+   */
   public String getName()
   {
     return playerName;

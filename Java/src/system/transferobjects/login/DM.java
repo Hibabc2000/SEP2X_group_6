@@ -11,18 +11,13 @@ public class DM implements User
   {
     nameDM = name;
   }
-
+  /**
+   * Retruns the username.
+   * @return  String  variable nameDM
+   */
   public String getName()
   {
     return nameDM;
-  }
-  public Group getGroupDM()
-  {
-    return groupDM;
-  }
-  public void setGroupDM(Group grp)
-  {
-    groupDM= grp;
   }
 
   @Override public int rollDice(int diceType, int diceCount)
