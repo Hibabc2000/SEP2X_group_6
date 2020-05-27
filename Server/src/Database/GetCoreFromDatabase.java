@@ -356,7 +356,6 @@ public class GetCoreFromDatabase
     Statement st = c.createStatement();
     String query = "SELECT * FROM \"Core\".\"Ability\"";
     ResultSet rs = st.executeQuery(query);
-    ResultSetMetaData rsmd = rs.getMetaData();
     while (rs.next())
     {
       Ability ability = new Ability(rs.getString("name"),

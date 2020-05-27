@@ -1,6 +1,7 @@
 package Database;
 
 import system.model.businessModel.Feat;
+import system.model.businessModel.staticModel.Ability;
 import system.model.characterClasses.Barbarian;
 import system.model.characterClasses.CharacterClass;
 
@@ -45,7 +46,8 @@ public class LoadCharacterClasses
       {
         ArrayList<Feat> feats = new ArrayList<>();
         ArrayList<Integer> featLevels = new ArrayList<>();
-        Barbarian b = new Barbarian(rs.getInt("hitDiceType"), rs.getInt());
+        Barbarian b;
+        b = new Barbarian(rs.getInt("hitDiceType"), feats, featLevels, rs.getString("description"), rs.getString("primaryAbility"));
       }
     }
   }

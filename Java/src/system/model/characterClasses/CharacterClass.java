@@ -1,6 +1,5 @@
 package system.model.characterClasses;
 
-import system.model.businessModel.staticModel.Ability;
 import system.model.businessModel.Feat;
 
 import java.util.ArrayList;
@@ -11,20 +10,20 @@ public class CharacterClass
   private ArrayList<Feat> classFeats;
   private ArrayList<Integer> classFeatLevels;
   private String description;
-  private Ability primary;
+  private String primaryAbility;
 
   public CharacterClass()
   {
   }
 
   public CharacterClass(int hitDiceType, ArrayList<Feat> classFeats, ArrayList<Integer> classFeatLevels,
-      String description, Ability primary)
+      String description, String primary)
   {
     this.hitDiceType = hitDiceType;
     this.classFeats = classFeats;
     this.classFeatLevels = classFeatLevels;
     this.description = description;
-    this.primary = primary;
+    this.primaryAbility = primary;
   }
 
 
@@ -63,17 +62,6 @@ public class CharacterClass
     this.description = description;
   }
 
-  public Ability getPrimary()
-  {
-    return primary;
-  }
-
-  public void setPrimary(Ability primary)
-  {
-    this.primary = primary;
-  }
-
-
   public String getClassName()
   {
     return getClass().getName();
@@ -83,4 +71,15 @@ public class CharacterClass
   {
     return hitDiceType;
   }
+
+  public String getPrimaryAbility()
+  {
+    return primaryAbility;
+  }
+
+  public void setPrimaryAbility(String primaryAbility)
+  {
+    this.primaryAbility = primaryAbility;
+  }
+
 }
