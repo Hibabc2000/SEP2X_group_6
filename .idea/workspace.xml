@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/businessModel/staticModel/StaticModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/businessModel/staticModel/StaticModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/transferobjects/login/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/transferobjects/login/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/transferobjects/login/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/transferobjects/login/Group.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Database/GetCoreFromDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/GetCoreFromDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Database/ConnectDBC.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Database/TestDtbs.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -449,7 +445,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590590447308</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="I serialized EVERYTHING !!! Almost, or atleast some things.">
+      <created>1590591800706</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1590591800706</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -466,7 +469,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Database loading, model rework started" />
     <MESSAGE value="Model rework" />
     <MESSAGE value="Updated equipment, worked on database equipment loading (probably finished)" />
     <MESSAGE value="Spell rework" />
@@ -491,7 +493,8 @@
     <MESSAGE value="LoadCharacterClasses and relevant changes, some Javadocs." />
     <MESSAGE value="CSVM." />
     <MESSAGE value="Clean up, static model sent to client ." />
-    <option name="LAST_COMMIT_MESSAGE" value="Clean up, static model sent to client ." />
+    <MESSAGE value="I serialized EVERYTHING !!! Almost, or atleast some things." />
+    <option name="LAST_COMMIT_MESSAGE" value="I serialized EVERYTHING !!! Almost, or atleast some things." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
