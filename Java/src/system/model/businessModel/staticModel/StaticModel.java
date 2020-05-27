@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class StaticModel
 {
   /**
-   * Class for transporting static objects between server and client.
+   * Class for transporting static (ie. non-changing during runtime, not Java static) objects between server and client.
    */
 
   private ArrayList<Ability> abilities;
