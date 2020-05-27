@@ -422,4 +422,14 @@ public class Character
   {
     this.backstory = backstory;
   }
+
+  public int[] getAbilitiesRolled()
+  {
+    return abilitiesRolled;
+  }
+
+  public void setAbilitiesRolled(int[] abilitiesRolled)
+  {
+    this.abilitiesRolled = abilitiesRolled;
+  }
 }
