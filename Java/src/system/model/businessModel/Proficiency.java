@@ -2,6 +2,9 @@ package system.model.businessModel;
 
 public class Proficiency
 {
+  /**
+   * Class for storing proficiencies. Used in Character and CharacterSheetViewModel to calculate proper values.
+   */
   private String name;
   private String type;
   private String origin;

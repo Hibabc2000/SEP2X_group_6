@@ -1,5 +1,6 @@
 package system.model.businessModel;
 
+import system.model.businessModel.staticModel.Ability;
 import system.model.characterClasses.CharacterClass;
 import system.model.businessModel.staticModel.StaticModel;
 
@@ -42,17 +43,18 @@ public class Character
   private StaticModel staticModel;
   private String backstory;
 
-  public Character(StaticModel staticModel)//staticmodel has to be uploaded at instantiation, so that we can have the proficiency parser
+  public Character(
+      StaticModel staticModel)//staticmodel has to be uploaded at instantiation, so that we can have the proficiency parser
   {
     this.staticModel = staticModel;
     id = null;
     name = "";
-    abilities = new int[] {0,0,0,0,0,0};
-    abilitiesRolled = new int[] {0,0,0,0,0,0};
+    abilities = new int[] {0, 0, 0, 0, 0, 0};
+    abilitiesRolled = new int[] {0, 0, 0, 0, 0, 0};
     characterClass = new ArrayList<>();
     proficiencies = new ArrayList<>();
     profLevel = new ArrayList<>();
-    money = new int[]{0,0,0,0,0};
+    money = new int[] {0, 0, 0, 0, 0};
     equipmentList = new ArrayList<>();
     xp = 0;
     level = 1;
@@ -70,9 +72,14 @@ public class Character
     ideals = new ArrayList<>();
     bonds = new ArrayList<>();
     flaws = new ArrayList<>();
-    spellSlots = new boolean[][]{{false, false, false, false},{false, false, false, false},{false, false, false, false},{false, false, false, false},{false, false, false, false},{false, false, false, false},{false, false, false, false},{false, false, false, false},{false, false, false, false},{false, false, false, false}};
+    spellSlots = new boolean[][] {{false, false, false, false},
+        {false, false, false, false}, {false, false, false, false},
+        {false, false, false, false}, {false, false, false, false},
+        {false, false, false, false}, {false, false, false, false},
+        {false, false, false, false}, {false, false, false, false},
+        {false, false, false, false}};
     treasures = new ArrayList<>();
-    backstory= "";
+    backstory = "";
   }
   //equals method
 /*
@@ -264,7 +271,6 @@ public class Character
     this.spellBook = spellBook;
   }
 
-
   /*
   public ArrayList<String> getPhysicalCharacteristics()
   {
@@ -418,7 +424,6 @@ public class Character
     this.faith = faith;
   }
 
-
   public String getUsername()
   {
     return username;
@@ -472,5 +477,57 @@ public class Character
   public void setLevelInClass(ArrayList<Integer> levelInClass)
   {
     this.levelInClass = levelInClass;
+  }
+
+  public void parseClassModifiers()
+  {
+    for (Proficiency p : proficiencies)
+    {
+      if (p.getOrigin().equals("class"))
+      {
+        for (Ability a : staticModel.getAbilities())
+        {
+          if (p.getName().contains(a.getName()))
+          {
+            if (a.getName().toLowerCase().equals("strength"))
+            {
+              String s = p.getType();
+              s = s.replace("+", "");
+              abilities[0] += Integer.parseInt(s);
+            }
+            else if (a.getName().toLowerCase().equals("dexterity"))
+            {
+              String s = p.getType();
+              s = s.replace("+", "");
+              abilities[0] += Integer.parseInt(s);
+            }
+            else if (a.getName().toLowerCase().equals("constitution"))
+            {
+              String s = p.getType();
+              s = s.replace("+", "");
+              abilities[0] += Integer.parseInt(s);
+            }
+            else if (a.getName().toLowerCase().equals("intelligence"))
+            {
+              String s = p.getType();
+              s = s.replace("+", "");
+              abilities[0] += Integer.parseInt(s);
+            }
+            else if (a.getName().toLowerCase().equals("wisdom"))
+            {
+              String s = p.getType();
+              s = s.replace("+", "");
+              abilities[0] += Integer.parseInt(s);
+            }
+            else if (a.getName().toLowerCase().equals("charisma"))
+            {
+              String s = p.getType();
+              s = s.replace("+", "");
+              abilities[0] += Integer.parseInt(s);
+            }
+          }
+        }
+      }
+    }
   }
 }

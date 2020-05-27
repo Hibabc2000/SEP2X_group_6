@@ -734,7 +734,7 @@ public class CharacterSheetViewModel
       }
       for (Ability a : staticModel.getAbilities())
       {
-        if (p.getName().toLowerCase().contains(a.getName().toLowerCase()))
+        if (p.getName().toLowerCase().contains(a.getName().toLowerCase()) && !p.getOrigin().equals("class"))
         {
           if (a.getName().toLowerCase().equals("strength"))
           {
@@ -868,7 +868,7 @@ public class CharacterSheetViewModel
           }
         }
       }
-      else if (p.getType().toLowerCase().contains("language"))
+      else if (p.getType().toLowerCase().contains("language") || p.getType().toLowerCase().contains("thieves' cant"))
       {
         //display in prof bar
       }

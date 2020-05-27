@@ -26,6 +26,7 @@ public class LoadCharacterClasses
       c = DriverManager
           .getConnection("jdbc:postgresql://localhost:5432/SEP2", "postgres",
               "almafast325");
+      classList = new ArrayList<>();
     }
     catch (SQLException | ClassNotFoundException e)
     {
@@ -34,8 +35,11 @@ public class LoadCharacterClasses
     classList = new ArrayList<>();
   }
 
-  public void load() throws SQLException
+  public ArrayList<CharacterClass> load() throws SQLException
   {
+    /**
+     * Main method for loading character classes and class feats.
+     */
     Statement st = c.createStatement();
     String query = "SELECT * FROM \"Core\".\"CharacterClass\";";
     ResultSet rs = st.executeQuery(query);
@@ -56,6 +60,7 @@ public class LoadCharacterClasses
         ArrayList<Integer> featLevels = new ArrayList<>();
         Barbarian b = new Barbarian(rs.getInt("hitDiceType"), feats, featLevels,
             rs.getString("description"), rs.getString("primaryAbility"), featModifiers);
+        classList.add(b);
       }
       else if (rs.getString("name").equals("Bard"))
       {
@@ -72,6 +77,7 @@ public class LoadCharacterClasses
         ArrayList<Integer> featLevels = new ArrayList<>();
         Bard b = new Bard(rs.getInt("hitDiceType"), feats, featLevels,
             rs.getString("description"), rs.getString("primaryAbility"), featModifiers);
+        classList.add(b);
       }
       else if (rs.getString("name").equals("Cleric"))
       {
@@ -88,6 +94,7 @@ public class LoadCharacterClasses
         ArrayList<Integer> featLevels = new ArrayList<>();
         Cleric b = new Cleric(rs.getInt("hitDiceType"), feats, featLevels,
             rs.getString("description"), rs.getString("primaryAbility"), featModifiers);
+        classList.add(b);
       }
       else if (rs.getString("name").equals("Druid"))
       {
@@ -104,6 +111,7 @@ public class LoadCharacterClasses
         ArrayList<Integer> featLevels = new ArrayList<>();
         Druid b = new Druid(rs.getInt("hitDiceType"), feats, featLevels,
             rs.getString("description"), rs.getString("primaryAbility"), featModifiers);
+        classList.add(b);
       }
       else if (rs.getString("name").equals("Fighter"))
       {
@@ -120,6 +128,7 @@ public class LoadCharacterClasses
         ArrayList<Integer> featLevels = new ArrayList<>();
         Fighter b = new Fighter(rs.getInt("hitDiceType"), feats, featLevels,
             rs.getString("description"), rs.getString("primaryAbility"), featModifiers);
+        classList.add(b);
       }
       else if (rs.getString("name").equals("Monk"))
       {
@@ -136,6 +145,7 @@ public class LoadCharacterClasses
         ArrayList<Integer> featLevels = new ArrayList<>();
         Monk b = new Monk(rs.getInt("hitDiceType"), feats, featLevels,
             rs.getString("description"), rs.getString("primaryAbility"), featModifiers);
+        classList.add(b);
       }
       else if (rs.getString("name").equals("Paladin"))
       {
@@ -152,6 +162,7 @@ public class LoadCharacterClasses
         ArrayList<Integer> featLevels = new ArrayList<>();
         Paladin b = new Paladin(rs.getInt("hitDiceType"), feats, featLevels,
             rs.getString("description"), rs.getString("primaryAbility"), featModifiers);
+        classList.add(b);
       }
       else if (rs.getString("name").equals("Ranger"))
       {
@@ -168,6 +179,7 @@ public class LoadCharacterClasses
         ArrayList<Integer> featLevels = new ArrayList<>();
         Ranger b = new Ranger(rs.getInt("hitDiceType"), feats, featLevels,
             rs.getString("description"), rs.getString("primaryAbility"), featModifiers);
+        classList.add(b);
       }
       else if (rs.getString("name").equals("Rogue"))
       {
@@ -184,6 +196,7 @@ public class LoadCharacterClasses
         ArrayList<Integer> featLevels = new ArrayList<>();
         Rogue b = new Rogue(rs.getInt("hitDiceType"), feats, featLevels,
             rs.getString("description"), rs.getString("primaryAbility"), featModifiers);
+        classList.add(b);
       }
       else if (rs.getString("name").equals("Sorcerer"))
       {
@@ -200,6 +213,7 @@ public class LoadCharacterClasses
         ArrayList<Integer> featLevels = new ArrayList<>();
         Sorcerer b = new Sorcerer(rs.getInt("hitDiceType"), feats, featLevels,
             rs.getString("description"), rs.getString("primaryAbility"), featModifiers);
+        classList.add(b);
       }
       else if (rs.getString("name").equals("Warlock"))
       {
@@ -216,6 +230,7 @@ public class LoadCharacterClasses
         ArrayList<Integer> featLevels = new ArrayList<>();
         Warlock b = new Warlock(rs.getInt("hitDiceType"), feats, featLevels,
             rs.getString("description"), rs.getString("primaryAbility"), featModifiers);
+        classList.add(b);
       }
       else if (rs.getString("name").equals("Wizard"))
       {
@@ -232,8 +247,10 @@ public class LoadCharacterClasses
         ArrayList<Integer> featLevels = new ArrayList<>();
         Wizard b = new Wizard(rs.getInt("hitDiceType"), feats, featLevels,
             rs.getString("description"), rs.getString("primaryAbility"), featModifiers);
+        classList.add(b);
       }
     }
+    return classList;
   }
 
   private ArrayList<Proficiency> parseModifiers(String modifiers)
@@ -260,7 +277,7 @@ public class LoadCharacterClasses
         d = 0.5;
       }
       else d = 1;
-      Proficiency p = new Proficiency(s2[1], s2[0], "class", d);
+      Proficiency p = new Proficiency(s2[0], s2[1], "class", d);
       arr.add(p);
     }
     return arr;
