@@ -124,13 +124,13 @@ public class SocketClient implements Client
   @Override public void startGame(Group groupToPlayWith)
   {
     try
-      {
-        socketHandler.startGame(groupToPlayWith);
-      }
-      catch (IOException e)
-      {
-        e.printStackTrace();
-      }
+    {
+      socketHandler.startGame(groupToPlayWith);
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
 
   }
 

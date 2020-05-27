@@ -280,4 +280,11 @@ public class ClientSocketHandler implements Runnable
 
   }
 
+  public void startGame(Group groupToPlayWith) throws IOException
+  {
+    ArrayList<Object> objs = new ArrayList<>();
+    objs.add(groupToPlayWith);
+    Container outDatPack = new Container(objs,ClassName.START_GAME);
+    outToServer.writeObject(outDatPack);
+  }
 }
