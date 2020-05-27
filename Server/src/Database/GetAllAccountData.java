@@ -643,4 +643,19 @@ String curry = "";
     String query = "UPDATE \"Characters\".\"Characters\" SET \"characterIDs\"  = '{"+ curry +"}'  WHERE id =" + id +" ;" ;
     st.executeUpdate(query);
   }
+
+  public String getDMofAGroup(int group) throws SQLException
+  {
+    Statement st = c.createStatement();
+    String query =
+        "SELECT FROM \"Groups\".\"Groups\" WHERE id = "+ group + " ;";
+    ResultSet rs = st.executeQuery(query);
+    String dmName = "";
+    while(rs.next())
+    {
+      dmName = rs.getString("usernameDM");
+    }
+    return dmName;
+
+  }
 }

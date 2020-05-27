@@ -52,6 +52,7 @@ public class LoadCharacter
       ResultSet rs = st.executeQuery(query);
       while (rs.next())
       {
+
         character.setAbilities((int[]) rs.getArray("abilities").getArray());
         character.setAbilitiesRolled((int[]) rs.getArray("abilitiesRolled").getArray());
         character.setId(id);

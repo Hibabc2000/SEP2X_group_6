@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="">
+    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="Reworked CharacterClass and relevant changes.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Cleric.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Cleric.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Druid.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Druid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Fighter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Fighter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Monk.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Monk.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Paladin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Paladin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Ranger.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Ranger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Rogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Rogue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Sorcerer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Sorcerer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Warlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Warlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Wizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/characterClasses/Wizard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Database/LoadCharacterClasses.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/LoadCharacterClasses.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/transferobjects/ClassName.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/transferobjects/ClassName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Database/GetAllAccountData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/GetAllAccountData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Database/LoadCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/LoadCharacter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +74,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Start">
+  <component name="RunManager" selected="Application.RunServer">
     <configuration name="EnumTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="networking.EnumTest" />
       <module name="SEP2X_group_6" />
@@ -163,8 +156,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Start" />
         <item itemvalue="Application.RunServer" />
+        <item itemvalue="Application.Start" />
         <item itemvalue="Application.EnumTest" />
         <item itemvalue="Application.GetAllTest" />
         <item itemvalue="Application.TestDtbs" />

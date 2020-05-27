@@ -323,7 +323,7 @@ public class ServerSocketHandler implements Runnable
 
 
             boolean doIhaveACharacter = false;
-
+            Container playerAndCharacterDataForDM = null;
 
            for(int i=0;i<playersOnline.size();i++)
            {// here If the player doesnt have a charID, then we will send him a boolean "false" so the client will know that means
@@ -333,7 +333,7 @@ public class ServerSocketHandler implements Runnable
              doIhaveACharacter = false;
                objs.add(doIhaveACharacter);
 
-               Container data = new Container(doIhaveACharacter,ClassName.PLAYER_HAS_NOCHAR);
+               Container data = new Container(doIhaveACharacter,ClassName.CLIENT_PLEASE_CREATE_A_CHARACTER);
                pool.sendDataToUser(playersOnline.get(i).getName(),data);
              }
              // here if the player has a charID then we actually get back the character from the dbs, and send that back to him
@@ -344,29 +344,29 @@ public class ServerSocketHandler implements Runnable
                Player playerWithChar = playersOnline.get(i);
                playerWithChar.setCharacter(characterFromDBS);
 
-               Container data = new Container(characterFromDBS,ClassName.PLAYER_HAS_CHAR);
+               Container data = new Container(characterFromDBS,ClassName.CHARACTER);
                pool.sendDataToUser(playersOnline.get(i).getName(),data);
+
                // data to DM
-               playersOnline.get(i).setCharacter(characterFromDBS);
+
+
+               pool.sendDataToUser(groupToStartGameWith.getDM().getName(),data);
              }
+
            }
-           // after the loop is done an all the players have been updated with characters, then we send this arraylist back to the DM.
-            ArrayList<Object> objs = new ArrayList<>();
-           objs.add(playersOnline);
-            Container playerAndCharacterDataForDM = new Container(objs,ClassName.START_GAME_DM);
+
+
+
             sendBackData(playerAndCharacterDataForDM);
 
           }
-          case INSERT_CHARACTER:
+          case CHARACTER:
           { // HAS 2 parts,  first part when a character is created, and the second if it is just an update to an already existing one.
+            Character character = (Character) inDataPack.getObject();
+            Integer id =null;
+            if(character.getId()==null){
 
 
-            if(inDataPack.getObject().equals(ClassName.CREATE_CHARACTER)){
-            Integer id =0;
-              ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
-             String username = (String)m.get(0);
-             Group gp = (Group)m.get(1);
-             Character character = (Character)m.get(2);
              Character characterBackToClient=null;
            // here we first load the character in the database;
             try
@@ -381,34 +381,41 @@ public class ServerSocketHandler implements Runnable
             // with the username of the player and the groupID, since we don't know the char ID yet.
             try
             {
-             id = loch.getIDOfTheNewlyCreatedCharacter(gp.getId(),username);
+             id = loch.getIDOfTheNewlyCreatedCharacter(character.getGroupID(),character.getUsername());
              characterBackToClient = loch.loadCharacter(id);
              Container data = new Container(characterBackToClient,ClassName.CHARACTER);
+              String dmOfTheGroup = database.getDMofAGroup(character.getGroup());
              sendBackData(data);
+
+              pool.sendDataToUser(dmOfTheGroup,data);
             }
             catch (SQLException e)
             {
               e.printStackTrace();
             }
             // here we update the player charID in the groups
-            if(id!=0)
+            if(id!=null)
             {
               try
               {
-                database.updateGroupsAfterCharacterCreation(gp.getId(),username,id);
+                database.updateGroupsAfterCharacterCreation(character.getGroupID(),character.getUsername(),id);
               }
               catch (SQLException e)
               {
                 e.printStackTrace();
               }
             }
-            } else if (inDataPack.getClassName().equals(ClassName.UPDATE_CHARACTER))
+            } else if (character.getId()!=null)
             {
-              Character characterToUpdate = (Character) inDataPack.getObject();
+
               try
               {
-                ich.updateCharacter(characterToUpdate);
-                loch.loadCharacter(characterToUpdate.getId());
+                ich.updateCharacter(character);
+                Character charToDM = loch.loadCharacter(character.getId());
+                String dmOfTheGroup = database.getDMofAGroup(character.getGroup());
+                Container charToDMData = new Container(charToDM,ClassName.CHARACTER);
+                pool.sendDataToUser(dmOfTheGroup,charToDMData);
+
               }
               catch (SQLException e)
               {
