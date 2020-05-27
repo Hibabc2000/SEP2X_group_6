@@ -56,7 +56,7 @@ public class GetCoreFromDatabase
     }
   }
 
-  public void loadDatabase()
+  public Container loadDatabase()
   {
     /**
      * Main database loading method. Sub-methods responsible for loading individual tables.
@@ -92,6 +92,7 @@ public class GetCoreFromDatabase
     {
       ex.printStackTrace();
     }
+    return cont;
   }
 
   private void loadEquipmentArmors() throws SQLException
