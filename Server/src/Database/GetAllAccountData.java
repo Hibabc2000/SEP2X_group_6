@@ -103,6 +103,14 @@ public class GetAllAccountData
     st.executeUpdate(query);
 
   }
+  /**
+   * Creates an SQL statement that will update a group and a user in the Database
+   *
+   * @param ac Account containing user information.
+   * @param gp Group containing the information about the group.
+   * @throws SQLException an exception that provides information on a database
+   *                      access error or other errors.
+   */
   public void addPlayerToGroup(Account ac,Group gp) throws SQLException
   {
     Statement st = c.createStatement();
@@ -167,13 +175,15 @@ public class GetAllAccountData
     return datapack;
   }
 
-  //  /**
-  //   * @param username String containing the username
-  //   * @param password String containing the password
-  //   * @return
-  //   * @throws SQLException An exception that provides information on a database
-  //   *                      access error or other errors.
-  //   */
+  /**
+   * Creates an SQL statement that will get the account information and the groups, that
+   * the user is part of , from the database.
+   * @param username String containing the username
+   * @param password String containing the password
+   * @throws SQLException an exception that provides information on a database
+   *                      access error or other errors.
+   * @returns Container that contains a boolean true stating that the login was successfull, the account of the user and an ArrayList of groups.
+   */
   public Container acceptLogin(String username, String password)
       throws SQLException
   {
@@ -256,7 +266,7 @@ public class GetAllAccountData
     boolean b = true; objs.add(b);
     Account acc = new Account(userame, password, ema);
     objs.add(acc);
-    System.out.println(doesAccountHaveGroups + "why isnt if true?");
+
     if(doesAccountHaveGroups)
     {
       objs.add(groupList);
@@ -269,6 +279,12 @@ public class GetAllAccountData
     return dataPack;
 
   }
+
+  /**
+   * Just a parser to change sql Arrays to ArrayList of integers.
+   * @param ar String
+   * @return ArrayList<Integer>
+   */
   public ArrayList<Integer> sqlArrayToArrayListInteger(String ar)
   {
     ArrayList<Integer> temp = new ArrayList<>();
@@ -285,7 +301,11 @@ public class GetAllAccountData
     }
     return temp;
   }
-
+  /**
+   * Just a parser to change sql Arrays to ArrayList of Strings.
+   * @param ar String
+   * @return ArrayList<String>
+   */
   public static ArrayList<String> sqlArrayToArrayListString(String ar)
   {
     ArrayList<String> temp = new ArrayList<>();
@@ -304,7 +324,13 @@ public class GetAllAccountData
     }
     return temp;
   }
-
+  /**
+   * Creates an SQL statement that will search for a group and return whether it exists or not.
+   * @param id int ID to search for the group
+   * @throws SQLException an exception that provides information on a database
+   *                      access error or other errors.
+   * @returns boolean stating true if the group exists, and false if otherwise.
+   */
   public boolean searchGroup(int id) throws SQLException
   {
     boolean answer = false;
@@ -329,7 +355,13 @@ public class GetAllAccountData
     }
     return answer;
   }
-
+  /**
+   * Creates an SQL statement that will get the group from the database
+   * @param id int to search for the group.
+   * @throws SQLException an exception that provides information on a database
+   *                      access error or other errors.
+   * @returns Container containing the chosen group, and a boolean .
+   */
   public Container getGroup(int id) throws SQLException
   {
     Statement st = c.createStatement();
@@ -451,6 +483,13 @@ public class GetAllAccountData
         ClassName.RECOVER_PASSWORD_RESPONSE);
     return datapack;
   }
+  /**
+   * Creates an SQL statement that will create a group in the database.
+   * @param account Account containing user information.
+   * @param groupname String containing the name of the group.
+   * @throws SQLException an exception that provides information on a database
+   *                      access error or other errors.
+   */
   public void createGroup(Account account, String groupname)
       throws SQLException
   {
@@ -461,6 +500,14 @@ public class GetAllAccountData
 
 
   }
+  /**
+   * Creates an SQL statement that will get the newly created group's ID and update the user's groupID column with it.
+   * @param account Account containing user information
+   * @param groupname String containing the group name
+   * @throws SQLException an exception that provides information on a database
+   *                      access error or other errors.
+   * @returns Container containing the group in an Arraylist<Object>
+   */
   public Container bringBackTheGroupAfterCreation(Account account, String groupname)
       throws SQLException
   {
@@ -504,7 +551,13 @@ ResultSet rs = st.executeQuery(query);
             + "' WHERE  username  = '" + username + "' ;";
     st.executeUpdate(query);
   }
-
+  /**
+   * Creates an SQL statement that will get the group from the database.
+   * @param id int containing the id of the group
+   * @throws SQLException an exception that provides information on a database
+   *                      access error or other errors.
+   * @returns Group retrieved from the database
+   */
   public Group getGroupForUpdate(int id) throws SQLException
   {
     Statement st = c.createStatement();
@@ -542,10 +595,17 @@ ResultSet rs = st.executeQuery(query);
       }
 
     }
-    System.out.println("this is when you joind a group : "+geez.toString());
+
     return geez;
   }
-
+  /**
+   * Creates an SQL statement that will change the email of the user in the database
+   * @param username String containing the username
+   * @param email String containing the email.
+   * @throws SQLException an exception that provides information on a database
+   *                      access error or other errors.
+   * @returns Container containing a boolean stating that the email change was successful
+   */
   public Container changeEmail(String email,String username) throws SQLException
   {
 
@@ -559,7 +619,13 @@ ResultSet rs = st.executeQuery(query);
     return dps;
   }
 
-
+  /**
+   * Creates an SQL statement that will check whether the given email is in the database
+   * @param email String containing the email
+   * @throws SQLException an exception that provides information on a database
+   *                      access error or other errors.
+   * @returns Container containing a boolean true if the email exists in the database, false if it does not.
+   */
 
   public Container checkChangeEmail(String email) throws SQLException
   {
@@ -593,7 +659,15 @@ ResultSet rs = st.executeQuery(query);
     return datapack;
   }
 
+  /**
+   * Creates an SQL statement that will update the a group after a character has been created.
 
+   * @param username String containing the username
+   * @param charID Integer containing the id of the character
+   * @param  id int containing the id of the group.
+   * @throws SQLException an exception that provides information on a database
+   *                      access error or other errors.
+   */
   public void updateGroupsAfterCharacterCreation(int id, String username, Integer charID)
       throws SQLException
   {
@@ -621,7 +695,13 @@ String curry = "";
     String query = "UPDATE \"Characters\".\"Characters\" SET \"characterIDs\"  = '{"+ curry +"}'  WHERE id =" + id +" ;" ;
     st.executeUpdate(query);
   }
-
+  /**
+   * Creates an SQL statement that will get the DM of a group from the database
+   * @param group int containing the id of the group.
+   * @throws SQLException an exception that provides information on a database
+   *                      access error or other errors.
+   * @returns String containing the name of the DM.
+   */
   public String getDMofAGroup(int group) throws SQLException
   {
     Statement st = c.createStatement();
