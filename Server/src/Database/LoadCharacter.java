@@ -1,8 +1,7 @@
 package Database;
 
+import system.model.businessModel.*;
 import system.model.businessModel.Character;
-import system.model.businessModel.Feat;
-import system.model.businessModel.Item;
 import system.model.businessModel.staticModel.StaticModel;
 import system.model.characterClasses.Barbarian;
 import system.model.characterClasses.CharacterClass;
@@ -64,7 +63,7 @@ public class LoadCharacter
           if(s.equals("Barbarian")) //make the rest of the classes
           {
             Barbarian barbarian = new Barbarian();
-            classLevels.add(0);
+            classLevels.add(classLevels.get(classNames.indexOf(s)));
             classes.add(barbarian);
           }
         }
@@ -87,7 +86,36 @@ public class LoadCharacter
         ArrayList<String> treasures = new ArrayList<>();
         for(String s : equipment_names)
         {
-          //write equipment setter
+          Item i = null;
+          for (EquipmentGeneral e: staticModel.getEquipmentGenerals())
+          {
+            if(e.getName().equals(s))
+            {
+              i = new Item(e, equipment_amounts.get(equipment_names.indexOf(s)));
+            }
+          }
+          for (EquipmentArmor e: staticModel.getEquipmentArmors())
+          {
+            if(e.getName().equals(s))
+            {
+              i = new Item(e, equipment_amounts.get(equipment_names.indexOf(s)));
+            }
+          }
+          for (EquipmentWeapon e: staticModel.getEquipmentWeaponList())
+          {
+            if(e.getName().equals(s))
+            {
+              i = new Item(e, equipment_amounts.get(equipment_names.indexOf(s)));
+            }
+          }
+          if(i == null)
+          {
+            treasures.add(s);
+          }
+          else
+          {
+            items.add(i);
+          }
         }
         character.setTreasures(treasures);
         character.setEquipmentList(items);

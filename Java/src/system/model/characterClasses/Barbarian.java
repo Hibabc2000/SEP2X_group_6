@@ -10,4 +10,9 @@ public class Barbarian extends CharacterClass
   {
     super(hitDiceType, feats, featLevels, description, primaryAbility);
   }
+
+  public Barbarian()
+  {
+    super();
+  }
 }
