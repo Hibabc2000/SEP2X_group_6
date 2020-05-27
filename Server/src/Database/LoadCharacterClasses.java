@@ -12,7 +12,7 @@ public class LoadCharacterClasses
   /**
    * Class for loading character classes.
    */
-  private Connection c;
+  private Connection connection;
   private ArrayList<CharacterClass> classList;
 
   public LoadCharacterClasses()
@@ -23,7 +23,7 @@ public class LoadCharacterClasses
     try
     {
       Class.forName("org.postgresql.Driver");
-      c = DriverManager
+      connection = DriverManager
           .getConnection("jdbc:postgresql://localhost:5432/SEP2", "postgres",
               "almafast325");
       classList = new ArrayList<>();
@@ -40,7 +40,7 @@ public class LoadCharacterClasses
     /**
      * Main method for loading character classes and class feats.
      */
-    Statement st = c.createStatement();
+    Statement st = connection.createStatement();
     String query = "SELECT * FROM \"Core\".\"CharacterClass\";";
     ResultSet rs = st.executeQuery(query);
     while (rs.next())

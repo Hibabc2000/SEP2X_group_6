@@ -5,10 +5,10 @@ import java.sql.Statement;
 
 public class ConnectDBC {
 
-  private Connection c;
+  private Connection connection;
   private Statement stmt;
   public ConnectDBC()
-  { c = null;
+  { connection = null;
      stmt = null;
   }
 
@@ -17,16 +17,16 @@ public class ConnectDBC {
 
     try {
       Class.forName("org.postgresql.Driver");
-      c = DriverManager
+      connection = DriverManager
           .getConnection("jdbc:postgresql://localhost:5432/SEP2",
               "postgres", "");
       System.out.println("Database open ok");
       System.out.println("postgrescheck1");
-      stmt = c.createStatement();
+      stmt = connection.createStatement();
       String sql = "INSERT INTO \"Characters\".\"Users\" VALUES( '"+name +"', '"+password +"', '{1,2}', '"+ email +"') ";
       stmt.executeUpdate(sql);
       stmt.close();
-      c.close();
+      connection.close();
     } catch ( Exception e ) {
       System.err.println( e.getClass().getName()+": "+ e.getMessage() );
       System.exit(0);
