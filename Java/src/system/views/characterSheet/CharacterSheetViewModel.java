@@ -603,6 +603,111 @@ public class CharacterSheetViewModel
     parseProficiencies();
   }
 
+  private void setSkills()
+  {
+    for (Proficiency p : sheetCharacter.getProficiencies())
+    {
+      StaticModel staticModel = new StaticModel();
+      for (Skill s : staticModel.getSkills())
+      {
+        if (p.getName().toLowerCase().contains(s.getName().toLowerCase()))
+        {
+          if (s.getName().equals("Acrobatics"))
+          {
+            acrobaticsModifier.setValue(
+                String.valueOf(Integer.parseInt(dexterityModifier.toString())));
+          }
+          else if (s.getName().equals("Animal Handling"))
+          {
+            animalHandlingModifier.setValue(
+                String.valueOf(Integer.parseInt(wisdomModifier.toString())));
+          }
+          else if (s.getName().equals("Arcana"))
+          {
+            arcanaModifier.setValue(String
+                .valueOf(Integer.parseInt(intelligenceModifier.toString())));
+          }
+          else if (s.getName().equals("Athletics"))
+          {
+            athleticsModifier.setValue(
+                String.valueOf(Integer.parseInt(strengthModifier.toString())));
+          }
+          else if (s.getName().equals("Deception"))
+          {
+            deceptionModifier.setValue(
+                String.valueOf(Integer.parseInt(charismaModifier.toString())));
+          }
+          else if (s.getName().equals("History"))
+          {
+            historyModifier.setValue(String
+                .valueOf(Integer.parseInt(intelligenceModifier.toString())));
+          }
+          else if (s.getName().equals("Insight"))
+          {
+            insightModifier.setValue(
+                String.valueOf(Integer.parseInt(wisdomModifier.toString())));
+          }
+          else if (s.getName().equals("Intimidation"))
+          {
+            intimidationModifier.setValue(
+                String.valueOf(Integer.parseInt(charismaModifier.toString())));
+          }
+          else if (s.getName().equals("Investigation"))
+          {
+            investigationModifier.setValue(String
+                .valueOf(Integer.parseInt(intelligenceModifier.toString())));
+          }
+          else if (s.getName().equals("Medicine"))
+          {
+            medicineModifier.setValue(
+                String.valueOf(Integer.parseInt(wisdomModifier.toString())));
+          }
+          else if (s.getName().equals("Nature"))
+          {
+            natureModifier.setValue(String
+                .valueOf(Integer.parseInt(intelligenceModifier.toString())));
+          }
+          else if (s.getName().equals("Perception"))
+          {
+            perceptionModifier.setValue(
+                String.valueOf(Integer.parseInt(wisdomModifier.toString())));
+          }
+          else if (s.getName().equals("Performance"))
+          {
+            performanceModifier.setValue(
+                String.valueOf(Integer.parseInt(charismaModifier.toString())));
+          }
+          else if (s.getName().equals("Persuasion"))
+          {
+            persuasionModifier.setValue(
+                String.valueOf(Integer.parseInt(charismaModifier.toString())));
+          }
+          else if (s.getName().equals("Religion"))
+          {
+            religionModifier.setValue(String
+                .valueOf(Integer.parseInt(intelligenceModifier.toString())));
+          }
+          else if (s.getName().equals("Sleight of Hand"))
+          {
+            sleightOfHandModifier.setValue(
+                String.valueOf(Integer.parseInt(dexterityModifier.toString())));
+          }
+          else if (s.getName().equals("Stealth"))
+          {
+            stealthModifier.setValue(
+                String.valueOf(Integer.parseInt(dexterityModifier.toString())));
+          }
+          else if (s.getName().equals("Survival"))
+          {
+            survivalModifier.setValue(
+                String.valueOf(Integer.parseInt(wisdomModifier.toString())));
+          }
+        }
+      }
+    }
+
+  }
+
   private int calculateMaxHP()
   {
     int i = 0;
@@ -738,7 +843,8 @@ public class CharacterSheetViewModel
       }
       for (Ability a : staticModel.getAbilities())
       {
-        if (p.getName().toLowerCase().contains(a.getName().toLowerCase()) && !p.getOrigin().equals("class"))
+        if (p.getName().toLowerCase().contains(a.getName().toLowerCase()) && !p
+            .getOrigin().equals("class"))
         {
           if (a.getName().toLowerCase().equals("strength"))
           {
@@ -872,7 +978,8 @@ public class CharacterSheetViewModel
           }
         }
       }
-      else if (p.getType().toLowerCase().contains("language") || p.getType().toLowerCase().contains("thieves' cant"))
+      else if (p.getType().toLowerCase().contains("language") || p.getType()
+          .toLowerCase().contains("thieves' cant"))
       {
         //display in prof bar
       }
@@ -897,9 +1004,9 @@ public class CharacterSheetViewModel
 
   public void parseClassFeats()
   {
-    for(CharacterClass c : sheetCharacter.getCharacterClass())
+    for (CharacterClass c : sheetCharacter.getCharacterClass())
     {
-      if(c instanceof Barbarian)
+      if (c instanceof Barbarian)
       {
         for (Feat f : c.getClassFeats())
         {
@@ -914,12 +1021,14 @@ public class CharacterSheetViewModel
           }
           if (!isArmorEquipped)
           {
-            armorClassInt = 10 + Integer.parseInt(dexterityModifier.getValue()) + Integer.parseInt(constitutionModifier.getValue());
+            armorClassInt =
+                10 + Integer.parseInt(dexterityModifier.getValue()) + Integer
+                    .parseInt(constitutionModifier.getValue());
             armorClass.setValue(String.valueOf(armorClassInt));
           }
         }
       }
-      else if(c instanceof Bard)
+      else if (c instanceof Bard)
       {
         for (Feat f : c.getClassFeats())
         {
