@@ -6,6 +6,8 @@ import system.model.businessModel.*;
 import system.model.businessModel.staticModel.Ability;
 import system.model.businessModel.staticModel.Skill;
 import system.model.businessModel.staticModel.StaticModel;
+import system.model.characterClasses.Barbarian;
+import system.model.characterClasses.Bard;
 import system.model.characterClasses.CharacterClass;
 import system.model.characterManagement.CharacterManagementModel;
 
@@ -597,6 +599,8 @@ public class CharacterSheetViewModel
       }
     }
     armorClass.setValue(String.valueOf(armorClassInt));
+    setSkills();
+    parseProficiencies();
   }
 
   private int calculateMaxHP()
@@ -886,8 +890,156 @@ public class CharacterSheetViewModel
       else
       {
         //parse for individual weapons, if not, then just note prof in Features and Traits bar
+        parseClassFeats();
       }
     }
   }
 
+  public void parseClassFeats()
+  {
+    for(CharacterClass c : sheetCharacter.getCharacterClass())
+    {
+      if(c instanceof Barbarian)
+      {
+        for (Feat f : c.getClassFeats())
+        {
+          //Unarmored Defense
+          boolean isArmorEquipped = false;
+          for (Item i : sheetCharacter.getEquipmentList())
+          {
+            if (i.getGameItem() instanceof EquipmentArmor && i.isEquipped())
+            {
+              isArmorEquipped = true;
+            }
+          }
+          if (!isArmorEquipped)
+          {
+            armorClassInt = 10 + Integer.parseInt(dexterityModifier.getValue()) + Integer.parseInt(constitutionModifier.getValue());
+            armorClass.setValue(String.valueOf(armorClassInt));
+          }
+        }
+      }
+      else if(c instanceof Bard)
+      {
+        for (Feat f : c.getClassFeats())
+        {
+          StaticModel staticModel = sheetCharacter.getStaticModel();
+          for (Skill s : staticModel.getSkills())
+          {
+            if ()
+            {
+              if (s.getName().equals("Acrobatics"))
+              {
+                acrobaticsModifier.setValue(String.valueOf(
+                    Integer.parseInt(proficiencyBonus.toString()) + Integer
+                        .parseInt(dexterityModifier.toString())));
+              }
+              else if (s.getName().equals("Animal Handling"))
+              {
+                animalHandlingModifier.setValue(String.valueOf(
+                    Integer.parseInt(proficiencyBonus.toString()) + Integer
+                        .parseInt(wisdomModifier.toString())));
+              }
+              else if (s.getName().equals("Arcana"))
+              {
+                arcanaModifier.setValue(String.valueOf(
+                    Integer.parseInt(proficiencyBonus.toString()) + Integer
+                        .parseInt(intelligenceModifier.toString())));
+              }
+              else if (s.getName().equals("Athletics"))
+              {
+                athleticsModifier.setValue(String.valueOf(
+                    Integer.parseInt(proficiencyBonus.toString()) + Integer
+                        .parseInt(strengthModifier.toString())));
+              }
+              else if (s.getName().equals("Deception"))
+              {
+                deceptionModifier.setValue(String.valueOf(
+                    Integer.parseInt(proficiencyBonus.toString()) + Integer
+                        .parseInt(charismaModifier.toString())));
+              }
+              else if (s.getName().equals("History"))
+              {
+                historyModifier.setValue(String.valueOf(
+                    Integer.parseInt(proficiencyBonus.toString()) + Integer
+                        .parseInt(intelligenceModifier.toString())));
+              }
+              else if (s.getName().equals("Insight"))
+              {
+                insightModifier.setValue(String.valueOf(
+                    Integer.parseInt(proficiencyBonus.toString()) + Integer
+                        .parseInt(wisdomModifier.toString())));
+              }
+              else if (s.getName().equals("Intimidation"))
+              {
+                intimidationModifier.setValue(String.valueOf(
+                    Integer.parseInt(proficiencyBonus.toString()) + Integer
+                        .parseInt(charismaModifier.toString())));
+              }
+              else if (s.getName().equals("Investigation"))
+              {
+                investigationModifier.setValue(String.valueOf(
+                    Integer.parseInt(proficiencyBonus.toString()) + Integer
+                        .parseInt(intelligenceModifier.toString())));
+              }
+              else if (s.getName().equals("Medicine"))
+              {
+                medicineModifier.setValue(String.valueOf(
+                    Integer.parseInt(proficiencyBonus.toString()) + Integer
+                        .parseInt(wisdomModifier.toString())));
+              }
+              else if (s.getName().equals("Nature"))
+              {
+                natureModifier.setValue(String.valueOf(
+                    Integer.parseInt(proficiencyBonus.toString()) + Integer
+                        .parseInt(intelligenceModifier.toString())));
+              }
+              else if (s.getName().equals("Perception"))
+              {
+                perceptionModifier.setValue(String.valueOf(
+                    Integer.parseInt(proficiencyBonus.toString()) + Integer
+                        .parseInt(wisdomModifier.toString())));
+              }
+              else if (s.getName().equals("Performance"))
+              {
+                performanceModifier.setValue(String.valueOf(
+                    Integer.parseInt(proficiencyBonus.toString()) + Integer
+                        .parseInt(charismaModifier.toString())));
+              }
+              else if (s.getName().equals("Persuasion"))
+              {
+                persuasionModifier.setValue(String.valueOf(
+                    Integer.parseInt(proficiencyBonus.toString()) + Integer
+                        .parseInt(charismaModifier.toString())));
+              }
+              else if (s.getName().equals("Religion"))
+              {
+                religionModifier.setValue(String.valueOf(
+                    Integer.parseInt(proficiencyBonus.toString()) + Integer
+                        .parseInt(intelligenceModifier.toString())));
+              }
+              else if (s.getName().equals("Sleight of Hand"))
+              {
+                sleightOfHandModifier.setValue(String.valueOf(
+                    Integer.parseInt(proficiencyBonus.toString()) + Integer
+                        .parseInt(dexterityModifier.toString())));
+              }
+              else if (s.getName().equals("Stealth"))
+              {
+                stealthModifier.setValue(String.valueOf(
+                    Integer.parseInt(proficiencyBonus.toString()) + Integer
+                        .parseInt(dexterityModifier.toString())));
+              }
+              else if (s.getName().equals("Survival"))
+              {
+                survivalModifier.setValue(String.valueOf(
+                    Integer.parseInt(proficiencyBonus.toString()) + Integer
+                        .parseInt(wisdomModifier.toString())));
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
