@@ -155,6 +155,10 @@ public class ViewModelFactory
 
   public CharacterCreationViewModel getCharacterCreationViewModel()
   {
+    if(characterCreationViewModel == null)
+    {
+      characterCreationViewModel = new CharacterCreationViewModel(model.getCharacterManagementModel());
+    }
     return characterCreationViewModel;
   }
 }
