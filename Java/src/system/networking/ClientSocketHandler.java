@@ -131,6 +131,11 @@ public class ClientSocketHandler implements Runnable
 
             break;
           }
+          case CLASSES_LOAD:
+          {
+            socketClient.useReceivedClasses(inDataPack);
+            break;
+          }
 
         }
 

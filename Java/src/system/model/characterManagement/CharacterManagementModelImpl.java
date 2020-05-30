@@ -1,8 +1,8 @@
 package system.model.characterManagement;
 
-import javafx.beans.property.BooleanProperty;
 import system.model.businessModel.Character;
 import system.model.businessModel.staticModel.StaticModel;
+import system.model.characterClasses.CharacterClass;
 import system.networking.Client;
 import system.transferobjects.Container;
 import system.transferobjects.login.Account;
@@ -22,9 +22,11 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
   private Client client;
   private StaticModel staticModel;
   private Group group;
+  private ArrayList<CharacterClass> characterClasses;
 
   public CharacterManagementModelImpl(Client client,Account account)
   {
+    characters = new ArrayList<>();
     this.client = client;
     this.account=account;
     characters = new ArrayList<>();
@@ -33,8 +35,16 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
     client.addListener("incomingStaticModel", this::setStaticModel);
     client.addListener("incomingServerRequestToCreateANewCharacterForTheFirstTime",this::createNewCharacterForTheFirstTime);
     client.addListener("joinedGroupK",this::setGroup);
+    client.addListener("incomingClasses", this::addClasses);
   }
-
+  public void addClasses(PropertyChangeEvent propertyChangeEvent)
+  {
+    characterClasses = (ArrayList<CharacterClass>)((Container)propertyChangeEvent.getNewValue()).getObject();
+  }
+  @Override public ArrayList<CharacterClass>  getAllCharacterClasses()
+  {
+    return characterClasses;
+  }
   /*
     @Override public void receiveCharacter(Character character)
     {
@@ -51,19 +61,17 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
     this.group = (Group)propertyChangeEvent.getNewValue();
   }
 
-  public void getCharacter()
-  {
-
-  }
   public void createNewCharacterForTheFirstTime(PropertyChangeEvent propertyChangeEvent)
   {
-    boolean k = ((BooleanProperty)((Container)propertyChangeEvent.getNewValue()).getObject()).getValue();
+    boolean k = (boolean)((Container)propertyChangeEvent.getNewValue()).getObject();
     if(k)
     {
       Character temporaryCharacter = new Character(staticModel);
       temporaryCharacter.setUsername(account.getUsername());
       temporaryCharacter.setGroupID(group.getId());
       support.firePropertyChange("displayCharacterCreationScene",null,null);
+      support.firePropertyChange("characterToSheetViewModel", null,
+          temporaryCharacter);
     }
   }
 

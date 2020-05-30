@@ -239,6 +239,10 @@ public class SocketClient implements Client
   {
     support.firePropertyChange("incomingServerRequestToCreateANewCharacterForTheFirstTime",null,container);
   }
+  public void useReceivedClasses(Container container)
+  {
+    support.firePropertyChange("incomingClasses",null,container);
+  }
 
   @Override public void addListener(String eventName,
       PropertyChangeListener listener)
