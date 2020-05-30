@@ -1,11 +1,9 @@
 package networking;
 
-import Database.GetAllAccountData;
-import Database.GetCoreFromDatabase;
-import Database.InsertCharacter;
-import Database.LoadCharacter;
+import Database.*;
 import javafx.beans.property.BooleanProperty;
 import system.model.businessModel.Character;
+import system.model.characterClasses.CharacterClass;
 import system.transferobjects.ClassName;
 import system.transferobjects.Container;
 import system.transferobjects.login.Account;
@@ -33,7 +31,8 @@ public class ServerSocketHandler implements Runnable
   private Account account;
 
   public ServerSocketHandler(Socket socket, ConnectionPool pool,
-      GetAllAccountData gaa, InsertCharacter i, LoadCharacter lc) throws IOException
+      GetAllAccountData gaa, InsertCharacter i, LoadCharacter lc)
+      throws IOException
   {
     loch = lc;
     ich = i;
@@ -75,7 +74,7 @@ public class ServerSocketHandler implements Runnable
             String email = (String) (m).get(2);
             try
             {
-//              Check account uniqueness in the database
+              //              Check account uniqueness in the database
               unique = database.checkAccountUniqueness(name, email);
 
             }
@@ -87,9 +86,9 @@ public class ServerSocketHandler implements Runnable
             {
               try
               {
-//                create the account in the database
+                //                create the account in the database
                 database.createAccount(name, password, email);
-                account = new Account(name,password,email);
+                account = new Account(name, password, email);
                 pool.userJoin(account);
                 pool.addHandler(this);
                 Container outDataPack = new Container(unique,
@@ -103,10 +102,12 @@ public class ServerSocketHandler implements Runnable
               {
                 e.printStackTrace();
               }
-            }else{
-              ArrayList<Object> objs=new ArrayList();
+            }
+            else
+            {
+              ArrayList<Object> objs = new ArrayList();
               objs.add(unique);
-              Container datapack=new Container(objs, ClassName.CREATE_ACCOUNT);
+              Container datapack = new Container(objs, ClassName.CREATE_ACCOUNT);
               sendBackData(datapack);
             }
             break;
@@ -114,27 +115,27 @@ public class ServerSocketHandler implements Runnable
           case CHECK_EMAIL_CHANGE:
           {
             ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
-            boolean answer= true;
-            Container dataPack =null;
+            boolean answer = true;
+            Container dataPack = null;
             String email = (String) (m.get(0));
-            String username =(String) (m.get(1));
+            String username = (String) (m.get(1));
             System.out.println("ez történik");
             try
             {
               dataPack = database.checkChangeEmail(email);
-               answer = (boolean)((ArrayList<Object>)dataPack.getObject()).get(0);
-               dataPack.setClassName(ClassName.CHECK_EMAIL_CHANGE);
+              answer = (boolean) ((ArrayList<Object>) dataPack.getObject()).get(0);
+              dataPack.setClassName(ClassName.CHECK_EMAIL_CHANGE);
             }
             catch (SQLException e)
             {
               e.printStackTrace();
             }
-            if(answer)
+            if (answer)
             {
               try
               {
-                dataPack = database.changeEmail(email,username);
-               dataPack.setClassName(ClassName.CHECK_EMAIL_CHANGE);
+                dataPack = database.changeEmail(email, username);
+                dataPack.setClassName(ClassName.CHECK_EMAIL_CHANGE);
               }
               catch (SQLException e)
               {
@@ -152,7 +153,7 @@ public class ServerSocketHandler implements Runnable
             String email = (String) (m.get(0));
             try
             {
-//              Check the email in the database
+              //              Check the email in the database
               answer = database.checkEmail(email);
 
               if (answer)
@@ -181,8 +182,9 @@ public class ServerSocketHandler implements Runnable
 
             try
             {
-               database.createGroup(account,groupname);
-              Container dataPack = database.bringBackTheGroupAfterCreation(account,groupname);
+              database.createGroup(account, groupname);
+              Container dataPack = database
+                  .bringBackTheGroupAfterCreation(account, groupname);
               sendBackData(dataPack);
             }
             catch (SQLException e)
@@ -199,8 +201,8 @@ public class ServerSocketHandler implements Runnable
             String newPassword = account.getPassword();
             try
             {
-//              change the password in the database
-              database.changePassword(account,newPassword);
+              //              change the password in the database
+              database.changePassword(account, newPassword);
             }
             catch (SQLException e)
             {
@@ -232,10 +234,11 @@ public class ServerSocketHandler implements Runnable
               try
               {
                 System.out.println("if answer true,");
-//                dataPack contains an obj with the acc data/groups
+                //                dataPack contains an obj with the acc data/groups
                 dataPack = database.acceptLogin(username, password);
                 sendBackData(dataPack);
-                account = (Account) ((ArrayList<Object>)(ArrayList<Object>) dataPack.getObject()).get(1);
+                account = (Account) ((ArrayList<Object>) (ArrayList<Object>) dataPack
+                    .getObject()).get(1);
                 pool.userJoin(account);
                 pool.addHandler(this);
                 GetCoreFromDatabase gcfd = new GetCoreFromDatabase();
@@ -264,8 +267,8 @@ public class ServerSocketHandler implements Runnable
             Group group = (Group) (m.get(1));
             try
             {
-              database.addPlayerToGroup(ac,group);
-             Group gro=  database.getGroupForUpdate(group.getId());
+              database.addPlayerToGroup(ac, group);
+              Group gro = database.getGroupForUpdate(group.getId());
               pool.addPlayerToGroup(gro);
 
             }
@@ -324,46 +327,43 @@ public class ServerSocketHandler implements Runnable
 
           case START_GAME:
           {
-            ArrayList<Object> m =(ArrayList<Object>)inDataPack.getObject();
-            Group groupToStartGameWith = (Group)m.get(0);
+            ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
+            Group groupToStartGameWith = (Group) m.get(0);
             // here I go through the players who are part of this group AND Online and put them in an arraylist
-           ArrayList<Player> playersOnline =  pool.selectTheOnesThatAreOnlineInThePool(groupToStartGameWith);
-
+            ArrayList<Player> playersOnline = pool.selectTheOnesThatAreOnlineInThePool(groupToStartGameWith);
 
             boolean doIhaveACharacter = false;
             BooleanProperty playerAndCharacterDataForDM = null;
 
-           for(int i=0;i<playersOnline.size();i++)
-           {// here If the player doesnt have a charID, then we will send him a boolean "false" so the client will know that means
-             // we have to create a character.
-             if(playersOnline.get(i).getCharacterID()==null)
-             {
-             doIhaveACharacter = false;
+            for (int i = 0; i < playersOnline.size(); i++)
+            {// here If the player doesnt have a charID, then we will send him a boolean "false" so the client will know that means
+              // we have to create a character.
+              if (playersOnline.get(i).getCharacterID() == null)
+              {
+                doIhaveACharacter = false;
 
+                Container data = new Container(doIhaveACharacter, ClassName.CLIENT_PLEASE_CREATE_A_CHARACTER);
+                pool.sendDataToUser(playersOnline.get(i).getName(), data);
+              }
+              // here if the player has a charID then we actually get back the character from the dbs, and send that back to him
+              else if (playersOnline.get(i).getCharacterID() != null)
+              {
+                doIhaveACharacter = true;
+                ArrayList<Object> objs = new ArrayList<>();
+                Character characterFromDBS = loch
+                    .loadCharacter(playersOnline.get(i).getCharacterID());
+                Player playerWithChar = playersOnline.get(i);
+                playerWithChar.setCharacter(characterFromDBS);
 
-               Container data = new Container(doIhaveACharacter,ClassName.CLIENT_PLEASE_CREATE_A_CHARACTER);
-               pool.sendDataToUser(playersOnline.get(i).getName(),data);
-             }
-             // here if the player has a charID then we actually get back the character from the dbs, and send that back to him
-             else if(playersOnline.get(i).getCharacterID()!=null)
-             { doIhaveACharacter =true;
-               ArrayList<Object> objs = new ArrayList<>();
-               Character characterFromDBS =  loch.loadCharacter(playersOnline.get(i).getCharacterID());
-               Player playerWithChar = playersOnline.get(i);
-               playerWithChar.setCharacter(characterFromDBS);
+                Container data = new Container(characterFromDBS, ClassName.CHARACTER);
+                pool.sendDataToUser(playersOnline.get(i).getName(), data);
 
-               Container data = new Container(characterFromDBS,ClassName.CHARACTER);
-               pool.sendDataToUser(playersOnline.get(i).getName(),data);
+                // data to DM
 
-               // data to DM
+                pool.sendDataToUser(groupToStartGameWith.getDM().getName(), data);
+              }
 
-
-               pool.sendDataToUser(groupToStartGameWith.getDM().getName(),data);
-             }
-
-           }
-
-
+            }
 
             sendBackData(playerAndCharacterDataForDM);
 
@@ -371,49 +371,52 @@ public class ServerSocketHandler implements Runnable
           case CHARACTER:
           { // HAS 2 parts,  first part when a character is created, and the second if it is just an update to an already existing one.
             Character character = (Character) inDataPack.getObject();
-            Integer id =null;
-            if(character.getId()==null){
+            Integer id = null;
+            if (character.getId() == null)
+            {
 
-
-             Character characterBackToClient=null;
-           // here we first load the character in the database;
-            try
-            {
-              ich.insertCharacter(character);
-            }
-            catch (SQLException e)
-            {
-              e.printStackTrace();
-            }
-            // here we get the character ID from the database, so we can update the groups
-            // with the username of the player and the groupID, since we don't know the char ID yet.
-            try
-            {
-             id = loch.getIDOfTheNewlyCreatedCharacter(character.getGroupID(),character.getUsername());
-             characterBackToClient = loch.loadCharacter(id);
-             Container data = new Container(characterBackToClient,ClassName.CHARACTER);
-              String dmOfTheGroup = database.getDMofAGroup(character.getGroup());
-             sendBackData(data);
-
-              pool.sendDataToUser(dmOfTheGroup,data);
-            }
-            catch (SQLException e)
-            {
-              e.printStackTrace();
-            }
-            // here we update the player charID in the groups
-            if(id!=null)
-            {
+              Character characterBackToClient = null;
+              // here we first load the character in the database;
               try
               {
-                database.updateGroupsAfterCharacterCreation(character.getGroupID(),character.getUsername(),id);
+                ich.insertCharacter(character);
               }
               catch (SQLException e)
               {
                 e.printStackTrace();
               }
+              // here we get the character ID from the database, so we can update the groups
+              // with the username of the player and the groupID, since we don't know the char ID yet.
+              try
+              {
+                id = loch.getIDOfTheNewlyCreatedCharacter(character.getGroupID(),
+                    character.getUsername());
+                characterBackToClient = loch.loadCharacter(id);
+                Container data = new Container(characterBackToClient, ClassName.CHARACTER);
+                String dmOfTheGroup = database.getDMofAGroup(character.getGroup());
+                sendBackData(data);
+
+                pool.sendDataToUser(dmOfTheGroup, data);
+              }
+              catch (SQLException e)
+              {
+                e.printStackTrace();
+              }
+              // here we update the player charID in the groups
+              if (id != null)
+              {
+                try
+                {
+                  database.updateGroupsAfterCharacterCreation(character.getGroupID(),
+                      character.getUsername(), id);
+                }
+                catch (SQLException e)
+                {
+                  e.printStackTrace();
+                }
+              }
             }
-            } else if (character.getId()!=null)
+            else if (character.getId() != null)
             {
 
               try
@@ -421,8 +424,8 @@ public class ServerSocketHandler implements Runnable
                 ich.updateCharacter(character);
                 Character charToDM = loch.loadCharacter(character.getId());
                 String dmOfTheGroup = database.getDMofAGroup(character.getGroup());
-                Container charToDMData = new Container(charToDM,ClassName.CHARACTER);
-                pool.sendDataToUser(dmOfTheGroup,charToDMData);
+                Container charToDMData = new Container(charToDM, ClassName.CHARACTER);
+                pool.sendDataToUser(dmOfTheGroup, charToDMData);
 
               }
               catch (SQLException e)
@@ -434,10 +437,18 @@ public class ServerSocketHandler implements Runnable
 
             break;
           }
+          case CLASSES_LOAD:
+          {
+            Account a = getAccount();
+            LoadCharacterClasses loader = new LoadCharacterClasses();
+            ArrayList<CharacterClass> ret = loader.load();
+            Container cont = new Container(ret, ClassName.CLASSES_LOAD);
+            pool.sendDataToUser(getAccount().getUsername(), cont);
+          }
         }
       }
     }
-    catch (IOException | ClassNotFoundException e)
+    catch (IOException | ClassNotFoundException | SQLException e)
     {
       try
       {
@@ -452,11 +463,12 @@ public class ServerSocketHandler implements Runnable
 
   }
 
-  /** returns an accounts variable
+  /**
+   * returns an accounts variable
    *
    * @return Account
    */
-  public Account  getAccount()
+  public Account getAccount()
   {
     return account;
   }
