@@ -57,6 +57,7 @@ public class LoadCharacterClasses
           String[] temp = feat.getString("feat").split(",\"");
           Feat feat1 = new Feat("class", temp[0], temp[1]);
           featModifiers = new ArrayList<>(parseModifiers(temp[2]));
+          featLevels.add(feat.getInt("level"));
           feats.add(feat1);
         }
         Barbarian b = new Barbarian(rs.getInt("hitDiceType"), feats, featLevels,
