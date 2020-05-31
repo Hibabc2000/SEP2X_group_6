@@ -1122,6 +1122,11 @@ public class CharacterCreationViewModel
     //Speed here:temporaryCharacter.setspeed
     temporaryCharacter.setXp(Integer.parseInt(xp.getValue()));
 
+
+
+    //these are the last
+    character = temporaryCharacter;
+    model.transmitCharacter(character);
   }
 
 }

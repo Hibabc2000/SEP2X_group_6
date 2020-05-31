@@ -1461,8 +1461,8 @@
                               <Label text="XP" GridPane.rowIndex="3" />
                               <Label text="Level" GridPane.rowIndex="4" />
                               <TextField fx:id="armorClassManuallyEnteredNumber" prefWidth="1548.0" GridPane.columnIndex="1" />
-                              <TextField fx:id="initiativeModifierManuallyEnteredNumber" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <TextField fx:id="speedManuallyEnteredNumber" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="initiativeModifierManuallyEnteredNumber" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="speedManuallyEnteredNumber" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" fx:id="xpManuallyEnteredNumber" />
                               <TextField fx:id="levelManuallyEnteredNumber" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                               <ComboBox fx:id="classForLevelEditingComboBox" onAction="#changeSelectedClassForLevelEditing" prefHeight="26.0" prefWidth="339.0" promptText="select class" GridPane.columnIndex="1" GridPane.rowIndex="4" />

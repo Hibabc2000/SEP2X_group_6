@@ -301,8 +301,8 @@ public class CharacterCreationController
 
     //<editor-fold desc="Extras">
     armorClassManuallyEnteredNumber.promptTextProperty().bindBidirectional(characterCreationViewModel.armorClassProperty());
-    initiativeModifierManuallyEnteredNumber.promptTextProperty().bindBidirectional(characterCreationViewModel.initiativeProperty());
-    speedManuallyEnteredNumber.promptTextProperty().bindBidirectional(characterCreationViewModel.speedProperty());
+    //initiativeModifierManuallyEnteredNumber.promptTextProperty().bindBidirectional(characterCreationViewModel.initiativeProperty());
+    //speedManuallyEnteredNumber.promptTextProperty().bindBidirectional(characterCreationViewModel.speedProperty());
     xpManuallyEnteredNumber.promptTextProperty().bindBidirectional(characterCreationViewModel.xpProperty());
 
     if(characterCreationViewModel.isCharacterEditorAccountDmStatus())
