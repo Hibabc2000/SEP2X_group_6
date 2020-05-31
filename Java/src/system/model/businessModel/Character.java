@@ -43,6 +43,7 @@ public class Character implements Serializable
   private int groupID;
   private StaticModel staticModel;
   private String backstory;
+  private String alliesAndOrganizations;
 
   public Character(
       StaticModel staticModel)//staticmodel has to be uploaded at instantiation, so that we can have the proficiency parser
@@ -530,5 +531,15 @@ public class Character implements Serializable
         }
       }
     }
+  }
+
+  public String getAlliesAndOrganizations()
+  {
+    return alliesAndOrganizations;
+  }
+
+  public void setAlliesAndOrganizations(String alliesAndOrganizations)
+  {
+    this.alliesAndOrganizations = alliesAndOrganizations;
   }
 }

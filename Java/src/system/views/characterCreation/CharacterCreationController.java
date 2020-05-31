@@ -102,17 +102,21 @@ public class CharacterCreationController
   @FXML public ListView idealsListView;
   @FXML public ListView bondsListView;
   @FXML public ListView flawsListView;
+  @FXML public ListView classesListView;
   ////////////////////
   private CharacterCreationViewModel characterCreationViewModel;
   private ViewHandler viewHandler;
   private ObservableList<String> alignments;
   private ObservableList<Background> backgrounds;
+  private ObservableList<String> abilitiesList;
 
 
   public void init(CharacterCreationViewModel cCVM,ViewHandler vh)
   {
     this.characterCreationViewModel = cCVM;
     viewHandler = vh;
+    classComboBox.setItems(characterCreationViewModel.getAllCharacterClassesNames());
+    classesListView.setItems(characterCreationViewModel.getCharacterClassesName());
     alignments =  FXCollections.observableArrayList();
     //<editor-fold desc="alignments">
     alignments.add("Chaotic Good");
@@ -125,11 +129,18 @@ public class CharacterCreationController
     alignments.add("Neutral");
     alignments.add("Neutral Evil");
     //</editor-fold>
-    backgrounds = FXCollections.observableArrayList();
-    //ill add the real stuff later
-    //<editor-fold desc="backgrounds">
-    backgrounds.add(new Background("Acolyte","retard"));
-    backgrounds.add(new Background("noble","advanced retard"));
+    backgroundComboBox.setItems(FXCollections.observableList(characterCreationViewModel.getBackgrounds()));
+
+    //<editor-fold desc="abilities comboBox">
+    abilitiesList = FXCollections.observableArrayList();
+    abilitiesList.add("Strength");
+    abilitiesList.add("Intelligence");
+    abilitiesList.add("Dexterity");
+    abilitiesList.add("Constitution");
+    abilitiesList.add("Wisdom");
+    abilitiesList.add("Charisma");
+    abilityScoreImprovementComboBoxOne.setItems(abilitiesList);
+    abilityScoreImprovementComboBoxTwo.setItems(abilitiesList);
     //</editor-fold>
 
     raceComboBox.setItems(FXCollections.observableList(characterCreationViewModel.getStaticModel().getRaces()));
@@ -275,18 +286,16 @@ public class CharacterCreationController
     //<editor-fold desc="Description">
     nameTextField.setText(characterCreationViewModel.getCharacter().getName());
     languageTextArea.textProperty().bindBidirectional(characterCreationViewModel.languageFProperty());
-    physicalCharacteristicsTextArea.setText(characterCreationViewModel.getCharacter().getPhysicalCharacteristics());
+    physicalCharacteristicsTextArea.textProperty().bindBidirectional(characterCreationViewModel.physicalCharacteristicsFProperty());
     treasuresListView.setItems(characterCreationViewModel.getTreasures());
-
     alignmentComboBox.setItems(alignments);
-    backgroundComboBox.setItems(backgrounds);
-
+    backgroundComboBox.setItems(FXCollections.observableList(characterCreationViewModel.getBackgrounds()));
+    backgroundComboBox.getSelectionModel().select(characterCreationViewModel.getCharacterBackground());
     personalityTraitsListView.setItems(characterCreationViewModel.getPersonalityTraits());
     idealsListView.setItems(characterCreationViewModel.getIdeals());
     flawsListView.setItems(characterCreationViewModel.getIdeals());
     bondsListView.setItems(characterCreationViewModel.getBonds());
-
-    backstoryTextArea.setText(characterCreationViewModel.getCharacter().getBackstory());
+    backstoryTextArea.textProperty().bindBidirectional(characterCreationViewModel.backstoryFProperty());
     characterDescriptionTextArea.textProperty().bindBidirectional(characterCreationViewModel.characterDescriptionFProperty());
     //</editor-fold>
 
@@ -295,7 +304,6 @@ public class CharacterCreationController
     initiativeModifierManuallyEnteredNumber.promptTextProperty().bindBidirectional(characterCreationViewModel.initiativeProperty());
     speedManuallyEnteredNumber.promptTextProperty().bindBidirectional(characterCreationViewModel.speedProperty());
     xpManuallyEnteredNumber.promptTextProperty().bindBidirectional(characterCreationViewModel.xpProperty());
-    levelManuallyEnteredNumber.promptTextProperty().bindBidirectional(characterCreationViewModel.levelProperty());
 
     if(characterCreationViewModel.isCharacterEditorAccountDmStatus())
     {
@@ -358,28 +366,105 @@ public class CharacterCreationController
   }
   public void addFeat(ActionEvent actionEvent)
   {
+    if(!(featComboBox.getSelectionModel().isEmpty()))
+    {
+      characterCreationViewModel.addFeat(featComboBox.getValue());
+    }
+    else
+    {
+      Alert alert = new Alert(Alert.AlertType.ERROR);
+      alert.setTitle("Error Dialog");
+      alert.setHeaderText("An Error Dialog");
+      alert.setContentText("Please Choose an option");
+      alert.showAndWait();
+    }
+
   }
 
   public void removeFeat(ActionEvent actionEvent)
   {
+    if(!(featsAndFeaturesListView.getSelectionModel().getSelectedItems().isEmpty()))
+    {
+      characterCreationViewModel.removeFeat(featsAndFeaturesListView.getSelectionModel().getSelectedItem());
+    }
+    else
+    {
+      Alert alert = new Alert(Alert.AlertType.ERROR);
+      alert.setTitle("Error Dialog");
+      alert.setHeaderText("An Error Dialog");
+      alert.setContentText("Please Choose an option");
+      alert.showAndWait();
+    }
   }
 
   public void addAbilityScoreImprovement(ActionEvent actionEvent)
   {
+    if((!(abilityScoreImprovementComboBoxOne.getSelectionModel().isEmpty()))&&(!(abilityScoreImprovementComboBoxTwo.getSelectionModel().isEmpty())))
+    {
+      String tempStr1 = (String) abilityScoreImprovementComboBoxOne.getValue();
+      String tempStr2 = (String) abilityScoreImprovementComboBoxOne.getValue();
+      characterCreationViewModel.abilityScoreImprovement(tempStr1,tempStr2);
+    }
+    else
+    {
+      Alert alert = new Alert(Alert.AlertType.ERROR);
+      alert.setTitle("Error Dialog");
+      alert.setHeaderText("An Error Dialog");
+      alert.setContentText("Please Choose an option");
+      alert.showAndWait();
+    }
+
   }
 
   public void addTreasure(ActionEvent actionEvent)
   {
+    if(!(treasureTextArea.textProperty() == null||treasureTextArea.textProperty().getValue() == null||treasureTextArea.textProperty().getValue().equals("")))
+    {
+      characterCreationViewModel.addTreasure(treasureTextArea.textProperty().getValue());
+    }
+    else
+    {
+      Alert alert = new Alert(Alert.AlertType.ERROR);
+      alert.setTitle("Error Dialog");
+      alert.setHeaderText("An Error Dialog");
+      alert.setContentText("Please Choose an option");
+      alert.showAndWait();
+    }
+
   }
 
   public void onRaceChange(ActionEvent actionEvent)
   {
-    characterCreationViewModel.setTemporaryCharacterRace((Race)raceComboBox.getValue());
+    if(!(raceComboBox.getSelectionModel().isEmpty()))
+    {
+      characterCreationViewModel.setTemporaryCharacterRace((Race)raceComboBox.getValue());
+    }
+    else
+    {
+      Alert alert = new Alert(Alert.AlertType.ERROR);
+      alert.setTitle("Error Dialog");
+      alert.setHeaderText("An Error Dialog");
+      alert.setContentText("Please Choose an option");
+      alert.showAndWait();
+    }
 
   }
 
   public void onClassChange(ActionEvent actionEvent)
   {
+    if(!(classComboBox.getSelectionModel().isEmpty()))
+    {
+      characterCreationViewModel.changeClassDesc(classComboBox.getValue());
+    }
+    else
+    {
+      Alert alert = new Alert(Alert.AlertType.ERROR);
+      alert.setTitle("Error Dialog");
+      alert.setHeaderText("An Error Dialog");
+      alert.setContentText("Please Choose an option");
+      alert.showAndWait();
+    }
+
   }
 
   public void setSubClass(ActionEvent actionEvent)
@@ -388,50 +473,228 @@ public class CharacterCreationController
 
   public void setFeatFromCB(ActionEvent actionEvent)
   {
+    if(!(featComboBox.getSelectionModel().isEmpty()))
+    {
+      characterCreationViewModel.changeFeatDescription(featComboBox.getValue());
+    }
+    else
+    {
+      Alert alert = new Alert(Alert.AlertType.ERROR);
+      alert.setTitle("Error Dialog");
+      alert.setHeaderText("An Error Dialog");
+      alert.setContentText("Please Choose an option");
+      alert.showAndWait();
+    }
+
   }
 
   public void saveCharacter(ActionEvent actionEvent)
   {
+    boolean[] tmp = new boolean[18];
+    tmp[0] = acrobaticsCheckBox.isSelected();
+    tmp[1] = animalHandlingCheckBox.isSelected();
+    tmp[2] = arcanaCheckBox.isSelected();
+    tmp[3] = athleticsCheckBox.isSelected();
+    tmp[4] = deceptionCheckBox.isSelected();
+    tmp[5] = historyCheckBox.isSelected();
+    tmp[6] = insightCheckBox.isSelected();
+    tmp[7] = intimidationCheckBox.isSelected();
+    tmp[8] = investigationCheckBox.isSelected();
+    tmp[9] = medicineCheckBox.isSelected();
+    tmp[10] = natureCheckBox.isSelected();
+    tmp[11] = perceptionCheckBox.isSelected();
+    tmp[12] = performanceCheckBox.isSelected();
+    tmp[13] = persuasionCheckBox.isSelected();
+    tmp[14] = religionCheckBox.isSelected();
+    tmp[15] = sleightOfHandCheckBox.isSelected();
+    tmp[16] = stealthCheckBox.isSelected();
+    tmp[17] = survivalCheckBox.isSelected();
+    characterCreationViewModel.setSkills(tmp);
+
   }
 
   public void setBackgroundFN(ActionEvent actionEvent)
   {
+    characterCreationViewModel.setBackground(backgroundComboBox.getValue());
   }
 
   public void removeTreasure(ActionEvent actionEvent)
   {
+    if(!(treasuresListView.getSelectionModel().isEmpty()))
+    {
+      characterCreationViewModel.removeTreasure((String)treasuresListView.getSelectionModel().getSelectedItem());
+    }
+    else
+    {
+      Alert alert = new Alert(Alert.AlertType.ERROR);
+      alert.setTitle("Error Dialog");
+      alert.setHeaderText("An Error Dialog");
+      alert.setContentText("Please Choose an option");
+      alert.showAndWait();
+    }
   }
 
   public void removePersonalityTrait(ActionEvent actionEvent)
   {
+    if(!(personalityTraitsListView.getSelectionModel().isEmpty()))
+    {
+      characterCreationViewModel.removePersonalityTrait((String) personalityTraitsListView.getSelectionModel().getSelectedItem());
+    }
+    else
+    {
+      Alert alert = new Alert(Alert.AlertType.ERROR);
+      alert.setTitle("Error Dialog");
+      alert.setHeaderText("An Error Dialog");
+      alert.setContentText("Please Choose an option");
+      alert.showAndWait();
+    }
   }
 
   public void addPersonalityTrait(ActionEvent actionEvent)
   {
+    if(!(personalityTraitsTextArea.textProperty()==null||personalityTraitsTextArea.textProperty().getValue()==null||personalityTraitsTextArea.textProperty().getValue().equalsIgnoreCase("")))
+    {
+      characterCreationViewModel.addPersonalityTrait(personalityTraitsTextArea.textProperty().getValue());
+    }
+    else
+    {
+      Alert alert = new Alert(Alert.AlertType.ERROR);
+      alert.setTitle("Error Dialog");
+      alert.setHeaderText("An Error Dialog");
+      alert.setContentText("Please Choose an option");
+      alert.showAndWait();
+    }
+
   }
 
   public void removeIdeal(ActionEvent actionEvent)
   {
+    if(!(idealsListView.getSelectionModel().isEmpty()))
+    {
+      characterCreationViewModel.removeIdeal((String) idealsListView.getSelectionModel().getSelectedItem());
+    }
+    else
+    {
+      Alert alert = new Alert(Alert.AlertType.ERROR);
+      alert.setTitle("Error Dialog");
+      alert.setHeaderText("An Error Dialog");
+      alert.setContentText("Please Choose an option");
+      alert.showAndWait();
+    }
   }
 
   public void addIdeal(ActionEvent actionEvent)
   {
+    if(!(idealsTextArea.textProperty()==null||idealsTextArea.textProperty().getValue()==null||idealsTextArea.textProperty().getValue().equalsIgnoreCase("")))
+    {
+      characterCreationViewModel.addIdeal(idealsTextArea.textProperty().getValue());
+    }
+    else
+    {
+      Alert alert = new Alert(Alert.AlertType.ERROR);
+      alert.setTitle("Error Dialog");
+      alert.setHeaderText("An Error Dialog");
+      alert.setContentText("Please Choose an option");
+      alert.showAndWait();
+    }
   }
+
 
   public void removeBond(ActionEvent actionEvent)
   {
+    if(!(bondsListView.getSelectionModel().isEmpty()))
+    {
+      characterCreationViewModel.removeBond((String) bondsListView.getSelectionModel().getSelectedItem());
+    }
+    else
+    {
+      Alert alert = new Alert(Alert.AlertType.ERROR);
+      alert.setTitle("Error Dialog");
+      alert.setHeaderText("An Error Dialog");
+      alert.setContentText("Please Choose an option");
+      alert.showAndWait();
+    }
+
   }
 
   public void addBond(ActionEvent actionEvent)
   {
+    if(!(bondsTextArea.textProperty()==null||bondsTextArea.textProperty().getValue()==null||bondsTextArea.textProperty().getValue().equalsIgnoreCase("")))
+    {
+      characterCreationViewModel.addBond(bondsTextArea.textProperty().getValue());
+    }
+    else
+    {
+      Alert alert = new Alert(Alert.AlertType.ERROR);
+      alert.setTitle("Error Dialog");
+      alert.setHeaderText("An Error Dialog");
+      alert.setContentText("Please Choose an option");
+      alert.showAndWait();
+    }
   }
 
   public void removeFlaw(ActionEvent actionEvent)
   {
+    if(!(flawsListView.getSelectionModel().isEmpty()))
+    {
+      characterCreationViewModel.removeFlaw((String) flawsListView.getSelectionModel().getSelectedItem());
+    }
+    else
+    {
+      Alert alert = new Alert(Alert.AlertType.ERROR);
+      alert.setTitle("Error Dialog");
+      alert.setHeaderText("An Error Dialog");
+      alert.setContentText("Please Choose an option");
+      alert.showAndWait();
+    }
   }
 
   public void addFlaw(ActionEvent actionEvent)
   {
+    if(!(flawsTextArea.textProperty()==null||flawsTextArea.textProperty().getValue()==null||flawsTextArea.textProperty().getValue().equalsIgnoreCase("")))
+    {
+      characterCreationViewModel.addFlaw(flawsTextArea.textProperty().getValue());
+    }
+    else
+    {
+      Alert alert = new Alert(Alert.AlertType.ERROR);
+      alert.setTitle("Error Dialog");
+      alert.setHeaderText("An Error Dialog");
+      alert.setContentText("Please Choose an option");
+      alert.showAndWait();
+    }
+  }
+
+  public void AddClass(ActionEvent actionEvent)
+  {
+    if(!(classComboBox.getSelectionModel().isEmpty()))
+    {
+      characterCreationViewModel.addCharacterClass(classComboBox.getValue());
+    }
+    else
+    {
+      Alert alert = new Alert(Alert.AlertType.ERROR);
+      alert.setTitle("Error Dialog");
+      alert.setHeaderText("An Error Dialog");
+      alert.setContentText("Please Choose an option");
+      alert.showAndWait();
+    }
+  }
+
+  public void removeClass(ActionEvent actionEvent)
+  {
+    if(!(classesListView.getSelectionModel().getSelectedItems().isEmpty()))
+    {
+      characterCreationViewModel.removeCharacterClass(classesListView.getSelectionModel().getSelectedItem());
+    }
+    else
+    {
+      Alert alert = new Alert(Alert.AlertType.ERROR);
+      alert.setTitle("Error Dialog");
+      alert.setHeaderText("An Error Dialog");
+      alert.setContentText("Please Choose an option");
+      alert.showAndWait();
+    }
   }
   /*
   public Button addFeatButton;

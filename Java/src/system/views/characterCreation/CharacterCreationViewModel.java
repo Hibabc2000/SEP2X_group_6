@@ -4,11 +4,13 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import system.model.businessModel.Background;
 import system.model.businessModel.Character;
 import system.model.businessModel.Feat;
 import system.model.businessModel.Race;
 import system.model.businessModel.staticModel.Subclass;
 import system.model.businessModel.staticModel.StaticModel;
+import system.model.characterClasses.CharacterClass;
 import system.model.characterManagement.CharacterManagementModel;
 
 import java.beans.PropertyChangeEvent;
@@ -62,6 +64,8 @@ public class CharacterCreationViewModel
   private StringProperty speed;
   private StringProperty xp;
   private StringProperty level;
+  private StringProperty raceDescription;
+  private StringProperty backgroundDescription;
   ////////////////////////////////
   private Character temporaryCharacter;
   private Character character;
@@ -76,12 +80,31 @@ public class CharacterCreationViewModel
   private ObservableList<String> flaws;
   private boolean characterEditorAccountDmStatus;
   private StaticModel staticModel;
+  private ArrayList<CharacterClass> allClasses;
+  private ArrayList<CharacterClass> characterClasses;
+  private ObservableList<String> characterClassesName;
+  private ObservableList<String> allCharacterClassesNames;
+  private ArrayList<Background> backgrounds;
+  private Background characterBackground;
 
   public CharacterCreationViewModel(CharacterManagementModel model1)
   {
     model = model1;
     staticModel = model.getStaticModel();
+    allClasses = model.getAllCharacterClasses();
     characterEditorAccountDmStatus = model.getAccountDmStatus();
+    model.addListener("characterToSheetViewModel", this::setCharacter);
+    backgrounds.add(new Background("star wars holiday special dealer","has low iq lol"));
+    backgrounds.add(new Background("sage","nerd or smth"));
+
+
+  }
+  public void setCharacter(PropertyChangeEvent propertyChangeEvent)
+  {
+    character = (Character) propertyChangeEvent.getNewValue();
+    temporaryCharacter = character;
+    allCharacterClassesNames = FXCollections.observableArrayList();
+    characterClassesName = FXCollections.observableArrayList();
     treasures = FXCollections.observableArrayList();
     treasures.addAll(character.getTreasures());
     personalityTraits = FXCollections.observableArrayList();
@@ -92,14 +115,25 @@ public class CharacterCreationViewModel
     ideals.addAll(character.getIdeals());
     flaws.addAll(character.getFlaws());
     bonds.addAll(character.getBonds());
-
-    model.addListener("characterToSheetViewModel", this::setCharacter);
-
-  }
-  public void setCharacter(PropertyChangeEvent propertyChangeEvent)
-  {
-     character = (Character) propertyChangeEvent.getNewValue();
-    temporaryCharacter = character;
+    for(int i = 0; i < allClasses.size(); i++)
+    {
+      allCharacterClassesNames.add(allClasses.get(i).getClassName());
+    }
+    for(int i = 0; i < characterClasses.size(); i++)
+    {
+      characterClassesName.add(characterClasses.get(i).getClassName());
+    }
+    for(int i = 0;i < characterClasses.size();i++)
+    {
+      relatedFeats.addAll(characterClasses.get(i).getClassFeats());
+    }
+    for(int i = 0; i < backgrounds.size();i++)
+    {
+      if((temporaryCharacter.getBackground() != null )&&backgrounds.get(i).toString().equalsIgnoreCase(temporaryCharacter.getBackground()))
+      {
+        characterBackground = backgrounds.get(i);
+      }
+    }
   }
   public void calculate()
   {
@@ -108,6 +142,16 @@ public class CharacterCreationViewModel
   public void createCharacter()
   {
 
+  }
+
+  public void recalculateAvailableFeats()
+  {
+    relatedFeats.clear();
+    for(int i = 0;i < characterClasses.size();i++)
+    {
+      relatedFeats.addAll(characterClasses.get(i).getClassFeats());
+    }
+    relatedFeats.removeAll(temporaryCharacter.getFeats());
   }
 
   public Character getCharacter()
@@ -629,16 +673,455 @@ public class CharacterCreationViewModel
   //</editor-fold>
   public void calculateAbilities()
   {
+    int[] finalAbilities = temporaryCharacter.getAbilities();
+    int[] insertedRolledAbilities = temporaryCharacter.getAbilitiesRolled();
+    int[] racialModifiers = new int[] {0,0,0,0,0,0};
+    int[] abilityImprovement = {0,0,0,0,0,0};
+      if(!(strengthProperty == null || strengthProperty.get().equals("")))
+      {
+        insertedRolledAbilities[0] = Integer.parseInt(strengthProperty.get());
+      }
+      if(!(dexterityProperty == null || dexterityProperty.get().equals("")))
+      {
+        insertedRolledAbilities[1] = Integer.parseInt(dexterityProperty.get());
 
+      }
+      if(!(constitutionProperty == null || constitutionProperty.get().equals("")))
+      {
+        insertedRolledAbilities[2] = Integer.parseInt(constitutionProperty.get());
+
+      }
+      if(!(intelligenceProperty == null || intelligenceProperty.get().equals("")))
+      {
+        insertedRolledAbilities[3] = Integer.parseInt(intelligenceProperty.get());
+
+      }
+      if(!(wisdomProperty == null || wisdomProperty.get().equals("")))
+      {
+        insertedRolledAbilities[4] = Integer.parseInt(wisdomProperty.get());
+
+      }
+      if(!(charismaProperty == null || charismaProperty.get().equals("")))
+      {
+        insertedRolledAbilities[5] = Integer.parseInt(charismaProperty.get());
+
+      }
+      temporaryCharacter.setAbilitiesRolled(insertedRolledAbilities);
+
+
+
+    if(temporaryCharacter.getRace() == null)
+    {
+      charismaRacialBonus.setValue("0");
+      strengthRacialBonus.setValue("0");
+      intelligenceRacialBonus.setValue("0");
+      dexterityRacialBonus.setValue("0");
+      constitutionRacialBonus.setValue("0");
+      wisdomRacialBonus.setValue("0");
+
+      for(int i = 0; i < temporaryCharacter.getFeats().size(); i++)
+      {
+        if(temporaryCharacter.getFeats().get(i).getName().equals("ability Score Improvement"))
+        {
+          String[] abilitiesToImprove;
+          String tempStr3 = temporaryCharacter.getFeats().get(i).getDescription();
+          abilitiesToImprove = tempStr3.split(", ");
+          String tempStr1 = abilitiesToImprove[0];
+          String tempStr2 = abilitiesToImprove[1];
+          switch (tempStr1)
+          {
+            case "Strength":
+            {
+              abilityImprovement[0]++;
+              break;
+            }
+            case "Intelligence":
+            {
+                abilityImprovement[3]++;
+              break;
+            }
+            case "Dexterity":
+            {
+              abilityImprovement[1]++;
+              break;
+            }
+            case "Constitution":
+            {
+              abilityImprovement[2]++;
+              break;
+            }
+            case "Wisdom":
+            {
+              abilityImprovement[4]++;
+              break;
+            }
+            case "Charisma":
+            {
+              abilityImprovement[5]++;
+              break;
+            }
+          }
+          switch (tempStr2)
+          {
+            case "Strength":
+            {
+              abilityImprovement[0]++;
+              break;
+            }
+            case "Intelligence":
+            {
+              abilityImprovement[3]++;
+              break;
+            }
+            case "Dexterity":
+            {
+              abilityImprovement[1]++;
+              break;
+            }
+            case "Constitution":
+            {
+              abilityImprovement[2]++;
+              break;
+            }
+            case "Wisdom":
+            {
+              abilityImprovement[4]++;
+              break;
+            }
+            case "Charisma":
+            {
+              abilityImprovement[5]++;
+              break;
+            }
+          }
+        }
+      }
+      strengthImprovement.setValue(String.valueOf(abilityImprovement[0]));
+      dexterityImprovement.setValue(String.valueOf(abilityImprovement[1]));
+      constitutionImprovement.setValue(String.valueOf(abilityImprovement[2]));
+      intelligenceAbilityImprovement.setValue(String.valueOf(abilityImprovement[3]));
+      wisdomImprovement.setValue(String.valueOf(abilityImprovement[4]));
+      charismaImprovement.setValue(String.valueOf(abilityImprovement[5]));
+    }
+    else
+    {
+      //<editor-fold desc="these are temporary">
+      switch (temporaryCharacter.getRace().getName())
+      {
+        case "Dwarf":
+        {
+          racialModifiers[2] = racialModifiers[2]+2;
+          constitutionRacialBonus.setValue(String.valueOf(2));
+          break;
+        }
+        case "Elf":
+        {
+          racialModifiers[1] = racialModifiers[1]+2;
+          dexterityRacialBonus.setValue(String.valueOf(2));
+          break;
+        }
+        case "Halfling":
+        {
+          racialModifiers[1] = racialModifiers[1]+2;
+          dexterityRacialBonus.setValue(String.valueOf(2));
+          break;
+        }
+        case "Human":
+        {
+          racialModifiers[0] = racialModifiers[0]+1;
+          racialModifiers[1] = racialModifiers[1]+1;
+          racialModifiers[2] = racialModifiers[2]+1;
+          racialModifiers[3] = racialModifiers[3]+1;
+          racialModifiers[4] = racialModifiers[4]+1;
+          racialModifiers[5] = racialModifiers[5]+1;
+          strengthRacialBonus.setValue(String.valueOf(1));
+          constitutionRacialBonus.setValue(String.valueOf(1));
+          dexterityRacialBonus.setValue(String.valueOf(1));
+          intelligenceRacialBonus.setValue(String.valueOf(1));
+          wisdomRacialBonus.setValue(String.valueOf(1));
+          charismaRacialBonus.setValue(String.valueOf(1));
+          break;
+        }
+        case "Dragonborn":
+        {
+          racialModifiers[0] = racialModifiers[0]+2;
+          racialModifiers[5] = racialModifiers[5]+1;
+          strengthRacialBonus.setValue(String.valueOf(2));
+          charismaRacialBonus.setValue(String.valueOf(1));
+          break;
+        }
+        case "Gnome":
+        {
+          racialModifiers[3] = racialModifiers[3]+2;
+          intelligenceRacialBonus.setValue(String.valueOf(2));
+          break;
+        }
+        case "Half-Elf":
+        {
+          //THIS INFO IS WRONG
+          racialModifiers[5] = racialModifiers[5]+2;
+          racialModifiers[1] = racialModifiers[1]+1;
+          racialModifiers[2] = racialModifiers[2]+1;
+          charismaRacialBonus.setValue(String.valueOf(2));
+          dexterityRacialBonus.setValue(String.valueOf(1));
+          constitutionRacialBonus.setValue(String.valueOf(1));
+          break;
+        }
+        case "Half-Orc":
+        {
+          racialModifiers[0] = racialModifiers[0]+2;
+          racialModifiers[2] = racialModifiers[2]+1;
+          strengthRacialBonus.setValue(String.valueOf(2));
+          constitutionRacialBonus.setValue(String.valueOf(1));
+          break;
+        }
+        case "Tiefling":
+        {
+          racialModifiers[5] = racialModifiers[5]+2;
+          racialModifiers[3] = racialModifiers[3]+1;
+          charismaRacialBonus.setValue(String.valueOf(2));
+          intelligenceRacialBonus.setValue(String.valueOf(1));
+          break;
+        }
+        default:break;
+      }
+      //</editor-fold>
+
+    }
+    finalAbilities[0] = abilityImprovement[0]+insertedRolledAbilities[0]+racialModifiers[0];
+    finalAbilities[1] = abilityImprovement[1]+insertedRolledAbilities[1]+racialModifiers[1];
+    finalAbilities[2] = abilityImprovement[2]+insertedRolledAbilities[2]+racialModifiers[2];
+    finalAbilities[3] = abilityImprovement[3]+insertedRolledAbilities[3]+racialModifiers[3];
+    finalAbilities[4] = abilityImprovement[4]+insertedRolledAbilities[4]+racialModifiers[4];
+    finalAbilities[5] = abilityImprovement[5]+insertedRolledAbilities[5]+racialModifiers[5];
+    strengthFinal.setValue(String.valueOf(finalAbilities[0]));
+    dexterityFinal.setValue(String.valueOf(finalAbilities[1]));
+    constitutionFinal.setValue(String.valueOf(finalAbilities[2]));
+    intelligenceFinal.setValue(String.valueOf(finalAbilities[3]));
+    wisdomFinal.setValue(String.valueOf(finalAbilities[4]));
+    charismaFinal.setValue(String.valueOf(finalAbilities[5]));
+    temporaryCharacter.setAbilitiesRolled(finalAbilities);
+  }
+
+  public void abilityScoreImprovement(String abilityOne, String abilityTwo)
+  {
+    String tempStr = abilityOne + ", " + abilityTwo;
+    Feat newAbilityScoreImprovementFeat = new Feat("all","ability Score Improvement",tempStr);
+    ArrayList<Feat> tmp = temporaryCharacter.getFeats();
+    tmp.add(newAbilityScoreImprovementFeat);
+    temporaryCharacter.setFeats(tmp);
   }
 
   public StaticModel getStaticModel()
   {
     return staticModel;
   }
-  //this exists because we dont load the feats from the database into the static model
-  public void addFeat()
+  public void removeFeat(Object object)
+  {
+    ArrayList<Feat> tmp = temporaryCharacter.getFeats();
+    tmp.remove((Feat) object);
+    featsAndFeatures = tmp;
+    temporaryCharacter.setFeats(tmp);
+  }
+  public void addFeat(Object object)
+  {
+    ArrayList<Feat> tmp = temporaryCharacter.getFeats();
+    tmp.add((Feat)object);
+    temporaryCharacter.setFeats(tmp);
+    featsAndFeatures = tmp;
+  }
+  public void addCharacterClass(Object object)
+  {
+    for(int i = 0; i < allClasses.size(); i++)
+    {
+      if(allClasses.get(i).getClassName().equals((String)object))
+      {
+        allClasses.get(i).getClassName().equals((String)object);
+        raceDescription.setValue(allClasses.get(i).getDescription());
+        characterClasses.add(allClasses.get(i));
+        temporaryCharacter.setCharacterClass(characterClasses);
+        characterClassesName.add((String)object);
+      }
+    }
+    recalculateAvailableFeats();
+  }
+  public void removeCharacterClass(Object object)
+  {
+    for(int i = 0; i < characterClasses.size(); i++)
+    {
+      if(characterClasses.get(i).getClassName().equals((String)object))
+      {
+        characterClasses.remove(i);
+        characterClassesName.remove(i);
+      }
+    }
+    recalculateAvailableFeats();
+  }
+  public void changeClassDesc(Object object)
+  {
+    for(int i = 0; i < allClasses.size(); i++)
+    {
+      allClasses.get(i).getClassName().equals((String)object);
+      raceDescription.setValue(allClasses.get(i).getDescription());
+    }
+  }
+  public void changeFeatDescription(Object object)
+  {
+    featToChooseDescription.setValue(((Feat)object).getDescription());
+  }
+  public String getRaceDescription()
+  {
+    return raceDescription.get();
+  }
+
+  public StringProperty raceDescriptionProperty()
+  {
+    return raceDescription;
+  }
+
+  public ObservableList<String> getCharacterClassesName()
+  {
+    return characterClassesName;
+  }
+
+  public ObservableList<String> getAllCharacterClassesNames()
+  {
+    return allCharacterClassesNames;
+  }
+  public void addTreasure(String treasure)
+  {
+    treasures.add(treasure);
+    ArrayList<String> tmp = temporaryCharacter.getTreasures();
+    tmp.add(treasure);
+    temporaryCharacter.setTreasures(tmp);
+  }
+  public void setBackground(Object object)
+  {
+    characterBackground = (Background)object;
+    temporaryCharacter.setBackground(((Background)object).toString());
+    backgroundDescription.setValue(characterBackground.getDescription());
+  }
+  public ArrayList<Background> getBackgrounds()
+  {
+    return backgrounds;
+  }
+
+  public String getBackgroundDescription()
+  {
+    return backgroundDescription.get();
+  }
+
+  public StringProperty backgroundDescriptionProperty()
+  {
+    return backgroundDescription;
+  }
+
+  public Background getCharacterBackground()
+  {
+    return characterBackground;
+  }
+  public void removeTreasure(String treasure)
+  {
+    treasures.remove(treasure);
+    ArrayList<String> tmp = new ArrayList<>();
+    for(int i = 0;i < treasures.size();i++)
+    {
+      tmp.add(treasures.get(i));
+    }
+    temporaryCharacter.setTreasures(tmp);
+  }
+  public void removePersonalityTrait(String personalityTrait)
+  {
+    personalityTraits.remove(personalityTrait);
+    ArrayList<String> tmp = new ArrayList<>();
+    for(int i = 0; i < personalityTraits.size();i++)
+    {
+      tmp.add(personalityTraits.get(i));
+    }
+    temporaryCharacter.setPersonalityTraits(tmp);
+  }
+  public void addPersonalityTrait(String personalityTrait)
+  {
+    personalityTraits.add(personalityTrait);
+    ArrayList<String> tmp = new ArrayList<>();
+    for(int i = 0; i < personalityTraits.size();i++)
+    {
+      tmp.add(personalityTraits.get(i));
+    }
+    temporaryCharacter.setPersonalityTraits(tmp);
+  }
+  public void removeIdeal(String ideal)
+  {
+    ideals.remove(ideal);
+    ArrayList<String> tmp = new ArrayList<>();
+    for(int i = 0; i < ideals.size();i++)
+    {
+      tmp.add(ideals.get(i));
+    }
+    temporaryCharacter.setIdeals(tmp);
+  }
+  public void addIdeal(String ideal)
+  {
+    ideals.add(ideal);
+    ArrayList<String> tmp = new ArrayList<>();
+    for(int i = 0; i < ideals.size();i++)
+    {
+      tmp.add(ideals.get(i));
+    }
+    temporaryCharacter.setIdeals(tmp);
+  }
+  public void removeFlaw(String flaw)
+  {
+    flaws.remove(flaw);
+    ArrayList<String> tmp = new ArrayList<>();
+    for(int i = 0; i < flaws.size();i++)
+    {
+      tmp.add(flaws.get(i));
+    }
+    temporaryCharacter.setFlaws(tmp);
+  }
+  public void addFlaw(String flaw)
+  {
+    flaws.add(flaw);
+    ArrayList<String> tmp = new ArrayList<>();
+    for(int i = 0; i < flaws.size();i++)
+    {
+      tmp.add(flaws.get(i));
+    }
+    temporaryCharacter.setFlaws(tmp);
+  }
+  public void removeBond(String bond)
+  {
+    bonds.remove(bond);
+    ArrayList<String> tmp = new ArrayList<>();
+    for(int i = 0; i < bonds.size();i++)
+    {
+      tmp.add(bonds.get(i));
+    }
+    temporaryCharacter.setBonds(tmp);
+  }
+  public void addBond(String bond)
+  {
+    bonds.add(bond);
+    ArrayList<String> tmp = new ArrayList<>();
+    for(int i = 0; i < bonds.size();i++)
+    {
+      tmp.add(bonds.get(i));
+    }
+    temporaryCharacter.setBonds(tmp);
+  }
+  public void setSkills(boolean[] shkills)
   {
 
   }
+  public void saveCharacter()
+  {
+    temporaryCharacter.setBackstory(backstoryF.getValue());
+    //add lang here
+    temporaryCharacter.setArmorClass(Integer.parseInt(armorClass.getValue()));
+    //Speed here:temporaryCharacter.setspeed
+    temporaryCharacter.setXp(Integer.parseInt(xp.getValue()));
+
+  }
+
 }
