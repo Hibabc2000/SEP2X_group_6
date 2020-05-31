@@ -52,7 +52,7 @@ public class ViewHandler
     stage3 = new Stage();
     stage4 = new Stage();
     //bruh
-    vmf.getModel().getCharacterManagementModel().addListener("displayCharacterCreationScene",this::openCharacterCreation);
+
 
   }
 
@@ -309,13 +309,13 @@ public class ViewHandler
   {
     //METHOD NOT WORKING
     FXMLLoader loader = new FXMLLoader();
-    if (emailChange == null)
+    if (characterSheet == null)
     {
       Parent root = getRootByPath("../views/characterSheet/ChangeEmail.fxml",
           loader);
       ChangeEmailController controller = loader.getController();
       controller.init(vmf.getChangeEmailVM(), this);
-      emailChange = new Scene(root);
+      characterSheet = new Scene(root);
     }
     stage4.setTitle("DnDAS");
     stage4.setScene(emailChange);
@@ -330,7 +330,7 @@ public class ViewHandler
           loader);
       CharacterCreationController controller = loader.getController();
       controller.init(vmf.getCharacterCreationViewModel(), this);
-      openSystem = new Scene(root);
+      characterCreation = new Scene(root);
     }
     stage.setTitle("DnDAS");
     stage.setScene(characterCreation);
@@ -345,7 +345,7 @@ public class ViewHandler
           loader);
       CharacterCreationController controller = loader.getController();
       controller.init(vmf.getCharacterCreationViewModel(), this);
-      openSystem = new Scene(root);
+      characterCreation = new Scene(root);
     }
     stage.setTitle("DnDAS");
     stage.setScene(characterCreation);

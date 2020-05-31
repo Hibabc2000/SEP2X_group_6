@@ -24,19 +24,28 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
   private Group group;
   private ArrayList<CharacterClass> characterClasses;
 
-  public CharacterManagementModelImpl(Client client,Account account)
+  public CharacterManagementModelImpl(Client client)
   {
     characters = new ArrayList<>();
     this.client = client;
-    this.account=account;
+
     characters = new ArrayList<>();
     support = new PropertyChangeSupport(this);
     client.addListener("incomingCharacter", this::setCharacter);
     client.addListener("incomingStaticModel", this::setStaticModel);
-    client.addListener("incomingServerRequestToCreateANewCharacterForTheFirstTime",this::createNewCharacterForTheFirstTime);
+    client.addListener("createCharacter",this::createNewCharacterForTheFirstTime);
     client.addListener("joinedGroupK",this::setGroup);
     client.addListener("incomingClasses", this::addClasses);
+    client.addListener("accountLogin",this::addAccount);
   }
+
+  private void addAccount(PropertyChangeEvent propertyChangeEvent)
+  { Account ack = (Account) ((Container)propertyChangeEvent.getNewValue()).getObject();
+    System.out.println("intersting");
+
+    account = ack;
+  }
+
   public void addClasses(PropertyChangeEvent propertyChangeEvent)
   {
     characterClasses = (ArrayList<CharacterClass>)((Container)propertyChangeEvent.getNewValue()).getObject();
@@ -58,25 +67,31 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
 
   public void setGroup(PropertyChangeEvent propertyChangeEvent)
   {
-    this.group = (Group)propertyChangeEvent.getNewValue();
+    System.out.println("nincs gond");
+    Group grp = (Group) ((Container)propertyChangeEvent.getNewValue()).getObject();
+    this.group = grp;
   }
 
   public void createNewCharacterForTheFirstTime(PropertyChangeEvent propertyChangeEvent)
   {
+    System.out.println("ez it a method forcreate char");
     boolean k = (boolean)((Container)propertyChangeEvent.getNewValue()).getObject();
-    if(k)
-    {
+    if(!k)
+    { System.out.println("ez it if statement");
+      System.out.println("ez it create new character in model");
       Character temporaryCharacter = new Character(staticModel);
       temporaryCharacter.setUsername(account.getUsername());
       temporaryCharacter.setGroupID(group.getId());
-      support.firePropertyChange("displayCharacterCreationScene",null,null);
-      support.firePropertyChange("characterToSheetViewModel", null,
-          temporaryCharacter);
+      System.out.println("grouup name, id, :" + account.getUsername()+ " id: "+group.getId() );
+
+      support.firePropertyChange("displayCharacterCreationScene",null,k);
+    //  support.firePropertyChange("characterToSheetViewModel", null,temporaryCharacter);
+      System.out.println("what?");
     }
   }
 
   public void sendCharacterList()
-  {
+  { System.out.println("lehetetlen BORZALMASAN");
     ArrayList<String> charactersNameList = new ArrayList<>();
     for (int i = 0; i < characters.size(); i++)
     {
@@ -88,7 +103,7 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
   }
 
   @Override public void sendCharacterForDmEditing(String characterName)
-  {
+  { System.out.println("lehetetlen nGoN");
     for (int i = 0; i < characters.size(); i++)
     {
       String temporaryStringOne =
@@ -111,6 +126,7 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
   }
   public void setCharacter(PropertyChangeEvent propertyChangeEvent)
   {
+    System.out.println("lehetetlen");
 
     Character temporaryCharacter = (Character) ((Container) propertyChangeEvent
         .getNewValue()).getObject();

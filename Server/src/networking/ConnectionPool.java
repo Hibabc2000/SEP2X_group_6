@@ -47,6 +47,30 @@ public class ConnectionPool
     }
 
   }
+  public void getUserAccount(String username)
+{
+  for(ServerSocketHandler handler : connections)
+  {
+    if(username.equals(handler.getAccount().getUsername()))
+    {
+      Container dtp = new Container(handler.getAccount(),ClassName.ACCOUNT);
+      handler.sendBackData(dtp);
+    }
+  }
+}
+
+  public void getGroups(Group gp)
+  {
+    for (ServerSocketHandler handler : connections)
+    {
+      if ((gp.isContainsUsername(handler.getAccount().getUsername()) || gp.getDM().getName().equals(handler.getAccount().getUsername())))
+      {
+        System.out.println("Ez a player kapott groupot modelbe: "+ handler.getAccount().getUsername());
+        Container dtp = new Container(gp, ClassName.GROUP_TO_MODEL);
+        handler.sendBackData(dtp);
+      }
+    }
+  }
 
   public void userJoin(Account acc)
   {
@@ -63,6 +87,8 @@ public class ConnectionPool
     ArrayList<Player> playersWhoAreOnline = new ArrayList<>();
     for (ServerSocketHandler handler : connections)
     {
+      System.out.println(grouToStartGameWith.toString());
+      System.out.println(grouToStartGameWith.isContainsUsername(handler.getAccount().getUsername()) + " should be true");
       if ((grouToStartGameWith.isContainsUsername(handler.getAccount().getUsername()) ))
       {
         System.out.println("Ez a player kap majd értesítést : "+ handler.getAccount().getUsername());

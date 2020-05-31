@@ -1,7 +1,6 @@
 package networking;
 
 import Database.*;
-import javafx.beans.property.BooleanProperty;
 import system.model.businessModel.Character;
 import system.model.characterClasses.CharacterClass;
 import system.transferobjects.ClassName;
@@ -95,8 +94,8 @@ public class ServerSocketHandler implements Runnable
                     ClassName.CREATE_ACCOUNT);
                 sendBackData(outDataPack);
                 GetCoreFromDatabase gcfd = new GetCoreFromDatabase();
-                Container staticmod = gcfd.loadDatabase();
-                sendBackData(staticmod);
+
+                sendBackData(gcfd.loadDatabase());
               }
               catch (SQLException e)
               {
@@ -105,9 +104,8 @@ public class ServerSocketHandler implements Runnable
             }
             else
             {
-              ArrayList<Object> objs = new ArrayList();
-              objs.add(unique);
-              Container datapack = new Container(objs, ClassName.CREATE_ACCOUNT);
+
+              Container datapack = new Container(unique, ClassName.CREATE_ACCOUNT);
               sendBackData(datapack);
             }
             break;
@@ -119,7 +117,7 @@ public class ServerSocketHandler implements Runnable
             Container dataPack = null;
             String email = (String) (m.get(0));
             String username = (String) (m.get(1));
-            System.out.println("ez történik");
+
             try
             {
               dataPack = database.checkChangeEmail(email);
@@ -333,17 +331,19 @@ public class ServerSocketHandler implements Runnable
             ArrayList<Player> playersOnline = pool.selectTheOnesThatAreOnlineInThePool(groupToStartGameWith);
 
             boolean doIhaveACharacter = false;
-            BooleanProperty playerAndCharacterDataForDM = null;
-
+            pool.getUserAccount(groupToStartGameWith.getDM().getName());
+            pool.getGroups(groupToStartGameWith);
             for (int i = 0; i < playersOnline.size(); i++)
             {// here If the player doesnt have a charID, then we will send him a boolean "false" so the client will know that means
               // we have to create a character.
+              pool.getUserAccount(playersOnline.get(i).getName());
               if (playersOnline.get(i).getCharacterID() == null)
               {
                 doIhaveACharacter = false;
 
                 Container data = new Container(doIhaveACharacter, ClassName.CLIENT_PLEASE_CREATE_A_CHARACTER);
                 pool.sendDataToUser(playersOnline.get(i).getName(), data);
+                pool.sendDataToUser(groupToStartGameWith.getDM().getName(),data);
               }
               // here if the player has a charID then we actually get back the character from the dbs, and send that back to him
               else if (playersOnline.get(i).getCharacterID() != null)
@@ -365,12 +365,16 @@ public class ServerSocketHandler implements Runnable
 
             }
 
-            sendBackData(playerAndCharacterDataForDM);
+           break;
 
           }
           case CHARACTER:
           { // HAS 2 parts,  first part when a character is created, and the second if it is just an update to an already existing one.
+             ArrayList wtf = (ArrayList) inDataPack.getObject();
+            System.out.println("ez most komolyan mi? "+wtf.get(0) +"\n ez mi?");
+            System.out.println("hm?");
             Character character = (Character) inDataPack.getObject();
+
             Integer id = null;
             if (character.getId() == null)
             {

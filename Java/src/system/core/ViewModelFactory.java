@@ -52,7 +52,7 @@ public class ViewModelFactory
     changePasswordViewModel = new ChangePasswordViewModel(
         model.getAccountModel());
     changeEmailViewModel = new ChangeEmailViewModel(model.getAccountModel());
-    dmcscv = new DMCharacterSheetChoosingViewModel(model.getAccountModel());
+    dmcscv = new DMCharacterSheetChoosingViewModel(model.getCharacterManagementModel());
 
   }
 
@@ -73,7 +73,7 @@ public class ViewModelFactory
   {
     if (dmcscv == null)
     {
-      dmcscv = new DMCharacterSheetChoosingViewModel(model.getAccountModel());
+      dmcscv = new DMCharacterSheetChoosingViewModel(model.getCharacterManagementModel());
     }
     return dmcscv;
   }

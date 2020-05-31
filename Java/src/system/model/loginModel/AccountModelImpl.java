@@ -43,6 +43,7 @@ public class AccountModelImpl implements AccountModel
     tempGroups = new ArrayList<>();
     groupsForDm = new ArrayList<>();
 
+
     // for testing
 
     client.addListener("recoverPassword", this::recoverPasswordBackFromServer);
@@ -164,7 +165,7 @@ public class AccountModelImpl implements AccountModel
   {
 
     usersAccount = (Account) o.get(1);
-
+usersAccount.setUserToPlayer();
     System.out.println(usersAccount.getUsername());
     try
     {
@@ -199,6 +200,7 @@ public class AccountModelImpl implements AccountModel
     support.firePropertyChange("createAccount", null,
         propertyChangeEvent.getNewValue());
     System.out.println("modelimplistener2");
+
 
   }
 
@@ -297,7 +299,7 @@ public class AccountModelImpl implements AccountModel
 
         tempGroups.get(i).addPlayer(usersAccount.getPlayer());
         client.joinGroupAsAPlayer(usersAccount, tempGroups.get(i));
-        System.out.println("MÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓÓ");
+
         break;
       }
       else
@@ -359,6 +361,7 @@ public class AccountModelImpl implements AccountModel
       client.createAccount(username, pass1, email);
     System.out.println("alma");
     usersAccount = new Account(username, pass1, email);
+    usersAccount.setUserToPlayer();
 
     return temp;
   }
@@ -414,14 +417,22 @@ public class AccountModelImpl implements AccountModel
 
   // its for the account, when we decide to be DM or Player, its switching the User to that instance.
   @Override public void changeToDm()
-  {
+  { System.out.println("watafuk1");
     usersAccount.setUserToDm();
+    System.out.println("watafuk2");
+    System.out.println("watafuk3");
+
+
+
 
   }
 
   @Override public void changeToPlayer()
-  {
+  { System.out.println("watafuk1");
     usersAccount.setUserToPlayer();
+    System.out.println("watafuk2");
+
+    System.out.println("watafuk3");
   }
 
   // method for checking that everything is right for password change, field checks, I create an account variable which is null,
@@ -537,7 +548,7 @@ public class AccountModelImpl implements AccountModel
     support.removePropertyChangeListener(eventName, listener);
   }
 
-  //everything under this is for testing  since I have no idea how to test these things.
+
   @Override public Account getAccount()
   {
     return usersAccount;
@@ -545,11 +556,11 @@ public class AccountModelImpl implements AccountModel
 
   @Override public void startGame(String group)
   {
-    for (int i = 0; i < tempGroups.size(); i++)
+    for (int i = 0; i < groupsForDm.size(); i++)
     {
       if (groupsForDm.get(i).toString().equals(group))
       {
-        Group groupToPlayWith = tempGroups.get(i);
+        Group groupToPlayWith = groupsForDm.get(i);
 
         client.startGame(groupToPlayWith);
         break;
@@ -559,24 +570,6 @@ public class AccountModelImpl implements AccountModel
     }
   }
 
-  public ArrayList<Account> getTempAccounts()
-  {
-    return tempAccounts;
-  }
 
-  public ArrayList<Group> getFindingUnknownGroupsGroup()
-  {
-    return findingUnknownGroupsGroup;
-  }
-
-  public ArrayList<Group> getTempGroups()
-  {
-    return tempGroups;
-  }
-
-  public ArrayList<Group> getGroupsForDm()
-  {
-    return groupsForDm;
-  }
 
 }

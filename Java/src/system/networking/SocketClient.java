@@ -112,7 +112,8 @@ public class SocketClient implements Client
     try
     {
 
-      socketHandler.transmitCharacter(character);
+      socketHandler.
+          transmitCharacter(character);
     }
     catch (IOException e)
     {
@@ -133,6 +134,7 @@ public class SocketClient implements Client
     }
 
   }
+
 
   /**
    * Sends the username and password to the Socket Handler
@@ -155,15 +157,11 @@ public class SocketClient implements Client
 
   @Override public void joinGroupAsAPlayer(Account acc, Group groupname)
   {
-    /*
-    this is a very dumb "solution"
-    we needed to know the group that the player is in to create the character
-    please implement the proper solution
-     */
+
     try
     {
       socketHandler.joinGroup(acc, groupname);
-      support.firePropertyChange("joinedGroupK",null,groupname);
+
     }
     catch (IOException e)
     {
@@ -237,7 +235,7 @@ public class SocketClient implements Client
   }
   public void initiateFirstTimeCharacterCreationOnBasisOfServerRequest(Container container)
   {
-    support.firePropertyChange("incomingServerRequestToCreateANewCharacterForTheFirstTime",null,container);
+    support.firePropertyChange("createCharacter",null,container);
   }
   public void useReceivedClasses(Container container)
   {
@@ -284,5 +282,15 @@ public class SocketClient implements Client
   public void gameBeginsDM(Container inDataPack)
   {
     support.firePropertyChange("startGameAsDM",null,inDataPack);
+  }
+
+  public void sendAccountInformationToUser(Container inDataPack)
+  {
+    support.firePropertyChange("accountLogin",null,inDataPack);
+  }
+
+  public void groupForClientsAndDM(Container inDataPack)
+  {
+    support.firePropertyChange("joinedGroupK",null,inDataPack);
   }
 }

@@ -36,7 +36,7 @@ public class ClientSocketHandler implements Runnable
    * two attributes:  object and  identifier(ClassName). The switch statement will check
    * the request identifier
    */
-  @Override public void run()
+  @Override public  void run()
   {
     try
     {
@@ -45,6 +45,7 @@ public class ClientSocketHandler implements Runnable
         System.out.println("cliensocket run");
         Container inDataPack = (Container) inFromServer.readObject();
 
+        System.out.println(inDataPack.getObject()+ "=this is object");
         System.out.println(inDataPack.getClassName() + "classname");
         switch (inDataPack.getClassName())
         {
@@ -57,6 +58,7 @@ public class ClientSocketHandler implements Runnable
             Platform.runLater(() -> {
 
               socketClient.createAccountInfo(objs);
+
             });
 
             System.out.println("socketclienten method");
@@ -69,6 +71,7 @@ public class ClientSocketHandler implements Runnable
             Platform.runLater(() -> {
 
               socketClient.loginInfo(inDataPack);
+
             });
 
             break;
@@ -118,7 +121,13 @@ public class ClientSocketHandler implements Runnable
           }
           case CLIENT_PLEASE_CREATE_A_CHARACTER :
           {
+            System.out.println("nem rémtert");
+
+              System.out.println("ez?");
             socketClient.initiateFirstTimeCharacterCreationOnBasisOfServerRequest(inDataPack);
+              System.out.println("utána");
+
+
             break;
           }
           case RECOVER_PASSWORD_RESPONSE:
@@ -135,6 +144,15 @@ public class ClientSocketHandler implements Runnable
           {
             socketClient.useReceivedClasses(inDataPack);
             break;
+          }
+          case ACCOUNT:
+          {
+            socketClient.sendAccountInformationToUser(inDataPack);
+           break;
+          }
+          case GROUP_TO_MODEL:
+          {
+            socketClient.groupForClientsAndDM(inDataPack);
           }
 
         }
@@ -168,6 +186,7 @@ public class ClientSocketHandler implements Runnable
 
   public void transmitCharacter(Character character) throws IOException
   {
+    System.out.println("******************************");
     Container outDataPack = new Container(character, ClassName.CHARACTER);
     outToServer.writeObject(outDataPack);
   }

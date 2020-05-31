@@ -39,7 +39,7 @@ public class ModelFactory
     if (characterManagementModel == null)
     {
       characterManagementModel = new CharacterManagementModelImpl(
-          clientFactory.getClient(), accountModel.getAccount());
+          clientFactory.getClient());
     }
     return characterManagementModel;
   }

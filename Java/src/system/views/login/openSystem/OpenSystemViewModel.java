@@ -32,7 +32,7 @@ public class OpenSystemViewModel implements Subject
     password.setValue("");
     support = new PropertyChangeSupport(this);
     accountModel.addListener("acceptLogin", this::acceptLoginInfo);
-    accountModel.addListener("searchGroup", this::searchGroupAnswer);
+   // accountModel.addListener("searchGroup", this::searchGroupAnswer);
   }
 
   /**

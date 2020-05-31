@@ -29,4 +29,5 @@ void checkLogin(String username, String password);
 
   void submitCharacter(Character character);
   void startGame(Group groupToPlayWith);
+
 }

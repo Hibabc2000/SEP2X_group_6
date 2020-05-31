@@ -205,7 +205,7 @@ public class GetAllAccountData
       query =
           "SELECT * FROM \"Users\".\"Users\" WHERE  username  = '" + username + "' AND password ='" + password + "' ;";
       rs = st.executeQuery(query);
-      System.out.println("alma");
+
 
 
     }
@@ -222,11 +222,11 @@ public class GetAllAccountData
       userame = rs.getString("username");
       pass = rs.getString("password");
       ema = rs.getString("email");
-      System.out.println(doesAccountHaveGroups + "why isnt if true?");
+
       if(doesAccountHaveGroups==false) {
-        System.out.println(doesAccountHaveGroups+ " which means it doesnt have accs");break;}
-      System.out.println(doesAccountHaveGroups + "why isnt if true?");
-      //groupidz = rs.getString("groupIDs");
+        break;}
+
+
 
 
 
@@ -247,8 +247,9 @@ public class GetAllAccountData
           {
             Player a = new Player(plys.get(i));
 
-            if(charIDs.get(i)!=null)
-            { a.addCharacterID(charIDs.get(i));} else {a.addCharacterID(null);}
+              if(charIDs.get(i)!=0)
+            { a.addCharacterID(charIDs.get(i));
+              System.out.println("char id for "+ a.getName() + " is: " +charIDs.get(i));} else {a.addCharacterID(null);}
             ng.addPlayer(a);
           }
 
@@ -391,9 +392,10 @@ public class GetAllAccountData
 
         Player a = new Player(plys.get(i));
 
-        if (charIDs.get(i) != null)
+        if (charIDs.get(i) != 0)
         {
           a.addCharacterID(charIDs.get(i));
+          System.out.println("character id in getGroup:" + charIDs.get(i));
         }
         else
         {

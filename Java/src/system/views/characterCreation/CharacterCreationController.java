@@ -11,6 +11,8 @@ import system.core.ViewHandler;
 import system.model.businessModel.Background;
 import system.model.businessModel.Race;
 
+import java.beans.PropertyChangeEvent;
+
 public class CharacterCreationController
 {
   @FXML public ComboBox raceComboBox;
@@ -363,7 +365,16 @@ public class CharacterCreationController
     }
 
     //</editor-fold>
+
+    characterCreationViewModel.addListener("openSceneCharacterCreation",this::openScene);
   }
+
+  private void openScene(PropertyChangeEvent propertyChangeEvent)
+  {
+    System.out.println("miért nem köszkdss");
+    viewHandler.openCharacterCreation();
+  }
+
   public void addFeat(ActionEvent actionEvent)
   {
     if(!(featComboBox.getSelectionModel().isEmpty()))

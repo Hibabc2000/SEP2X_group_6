@@ -13,7 +13,7 @@ public class Player implements User
   public Player(String name)                   // more information needed about player class
   {
     playerName = name;
-
+  characterID=null;
   }
 
   public void createCharacter()    //

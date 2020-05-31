@@ -8,15 +8,18 @@ import system.model.businessModel.Background;
 import system.model.businessModel.Character;
 import system.model.businessModel.Feat;
 import system.model.businessModel.Race;
-import system.model.businessModel.staticModel.Subclass;
 import system.model.businessModel.staticModel.StaticModel;
+import system.model.businessModel.staticModel.Subclass;
 import system.model.characterClasses.CharacterClass;
 import system.model.characterManagement.CharacterManagementModel;
+import system.util.Subject;
 
 import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 
-public class CharacterCreationViewModel
+public class CharacterCreationViewModel implements Subject
 {
   private StringProperty raceDes;
   private StringProperty intelligenceProperty;
@@ -80,6 +83,7 @@ public class CharacterCreationViewModel
   private ObservableList<String> flaws;
   private boolean characterEditorAccountDmStatus;
   private StaticModel staticModel;
+  private PropertyChangeSupport support;
   private ArrayList<CharacterClass> allClasses;
   private ArrayList<CharacterClass> characterClasses;
   private ObservableList<String> characterClassesName;
@@ -88,12 +92,13 @@ public class CharacterCreationViewModel
   private Background characterBackground;
 
   public CharacterCreationViewModel(CharacterManagementModel model1)
-  {
+  { support= new PropertyChangeSupport(this);
     model = model1;
     staticModel = model.getStaticModel();
     allClasses = model.getAllCharacterClasses();
     characterEditorAccountDmStatus = model.getAccountDmStatus();
     model.addListener("characterToSheetViewModel", this::setCharacter);
+    model.addListener("displayCharacterCreationScene",this::openScene);
     backgrounds.add(new Background("star wars holiday special dealer","has low iq lol"));
     backgrounds.add(new Background("sage","nerd or smth"));
 
@@ -134,7 +139,19 @@ public class CharacterCreationViewModel
         characterBackground = backgrounds.get(i);
       }
     }
+
+
+
+
   }
+
+  private void openScene(PropertyChangeEvent propertyChangeEvent)
+  { System.out.println("was ist day?");
+    support.firePropertyChange("openSceneCharacterCreation",null,null);
+
+  }
+
+
   public void calculate()
   {
 
@@ -1114,6 +1131,8 @@ public class CharacterCreationViewModel
   {
 
   }
+
+
   public void saveCharacter()
   {
     temporaryCharacter.setBackstory(backstoryF.getValue());
@@ -1129,4 +1148,16 @@ public class CharacterCreationViewModel
     model.transmitCharacter(character);
   }
 
+  @Override public void addListener(String eventName,
+      PropertyChangeListener listener)
+  {
+    support.addPropertyChangeListener(eventName, listener);
+
+  }
+
+  @Override public void removeListener(String eventName,
+      PropertyChangeListener listener)
+  {
+    support.removePropertyChangeListener(eventName, listener);
+  }
 }
