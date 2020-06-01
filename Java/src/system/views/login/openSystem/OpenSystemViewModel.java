@@ -2,7 +2,7 @@ package system.views.login.openSystem;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import system.model.loginModel.AccountModel;
+import system.model.loginModel.OpenSystemModel;
 import system.util.Subject;
 
 import java.beans.PropertyChangeEvent;
@@ -14,24 +14,24 @@ public class OpenSystemViewModel implements Subject
   private StringProperty username;
   private StringProperty password;
   private StringProperty error;
-  private AccountModel accountModel;
+  private OpenSystemModel openSystemModel;
   private PropertyChangeSupport support;
 
   /**
    * Initializes the class attributes, listens for updates from the model
    *
-   * @param accountModel model
+   * @param openSystemModel model
    */
-  public OpenSystemViewModel(AccountModel accountModel)
+  public OpenSystemViewModel(OpenSystemModel openSystemModel)
   {
-    this.accountModel = accountModel;
+    this.openSystemModel = openSystemModel;
     username = new SimpleStringProperty();
     password = new SimpleStringProperty();
     error = new SimpleStringProperty();
     username.setValue("");
     password.setValue("");
     support = new PropertyChangeSupport(this);
-    accountModel.addListener("acceptLogin", this::acceptLoginInfo);
+    openSystemModel.addListener("acceptLogin", this::acceptLoginInfo);
    // accountModel.addListener("searchGroup", this::searchGroupAnswer);
   }
 
@@ -94,7 +94,7 @@ public class OpenSystemViewModel implements Subject
    */
   public String checkLogin()
   {
-    String temp = accountModel
+    String temp = openSystemModel
         .checkLogin(username.getValue(), password.getValue());
     error.setValue(temp);
     username.setValue("");

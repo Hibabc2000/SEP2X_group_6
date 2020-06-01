@@ -14,7 +14,9 @@ import java.beans.PropertyChangeSupport;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class AccountModelImpl implements AccountModel
+public class AccountModelImpl
+    implements AccountModel, OpenSystemModel, ChangeEmailModel,
+    ChangePasswordModel, CreateAccountModel,DMAccountModel,PasswordRecoveryModel,PlayerAccountModel
 {
   private ArrayList<Account> tempAccounts; // this plays the role of a database  it will be removed
   private ArrayList<Group> findingUnknownGroupsGroup; // same
@@ -42,7 +44,6 @@ public class AccountModelImpl implements AccountModel
 
     tempGroups = new ArrayList<>();
     groupsForDm = new ArrayList<>();
-
 
     // for testing
 
@@ -165,7 +166,7 @@ public class AccountModelImpl implements AccountModel
   {
 
     usersAccount = (Account) o.get(1);
-usersAccount.setUserToPlayer();
+    usersAccount.setUserToPlayer();
     System.out.println(usersAccount.getUsername());
     try
     {
@@ -200,7 +201,6 @@ usersAccount.setUserToPlayer();
     support.firePropertyChange("createAccount", null,
         propertyChangeEvent.getNewValue());
     System.out.println("modelimplistener2");
-
 
   }
 
@@ -417,18 +417,17 @@ usersAccount.setUserToPlayer();
 
   // its for the account, when we decide to be DM or Player, its switching the User to that instance.
   @Override public void changeToDm()
-  { System.out.println("watafuk1");
+  {
+    System.out.println("watafuk1");
     usersAccount.setUserToDm();
     System.out.println("watafuk2");
     System.out.println("watafuk3");
 
-
-
-
   }
 
   @Override public void changeToPlayer()
-  { System.out.println("watafuk1");
+  {
+    System.out.println("watafuk1");
     usersAccount.setUserToPlayer();
     System.out.println("watafuk2");
 
@@ -548,7 +547,6 @@ usersAccount.setUserToPlayer();
     support.removePropertyChangeListener(eventName, listener);
   }
 
-
   @Override public Account getAccount()
   {
     return usersAccount;
@@ -566,10 +564,7 @@ usersAccount.setUserToPlayer();
         break;
       }
 
-
     }
   }
-
-
 
 }

@@ -1,12 +1,12 @@
 package system.views.login.changePassword;
 
-import system.model.loginModel.AccountModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import system.model.loginModel.ChangePasswordModel;
 
 public class ChangePasswordViewModel
 {
-  private AccountModel model;
+  private ChangePasswordModel changePasswordModel;
   private StringProperty username;
   private StringProperty passwordOld;
   private  StringProperty passwordNew;
@@ -16,10 +16,11 @@ public class ChangePasswordViewModel
   /**
    * Initializes the class attributes, listens for updates from the model
    *
-   * @param accountModel model
+   * @param changePasswordModel model
    */
-  public ChangePasswordViewModel(AccountModel accountModel)
-  {model=accountModel;
+  public ChangePasswordViewModel(ChangePasswordModel changePasswordModel)
+  {
+    this.changePasswordModel =changePasswordModel;
 
    username= new SimpleStringProperty();
    passwordNew = new SimpleStringProperty();
@@ -91,7 +92,8 @@ public class ChangePasswordViewModel
    */
   public String checkPasswordChangeInformation()
   {
-    String temp = model.checkPasswordChangeInformation(username.getValue(),passwordOld.getValue(),passwordNew.getValue(),passwordNewAgain.getValue());
+    String temp = changePasswordModel
+        .checkPasswordChangeInformation(username.getValue(),passwordOld.getValue(),passwordNew.getValue(),passwordNewAgain.getValue());
     error.setValue(temp);
     passwordOld.setValue("");
     passwordNew.setValue("");

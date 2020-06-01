@@ -2,7 +2,7 @@ package system.views.login.createAccount;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import system.model.loginModel.AccountModel;
+import system.model.loginModel.CreateAccountModel;
 import system.util.Subject;
 
 import java.beans.PropertyChangeEvent;
@@ -11,7 +11,7 @@ import java.beans.PropertyChangeSupport;
 
 public class CreateAccountViewModel implements Subject
 {
-  private AccountModel model;
+  private CreateAccountModel createAccountModel;
   private StringProperty username;
   private StringProperty password1;
   private StringProperty password2;
@@ -24,10 +24,10 @@ public class CreateAccountViewModel implements Subject
    *
    * @param accountModel model
    */
-  public CreateAccountViewModel(AccountModel accountModel)
+  public CreateAccountViewModel(CreateAccountModel accountModel)
   {
     support = new PropertyChangeSupport(this);
-    model = accountModel;
+    createAccountModel = accountModel;
     username = new SimpleStringProperty();
     password1 = new SimpleStringProperty();
     password2 = new SimpleStringProperty();
@@ -37,7 +37,7 @@ public class CreateAccountViewModel implements Subject
     password1.setValue("");
     password2.setValue("");
     email.setValue("");
-    model.addListener("createAccount", this::accountCreationInfo);
+    createAccountModel.addListener("createAccount", this::accountCreationInfo);
 
   }
 
@@ -73,7 +73,7 @@ public class CreateAccountViewModel implements Subject
    */
   public String checkFieldsForReg()
   {
-    String temp = model
+    String temp = createAccountModel
         .checkAccountUniqueness(username.getValue(), password1.getValue(),
             password2.getValue(), email.getValue());
     error.setValue(temp);

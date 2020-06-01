@@ -2,14 +2,14 @@ package system.views.login.passwordRecovery;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import system.model.loginModel.AccountModel;
+import system.model.loginModel.PasswordRecoveryModel;
 
 import java.beans.PropertyChangeEvent;
 import java.util.ArrayList;
 
 public class PasswordRecoveryViewModel
 {
-  private AccountModel model;
+  private PasswordRecoveryModel model;
   private StringProperty email;
   private StringProperty error;
 
@@ -17,7 +17,7 @@ public class PasswordRecoveryViewModel
    * Initializes the class attributes and listens for updates from the model
    * @param accountModel model
    */
-  public PasswordRecoveryViewModel(AccountModel accountModel)
+  public PasswordRecoveryViewModel(PasswordRecoveryModel accountModel)
   {
     model = accountModel;
     email = new SimpleStringProperty();

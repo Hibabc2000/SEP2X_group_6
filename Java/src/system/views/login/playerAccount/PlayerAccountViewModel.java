@@ -4,7 +4,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import system.model.loginModel.AccountModel;
+import system.model.loginModel.PlayerAccountModel;
 import system.transferobjects.login.Group;
 
 import java.beans.PropertyChangeEvent;
@@ -12,12 +12,12 @@ import java.util.ArrayList;
 
 public class PlayerAccountViewModel
 {
-  private AccountModel model;
+  private PlayerAccountModel model;
   private StringProperty searchGroup;
   private StringProperty error;
   private ObservableList<String> groupList;
 
-  public PlayerAccountViewModel(AccountModel accountModel)
+  public PlayerAccountViewModel(PlayerAccountModel accountModel)
   {
     model = accountModel;
     searchGroup = new SimpleStringProperty();

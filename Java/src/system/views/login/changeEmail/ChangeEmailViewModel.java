@@ -2,7 +2,7 @@ package system.views.login.changeEmail;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import system.model.loginModel.AccountModel;
+import system.model.loginModel.ChangeEmailModel;
 import system.util.Subject;
 
 import java.beans.PropertyChangeEvent;
@@ -11,7 +11,7 @@ import java.beans.PropertyChangeSupport;
 
 public class ChangeEmailViewModel implements Subject
 {
-  private AccountModel accountModel;
+  private ChangeEmailModel changeEmailModel;
   private StringProperty username;
   private StringProperty email;
   private StringProperty password;
@@ -21,11 +21,11 @@ public class ChangeEmailViewModel implements Subject
   /**
    * Initializes the class attributes and listens for updates from the model
    *
-   * @param accountModel model
+   * @param changeEmailModel model
    */
-  public ChangeEmailViewModel(AccountModel accountModel)
+  public ChangeEmailViewModel(ChangeEmailModel changeEmailModel)
   {
-    this.accountModel = accountModel;
+    this.changeEmailModel = changeEmailModel;
      support = new PropertyChangeSupport(this);
     username = new SimpleStringProperty();
     password = new SimpleStringProperty();
@@ -35,7 +35,7 @@ public class ChangeEmailViewModel implements Subject
     password.setValue("");
     email.setValue("");
     username.setValue("");
-   accountModel.addListener("emailChange",this::answerFromServer);
+   changeEmailModel.addListener("emailChange",this::answerFromServer);
   }
 
   private void answerFromServer(PropertyChangeEvent propertyChangeEvent)
@@ -95,7 +95,7 @@ public class ChangeEmailViewModel implements Subject
    */
   public String checkEmailChangeInformation()
   {
-    String temp = accountModel
+    String temp = changeEmailModel
         .checkEmailChangeInformation(username.getValue(), password.getValue(),
             email.getValue());
     error.setValue(temp);

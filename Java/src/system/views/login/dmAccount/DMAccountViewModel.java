@@ -5,6 +5,7 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import system.model.loginModel.AccountModel;
+import system.model.loginModel.DMAccountModel;
 import system.transferobjects.login.Group;
 import system.util.Subject;
 
@@ -14,12 +15,12 @@ import java.util.ArrayList;
 
 public class DMAccountViewModel implements Subject
 {
-  private AccountModel model;
+  private DMAccountModel model;
   private StringProperty error;
   private StringProperty textField;
   private ObservableList<String> groupListDM;
 
-  public DMAccountViewModel(AccountModel accountModel)
+  public DMAccountViewModel(DMAccountModel accountModel)
   {
     model = accountModel;
     error = new SimpleStringProperty();
