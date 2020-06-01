@@ -41,17 +41,17 @@ public class ViewModelFactory
   public ViewModelFactory(ModelFactory mf)
   {
     model = mf;
-    createAccountModel = new CreateAccountViewModel(model.getAccountModel());
+    createAccountModel = new CreateAccountViewModel(model.getCreateAccountModel());
 
-    openSystemViewModel = new OpenSystemViewModel(model.getAccountModel());
+    openSystemViewModel = new OpenSystemViewModel(model.getOpenSystemModel());
     passwordRecoveryViewModel = new PasswordRecoveryViewModel(
-        model.getAccountModel());
-    dmAccountViewModel = new DMAccountViewModel(model.getAccountModel());
+        model.getPasswordRecoveryModel());
+    dmAccountViewModel = new DMAccountViewModel(model.getDmAccountModel());
     playerAccountViewModel = new PlayerAccountViewModel(
-        model.getAccountModel());
+        model.getPlayerAccountModel());
     changePasswordViewModel = new ChangePasswordViewModel(
-        model.getAccountModel());
-    changeEmailViewModel = new ChangeEmailViewModel(model.getAccountModel());
+        model.getChangePasswordModel());
+    changeEmailViewModel = new ChangeEmailViewModel(model.getChangeEmailModel());
     dmcscv = new DMCharacterSheetChoosingViewModel(model.getCharacterManagementModel());
 
   }
