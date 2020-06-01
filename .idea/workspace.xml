@@ -1,27 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment=" MORE documentatioN">
+    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/core/ModelFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/core/ModelFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java/src/system/core/ViewHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/core/ViewHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/core/ViewModelFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/core/ViewModelFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java/src/system/model/characterManagement/CharacterManagementModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/characterManagement/CharacterManagementModelImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/networking/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/networking/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java/src/system/networking/ClientSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/networking/ClientSocketHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java/src/system/networking/SocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/networking/SocketClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/transferobjects/ClassName.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/transferobjects/ClassName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/transferobjects/login/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/transferobjects/login/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java/src/system/views/characterCreation/CharacterCreationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/characterCreation/CharacterCreationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java/src/system/views/characterCreation/CharacterCreationViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/characterCreation/CharacterCreationViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/views/dmCharacterSheetChoosing/DMCharacterSheetChoosingViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/dmCharacterSheetChoosing/DMCharacterSheetChoosingViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/views/dmCharacterSheetChoosing/DmCharacterChoosingPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/dmCharacterSheetChoosing/DmCharacterChoosingPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/views/dmCharacterSheetChoosing/dmCharacterChoosingPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/dmCharacterSheetChoosing/dmCharacterChoosingPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/openSystem/OpenSystemViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/openSystem/OpenSystemViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Database/GetAllAccountData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/GetAllAccountData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/networking/ConnectionPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/networking/ConnectionPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,6 +31,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="48c7d9c423b505b2f85876c35df02fe9bee16e1e" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1XkNw7BvC3whQ4rXm7gHqlbnXNo" />
@@ -171,11 +163,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TestDtbs" />
         <item itemvalue="Application.Start" />
         <item itemvalue="Application.RunServer" />
-        <item itemvalue="Application.EnumTest" />
         <item itemvalue="Application.GetAllTest" />
-        <item itemvalue="Application.TestDtbs" />
+        <item itemvalue="Application.EnumTest" />
       </list>
     </recent_temporary>
   </component>
@@ -491,7 +483,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590595948285</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="small changes">
+      <created>1590943170847</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1590943170847</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -508,8 +507,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Started making parser for proficiency/other modifiers.&#10;Made StaticModel." />
-    <MESSAGE value="Character work" />
     <MESSAGE value="Deprecated GetAllFromDatabase, since it was overridden by other classes." />
     <MESSAGE value="Started working on InsertCharacter." />
     <MESSAGE value="Join group finished" />
@@ -533,7 +530,9 @@
     <MESSAGE value="Deleted some useless classes." />
     <MESSAGE value="documentation" />
     <MESSAGE value=" MORE documentatioN" />
-    <option name="LAST_COMMIT_MESSAGE" value=" MORE documentatioN" />
+    <MESSAGE value="small changes" />
+    <MESSAGE value="some update for charactersheet creation. I don't understand the rollednumber listeners and whats wrong with them" />
+    <option name="LAST_COMMIT_MESSAGE" value="some update for charactersheet creation. I don't understand the rollednumber listeners and whats wrong with them" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

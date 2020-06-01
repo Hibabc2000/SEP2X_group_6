@@ -147,7 +147,9 @@ public class ClientSocketHandler implements Runnable
           }
           case ACCOUNT:
           {
+            System.out.println("almakecske");
             socketClient.sendAccountInformationToUser(inDataPack);
+            System.out.println("almakecske1");
            break;
           }
           case GROUP_TO_MODEL:

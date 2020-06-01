@@ -14,7 +14,6 @@ import system.model.characterClasses.CharacterClass;
 import system.model.characterManagement.CharacterManagementModel;
 import system.util.Subject;
 
-import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
@@ -97,16 +96,73 @@ public class CharacterCreationViewModel implements Subject
     staticModel = model.getStaticModel();
     allClasses = model.getAllCharacterClasses();
     characterEditorAccountDmStatus = model.getAccountDmStatus();
-    model.addListener("characterToSheetViewModel", this::setCharacter);
-    model.addListener("displayCharacterCreationScene",this::openScene);
+    //changes, some initialization
+    allClasses= new ArrayList<>();
+    backgrounds = new ArrayList<>();
+    characterClasses = new ArrayList<>();
+    relatedSubClasses = new ArrayList<>();
+    relatedFeats= new ArrayList<>();
+    raceDes = new SimpleStringProperty();
+    intelligenceProperty = new SimpleStringProperty();
+    strengthProperty = new SimpleStringProperty();
+    dexterityProperty = new SimpleStringProperty();
+   constitutionProperty = new SimpleStringProperty();
+
+     wisdomProperty = new SimpleStringProperty();
+ charismaProperty = new SimpleStringProperty();
+   intelligenceRacialBonus = new SimpleStringProperty();
+     strengthRacialBonus = new SimpleStringProperty();
+   constitutionRacialBonus = new SimpleStringProperty();
+     dexterityRacialBonus = new SimpleStringProperty();
+    wisdomRacialBonus = new SimpleStringProperty();
+     charismaRacialBonus = new SimpleStringProperty();
+    intelligenceMiscBonus = new SimpleStringProperty();
+    strengthMiscBonus = new SimpleStringProperty();
+     constitutionMiscBonus = new SimpleStringProperty();
+     dexterityMiscBonus = new SimpleStringProperty();
+    intelligenceAbilityImprovement = new SimpleStringProperty();
+     wisdomMiscBonus = new SimpleStringProperty();
+     charismaMiscBonus = new SimpleStringProperty();
+     strengthImprovement = new SimpleStringProperty();
+    constitutionImprovement = new SimpleStringProperty();
+     dexterityImprovement = new SimpleStringProperty();
+     wisdomImprovement = new SimpleStringProperty();
+     charismaImprovement = new SimpleStringProperty();
+     strengthFinal = new SimpleStringProperty();
+     intelligenceFinal = new SimpleStringProperty();
+     constitutionFinal = new SimpleStringProperty();
+    dexterityFinal = new SimpleStringProperty();
+     wisdomFinal = new SimpleStringProperty();
+    charismaFinal = new SimpleStringProperty();
+     subClassDescription = new SimpleStringProperty();
+     featToChooseDescription = new SimpleStringProperty();
+     featDescription = new SimpleStringProperty();
+     nameF = new SimpleStringProperty();
+    languageF = new SimpleStringProperty();
+    physicalCharacteristicsF = new SimpleStringProperty();
+   alliesAndOrganizationsF = new SimpleStringProperty();
+    characterDescriptionF = new SimpleStringProperty();
+     alignment = new SimpleStringProperty();
+    backstoryF = new SimpleStringProperty();
+     armorClass = new SimpleStringProperty();
+     initiative = new SimpleStringProperty();
+     speed = new SimpleStringProperty();
+     xp = new SimpleStringProperty();
+ level = new SimpleStringProperty();
+    raceDescription = new SimpleStringProperty();
+    backgroundDescription = new SimpleStringProperty();
+    //removed the listener since it wont work.
+    //model.addListener("characterToSheetViewModel", this::setCharacter);
+   // model.addListener("displayCharacterCreationScene",this::openScene);
     backgrounds.add(new Background("star wars holiday special dealer","has low iq lol"));
     backgrounds.add(new Background("sage","nerd or smth"));
 
 
   }
-  public void setCharacter(PropertyChangeEvent propertyChangeEvent)
+  public void setCharacter(Character propertyChangeEvent)
   {
-    character = (Character) propertyChangeEvent.getNewValue();
+
+    character = (Character) propertyChangeEvent;
     temporaryCharacter = character;
     allCharacterClassesNames = FXCollections.observableArrayList();
     characterClassesName = FXCollections.observableArrayList();
@@ -144,13 +200,15 @@ public class CharacterCreationViewModel implements Subject
 
 
   }
-
+/*
   private void openScene(PropertyChangeEvent propertyChangeEvent)
   { System.out.println("was ist day?");
     support.firePropertyChange("openSceneCharacterCreation",null,null);
 
   }
 
+
+ */
 
   public void calculate()
   {

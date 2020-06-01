@@ -285,7 +285,7 @@ public class SocketClient implements Client
   }
 
   public void sendAccountInformationToUser(Container inDataPack)
-  {
+  {System.out.println("almakecske2");
     support.firePropertyChange("accountLogin",null,inDataPack);
   }
 

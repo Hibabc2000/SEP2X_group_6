@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import system.model.businessModel.Character;
 import system.views.characterCreation.CharacterCreationController;
 import system.views.dmCharacterSheetChoosing.DmCharacterChoosingPageController;
 import system.views.login.account.AccountController;
@@ -52,7 +53,7 @@ public class ViewHandler
     stage3 = new Stage();
     stage4 = new Stage();
     //bruh
-
+     vmf.getModel().getCharacterManagementModel().addListener("openTheCreation",this::openCharacterCreation);
 
   }
 
@@ -321,7 +322,7 @@ public class ViewHandler
     stage4.setScene(emailChange);
     stage4.show();
   }
-  public void openCharacterCreation()
+ /* public void openCharacterCreation()
   {
     FXMLLoader loader = new FXMLLoader();
     if (characterCreation == null)
@@ -336,6 +337,8 @@ public class ViewHandler
     stage.setScene(characterCreation);
     stage.show();
   }
+
+  */
   public void openCharacterCreation(PropertyChangeEvent propertyChangeEvent)
   {
     FXMLLoader loader = new FXMLLoader();
@@ -344,7 +347,7 @@ public class ViewHandler
       Parent root = getRootByPath("../views/characterCreation/CharacterCreation.fxml",
           loader);
       CharacterCreationController controller = loader.getController();
-      controller.init(vmf.getCharacterCreationViewModel(), this);
+      controller.init(vmf.getCharacterCreationViewModel(), this, (Character)propertyChangeEvent.getNewValue());
       characterCreation = new Scene(root);
     }
     stage.setTitle("DnDAS");

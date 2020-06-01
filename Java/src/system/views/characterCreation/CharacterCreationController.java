@@ -9,9 +9,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import system.core.ViewHandler;
 import system.model.businessModel.Background;
+import system.model.businessModel.Character;
 import system.model.businessModel.Race;
-
-import java.beans.PropertyChangeEvent;
 
 public class CharacterCreationController
 {
@@ -113,9 +112,10 @@ public class CharacterCreationController
   private ObservableList<String> abilitiesList;
 
 
-  public void init(CharacterCreationViewModel cCVM,ViewHandler vh)
+  public void init(CharacterCreationViewModel cCVM,ViewHandler vh, Character tempChar)
   {
     this.characterCreationViewModel = cCVM;
+    characterCreationViewModel.setCharacter(tempChar);
     viewHandler = vh;
     classComboBox.setItems(characterCreationViewModel.getAllCharacterClassesNames());
     classesListView.setItems(characterCreationViewModel.getCharacterClassesName());
@@ -146,7 +146,10 @@ public class CharacterCreationController
     //</editor-fold>
 
     raceComboBox.setItems(FXCollections.observableList(characterCreationViewModel.getStaticModel().getRaces()));
-    raceComboBox.getSelectionModel().select(characterCreationViewModel.getCharacter().getRace());
+    raceComboBox.getSelectionModel().select(
+        characterCreationViewModel.
+            getCharacter().
+            getRace());
     raceDescription.textProperty().bind(characterCreationViewModel.raceDesProperty());
     //<editor-fold desc="intelligenceRolledNumber">
     intelligenceRolledNumber.textProperty().addListener(new ChangeListener<String>() {
@@ -366,15 +369,17 @@ public class CharacterCreationController
 
     //</editor-fold>
 
-    characterCreationViewModel.addListener("openSceneCharacterCreation",this::openScene);
+    //characterCreationViewModel.addListener("openSceneCharacterCreation",this::openScene);
   }
 
-  private void openScene(PropertyChangeEvent propertyChangeEvent)
+/*  private void openScene(PropertyChangeEvent propertyChangeEvent)
   {
     System.out.println("miért nem köszkdss");
     viewHandler.openCharacterCreation();
   }
 
+
+ */
   public void addFeat(ActionEvent actionEvent)
   {
     if(!(featComboBox.getSelectionModel().isEmpty()))
@@ -706,6 +711,10 @@ public class CharacterCreationController
       alert.setContentText("Please Choose an option");
       alert.showAndWait();
     }
+  }
+
+  public void changeSelectedClassForLevelEditing(ActionEvent actionEvent)
+  {
   }
   /*
   public Button addFeatButton;

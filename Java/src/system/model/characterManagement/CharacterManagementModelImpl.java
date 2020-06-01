@@ -42,8 +42,9 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
   private void addAccount(PropertyChangeEvent propertyChangeEvent)
   { Account ack = (Account) ((Container)propertyChangeEvent.getNewValue()).getObject();
     System.out.println("intersting");
-
     account = ack;
+
+
   }
 
   public void addClasses(PropertyChangeEvent propertyChangeEvent)
@@ -83,9 +84,9 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
       temporaryCharacter.setUsername(account.getUsername());
       temporaryCharacter.setGroupID(group.getId());
       System.out.println("grouup name, id, :" + account.getUsername()+ " id: "+group.getId() );
-
-      support.firePropertyChange("displayCharacterCreationScene",null,k);
-    //  support.firePropertyChange("characterToSheetViewModel", null,temporaryCharacter);
+      support.firePropertyChange("openTheCreation",null,temporaryCharacter);
+     // support.firePropertyChange("displayCharacterCreationScene",null,k);
+    support.firePropertyChange("characterToSheetViewModel", null,temporaryCharacter);
       System.out.println("what?");
     }
   }
@@ -201,6 +202,7 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
   }
   @Override public boolean getAccountDmStatus()
   {
+    System.out.println("mohME:d "+account.getUsername());
     if(account.getUser() instanceof DM)
     {
       return true;
