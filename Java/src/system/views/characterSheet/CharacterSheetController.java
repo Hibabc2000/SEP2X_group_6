@@ -3,6 +3,7 @@ package system.views.characterSheet;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import system.util.logger.Log;
 
 public class CharacterSheetController
 {
@@ -242,12 +243,11 @@ public class CharacterSheetController
   @FXML public CheckBox pactFourthSpellSlot;
   @FXML public CheckBox levelSixThirdSpellSlot;
 
-
-
+  private Log log;
 
   public void init()
   {
-
+    log = Log.getLogEntry();
   }
 
   public void spellSlotCheck(ActionEvent actionEvent)
