@@ -224,11 +224,13 @@ public class ClientSocketHandler implements Runnable
    */
   public void changePassword(Account acc) throws IOException
   {
-    ArrayList<Object> objs = new ArrayList<>();
+    System.out.println("pass in client " + acc.getPassword());
 
-    objs.add(acc);
-    Container outDataPack = new Container(objs,
+
+
+    Container outDataPack = new Container(acc,
         ClassName.CHECK_PASSWORD_CHANGE);
+    System.out.println(((Account)outDataPack.getObject()).getPassword()+"úúúúúúúúúúúúúúúúúúúúúúúúúúúúúú");
     outToServer.writeObject(outDataPack);
   }
 

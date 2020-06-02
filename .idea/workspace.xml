@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="161">
+    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/core/ViewHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/core/ViewHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/core/ViewModelFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/core/ViewModelFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java/src/system/networking/ClientSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/networking/ClientSocketHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/views/characterCreation/CharacterCreationViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/characterCreation/CharacterCreationViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/openSystem/OpenSystemViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/openSystem/OpenSystemViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Database/GetAllAccountData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/GetAllAccountData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,26 +45,27 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="13" />
     <property name="last.edited.regexp" value="(Rage,&quot; In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action.&#10;&#10;While raging, you gain the following benefits if you aren’t wearing heavy armor:&#10;&#10;You have advantage on Strength checks and Strength saving throws.&#10;When you make a melee weapon attack using Strength, you gain a bonus to the damage roll that increases as you gain levels as a barbarian, as shown in the Rage Damage column of the Barbarian table.&#10;You have resistance to bludgeoning, piercing, and slashing damage.&#10;&#10;If you are able to cast spells, you can’t cast them or concentrate on them while raging.&#10;&#10;Your rage lasts for 1 minute. It ends early if you are knocked unconscious or if your turn ends and you haven’t attacked a hostile creature since your last turn or taken damage since then. You can also end your rage on your turn as a bonus action.&#10;&#10;Once you have raged the number of times shown for your barbarian level in the Rages column of the Barbarian table, you must finish a long rest before you can rage again.&quot;,&quot; &quot;)" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../postgresql-42.2.11.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/out" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15332031" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="account" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\out" />
+      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src" />
+      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\account" />
+      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\model" />
+      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\views" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
       <recent name="testing" />
       <recent name="login" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src" />
-      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\account" />
-      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\model" />
-      <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\views" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="account" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -81,7 +80,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Start">
+  <component name="RunManager" selected="Application.RunServer">
     <configuration name="EnumTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="networking.EnumTest" />
       <module name="SEP2X_group_6" />
@@ -490,7 +489,21 @@
       <option name="project" value="LOCAL" />
       <updated>1590943170847</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="the scenes work now">
+      <created>1591105051663</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1591105051663</updated>
+    </task>
+    <task id="LOCAL-00046" summary="small ui change">
+      <created>1591109842241</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1591109842241</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -507,8 +520,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Deprecated GetAllFromDatabase, since it was overridden by other classes." />
-    <MESSAGE value="Started working on InsertCharacter." />
     <MESSAGE value="Join group finished" />
     <MESSAGE value="Something got overwritten so i put back like 2 methods in connection pool and one in serversockethandler" />
     <MESSAGE value="Fixed InsertCharacter" />
@@ -532,7 +543,9 @@
     <MESSAGE value=" MORE documentatioN" />
     <MESSAGE value="small changes" />
     <MESSAGE value="some update for charactersheet creation. I don't understand the rollednumber listeners and whats wrong with them" />
-    <option name="LAST_COMMIT_MESSAGE" value="some update for charactersheet creation. I don't understand the rollednumber listeners and whats wrong with them" />
+    <MESSAGE value="the scenes work now" />
+    <MESSAGE value="small ui change" />
+    <option name="LAST_COMMIT_MESSAGE" value="small ui change" />
   </component>
   <component name="WindowStateProjectService">
     <state width="901" height="305" key="GridCell.Tab.0.bottom" timestamp="1591102609309">

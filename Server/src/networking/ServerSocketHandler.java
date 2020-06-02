@@ -194,13 +194,14 @@ public class ServerSocketHandler implements Runnable
 
           case CHECK_PASSWORD_CHANGE:
           {
-            ArrayList<Object> m = (ArrayList<Object>) inDataPack.getObject();
-            Account account = (Account) (m.get(0));
-            String newPassword = account.getPassword();
+
+            Account accu = (Account) inDataPack.getObject();
+            System.out.println(accu.getPassword()+ " this is pass");
+            String newPassword = accu.getPassword();
             try
             {
               //              change the password in the database
-              database.changePassword(account, newPassword);
+              database.changePassword(accu, newPassword);
             }
             catch (SQLException e)
             {
@@ -333,6 +334,9 @@ public class ServerSocketHandler implements Runnable
             boolean doIhaveACharacter = false;
             pool.getUserAccount(groupToStartGameWith.getDM().getName());
             pool.getGroups(groupToStartGameWith);
+            System.out.println("wtf???wtf?wt?F?WTF?WTwF?");
+            System.out.println(playersOnline.get(0).getCharacterID() + " this is the ID which should be null");
+            System.out.println("wtf???wtf?wt?F?WTF?WTwF?");
             for (int i = 0; i < playersOnline.size(); i++)
             {// here If the player doesnt have a charID, then we will send him a boolean "false" so the client will know that means
               // we have to create a character.
@@ -349,6 +353,7 @@ public class ServerSocketHandler implements Runnable
               // here if the player has a charID then we actually get back the character from the dbs, and send that back to him
               else if (playersOnline.get(i).getCharacterID() != null)
               {
+                System.out.println("THIS SHOULD ABSOLUTELY NOT HAPPEN");
                 doIhaveACharacter = true;
                 ArrayList<Object> objs = new ArrayList<>();
                 Character characterFromDBS = loch
@@ -450,6 +455,7 @@ public class ServerSocketHandler implements Runnable
             ArrayList<CharacterClass> ret = loader.load();
             Container cont = new Container(ret, ClassName.CLASSES_LOAD);
             pool.sendDataToUser(getAccount().getUsername(), cont);
+            break;
           }
         }
       }

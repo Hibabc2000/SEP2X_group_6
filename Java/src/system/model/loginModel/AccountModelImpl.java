@@ -340,6 +340,7 @@ public class AccountModelImpl
     {
       temp = "Fill out all the fields";
     }
+    else if(username.contains(" ")) {temp="Your name cannot contain spaces.";}
 
     else if (pass1.length() < 6)
     {
@@ -348,6 +349,10 @@ public class AccountModelImpl
     else if (username.length() < 4)
     {
       temp = "Username must be longer than 4 characters";
+    }
+    else if(username.contains(",") || username.contains("{"))
+    {
+      temp = "Username cannot contain the following symbols: , { ";
     }
     else if (!(pass1.equals(pass2)))
     {
@@ -469,10 +474,12 @@ public class AccountModelImpl
     }
     else
     {
+      System.out.println("BÜDÖSKÖCSÖKG");
       usersAccount.setPassword(passNew);
       temp = "Ready"; // if no errors,then password is changed
       client.changePassword(
           usersAccount); // here we send it to the database so it changes, we dont need to check anything
+      System.out.println(usersAccount.getPassword());
     }
 
     return temp;

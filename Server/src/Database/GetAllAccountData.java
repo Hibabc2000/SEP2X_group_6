@@ -546,7 +546,7 @@ ResultSet rs = st.executeQuery(query);
       throws SQLException
   {
   String username= account.getUsername();
-
+    System.out.println("acc password: " + newPassword);
     Statement st = c.createStatement();
     String query =
         "UPDATE \"Users\".\"Users\" SET password= '"+newPassword
@@ -587,13 +587,13 @@ ResultSet rs = st.executeQuery(query);
 
         Player a = new Player(plys.get(i));
 
-        if(charIDs.get(i)!=null)
-        { a.addCharacterID(charIDs.get(i));} else {a.addCharacterID(null);}
+        if(charIDs.get(i)==0)
+        {a.addCharacterID(null);} else if(charIDs.get(i)!=null){ a.addCharacterID(charIDs.get(i));} else {a.addCharacterID(null);}
 
 
 
         geez.addPlayer(a);
-
+        System.out.println("database , join group method: " + a.getName() + " id of char "+ a.getCharacterID());
       }
 
     }
