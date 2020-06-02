@@ -158,6 +158,10 @@ public class CharacterCreationViewModel implements Subject
     backgrounds.add(new Background("sage","nerd or smth"));
 
 
+    //HERE
+    int[] x = temporaryCharacter.getAbilitiesRolled();
+    intelligenceProperty.setValue(String.valueOf(x[4]));
+
   }
   public void setCharacter(Character propertyChangeEvent)
   {
@@ -195,7 +199,6 @@ public class CharacterCreationViewModel implements Subject
         characterBackground = backgrounds.get(i);
       }
     }
-
 
 
 
