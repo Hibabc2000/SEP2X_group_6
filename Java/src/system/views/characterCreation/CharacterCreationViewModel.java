@@ -161,6 +161,7 @@ public class CharacterCreationViewModel implements Subject
     //HERE
     int[] x = temporaryCharacter.getAbilitiesRolled();
     intelligenceProperty.setValue(String.valueOf(x[4]));
+//hvhjghjk
 
   }
   public void setCharacter(Character propertyChangeEvent)
