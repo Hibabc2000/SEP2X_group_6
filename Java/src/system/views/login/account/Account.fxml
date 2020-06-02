@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<FlowPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.views.login.account.AccountController">
+<FlowPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.views.login.account.AccountController">
    <children>
       <AnchorPane id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="411.0" prefWidth="578.0" style="-fx-background-color: #898888;" stylesheets="@../../../../../../CSS/common/css.css">
          <children>
@@ -32,17 +32,17 @@
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
-            <Label fx:id="usernameField" layoutX="84.0" layoutY="42.0" prefHeight="57.0" prefWidth="287.0" text="oli.moly.give@shit.com">
+            <Label fx:id="usernameField" layoutX="160.0" layoutY="42.0" prefHeight="58.0" prefWidth="212.0" text="placeholdername">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="51.0" layoutY="50.0" prefHeight="39.0" prefWidth="31.0" text="Hi">
+            <Label layoutX="51.0" layoutY="50.0" prefHeight="39.0" prefWidth="107.0" text="Welcome">
                <font>
                   <Font size="25.0" />
                </font>
             </Label>
-            <TextArea layoutX="51.0" layoutY="110.0" prefHeight="197.0" prefWidth="287.0" text="Long time no see, it is good to have you back. Tons of shit happend in your absence&#10;....&#10;&#10;" wrapText="true">
+            <TextArea layoutX="51.0" layoutY="110.0" prefHeight="197.0" prefWidth="287.0" text="Patch 0.1.6&#10;New features:&#10;You are able to start a game as a DM&#10;You can create your own character.&#10;&#10;&#10;" wrapText="true">
                <font>
                   <Font size="17.0" />
                </font>
