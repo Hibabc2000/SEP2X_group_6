@@ -15,7 +15,7 @@ public class ModelFactory
   private PlayerAccountModel playerAccountModel;
   private ClientFactory clientFactory;
   private CharacterManagementModelImpl characterManagementModel;
-
+private AccountModelImpl accountModelImpl;
   /**
    * Initializes the class attributes
    *
@@ -24,6 +24,7 @@ public class ModelFactory
   public ModelFactory(ClientFactory clientFactory)
   {
     this.clientFactory = clientFactory;
+    accountModelImpl=new AccountModelImpl(clientFactory.getClient());
   }
 
   /**
@@ -35,7 +36,7 @@ public class ModelFactory
   {
     if (accountModel == null)
     {
-      accountModel = new AccountModelImpl(clientFactory.getClient());
+      accountModel = accountModelImpl;
     }
     return accountModel;
   }
@@ -48,7 +49,7 @@ public class ModelFactory
   {
     if (changeEmailModel == null)
     {
-      changeEmailModel = new AccountModelImpl(clientFactory.getClient());
+      changeEmailModel =accountModelImpl;
     }
     return changeEmailModel;
   }
@@ -61,7 +62,7 @@ public class ModelFactory
   {
     if (changePasswordModel == null)
     {
-      changePasswordModel = new AccountModelImpl(clientFactory.getClient());
+      changePasswordModel = accountModelImpl;
     }
     return changePasswordModel;
   }
@@ -74,7 +75,7 @@ public class ModelFactory
   {
     if (createAccountModel == null)
     {
-      createAccountModel = new AccountModelImpl(clientFactory.getClient());
+      createAccountModel = accountModelImpl;
     }
     return createAccountModel;
   }
@@ -87,7 +88,7 @@ public class ModelFactory
   {
     if (dmAccountModel == null)
     {
-      dmAccountModel = new AccountModelImpl(clientFactory.getClient());
+      dmAccountModel =accountModelImpl;
     }
     return dmAccountModel;
   }
@@ -100,7 +101,7 @@ public class ModelFactory
   {
     if (openSystemModel == null)
     {
-      openSystemModel = new AccountModelImpl(clientFactory.getClient());
+      openSystemModel = accountModelImpl;
     }
     return openSystemModel;
   }
@@ -113,7 +114,7 @@ public class ModelFactory
   {
     if (passwordRecoveryModel == null)
     {
-      passwordRecoveryModel = new AccountModelImpl(clientFactory.getClient());
+      passwordRecoveryModel =accountModelImpl;
     }
     return passwordRecoveryModel;
   }
@@ -126,7 +127,7 @@ public class ModelFactory
   {
     if (playerAccountModel == null)
     {
-      playerAccountModel = new AccountModelImpl(clientFactory.getClient());
+      playerAccountModel = accountModelImpl;
     }
     return playerAccountModel;
   }
