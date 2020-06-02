@@ -85,6 +85,10 @@ public class ViewModelFactory
    */
   public ChangeEmailViewModel getChangeEmailVM()
   {
+    if (changeEmailViewModel == null)
+    {
+     changeEmailViewModel = new ChangeEmailViewModel(model.getChangeEmailModel());
+    }
     return changeEmailViewModel;
   }
 
@@ -95,6 +99,10 @@ public class ViewModelFactory
    */
   public CreateAccountViewModel getCreateAccountVM()
   {
+    if (createAccountModel == null)
+    {
+      createAccountModel = new CreateAccountViewModel(model.getCreateAccountModel());
+    }
     return createAccountModel;
   }
 
@@ -105,6 +113,10 @@ public class ViewModelFactory
    */
   public OpenSystemViewModel getOpenSystemViewModel()
   {
+    if (openSystemViewModel == null)
+    {
+      openSystemViewModel = new OpenSystemViewModel(model.getOpenSystemModel());
+    }
     return openSystemViewModel;
   }
 
@@ -115,6 +127,10 @@ public class ViewModelFactory
    */
   public PasswordRecoveryViewModel getPasswordRecoveryVM()
   {
+    if (passwordRecoveryViewModel == null)
+    {
+      passwordRecoveryViewModel= new PasswordRecoveryViewModel(model.getPasswordRecoveryModel());
+    }
     return passwordRecoveryViewModel;
   }
 
@@ -125,6 +141,10 @@ public class ViewModelFactory
    */
   public DMAccountViewModel getDMAccountViewModel()
   {
+    if (dmAccountViewModel == null)
+    {
+      dmAccountViewModel = new DMAccountViewModel(model.getDmAccountModel());
+    }
     return dmAccountViewModel;
   }
 
@@ -135,6 +155,10 @@ public class ViewModelFactory
    */
   public PlayerAccountViewModel getPlayerAccountViewModel()
   {
+    if (playerAccountViewModel == null)
+    {
+      playerAccountViewModel= new PlayerAccountViewModel(model.getPlayerAccountModel());
+    }
     return playerAccountViewModel;
   }
 
@@ -145,6 +169,10 @@ public class ViewModelFactory
    */
   public ChangePasswordViewModel getChangePasswordViewModel()
   {
+    if (changePasswordViewModel == null)
+    {
+      changePasswordViewModel = new ChangePasswordViewModel(model.getChangePasswordModel());
+    }
     return changePasswordViewModel;
   }
   //bruh

@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="some update for charactersheet creation. I don't understand the rollednumber listeners and whats wrong with them">
-      <change beforePath="$PROJECT_DIR$/Class Diagram_DnD Management System.asta" beforeDir="false" afterPath="$PROJECT_DIR$/Class Diagram_DnD Management System.asta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/core/ModelFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/core/ModelFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/dmAccount/DMAccountViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/dmAccount/DMAccountViewModel.java" afterDir="false" />
+    <list default="true" id="eb98ebc8-47be-4386-9cec-1fac22ae993a" name="Default Changelist" comment="161">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/core/ViewHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/core/ViewHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/core/ViewModelFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/core/ViewModelFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/networking/ClientSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/networking/ClientSocketHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/views/characterCreation/CharacterCreationViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/characterCreation/CharacterCreationViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/views/login/openSystem/OpenSystemViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/views/login/openSystem/OpenSystemViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +68,18 @@
       <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\model" />
       <recent name="C:\Users\29313\IdeaProjects\SEP2X_group_6\Java\src\views" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="Application.Start">
     <configuration name="EnumTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">

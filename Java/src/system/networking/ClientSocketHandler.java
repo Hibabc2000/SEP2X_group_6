@@ -123,8 +123,10 @@ public class ClientSocketHandler implements Runnable
           {
             System.out.println("nem rémtert");
 
-              System.out.println("ez?");
-            socketClient.initiateFirstTimeCharacterCreationOnBasisOfServerRequest(inDataPack);
+            Platform.runLater(() -> {
+              socketClient.initiateFirstTimeCharacterCreationOnBasisOfServerRequest(inDataPack);
+            });
+
               System.out.println("utána");
 
 

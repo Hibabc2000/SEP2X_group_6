@@ -350,6 +350,7 @@ public class ViewHandler
       controller.init(vmf.getCharacterCreationViewModel(), this, (Character)propertyChangeEvent.getNewValue());
       characterCreation = new Scene(root);
     }
+
     stage.setTitle("DnDAS");
     stage.setScene(characterCreation);
     stage.show();

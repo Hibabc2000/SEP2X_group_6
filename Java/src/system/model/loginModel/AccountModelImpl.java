@@ -1,6 +1,5 @@
 package system.model.loginModel;
 
-import system.AccountsForTesting;
 import system.networking.Client;
 import system.transferobjects.Container;
 import system.transferobjects.login.Account;
@@ -18,15 +17,14 @@ public class AccountModelImpl
     implements AccountModel, OpenSystemModel, ChangeEmailModel,
     ChangePasswordModel, CreateAccountModel,DMAccountModel,PasswordRecoveryModel,PlayerAccountModel
 {
-  private ArrayList<Account> tempAccounts; // this plays the role of a database  it will be removed
-  private ArrayList<Group> findingUnknownGroupsGroup; // same
+
   private ArrayList<Group> groupsForDm; // This will be replaced, this will store the groups that the account already manages but only for the DM
   private ArrayList<Group> tempGroups; //This will be replaced, this will store the groups that the account already knows but only for the Player
 
   private PropertyChangeSupport support;
   private Account usersAccount;                     // this is the users account, we will store the information about the user's account here.
   // like names,groups etc.. so we don't need to constantly ask the db for information.
-  private AccountsForTesting tests;             // this is for testing
+           // this is for testing
   private Client client;
 
   public AccountModelImpl(Client client)
@@ -45,7 +43,7 @@ public class AccountModelImpl
     tempGroups = new ArrayList<>();
     groupsForDm = new ArrayList<>();
 
-    // for testing
+
 
     client.addListener("recoverPassword", this::recoverPasswordBackFromServer);
     client.addListener("createAccount", this::createAccountInfoBackFromServer);
@@ -153,7 +151,9 @@ public class AccountModelImpl
 
     if (isLoginValid)
     {
+      System.out.println("KURVAÉLETBE");
       distributeAccountInfo(objs);
+
       support.firePropertyChange("acceptLogin", null, isLoginValid);
     }
     else
@@ -386,7 +386,8 @@ public class AccountModelImpl
     }
 
     else
-      client.checkLogin(username, password);
+    {
+      client.checkLogin(username, password);}
     // put it into server
 
     return temp;

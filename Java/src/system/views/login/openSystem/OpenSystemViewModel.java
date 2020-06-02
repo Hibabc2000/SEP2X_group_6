@@ -67,6 +67,7 @@ public class OpenSystemViewModel implements Subject
    */
   private void acceptLoginInfo(PropertyChangeEvent propertyChangeEvent)
   {
+    System.out.println("MIFAS?");
     String val = "error";
     System.out.println("event");
     boolean response = ((boolean) propertyChangeEvent.getNewValue());

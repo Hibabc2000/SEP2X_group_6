@@ -343,7 +343,8 @@ public class ServerSocketHandler implements Runnable
 
                 Container data = new Container(doIhaveACharacter, ClassName.CLIENT_PLEASE_CREATE_A_CHARACTER);
                 pool.sendDataToUser(playersOnline.get(i).getName(), data);
-                pool.sendDataToUser(groupToStartGameWith.getDM().getName(),data);
+                Container dataForDM = new Container(true, ClassName.CLIENT_PLEASE_CREATE_A_CHARACTER);
+                pool.sendDataToUser(groupToStartGameWith.getDM().getName(),dataForDM);
               }
               // here if the player has a charID then we actually get back the character from the dbs, and send that back to him
               else if (playersOnline.get(i).getCharacterID() != null)
@@ -356,6 +357,7 @@ public class ServerSocketHandler implements Runnable
                 playerWithChar.setCharacter(characterFromDBS);
 
                 Container data = new Container(characterFromDBS, ClassName.CHARACTER);
+
                 pool.sendDataToUser(playersOnline.get(i).getName(), data);
 
                 // data to DM

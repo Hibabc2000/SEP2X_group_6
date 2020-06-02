@@ -92,7 +92,10 @@ public class CharacterCreationViewModel implements Subject
 
   public CharacterCreationViewModel(CharacterManagementModel model1)
   { support= new PropertyChangeSupport(this);
+
     model = model1;
+    relatedFeats = new ArrayList<>();
+    featsAndFeatures= new ArrayList<>();
     staticModel = model.getStaticModel();
     allClasses = model.getAllCharacterClasses();
     characterEditorAccountDmStatus = model.getAccountDmStatus();
@@ -198,7 +201,13 @@ public class CharacterCreationViewModel implements Subject
     }
     //HERE
     int[] x = temporaryCharacter.getAbilitiesRolled();
-    intelligenceProperty.setValue(String.valueOf(x[4]));
+    intelligenceProperty.setValue(String.valueOf(x[3]));
+    strengthProperty.setValue(String.valueOf(x[0]));
+    dexterityProperty.setValue(String.valueOf(x[1]));
+    constitutionProperty.setValue(String.valueOf(x[2]));
+    wisdomProperty.setValue(String.valueOf(x[4]));
+    charismaProperty.setValue(String.valueOf(x[5]));
+     featsAndFeatures.addAll(temporaryCharacter.getFeats());
     //hvhjghjk
 
 
