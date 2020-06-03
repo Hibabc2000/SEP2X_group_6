@@ -3,12 +3,13 @@ package system.views.characterSheet;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import system.core.ViewHandler;
 import system.util.logger.Log;
 
 public class CharacterSheetController
 {
 
-  @FXML public Label strengthModifier;
+                                       @FXML public Label strengthModifier;
   @FXML public Label strength;
   @FXML public Label dexterityModifier;
   @FXML public Label dexterity;
@@ -242,12 +243,88 @@ public class CharacterSheetController
   @FXML public CheckBox pactThirdSpellSlot;
   @FXML public CheckBox pactFourthSpellSlot;
   @FXML public CheckBox levelSixThirdSpellSlot;
+  private ViewHandler vh;
+  private CharacterSheetViewModel viewModel;
 
   private Log log;
 
-  public void init()
-  {
+  public void init(CharacterSheetViewModel vm, ViewHandler vhandler)
+  { viewModel = vm;
+  vh = vhandler;
     log = Log.getLogEntry();
+    strengthModifier.textProperty().bindBidirectional(viewModel.getstrengthModifier());
+    strength.textProperty().bindBidirectional(viewModel.getstrength());
+    dexterityModifier.textProperty().bindBidirectional(viewModel.getdexterityModifier());
+    dexterity.textProperty().bindBidirectional(viewModel.getdexterity());
+    constitutionModifier.textProperty().bindBidirectional(viewModel.getconstitutionModifier());
+    constitution.textProperty().bindBidirectional(viewModel.getconstitution());
+    intelligenceModifier.textProperty().bindBidirectional(viewModel.getintelligenceModifier());
+    intelligence.textProperty().bindBidirectional(viewModel.getintelligence());
+    wisdomModifier.textProperty().bindBidirectional(viewModel.getwisdomModifier());
+    wisdom.textProperty().bindBidirectional(viewModel.getwisdom());
+    charismaModifier.textProperty().bindBidirectional(viewModel.getcharismaModifier());
+    charisma.textProperty().bindBidirectional(viewModel.getcharisma());
+    acrobaticsModifier.textProperty().bindBidirectional(viewModel.getacrobaticsModifier());
+    animalHandlingModifier.textProperty().bindBidirectional(viewModel.getanimalHandlingModifier());
+    arcanaModifier.textProperty().bindBidirectional(viewModel.getarcanaModifier());
+    athleticsModifier.textProperty().bindBidirectional(viewModel.getathleticsModifier());
+    deceptionModifier.textProperty().bindBidirectional(viewModel.getdeceptionModifier());
+    historyModifier.textProperty().bindBidirectional(viewModel.gethistoryModifier());
+    insightModifier.textProperty().bindBidirectional(viewModel.getinsightModifier());
+    intimidationModifier.textProperty().bindBidirectional(viewModel.getintimidationModifier());
+    investigationModifier.textProperty().bindBidirectional(viewModel.getinvestigationModifier());
+    medicineModifier.textProperty().bindBidirectional(viewModel.getmedicineModifier());
+    natureModifier.textProperty().bindBidirectional(viewModel.getnatureModifier());
+    perceptionModifier.textProperty().bindBidirectional(viewModel.getperceptionModifier());
+    performanceModifier.textProperty().bindBidirectional(viewModel.getperformanceModifier());
+    persuasionModifier.textProperty().bindBidirectional(viewModel.getpersuasionModifier());
+    religionModifier.textProperty().bindBidirectional(viewModel.getreligionModifier());
+    sleightOfHandModifier.textProperty().bindBidirectional(viewModel.getsleightOfHandModifier());
+    stealthModifier.textProperty().bindBidirectional(viewModel.getstealthModifier());
+    survivalModifier.textProperty().bindBidirectional(viewModel.getsurvivalModifier());
+    characterClass.textProperty().bindBidirectional(viewModel.getcharacterClass());
+    characterName.textProperty().bindBidirectional(viewModel.getcharacterName());
+    characterAlignment.textProperty().bindBidirectional(viewModel.getcharacterAlignment());
+    characterRace.textProperty().bindBidirectional(viewModel.getcharacterRace());
+    hpMax.textProperty().bindBidirectional(viewModel.getcharacterHPMax());
+    hp.textProperty().bindBidirectional(viewModel.getcharacterHP());
+    levelDisplay.textProperty().bindBidirectional(viewModel.getcharacterLevel());
+    xpCount.textProperty().bindBidirectional(viewModel.getxpCount());
+    strengthSavingThrow.textProperty().bindBidirectional(viewModel.getstrengthSavingThrow());
+    dexteritySavingThrow.textProperty().bindBidirectional(viewModel.getdexteritySavingThrow());
+    constitutionSavingThrow.textProperty().bindBidirectional(viewModel.getconstitutionSavingThrow());
+    intelligenceSavingThrow.textProperty().bindBidirectional(viewModel.getintelligenceSavingThrow());
+    wisdomSavingThrow.textProperty().bindBidirectional(viewModel.getwisdomSavingThrow());
+    charismaSavingThrow.textProperty().bindBidirectional(viewModel.getcharismaSavingThrow());
+    proficiencyBonus.textProperty().bindBidirectional(viewModel.getproficiencyBonus());
+    passiveWisdom.textProperty().bindBidirectional(viewModel.getpassiveWisdom());
+    speed.textProperty().bindBidirectional(viewModel.getspeed());
+    armorClass.textProperty().bindBidirectional(viewModel.getarmorClass());
+
+    platinumPiece.textProperty().bindBidirectional(viewModel.getplatinumPiece());
+    copperPiece.textProperty().bindBidirectional(viewModel.getcopperPiece());
+    electrumPiece.textProperty().bindBidirectional(viewModel.getelectrumPiece());
+    silverPiece.textProperty().bindBidirectional(viewModel.getsilverPiece());
+    goldPiece.textProperty().bindBidirectional(viewModel.getgoldPiece());
+    knownSpellsAmount.textProperty().bindBidirectional(viewModel.getknownSpellAmount());
+    preparedSpellsAmount.textProperty().bindBidirectional(viewModel.getpreparedSpellAmount());
+    selectedItemFromInventoryName.textProperty().bindBidirectional(viewModel.getselectedItemFromInventoryName());
+    addItemSelectedItemName.textProperty().bindBidirectional(viewModel.getaddItemSelectedItemName());
+    platinumPieceOne.textProperty().bindBidirectional(viewModel.getplatinumPieceOne());
+    goldPieceOne.textProperty().bindBidirectional(viewModel.getgoldPieceOne());
+    electrumPieceOne.textProperty().bindBidirectional(viewModel.getelectrumPieceOne());
+    silverPieceOne.textProperty().bindBidirectional(viewModel.getsilverPieceOne());
+    copperPieceOne.textProperty().bindBidirectional(viewModel.getcopperPieceOne());
+
+     hpChangeAmount.textProperty().bindBidirectional(viewModel.gethpChangeAmount());
+     selectedItemFromInventoryAmount.textProperty().bindBidirectional(viewModel.getselectedItemFromInventoryAmount());
+     selectedItemFromAddItemAmountTextField.textProperty().bindBidirectional(viewModel.getselectedItemFromAddItemAmountStringProperty());
+     changePlatinumAmountTextField.textProperty().bindBidirectional(viewModel.getchangePlatinumAmountStringProperty());
+     changeGoldAmountTextField.textProperty().bindBidirectional(viewModel.getchangeGoldAmountStringProperty());
+     changeElectrumAmountTextField.textProperty().bindBidirectional(viewModel.getchangeElectrumAmountStringProperty());
+     changeSilverAmountTextField.textProperty().bindBidirectional(viewModel.getchangeSilverAmountStringProperty());
+                                                        changeCopperAmountTextField.textProperty().bindBidirectional(viewModel.getchangeCopperAmountStringProperty());
+
   }
 
   public void spellSlotCheck(ActionEvent actionEvent)

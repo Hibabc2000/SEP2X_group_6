@@ -1,5 +1,6 @@
 package system.views.characterSheet;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import system.model.businessModel.Character;
 import system.model.businessModel.*;
@@ -96,7 +97,152 @@ public class CharacterSheetViewModel
   {
     model = model1;
     model.addListener("characterToSheetViewModel", this::setCharacter);
+    StringProperty strengthModifier = new SimpleStringProperty();
+    StringProperty strength = new SimpleStringProperty();
+    StringProperty dexterityModifier = new SimpleStringProperty();
+    StringProperty dexterity = new SimpleStringProperty();
+    StringProperty constitutionModifier = new SimpleStringProperty();
+    StringProperty constitution = new SimpleStringProperty();
+    StringProperty intelligenceModifier = new SimpleStringProperty();
+    StringProperty intelligence = new SimpleStringProperty();
+    StringProperty wisdomModifier = new SimpleStringProperty();
+    StringProperty wisdom = new SimpleStringProperty();
+    StringProperty charismaModifier = new SimpleStringProperty();
+    StringProperty charisma = new SimpleStringProperty();
+    StringProperty acrobaticsModifier = new SimpleStringProperty();
+    StringProperty animalHandlingModifier = new SimpleStringProperty();
+    StringProperty arcanaModifier = new SimpleStringProperty();
+    StringProperty athleticsModifier = new SimpleStringProperty();
+    StringProperty deceptionModifier = new SimpleStringProperty();
+    StringProperty historyModifier = new SimpleStringProperty();
+    StringProperty insightModifier = new SimpleStringProperty();
+    StringProperty intimidationModifier = new SimpleStringProperty();
+    StringProperty investigationModifier = new SimpleStringProperty();
+    StringProperty medicineModifier = new SimpleStringProperty();
+    StringProperty natureModifier = new SimpleStringProperty();
+    StringProperty perceptionModifier = new SimpleStringProperty();
+    StringProperty performanceModifier = new SimpleStringProperty();
+    StringProperty persuasionModifier = new SimpleStringProperty();
+    StringProperty religionModifier = new SimpleStringProperty();
+    StringProperty sleightOfHandModifier = new SimpleStringProperty();
+    StringProperty stealthModifier = new SimpleStringProperty();
+    StringProperty survivalModifier = new SimpleStringProperty();
+    StringProperty characterName = new SimpleStringProperty();
+    StringProperty characterClass = new SimpleStringProperty();
+    StringProperty plcharacterRace = new SimpleStringProperty();
+    StringProperty characterAlignment = new SimpleStringProperty();
+    StringProperty characterHP = new SimpleStringProperty();
+    StringProperty characterHPMax = new SimpleStringProperty();
+    StringProperty characterLevel = new SimpleStringProperty();
+    StringProperty xpCount = new SimpleStringProperty();
+    StringProperty strengthSavingThrow = new SimpleStringProperty();
+    StringProperty constitutionSavingThrow = new SimpleStringProperty();
+    StringProperty dexteritySavingThrow = new SimpleStringProperty();
+    StringProperty intelligenceSavingThrow = new SimpleStringProperty();
+    StringProperty wisdomSavingThrow = new SimpleStringProperty();
+    StringProperty charismaSavingThrow = new SimpleStringProperty();
+    StringProperty proficiencyBonus = new SimpleStringProperty();
+    StringProperty passiveWisdom = new SimpleStringProperty();
+    StringProperty speed = new SimpleStringProperty();
+    StringProperty armorClass = new SimpleStringProperty();
+    StringProperty knownSpellAmount = new SimpleStringProperty();
+    StringProperty preparedSpellAmount = new SimpleStringProperty();
+    StringProperty addItemSelectedItemName = new SimpleStringProperty();
+    StringProperty selectedItemFromInventoryName = new SimpleStringProperty();
+    StringProperty platinumPiece = new SimpleStringProperty();
+    StringProperty copperPiece = new SimpleStringProperty();
+    StringProperty electrumPiece = new SimpleStringProperty();
+    StringProperty silverPiece = new SimpleStringProperty();
+    StringProperty goldPiece = new SimpleStringProperty();
+    StringProperty platinumPieceOne = new SimpleStringProperty();
+    StringProperty goldPieceOne = new SimpleStringProperty();
+    StringProperty electrumPieceOne = new SimpleStringProperty();
+    StringProperty silverPieceOne = new SimpleStringProperty();
+    StringProperty copperPieceOne = new SimpleStringProperty();
+    ///////////////////// = new SimpleStringProperty();///////////////////////////
+    StringProperty hpChangeAmount = new SimpleStringProperty();
+    StringProperty selectedItemFromInventoryAmount = new SimpleStringProperty();
+    StringProperty selectedItemFromAddItemAmountStringProperty = new SimpleStringProperty();
+    StringProperty changePlatinumAmountStringProperty = new SimpleStringProperty();
+    StringProperty changeGoldAmountStringProperty = new SimpleStringProperty();
+    StringProperty changeElectrumAmountStringProperty = new SimpleStringProperty();
+    StringProperty changeSilverAmountStringProperty = new SimpleStringProperty();
+    StringProperty changeCopperAmountStringProperty = new SimpleStringProperty();
   }
+
+  public StringProperty getstrengthModifier(){return strengthModifier;}
+  public StringProperty getstrength(){return strength;}
+  public StringProperty getdexterityModifier(){return dexterityModifier;}
+  public StringProperty getdexterity(){return dexterity;}
+  public StringProperty getconstitutionModifier(){return constitutionModifier; }
+  public StringProperty getconstitution(){return constitution;}
+  public StringProperty getintelligenceModifier(){return intelligenceModifier;}
+  public StringProperty getintelligence(){return intelligence;}
+  public StringProperty getwisdomModifier(){return wisdomModifier;}
+  public StringProperty getwisdom(){return wisdom;}
+  public StringProperty getcharismaModifier(){return  charismaModifier;}
+  public StringProperty getcharisma(){return charisma;}
+  public StringProperty getacrobaticsModifier(){return acrobaticsModifier; }
+  public StringProperty getanimalHandlingModifier(){return  animalHandlingModifier;}
+  public StringProperty getarcanaModifier(){return arcanaModifier;}
+  public StringProperty getathleticsModifier(){return athleticsModifier;}
+  public StringProperty getdeceptionModifier(){return deceptionModifier;}
+  public StringProperty gethistoryModifier(){return historyModifier;}
+  public StringProperty getinsightModifier(){return insightModifier;}
+  public StringProperty getintimidationModifier(){return intimidationModifier;}
+  public StringProperty getinvestigationModifier(){return investigationModifier;}
+  public StringProperty getmedicineModifier(){return medicineModifier;}
+  public StringProperty getnatureModifier(){return natureModifier;}
+  public StringProperty getperceptionModifier(){return perceptionModifier;}
+  public StringProperty getperformanceModifier(){return performanceModifier;}
+  public StringProperty getpersuasionModifier(){return persuasionModifier;}
+  public StringProperty getreligionModifier(){return religionModifier;}
+  public StringProperty getsleightOfHandModifier(){return sleightOfHandModifier;}
+  public StringProperty getstealthModifier(){return stealthModifier;}
+  public StringProperty getsurvivalModifier(){return survivalModifier;}
+  public StringProperty getcharacterName(){return characterName;}
+  public StringProperty getcharacterClass(){return characterClass;}
+  public StringProperty getcharacterRace(){return characterRace;}
+  public StringProperty getcharacterAlignment(){return characterAlignment;}
+  public StringProperty getcharacterHP(){return characterHP;}
+  public StringProperty getcharacterHPMax(){return characterHPMax;}
+  public StringProperty getcharacterLevel(){return characterLevel;}
+  public StringProperty getxpCount(){return xpCount;}
+  public StringProperty getstrengthSavingThrow(){return strengthSavingThrow;}
+  public StringProperty getconstitutionSavingThrow(){return constitutionSavingThrow;}
+  public StringProperty getdexteritySavingThrow(){return dexteritySavingThrow;}
+  public StringProperty getintelligenceSavingThrow(){return intelligenceSavingThrow;}
+  public StringProperty getwisdomSavingThrow(){return wisdomSavingThrow;}
+  public StringProperty getcharismaSavingThrow(){return charismaSavingThrow;}
+  public StringProperty getproficiencyBonus(){return proficiencyBonus;}
+  public StringProperty getpassiveWisdom(){return passiveWisdom;}
+  public StringProperty getspeed(){return speed;}
+  public StringProperty getarmorClass(){return armorClass;}
+  //public StringProperty getnt(){return }
+  public StringProperty getknownSpellAmount(){return knownSpellAmount;}
+  public StringProperty getpreparedSpellAmount(){return preparedSpellAmount;}
+  public StringProperty getaddItemSelectedItemName(){return addItemSelectedItemName;}
+  public StringProperty getselectedItemFromInventoryName(){return selectedItemFromInventoryName;}
+  public StringProperty getplatinumPiece(){return platinumPiece;}
+  public StringProperty getcopperPiece(){return copperPiece;}
+  public StringProperty getelectrumPiece(){return electrumPiece;}
+  public StringProperty getsilverPiece(){return silverPiece;}
+  public StringProperty getgoldPiece(){return goldPiece;}
+  public StringProperty getplatinumPieceOne(){return platinumPieceOne;}
+  public StringProperty getgoldPieceOne(){return goldPieceOne;}
+  public StringProperty getelectrumPieceOne(){return electrumPieceOne;}
+  public StringProperty getsilverPieceOne(){return silverPieceOne;}
+  public StringProperty getcopperPieceOne(){return copperPieceOne;}
+  public StringProperty gethpChangeAmount(){return hpChangeAmount;}
+  public StringProperty getselectedItemFromInventoryAmount(){return selectedItemFromInventoryAmount; }
+  public StringProperty getselectedItemFromAddItemAmountStringProperty(){return selectedItemFromAddItemAmountStringProperty; }
+  public StringProperty getchangePlatinumAmountStringProperty(){return changePlatinumAmountStringProperty; }
+  public StringProperty getchangeGoldAmountStringProperty(){return changeGoldAmountStringProperty;}
+  public StringProperty getchangeElectrumAmountStringProperty(){return changeElectrumAmountStringProperty;}
+  public StringProperty getchangeSilverAmountStringProperty(){return changeSilverAmountStringProperty;}
+                  public StringProperty getchangeCopperAmountStringProperty(){return changeCopperAmountStringProperty;}
+
+
 
   private void setCharacter(PropertyChangeEvent propertyChangeEvent)
   {
