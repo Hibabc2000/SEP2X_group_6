@@ -78,6 +78,7 @@ public class CharacterSheetViewModel
   private StringProperty electrumPieceOne;
   private StringProperty silverPieceOne;
   private StringProperty copperPieceOne;
+  private StringProperty initiativeModifier;
   ///////////////////////////////////////////////////////
   private StringProperty hpChangeAmount;
   private StringProperty selectedItemFromInventoryAmount;
@@ -170,79 +171,361 @@ public class CharacterSheetViewModel
     StringProperty changeCopperAmountStringProperty = new SimpleStringProperty();
   }
 
-  public StringProperty getstrengthModifier(){return strengthModifier;}
-  public StringProperty getstrength(){return strength;}
-  public StringProperty getdexterityModifier(){return dexterityModifier;}
-  public StringProperty getdexterity(){return dexterity;}
-  public StringProperty getconstitutionModifier(){return constitutionModifier; }
-  public StringProperty getconstitution(){return constitution;}
-  public StringProperty getintelligenceModifier(){return intelligenceModifier;}
-  public StringProperty getintelligence(){return intelligence;}
-  public StringProperty getwisdomModifier(){return wisdomModifier;}
-  public StringProperty getwisdom(){return wisdom;}
-  public StringProperty getcharismaModifier(){return  charismaModifier;}
-  public StringProperty getcharisma(){return charisma;}
-  public StringProperty getacrobaticsModifier(){return acrobaticsModifier; }
-  public StringProperty getanimalHandlingModifier(){return  animalHandlingModifier;}
-  public StringProperty getarcanaModifier(){return arcanaModifier;}
-  public StringProperty getathleticsModifier(){return athleticsModifier;}
-  public StringProperty getdeceptionModifier(){return deceptionModifier;}
-  public StringProperty gethistoryModifier(){return historyModifier;}
-  public StringProperty getinsightModifier(){return insightModifier;}
-  public StringProperty getintimidationModifier(){return intimidationModifier;}
-  public StringProperty getinvestigationModifier(){return investigationModifier;}
-  public StringProperty getmedicineModifier(){return medicineModifier;}
-  public StringProperty getnatureModifier(){return natureModifier;}
-  public StringProperty getperceptionModifier(){return perceptionModifier;}
-  public StringProperty getperformanceModifier(){return performanceModifier;}
-  public StringProperty getpersuasionModifier(){return persuasionModifier;}
-  public StringProperty getreligionModifier(){return religionModifier;}
-  public StringProperty getsleightOfHandModifier(){return sleightOfHandModifier;}
-  public StringProperty getstealthModifier(){return stealthModifier;}
-  public StringProperty getsurvivalModifier(){return survivalModifier;}
-  public StringProperty getcharacterName(){return characterName;}
-  public StringProperty getcharacterClass(){return characterClass;}
-  public StringProperty getcharacterRace(){return characterRace;}
-  public StringProperty getcharacterAlignment(){return characterAlignment;}
-  public StringProperty getcharacterHP(){return characterHP;}
-  public StringProperty getcharacterHPMax(){return characterHPMax;}
-  public StringProperty getcharacterLevel(){return characterLevel;}
-  public StringProperty getxpCount(){return xpCount;}
-  public StringProperty getstrengthSavingThrow(){return strengthSavingThrow;}
-  public StringProperty getconstitutionSavingThrow(){return constitutionSavingThrow;}
-  public StringProperty getdexteritySavingThrow(){return dexteritySavingThrow;}
-  public StringProperty getintelligenceSavingThrow(){return intelligenceSavingThrow;}
-  public StringProperty getwisdomSavingThrow(){return wisdomSavingThrow;}
-  public StringProperty getcharismaSavingThrow(){return charismaSavingThrow;}
-  public StringProperty getproficiencyBonus(){return proficiencyBonus;}
-  public StringProperty getpassiveWisdom(){return passiveWisdom;}
-  public StringProperty getspeed(){return speed;}
-  public StringProperty getarmorClass(){return armorClass;}
+  public StringProperty getstrengthModifier()
+  {
+    return strengthModifier;
+  }
+
+  public StringProperty getstrength()
+  {
+    return strength;
+  }
+
+  public StringProperty getdexterityModifier()
+  {
+    return dexterityModifier;
+  }
+
+  public StringProperty getdexterity()
+  {
+    return dexterity;
+  }
+
+  public StringProperty getconstitutionModifier()
+  {
+    return constitutionModifier;
+  }
+
+  public StringProperty getconstitution()
+  {
+    return constitution;
+  }
+
+  public StringProperty getintelligenceModifier()
+  {
+    return intelligenceModifier;
+  }
+
+  public StringProperty getintelligence()
+  {
+    return intelligence;
+  }
+
+  public StringProperty getwisdomModifier()
+  {
+    return wisdomModifier;
+  }
+
+  public StringProperty getwisdom()
+  {
+    return wisdom;
+  }
+
+  public StringProperty getcharismaModifier()
+  {
+    return charismaModifier;
+  }
+
+  public StringProperty getcharisma()
+  {
+    return charisma;
+  }
+
+  public StringProperty getacrobaticsModifier()
+  {
+    return acrobaticsModifier;
+  }
+
+  public StringProperty getanimalHandlingModifier()
+  {
+    return animalHandlingModifier;
+  }
+
+  public StringProperty getarcanaModifier()
+  {
+    return arcanaModifier;
+  }
+
+  public StringProperty getathleticsModifier()
+  {
+    return athleticsModifier;
+  }
+
+  public StringProperty getdeceptionModifier()
+  {
+    return deceptionModifier;
+  }
+
+  public StringProperty gethistoryModifier()
+  {
+    return historyModifier;
+  }
+
+  public StringProperty getinsightModifier()
+  {
+    return insightModifier;
+  }
+
+  public StringProperty getintimidationModifier()
+  {
+    return intimidationModifier;
+  }
+
+  public StringProperty getinvestigationModifier()
+  {
+    return investigationModifier;
+  }
+
+  public StringProperty getmedicineModifier()
+  {
+    return medicineModifier;
+  }
+
+  public StringProperty getnatureModifier()
+  {
+    return natureModifier;
+  }
+
+  public StringProperty getperceptionModifier()
+  {
+    return perceptionModifier;
+  }
+
+  public StringProperty getperformanceModifier()
+  {
+    return performanceModifier;
+  }
+
+  public StringProperty getpersuasionModifier()
+  {
+    return persuasionModifier;
+  }
+
+  public StringProperty getreligionModifier()
+  {
+    return religionModifier;
+  }
+
+  public StringProperty getsleightOfHandModifier()
+  {
+    return sleightOfHandModifier;
+  }
+
+  public StringProperty getstealthModifier()
+  {
+    return stealthModifier;
+  }
+
+  public StringProperty getsurvivalModifier()
+  {
+    return survivalModifier;
+  }
+
+  public StringProperty getcharacterName()
+  {
+    return characterName;
+  }
+
+  public StringProperty getcharacterClass()
+  {
+    return characterClass;
+  }
+
+  public StringProperty getcharacterRace()
+  {
+    return characterRace;
+  }
+
+  public StringProperty getcharacterAlignment()
+  {
+    return characterAlignment;
+  }
+
+  public StringProperty getcharacterHP()
+  {
+    return characterHP;
+  }
+
+  public StringProperty getcharacterHPMax()
+  {
+    return characterHPMax;
+  }
+
+  public StringProperty getcharacterLevel()
+  {
+    return characterLevel;
+  }
+
+  public StringProperty getxpCount()
+  {
+    return xpCount;
+  }
+
+  public StringProperty getstrengthSavingThrow()
+  {
+    return strengthSavingThrow;
+  }
+
+  public StringProperty getconstitutionSavingThrow()
+  {
+    return constitutionSavingThrow;
+  }
+
+  public StringProperty getdexteritySavingThrow()
+  {
+    return dexteritySavingThrow;
+  }
+
+  public StringProperty getintelligenceSavingThrow()
+  {
+    return intelligenceSavingThrow;
+  }
+
+  public StringProperty getwisdomSavingThrow()
+  {
+    return wisdomSavingThrow;
+  }
+
+  public StringProperty getcharismaSavingThrow()
+  {
+    return charismaSavingThrow;
+  }
+
+  public StringProperty getproficiencyBonus()
+  {
+    return proficiencyBonus;
+  }
+
+  public StringProperty getpassiveWisdom()
+  {
+    return passiveWisdom;
+  }
+
+  public StringProperty getspeed()
+  {
+    return speed;
+  }
+
+  public StringProperty getarmorClass()
+  {
+    return armorClass;
+  }
+
   //public StringProperty getnt(){return }
-  public StringProperty getknownSpellAmount(){return knownSpellAmount;}
-  public StringProperty getpreparedSpellAmount(){return preparedSpellAmount;}
-  public StringProperty getaddItemSelectedItemName(){return addItemSelectedItemName;}
-  public StringProperty getselectedItemFromInventoryName(){return selectedItemFromInventoryName;}
-  public StringProperty getplatinumPiece(){return platinumPiece;}
-  public StringProperty getcopperPiece(){return copperPiece;}
-  public StringProperty getelectrumPiece(){return electrumPiece;}
-  public StringProperty getsilverPiece(){return silverPiece;}
-  public StringProperty getgoldPiece(){return goldPiece;}
-  public StringProperty getplatinumPieceOne(){return platinumPieceOne;}
-  public StringProperty getgoldPieceOne(){return goldPieceOne;}
-  public StringProperty getelectrumPieceOne(){return electrumPieceOne;}
-  public StringProperty getsilverPieceOne(){return silverPieceOne;}
-  public StringProperty getcopperPieceOne(){return copperPieceOne;}
-  public StringProperty gethpChangeAmount(){return hpChangeAmount;}
-  public StringProperty getselectedItemFromInventoryAmount(){return selectedItemFromInventoryAmount; }
-  public StringProperty getselectedItemFromAddItemAmountStringProperty(){return selectedItemFromAddItemAmountStringProperty; }
-  public StringProperty getchangePlatinumAmountStringProperty(){return changePlatinumAmountStringProperty; }
-  public StringProperty getchangeGoldAmountStringProperty(){return changeGoldAmountStringProperty;}
-  public StringProperty getchangeElectrumAmountStringProperty(){return changeElectrumAmountStringProperty;}
-  public StringProperty getchangeSilverAmountStringProperty(){return changeSilverAmountStringProperty;}
-                  public StringProperty getchangeCopperAmountStringProperty(){return changeCopperAmountStringProperty;}
+  public StringProperty getknownSpellAmount()
+  {
+    return knownSpellAmount;
+  }
 
+  public StringProperty getpreparedSpellAmount()
+  {
+    return preparedSpellAmount;
+  }
 
+  public StringProperty getaddItemSelectedItemName()
+  {
+    return addItemSelectedItemName;
+  }
+
+  public StringProperty getselectedItemFromInventoryName()
+  {
+    return selectedItemFromInventoryName;
+  }
+
+  public StringProperty getplatinumPiece()
+  {
+    return platinumPiece;
+  }
+
+  public StringProperty getcopperPiece()
+  {
+    return copperPiece;
+  }
+
+  public StringProperty getelectrumPiece()
+  {
+    return electrumPiece;
+  }
+
+  public StringProperty getsilverPiece()
+  {
+    return silverPiece;
+  }
+
+  public StringProperty getgoldPiece()
+  {
+    return goldPiece;
+  }
+
+  public StringProperty getplatinumPieceOne()
+  {
+    return platinumPieceOne;
+  }
+
+  public StringProperty getgoldPieceOne()
+  {
+    return goldPieceOne;
+  }
+
+  public StringProperty getelectrumPieceOne()
+  {
+    return electrumPieceOne;
+  }
+
+  public StringProperty getsilverPieceOne()
+  {
+    return silverPieceOne;
+  }
+
+  public StringProperty getcopperPieceOne()
+  {
+    return copperPieceOne;
+  }
+
+  public StringProperty gethpChangeAmount()
+  {
+    return hpChangeAmount;
+  }
+
+  public StringProperty getselectedItemFromInventoryAmount()
+  {
+    return selectedItemFromInventoryAmount;
+  }
+
+  public StringProperty getselectedItemFromAddItemAmountStringProperty()
+  {
+    return selectedItemFromAddItemAmountStringProperty;
+  }
+
+  public StringProperty getchangePlatinumAmountStringProperty()
+  {
+    return changePlatinumAmountStringProperty;
+  }
+
+  public StringProperty getchangeGoldAmountStringProperty()
+  {
+    return changeGoldAmountStringProperty;
+  }
+
+  public StringProperty getchangeElectrumAmountStringProperty()
+  {
+    return changeElectrumAmountStringProperty;
+  }
+
+  public StringProperty getchangeSilverAmountStringProperty()
+  {
+    return changeSilverAmountStringProperty;
+  }
+
+  public StringProperty getchangeCopperAmountStringProperty()
+  {
+    return changeCopperAmountStringProperty;
+  }
+
+  public StringProperty getInitiativeModifier()
+  {
+    return initiativeModifier;
+  }
 
   private void setCharacter(PropertyChangeEvent propertyChangeEvent)
   {
@@ -704,6 +987,8 @@ public class CharacterSheetViewModel
     int maxHP = calculateMaxHP();
     characterHPMax.setValue(String.valueOf(maxHP));
     xpCount.setValue(String.valueOf(sheetCharacter.getXp()));
+    initiativeModifier.setValue(
+        String.valueOf(Integer.parseInt(dexterityModifier.getValue())));
 
     //speed difference based on race
 
@@ -1214,6 +1499,9 @@ public class CharacterSheetViewModel
       else if (c instanceof Bard && sheetCharacter.getLevelInClass()
           .get(sheetCharacter.getCharacterClass().indexOf(c)) >= 2)
       {
+        initiativeModifier.setValue(String.valueOf(
+            Integer.parseInt(initiativeModifier.getValue()) + Integer
+                .parseInt(proficiencyBonus.getValue())));
         for (Feat f : c.getClassFeats())
         {
           //Jack of all Trades
