@@ -28,8 +28,6 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
   {
     characters = new ArrayList<>();
     this.client = client;
-
-    characters = new ArrayList<>();
     support = new PropertyChangeSupport(this);
     client.addListener("incomingCharacter", this::setCharacter);
     client.addListener("incomingStaticModel", this::setStaticModel);
