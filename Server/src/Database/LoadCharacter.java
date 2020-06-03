@@ -5,6 +5,7 @@ import system.model.businessModel.Character;
 import system.model.businessModel.staticModel.StaticModel;
 import system.model.characterClasses.Barbarian;
 import system.model.characterClasses.CharacterClass;
+import system.transferobjects.Container;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -29,6 +30,9 @@ public class LoadCharacter
       c = DriverManager
           .getConnection("jdbc:postgresql://localhost:5432/SEP2", "postgres",
               "almafast325");
+      GetCoreFromDatabase getCore = new GetCoreFromDatabase();
+      Container container = getCore.loadDatabase();
+      staticModel = getCore.loadStaticModel();
     }
     catch (SQLException | ClassNotFoundException e)
     {

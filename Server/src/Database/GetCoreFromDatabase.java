@@ -95,6 +95,44 @@ public class GetCoreFromDatabase
     return cont;
   }
 
+  public StaticModel loadStaticModel()
+  {
+    /**
+     * Main database loading method. Sub-methods responsible for loading individual tables.
+     * All of the methods in this class draw on the Core database schema.
+     * @exception SQLException Thrown in case of an error in the database communication.
+     */
+    try
+    {
+      System.out.println("1");
+      loadAbility();
+      System.out.println("3");
+      loadEquipmentArmors();
+      System.out.println("4");
+      loadEquipmentGeneral();
+      System.out.println("5");
+      loadEquipmentWeapons();
+      System.out.println("6");
+      loadSkills();
+      System.out.println("7");
+      loadRace();
+      System.out.println("8");
+      loadSpells();
+      System.out.println("9");
+      loadSubClasses();
+      System.out.println("10");
+      loadSubRaces();
+      System.out.println("11");
+      staticModel.load(abilities, skills, races, spells, subclasses, subraces,
+          equipmentArmors, equipmentGenerals, equipmentWeaponList);
+    }
+    catch (SQLException ex)
+    {
+      ex.printStackTrace();
+    }
+    return staticModel;
+  }
+
   private void loadEquipmentArmors() throws SQLException
   {
     /**
@@ -177,7 +215,8 @@ public class GetCoreFromDatabase
     ResultSet rs = st.executeQuery(query);
     while (rs.next())
     {
-      Race r = new Race(rs.getString("name"), rs.getString("description"), rs.getString("traits"));
+      Race r = new Race(rs.getString("name"), rs.getString("description"),
+          rs.getString("traits"));
       races.add(r);
     }
   }
@@ -193,7 +232,8 @@ public class GetCoreFromDatabase
 
     while (rs.next())
     {
-      Subrace hillDwarf = new Subrace(rs.getString("mainRace"), rs.getString("name"), rs.getString("description"),
+      Subrace hillDwarf = new Subrace(rs.getString("mainRace"),
+          rs.getString("name"), rs.getString("description"),
           rs.getString("traits"));
       subraces.add(hillDwarf);
     }
@@ -210,9 +250,9 @@ public class GetCoreFromDatabase
 
     while (rs.next())
     {
-        Skill skill = new Skill(rs.getString("ability"), rs.getString("name"),
-            rs.getString("description"));
-        skills.add(skill);
+      Skill skill = new Skill(rs.getString("ability"), rs.getString("name"),
+          rs.getString("description"));
+      skills.add(skill);
     }
   }
 
