@@ -101,6 +101,7 @@ public class CharacterSheetViewModel
   private void setCharacter(PropertyChangeEvent propertyChangeEvent)
   {
     sheetCharacter = (Character) propertyChangeEvent.getNewValue();
+    calculateValues();
   }
 
   private void calculateValues()
