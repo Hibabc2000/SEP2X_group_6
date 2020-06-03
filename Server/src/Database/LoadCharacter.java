@@ -56,8 +56,10 @@ public class LoadCharacter
         character.setAbilities((int[]) rs.getArray("abilities").getArray());
         character.setAbilitiesRolled((int[]) rs.getArray("abilitiesRolled").getArray());
         character.setId(id);
-        ArrayList<String> classNames = (ArrayList<String>) rs.getArray("classes").getArray();
-        ArrayList<Integer> classLevels = (ArrayList<Integer>) rs.getArray("classLevels").getArray();
+        String classNamesSQL = rs.getString("classes");
+        String classLevelsSQL = rs.getString("classLevels");
+        ArrayList<String> classNames = sqlArrayToArrayListString(classNamesSQL);
+        ArrayList<Integer> classLevels = sqlArrayToArrayListInteger(classLevelsSQL);
         ArrayList<CharacterClass> classes = new ArrayList<>();
         for(String s : classNames)
         {
@@ -81,8 +83,10 @@ public class LoadCharacter
         character.setMoney((int[]) rs.getArray("money").getArray());
         character.setFeats((ArrayList<Feat>) rs.getArray("extraFeatNames").getArray());
         character.setUsername(rs.getString("username"));
-        ArrayList<String> equipment_names = (ArrayList<String>) rs.getArray("equipment_names").getArray();
-        ArrayList<Integer> equipment_amounts = (ArrayList<Integer>) rs.getArray("eqiupment_amount").getArray(); //typo is in database
+        String equipmentNames = rs.getString("equipment_names");
+        String equipmentAmount = rs.getString("eqiupment_amount");
+        ArrayList<String> equipment_names = sqlArrayToArrayListString(equipmentNames);
+        ArrayList<Integer> equipment_amounts = sqlArrayToArrayListInteger(equipmentAmount);
         ArrayList<Item> items = new ArrayList<>();
         ArrayList<String> treasures = new ArrayList<>();
         for(String s : equipment_names)
@@ -146,5 +150,41 @@ public class LoadCharacter
       idOfTheCreatedCharacter = rs.getInt("id");
     }
     return idOfTheCreatedCharacter;
+  }
+
+  public static ArrayList<String> sqlArrayToArrayListString(String ar)
+  {
+    ArrayList<String> temp = new ArrayList<>();
+    System.out.println("This is the array of usernames:"+ar);
+
+    String[] ara = ar.split("\\{");
+    String part2 = ara[1];
+    String[] h = part2.split("}");
+    String o = h[0];
+    String[] l = o.split(",");
+
+    for (int i = 0; i < l.length; i++)
+    {
+      temp.add(l[i]);
+
+    }
+    return temp;
+  }
+
+  public ArrayList<Integer> sqlArrayToArrayListInteger(String ar)
+  {
+    ArrayList<Integer> temp = new ArrayList<>();
+    String[] ara = ar.split("\\{");
+    String part2 = ara[1];
+    String[] h = part2.split("}");
+    String o = h[0];
+    String[] l = o.split(",");
+
+    for (int i = 0; i < l.length; i++)
+    { if(l[i].equals("NULL")) {l[i]="0";}
+      temp.add(Integer.parseInt(l[i]));
+
+    }
+    return temp;
   }
 }
