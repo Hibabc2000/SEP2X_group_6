@@ -254,26 +254,25 @@ public class AccountModelImpl
     System.exit(1);
   }
 
-  // DM creates a group with a given name , and a random ID, right now i am using just a RNG, but this might be changed cause it is inefficient
-  //  added it to a newgroup, I add DM as myself, since I created the group, so I am the DM.
-  // the newgroup is added to the groupsForDm which will appear in my DM grouplist.
-  // I add it to the temporary findingUnkownGroupsGroup so it can be found by other players. This  replaces the database right now.
-  // fire propchange to update the viewmodel and view with the new group,
+  /**
+   *The DM creates a group using a group name.
+   * @param name String
+   */
   @Override public String createGroup(String name)
   {
-    String temp = "Creating...";
+
     client.createGroup(usersAccount, name);
-    //serve
-
-    //
-
-    // support.firePropertyChange("GroupCreatedByDm", null, newGroup);
+    String temp=null;
 
     return temp = "Group created";
 
   }
 
-  // returns the groups for the User depending on what mode is he in (player or DM)
+  /**
+   *The method returns an Arraylist of groups your are part of as a DM if you are in DM instance (create group)
+   * or returns an Arraylist of groups you are part of as a player if you are in Player instance (join group)
+   * @return groupsForDm or GroupsForPlayer ArrayList<group>
+   */
   @Override public ArrayList<Group> getGroups()
   {
     if (usersAccount.getUser() instanceof Player)
@@ -289,10 +288,11 @@ public class AccountModelImpl
       return null;
   }
 
-  // players will use this method to search for a group by ID,
-  //If it in his tempGroups that means he already discovered it, then the loop breaks;
-  // Nextx loop checks the database for the group , and if he finds it but the DM has the same name as the DM of that group then loop breaks and error,
-  //if no errors then next loop finds the group and adds it to the users grouplist and property change fire to update view/vm.
+  /**
+   *This method searches for the group in the database with the given {@param id}
+   * but first it searches all the groups which is on his group lists and check whether it already has the team with ID.
+   * @return temp String to the view model.
+   */
   @Override public String searchGroup(int id)
   {
     String temp = "Searching...";
@@ -322,10 +322,12 @@ public class AccountModelImpl
     return temp;
   }
 
-  // Player joins a group by a loop going through all the groups that are in his group list, and joins the one
-  // that has the same toString which the player clicked, next checks if the player is the part of the group or not
-  // and whether the group contains the same username as the player, just to make sure there is absolutely no errors.
-  //after that the player is added to a group , and fire prop change with 2 variables, oldgroup and the tempgroup.
+  /**
+   *This method is for joining a group as a player, first it checks which group you want to join by the groups toString method
+   * and compares it to  the others groups you are part of , if it finds it then gets that group and sends it to the server and
+   * database for updates. If you already part of the group then it will not send an update.
+   * @return temp String stating the result
+   */
 
   @Override public String joinGroupAsPlayer(String groupName)
   {
@@ -408,14 +410,14 @@ public class AccountModelImpl
     }
     else
       client.createAccount(username, pass1, email);
-    System.out.println("alma");
+
     usersAccount = new Account(username, pass1, email);
     usersAccount.setUserToPlayer();
 
     return temp;
   }
 
-  // basic login with if statements checking pass and name.
+
 
   /**
    * Checks the given username and password and sends them forward to the
@@ -437,7 +439,6 @@ public class AccountModelImpl
     else
     {
       client.checkLogin(username, password);}
-    // put it into server
 
     return temp;
 
@@ -465,23 +466,24 @@ public class AccountModelImpl
     return temp;
   }
 
-  // its for the account, when we decide to be DM or Player, its switching the User to that instance.
+  /**
+   *
+   * @throws IndexOutOfBoundsException if the user is not part of any group.
+   */
   @Override public void changeToDm()
   {
-    System.out.println("watafuk1");
+
     usersAccount.setUserToDm();
-    System.out.println("watafuk2");
-    System.out.println("watafuk3");
+
+
 
   }
 
   @Override public void changeToPlayer()
   {
-    System.out.println("watafuk1");
-    usersAccount.setUserToPlayer();
-    System.out.println("watafuk2");
 
-    System.out.println("watafuk3");
+    usersAccount.setUserToPlayer();
+
   }
 
   // method for checking that everything is right for password change, field checks, I create an account variable which is null,
