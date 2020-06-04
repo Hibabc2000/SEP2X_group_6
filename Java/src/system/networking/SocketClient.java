@@ -126,6 +126,7 @@ public class SocketClient implements Client
   {
     try
     {
+      getStaticModel();
       socketHandler.startGame(groupToPlayWith);
     }
     catch (IOException e)

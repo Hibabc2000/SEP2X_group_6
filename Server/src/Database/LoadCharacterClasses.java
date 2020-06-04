@@ -298,9 +298,13 @@ public class LoadCharacterClasses
         {
           p = new Proficiency(s2[0], s2[1], "class", d);
         }
-        else
+        else if (s2.length > 0)
         {
           p = new Proficiency(s2[0], "", "class", d);
+        }
+        else
+        {
+          p = new Proficiency(s, "", "class", d);
         }
         arr.add(p);
       }
