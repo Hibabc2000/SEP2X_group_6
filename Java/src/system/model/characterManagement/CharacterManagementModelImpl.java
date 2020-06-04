@@ -222,7 +222,7 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
         }
       }
     }
-    else
+    else if(characters.size() > 0)
     {
       characters.remove(0);
       characters.add(character);

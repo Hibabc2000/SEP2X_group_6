@@ -549,6 +549,7 @@ public class CharacterCreationController
       characterCreationViewModel.setLanguage(languageTextArea.textProperty().get());
       characterCreationViewModel.saveCharacter();
       characterCreationViewModel.setSkills(tmp);
+      viewHandler.openCharacterSheet();
     }
     else
     {

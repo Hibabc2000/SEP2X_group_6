@@ -337,7 +337,7 @@ openSystem();
       Parent root = getRootByPath("../views/characterSheet/CharacterSheet.fxml",
           loader);
       CharacterSheetController controller = loader.getController();
-      controller.init(vmf.getCharacterSheetViewModel, this);
+      controller.init(vmf.getCharacterSheetViewModel(), this);
       characterSheet = new Scene(root);
     }
     stage4.setTitle("DnDAS");

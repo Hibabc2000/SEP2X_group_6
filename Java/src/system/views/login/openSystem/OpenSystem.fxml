@@ -38,7 +38,6 @@
                         <Shadow />
                      </bumpInput>
                      <light>
-                        <Light.Distant color="#033c17" />
                      </light>
                   </Lighting>
                </effect>

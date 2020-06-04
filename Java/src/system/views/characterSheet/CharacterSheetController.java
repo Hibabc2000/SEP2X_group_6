@@ -253,7 +253,7 @@ public class CharacterSheetController
     viewModel = vm;
     this.viewHandler = viewHandler;
     log = Log.getLogEntry();
-    strengthModifier.textProperty()
+    /*strengthModifier.textProperty()
         .bindBidirectional(viewModel.getstrengthModifier());
     strength.textProperty().bindBidirectional(viewModel.getstrength());
     dexterityModifier.textProperty()
@@ -381,7 +381,138 @@ public class CharacterSheetController
     changeCopperAmountTextField.textProperty()
         .bindBidirectional(viewModel.getchangeCopperAmountStringProperty());
     initiativeModifier.textProperty()
-        .bindBidirectional(viewModel.getInitiativeModifier());
+        .bindBidirectional(viewModel.getInitiativeModifier());*/
+    strengthModifier.textProperty()
+        .bind(viewModel.getstrengthModifier());
+    strength.textProperty().bind(viewModel.getstrength());
+    dexterityModifier.textProperty()
+        .bind(viewModel.getdexterityModifier());
+    dexterity.textProperty().bind(viewModel.getdexterity());
+    constitutionModifier.textProperty()
+        .bind(viewModel.getconstitutionModifier());
+    constitution.textProperty().bind(viewModel.getconstitution());
+    intelligenceModifier.textProperty()
+        .bind(viewModel.getintelligenceModifier());
+    intelligence.textProperty().bind(viewModel.getintelligence());
+    wisdomModifier.textProperty()
+        .bind(viewModel.getwisdomModifier());
+    wisdom.textProperty().bind(viewModel.getwisdom());
+    charismaModifier.textProperty()
+        .bind(viewModel.getcharismaModifier());
+    charisma.textProperty().bind(viewModel.getcharisma());
+    acrobaticsModifier.textProperty()
+        .bind(viewModel.getacrobaticsModifier());
+    animalHandlingModifier.textProperty()
+        .bind(viewModel.getanimalHandlingModifier());
+    arcanaModifier.textProperty()
+        .bind(viewModel.getarcanaModifier());
+    athleticsModifier.textProperty()
+        .bind(viewModel.getathleticsModifier());
+    deceptionModifier.textProperty()
+        .bind(viewModel.getdeceptionModifier());
+    historyModifier.textProperty()
+        .bind(viewModel.gethistoryModifier());
+    insightModifier.textProperty()
+        .bind(viewModel.getinsightModifier());
+    intimidationModifier.textProperty()
+        .bind(viewModel.getintimidationModifier());
+    investigationModifier.textProperty()
+        .bind(viewModel.getinvestigationModifier());
+    medicineModifier.textProperty()
+        .bind(viewModel.getmedicineModifier());
+    natureModifier.textProperty()
+        .bind(viewModel.getnatureModifier());
+    perceptionModifier.textProperty()
+        .bind(viewModel.getperceptionModifier());
+    performanceModifier.textProperty()
+        .bind(viewModel.getperformanceModifier());
+    persuasionModifier.textProperty()
+        .bind(viewModel.getpersuasionModifier());
+    religionModifier.textProperty()
+        .bind(viewModel.getreligionModifier());
+    sleightOfHandModifier.textProperty()
+        .bind(viewModel.getsleightOfHandModifier());
+    stealthModifier.textProperty()
+        .bind(viewModel.getstealthModifier());
+    survivalModifier.textProperty()
+        .bind(viewModel.getsurvivalModifier());
+    characterClass.textProperty()
+        .bind(viewModel.getcharacterClass());
+    characterName.textProperty()
+        .bind(viewModel.getcharacterName());
+    characterAlignment.textProperty()
+        .bind(viewModel.getcharacterAlignment());
+    characterRace.textProperty()
+        .bind(viewModel.getcharacterRace());
+    hpMax.textProperty().bind(viewModel.getcharacterHPMax());
+    hp.textProperty().bind(viewModel.getcharacterHP());
+    levelDisplay.textProperty()
+        .bind(viewModel.getcharacterLevel());
+    xpCount.textProperty().bind(viewModel.getxpCount());
+    strengthSavingThrow.textProperty()
+        .bind(viewModel.getstrengthSavingThrow());
+    dexteritySavingThrow.textProperty()
+        .bind(viewModel.getdexteritySavingThrow());
+    constitutionSavingThrow.textProperty()
+        .bind(viewModel.getconstitutionSavingThrow());
+    intelligenceSavingThrow.textProperty()
+        .bind(viewModel.getintelligenceSavingThrow());
+    wisdomSavingThrow.textProperty()
+        .bind(viewModel.getwisdomSavingThrow());
+    charismaSavingThrow.textProperty()
+        .bind(viewModel.getcharismaSavingThrow());
+    proficiencyBonus.textProperty()
+        .bind(viewModel.getproficiencyBonus());
+    passiveWisdom.textProperty()
+        .bind(viewModel.getpassiveWisdom());
+    speed.textProperty().bind(viewModel.getspeed());
+    armorClass.textProperty().bind(viewModel.getarmorClass());
+
+    platinumPiece.textProperty()
+        .bind(viewModel.getplatinumPiece());
+    copperPiece.textProperty().bind(viewModel.getcopperPiece());
+    electrumPiece.textProperty()
+        .bind(viewModel.getelectrumPiece());
+    silverPiece.textProperty().bind(viewModel.getsilverPiece());
+    goldPiece.textProperty().bind(viewModel.getgoldPiece());
+    knownSpellsAmount.textProperty()
+        .bind(viewModel.getknownSpellAmount());
+    preparedSpellsAmount.textProperty()
+        .bind(viewModel.getpreparedSpellAmount());
+    selectedItemFromInventoryName.textProperty()
+        .bind(viewModel.getselectedItemFromInventoryName());
+    addItemSelectedItemName.textProperty()
+        .bind(viewModel.getaddItemSelectedItemName());
+    platinumPieceOne.textProperty()
+        .bind(viewModel.getplatinumPieceOne());
+    goldPieceOne.textProperty().bind(viewModel.getgoldPieceOne());
+    electrumPieceOne.textProperty()
+        .bind(viewModel.getelectrumPieceOne());
+    silverPieceOne.textProperty()
+        .bind(viewModel.getsilverPieceOne());
+    copperPieceOne.textProperty()
+        .bind(viewModel.getcopperPieceOne());
+
+    hpChangeAmount.textProperty()
+        .bind(viewModel.gethpChangeAmount());
+    selectedItemFromInventoryAmount.textProperty()
+        .bind(viewModel.getselectedItemFromInventoryAmount());
+    selectedItemFromAddItemAmountTextField.textProperty().bind(
+        viewModel.getselectedItemFromAddItemAmountStringProperty());
+    changePlatinumAmountTextField.textProperty()
+        .bind(viewModel.getchangePlatinumAmountStringProperty());
+    changeGoldAmountTextField.textProperty()
+        .bind(viewModel.getchangeGoldAmountStringProperty());
+    changeElectrumAmountTextField.textProperty()
+        .bind(viewModel.getchangeElectrumAmountStringProperty());
+    changeSilverAmountTextField.textProperty()
+        .bind(viewModel.getchangeSilverAmountStringProperty());
+    changeCopperAmountTextField.textProperty()
+        .bind(viewModel.getchangeCopperAmountStringProperty());
+    initiativeModifier.textProperty()
+        .bind(viewModel.getInitiativeModifier());
+
+
   }
 
   public void spellSlotCheck(ActionEvent actionEvent)
