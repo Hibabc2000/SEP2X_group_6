@@ -322,4 +322,11 @@ public class ClientSocketHandler implements Runnable
     Container outDatPack = new Container(objs,ClassName.START_GAME);
     outToServer.writeObject(outDatPack);
   }
+
+  public void getStaticModelAndClasses() throws IOException
+  {
+    System.out.println("staticModel");
+    Container outDataPack = new Container(null, ClassName.GET_STATIC_MODEL);
+    outToServer.writeObject(outDataPack);
+  }
 }

@@ -273,25 +273,41 @@ public class LoadCharacterClasses
      */
     ArrayList<Proficiency> arr = new ArrayList<>();
     String[] temp = modifiers.split("|");
-    for (String s : temp)
+    if(temp.length > 0)
     {
-      String[] s2 = s.split(":");
-      double d;
-      if (s.toLowerCase().contains("expert"))
+      for (String s : temp)
       {
-        d = 2;
+        String[] s2 = s.split(":");
+        double d;
+        if (s.toLowerCase().contains("expert"))
+        {
+          d = 2;
+        }
+        else if (s.toLowerCase().contains("proficiency"))
+        {
+          d = 1;
+        }
+        else if (s.toLowerCase().contains("half"))
+        {
+          d = 0.5;
+        }
+        else
+          d = 1;
+        Proficiency p;
+        if (s2.length > 1)
+        {
+          p = new Proficiency(s2[0], s2[1], "class", d);
+        }
+        else if (s2.length > 0)
+        {
+          p = new Proficiency(s2[0], "", "class", d);
+        }
+        else
+        {
+          p = new Proficiency(s, "", "class", d);
+        }
+        arr.add(p);
       }
-      else if (s.toLowerCase().contains("proficiency"))
-      {
-        d = 1;
-      }
-      else if (s.toLowerCase().contains("half"))
-      {
-        d = 0.5;
-      }
-      else d = 1;
-      Proficiency p = new Proficiency(s2[0], s2[1], "class", d);
-      arr.add(p);
     }
     return arr;
   }
