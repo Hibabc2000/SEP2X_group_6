@@ -44,6 +44,7 @@ public class OpenSystemViewModel implements Subject
    */
   private void searchGroupAnswer(PropertyChangeEvent propertyChangeEvent)
   {
+
     String val = "error";
     boolean respone = ((boolean) propertyChangeEvent.getNewValue());
     if (!respone)

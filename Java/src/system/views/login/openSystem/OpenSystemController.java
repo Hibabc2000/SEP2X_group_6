@@ -17,6 +17,12 @@ public class OpenSystemController
   public Button forgotPasswordButton;
   public Label errorMessageLabel;
 
+  // test
+
+  public Label testPopup;
+
+  // end test
+
   private ViewHandler viewHandler;
   private OpenSystemViewModel openSystemViewModel;
 
@@ -40,13 +46,17 @@ public class OpenSystemController
     this.viewHandler = viewHandler;
     openSystemViewModel.addListener("acceptTheLogIn", this::loginAccount);
 
+
   }
+
+
 
   /**
    * Returns to the view the login request result. If the {@param propertyChangeEvent} has the
    * value "Ready" the openAccount view will be opened
    * @param propertyChangeEvent contains a String
    */
+
 
   private void loginAccount(PropertyChangeEvent propertyChangeEvent)
   {

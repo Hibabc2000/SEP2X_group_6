@@ -15,7 +15,7 @@ public class ModelFactory
   private PlayerAccountModel playerAccountModel;
   private ClientFactory clientFactory;
   private CharacterManagementModelImpl characterManagementModel;
-private AccountModelImpl accountModelImpl;
+  private AccountModelImpl accountModelImpl;
   /**
    * Initializes the class attributes
    *

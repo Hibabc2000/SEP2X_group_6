@@ -2,6 +2,7 @@ package system.core;
 
 import system.views.characterCreation.CharacterCreationViewModel;
 import system.views.characterSheet.CharacterSheetViewModel;
+import system.views.characterSheet.infoPopup.InfoPopupViewModel;
 import system.views.dmCharacterSheetChoosing.DMCharacterSheetChoosingViewModel;
 import system.views.login.account.AccountViewModel;
 import system.views.login.changeEmail.ChangeEmailViewModel;
@@ -19,6 +20,7 @@ public class ViewModelFactory
   private AccountViewModel accountModel;
   private CreateAccountViewModel createAccountModel;
 
+
   private OpenSystemViewModel openSystemViewModel;
   private PasswordRecoveryViewModel passwordRecoveryViewModel;
   private DMAccountViewModel dmAccountViewModel;
@@ -29,9 +31,11 @@ public class ViewModelFactory
 
   //  characterSheet
   private CharacterSheetViewModel characterSheetViewModel;
+  private InfoPopupViewModel infoPopupViewModel;
 
   //  characterCreation
   private CharacterCreationViewModel characterCreationViewModel;
+
 
   /**
    * Initializes the class attributes(not all)
@@ -54,7 +58,10 @@ public class ViewModelFactory
     changeEmailViewModel = new ChangeEmailViewModel(model.getChangeEmailModel());
     dmcscv = new DMCharacterSheetChoosingViewModel(model.getCharacterManagementModel());
 
+
   }
+
+
 
   /**
    * Lazy instantiation of the AccountViewModel

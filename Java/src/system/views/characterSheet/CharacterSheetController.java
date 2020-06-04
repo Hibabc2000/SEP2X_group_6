@@ -3,6 +3,7 @@ package system.views.characterSheet;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import system.core.ViewHandler;
 import system.util.logger.Log;
 
@@ -434,5 +435,10 @@ public class CharacterSheetController
 
   public void clearCurrencyTextFields(ActionEvent actionEvent)
   {
+  }
+
+  public void strengthModifierInfo(MouseEvent mouseEvent)
+  {
+    System.out.println("asdasdasda");
   }
 }

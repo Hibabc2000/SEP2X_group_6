@@ -231,6 +231,13 @@ public class ViewHandler
     stage.show();
   }
 
+  public void openInfoPopupWindow()
+  {
+    FXMLLoader loader = new FXMLLoader();
+
+
+  }
+
 
   /**
    * If the scene(openPasswordRecovery) is null, the method will find the FXML file by the given root

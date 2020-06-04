@@ -23,7 +23,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="912.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.views.characterSheet.CharacterSheetController">
+<AnchorPane id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="912.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.views.characterSheet.CharacterSheetController">
    <children>
       <VBox fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="912.0" prefWidth="1920.0">
          <children>
@@ -58,7 +58,7 @@
                <children>
                   <VBox maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="100.0" GridPane.rowSpan="3">
                      <children>
-                        <Label fx:id="strengthModifier" minWidth="-Infinity" prefHeight="0.0" prefWidth="62.0" text="+10">
+                        <Label fx:id="strengthModifier" minWidth="-Infinity" onMouseClicked="#strengthModifierInfo" prefHeight="0.0" prefWidth="62.0" text="+10">
                            <VBox.margin>
                               <Insets left="28.0" top="70.0" />
                            </VBox.margin>

@@ -25,7 +25,7 @@ public interface Client extends Subject
   void removeUser(Account ac);
 
 //  open system
-void checkLogin(String username, String password);
+  void checkLogin(String username, String password);
 
   void submitCharacter(Character character);
   void startGame(Group groupToPlayWith);
