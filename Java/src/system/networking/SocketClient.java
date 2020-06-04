@@ -126,7 +126,6 @@ public class SocketClient implements Client
   {
     try
     {
-      getStaticModel();
       socketHandler.startGame(groupToPlayWith);
     }
     catch (IOException e)
@@ -136,7 +135,7 @@ public class SocketClient implements Client
 
   }
 
-  public void getStaticModel()
+  /*public void getStaticModel()
   {
     try
     {
@@ -146,7 +145,7 @@ public class SocketClient implements Client
     {
       e.printStackTrace();
     }
-  }
+  }*/
 
   /**
    * Sends the username and password to the Socket Handler

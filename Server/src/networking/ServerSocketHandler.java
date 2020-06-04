@@ -2,7 +2,6 @@ package networking;
 
 import Database.*;
 import system.model.businessModel.Character;
-import system.model.businessModel.staticModel.StaticModel;
 import system.model.characterClasses.CharacterClass;
 import system.transferobjects.ClassName;
 import system.transferobjects.Container;
@@ -460,14 +459,6 @@ public class ServerSocketHandler implements Runnable
           }
           case GET_STATIC_MODEL:
           {
-            GetCoreFromDatabase getCore = new GetCoreFromDatabase();
-            StaticModel s = getCore.loadStaticModel();
-            Container cont = new Container(s, ClassName.STATIC_MODEL);
-            pool.sendDataToUser(getAccount().getUsername(), cont);
-            LoadCharacterClasses loader = new LoadCharacterClasses();
-            ArrayList<CharacterClass> ret = loader.load();
-            Container cont2 = new Container(ret, ClassName.CLASSES_LOAD);
-            pool.sendDataToUser(getAccount().getUsername(), cont2);
             break;
           }
         }
