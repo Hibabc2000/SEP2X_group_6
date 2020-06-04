@@ -4,10 +4,9 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import system.model.businessModel.Background;
+import system.model.businessModel.*;
 import system.model.businessModel.Character;
-import system.model.businessModel.Feat;
-import system.model.businessModel.Race;
+import system.model.businessModel.staticModel.Skill;
 import system.model.businessModel.staticModel.StaticModel;
 import system.model.businessModel.staticModel.Subclass;
 import system.model.characterClasses.CharacterClass;
@@ -89,10 +88,11 @@ public class CharacterCreationViewModel implements Subject
   private ObservableList<String> allCharacterClassesNames;
   private ArrayList<Background> backgrounds;
   private Background characterBackground;
+  private boolean[] skills;
 
   public CharacterCreationViewModel(CharacterManagementModel model1)
   { support= new PropertyChangeSupport(this);
-
+  skills = new boolean[18];
     model = model1;
     relatedFeats = new ArrayList<>();
     featsAndFeatures= new ArrayList<>();
@@ -198,7 +198,19 @@ public class CharacterCreationViewModel implements Subject
       {
         characterBackground = backgrounds.get(i);
       }
+      for (Proficiency p : temporaryCharacter.getProficiencies())
+      {
+        if (p.getType().contains("language"))
+        {
+          languageF.setValue(p.getOrigin());
+        }
+        else
+        {
+          languageF.setValue(" ");
+        }
+      }
     }
+
     //HERE
     int[] x = temporaryCharacter.getAbilitiesRolled();
     intelligenceProperty.setValue(String.valueOf(x[3]));
@@ -210,7 +222,88 @@ public class CharacterCreationViewModel implements Subject
      featsAndFeatures.addAll(temporaryCharacter.getFeats());
     //hvhjghjk
 
-
+    for (Proficiency p : temporaryCharacter.getProficiencies())
+    {
+      StaticModel staticModel = new StaticModel();
+      for (Skill s : staticModel.getSkills())
+      {
+        if (p.getName().toLowerCase().contains(s.getName().toLowerCase()))
+        {
+          if (s.getName().equals("Acrobatics"))
+          {
+           skills[0] = true;
+          }
+          else if (s.getName().equals("Animal Handling"))
+          {
+            skills[1] = true;
+          }
+          else if (s.getName().equals("Arcana"))
+          {
+            skills[2] = true;
+          }
+          else if (s.getName().equals("Athletics"))
+          {
+            skills[3] = true;
+          }
+          else if (s.getName().equals("Deception"))
+          {
+            skills[4] = true;
+          }
+          else if (s.getName().equals("History"))
+          {
+            skills[5] = true;
+          }
+          else if (s.getName().equals("Insight"))
+          {
+            skills[6] = true;
+          }
+          else if (s.getName().equals("Intimidation"))
+          {
+            skills[7] = true;
+          }
+          else if (s.getName().equals("Investigation"))
+          {
+            skills[8] = true;
+          }
+          else if (s.getName().equals("Medicine"))
+          {
+            skills[9] = true;
+          }
+          else if (s.getName().equals("Nature"))
+          {
+            skills[10] = true;
+          }
+          else if (s.getName().equals("Perception"))
+          {
+            skills[11] = true;
+          }
+          else if (s.getName().equals("Performance"))
+          {
+            skills[12] = true;
+          }
+          else if (s.getName().equals("Persuasion"))
+          {
+            skills[13] = true;
+          }
+          else if (s.getName().equals("Religion"))
+          {
+            skills[14] = true;
+          }
+          else if (s.getName().equals("Sleight of Hand"))
+          {
+            skills[15] = true;
+          }
+          else if (s.getName().equals("Stealth"))
+          {
+            skills[16] = true;
+          }
+          else if (s.getName().equals("Survival"))
+          {
+            skills[17] = true;
+          }
+        }
+      }
+    }
 
   }
 /*
@@ -1200,10 +1293,119 @@ public class CharacterCreationViewModel implements Subject
   }
   public void setSkills(boolean[] shkills)
   {
-
+    skills = shkills;
+    ArrayList<Proficiency> tmp = temporaryCharacter.getProficiencies();
+    for (Proficiency p : tmp)
+    {
+      if(p.getName().toLowerCase().equalsIgnoreCase("Acrobatics")||p.getName().toLowerCase().equalsIgnoreCase("Animal Handling")||
+          p.getName().toLowerCase().equalsIgnoreCase("Arcana")||p.getName().toLowerCase().equalsIgnoreCase("Athletics")||
+          p.getName().toLowerCase().equalsIgnoreCase("Deception")||p.getName().toLowerCase().equalsIgnoreCase("History")||
+          p.getName().toLowerCase().equalsIgnoreCase("Insight")||p.getName().toLowerCase().equalsIgnoreCase("Intimidation")||
+          p.getName().toLowerCase().equalsIgnoreCase("Investigation")||p.getName().toLowerCase().equalsIgnoreCase("Medicine")||
+          p.getName().toLowerCase().equalsIgnoreCase("Nature")||p.getName().toLowerCase().equalsIgnoreCase("Perception")||
+          p.getName().toLowerCase().equalsIgnoreCase("Performance")||p.getName().toLowerCase().equalsIgnoreCase("Persuasion")||
+          p.getName().toLowerCase().equalsIgnoreCase("Religion")||p.getName().toLowerCase().equalsIgnoreCase("Sleight of Hand")||
+          p.getName().toLowerCase().equalsIgnoreCase("Stealth")||p.getName().toLowerCase().equalsIgnoreCase("Survival"))
+      {
+        tmp.remove(p);
+      }
+    }
+    if(shkills[0])
+    {
+      tmp.add(new Proficiency("Acrobatics","","",0));
+    }
+    else if(shkills[1])
+    {
+      tmp.add(new Proficiency("Animal Handling","","",0));
+    }
+    else if(shkills[2])
+    {
+      tmp.add(new Proficiency("Arcana","","",0));
+    }
+else if(shkills[3])
+    {
+      tmp.add(new Proficiency("Athletics","","",0));
+    }
+else if(shkills[4])
+    {
+      tmp.add(new Proficiency("Deception","","",0));
+    }
+else if(shkills[5])
+    {
+      tmp.add(new Proficiency("History","","",0));
+    }
+else if(shkills[6])
+    {
+      tmp.add(new Proficiency("Insight","","",0));
+    }
+else if(shkills[7])
+    {
+      tmp.add(new Proficiency("Intimidation","","",0));
+    }
+else if(shkills[8])
+    {
+      tmp.add(new Proficiency("Investigation","","",0));
+    }
+else if(shkills[9])
+    {
+      tmp.add(new Proficiency("Medicine","","",0));
+    }
+else if(shkills[10])
+    {
+      tmp.add(new Proficiency("Nature","","",0));
+    }
+else if(shkills[11])
+    {
+      tmp.add(new Proficiency("Perception","","",0));
+    }
+else if(shkills[12])
+    {
+      tmp.add(new Proficiency("Performance","","",0));
+    }
+else if(shkills[13])
+    {
+      tmp.add(new Proficiency("Persuasion","","",0));
+    }
+else if(shkills[14])
+    {
+      tmp.add(new Proficiency("Religion","","",0));
+    }
+else if(shkills[15])
+    {
+      tmp.add(new Proficiency("Sleight of Hand","","",0));
+    }
+else if(shkills[16])
+    {
+      tmp.add(new Proficiency("Stealth","","",0));
+    }
+else if(shkills[17])
+    {
+      tmp.add(new Proficiency("Survival","","",0));
+    }
+temporaryCharacter.setProficiencies(tmp);
   }
 
-
+  public boolean[] getSkills()
+  {
+    return skills;
+  }
+  public void setLanguage(String langs)
+  {
+    ArrayList<Proficiency> tmp = temporaryCharacter.getProficiencies();
+    {
+      for (Proficiency p : tmp)
+      {
+        if(p.getType().contains("language"))
+        {
+          tmp.remove(p);
+        }
+      }
+    }
+    //FORGIVE ME
+    //Im using the origin as the description
+    tmp.add(new Proficiency("Languages","Language",langs,0));
+    temporaryCharacter.setProficiencies(tmp);
+  }
   public void saveCharacter()
   {
     temporaryCharacter.setBackstory(backstoryF.getValue());
@@ -1216,7 +1418,7 @@ public class CharacterCreationViewModel implements Subject
 
     //these are the last
     character = temporaryCharacter;
-    model.transmitCharacter(character);
+    model.setCharacter(character);
   }
 
   @Override public void addListener(String eventName,

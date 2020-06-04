@@ -23,20 +23,26 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
   private StaticModel staticModel;
   private Group group;
   private ArrayList<CharacterClass> characterClasses;
-
+  /**
+   * Returns a randomly created number or a sum of random numbers.
+   * @param client Client, to receive the incoming data from the sockets implementations
+   */
   public CharacterManagementModelImpl(Client client)
   {
     characters = new ArrayList<>();
     this.client = client;
     support = new PropertyChangeSupport(this);
-    client.addListener("incomingCharacter", this::setCharacter);
+    client.addListener("incomingCharacter", this::receiveCharacter);
     client.addListener("incomingStaticModel", this::setStaticModel);
     client.addListener("createCharacter",this::createNewCharacterForTheFirstTime);
     client.addListener("joinedGroupK",this::setGroup);
     client.addListener("incomingClasses", this::addClasses);
     client.addListener("accountLogin",this::addAccount);
   }
-
+  /**
+   * sets the account, this is needed because the model needs to know if the player is a DM or a player
+   * @param propertyChangeEvent PropertyChangeEvent,
+   */
   private void addAccount(PropertyChangeEvent propertyChangeEvent)
   { Account ack = (Account) ((Container)propertyChangeEvent.getNewValue()).getObject();
     System.out.println("intersting");
@@ -44,7 +50,10 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
 
 
   }
-
+  /**
+   * sets the received classes from the server
+   * @param propertyChangeEvent PropertyChangeEvent,
+   */
   public void addClasses(PropertyChangeEvent propertyChangeEvent)
   {
     characterClasses = (ArrayList<CharacterClass>)((Container)propertyChangeEvent.getNewValue()).getObject();
@@ -59,6 +68,10 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
 
     }
      */
+  /**
+   * sends the character to the server
+   * @param character Character, the character that is going to be sent to the server
+   */
   @Override public void transmitCharacter(Character character)
   {
     client.submitCharacter(character);
@@ -70,7 +83,10 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
     Group grp = (Group) ((Container)propertyChangeEvent.getNewValue()).getObject();
     this.group = grp;
   }
-
+  /**
+   * creates a new , empty character
+   * @param propertyChangeEvent PropertyChangeEvent
+   */
   public void createNewCharacterForTheFirstTime(PropertyChangeEvent propertyChangeEvent)
   {
     System.out.println("ez it a method forcreate char");
@@ -88,7 +104,9 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
       System.out.println("what?");
     }
   }
-
+  /**
+   * sends all the character names and their ids to be chosen by the dm
+   */
   public void sendCharacterList()
   { System.out.println("lehetetlen BORZALMASAN");
     ArrayList<String> charactersNameList = new ArrayList<>();
@@ -100,7 +118,10 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
     support.firePropertyChange("charactersNameListToDmChoosing", null,
         charactersNameList);
   }
-
+  /**
+   * sends the selected character to the characterSheet and CharacterCreation pages
+   * @param characterName String, the name of the character that you want to edit
+   */
   @Override public void sendCharacterForDmEditing(String characterName)
   { System.out.println("lehetetlen nGoN");
     for (int i = 0; i < characters.size(); i++)
@@ -114,6 +135,10 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
       }
     }
   }
+  /**
+   * saves the static model that was received from the server
+   * @param propertyChangeEvent PropertyChangeEvent, gets the new value of it
+   */
   public void setStaticModel(PropertyChangeEvent propertyChangeEvent)
   {
     staticModel = (StaticModel)(StaticModel) ((Container) propertyChangeEvent
@@ -123,7 +148,11 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
   {
     return staticModel;
   }
-  public void setCharacter(PropertyChangeEvent propertyChangeEvent)
+  /**
+   * set the character received from the server
+   * @param propertyChangeEvent PropertyChangeEvent, gets the new value of the character
+   */
+  public void receiveCharacter(PropertyChangeEvent propertyChangeEvent)
   {
     System.out.println("lehetetlen");
 
@@ -163,7 +192,10 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
     }
     sendCharacterList();
   }
-
+  /**
+   * sets the character,if the account is a player to the first slot and if the player is a DM to its own slot, and transmits it to the server
+   * @param character Character, the character that you want to save and transmit
+   */
   @Override public void setCharacter(Character character)
   {
     if (account.getUser() instanceof DM)
@@ -198,6 +230,10 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
     }
 
   }
+  /**
+   * returns if the account is a DM or a player
+   * @return a boolean that is true it the account is a DM, and false if its a player
+   */
   @Override public boolean getAccountDmStatus()
   {
     System.out.println("mohME:d "+account.getUsername());

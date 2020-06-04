@@ -286,6 +286,24 @@ public class CharacterCreationController
     featDescription.textProperty().bindBidirectional(characterCreationViewModel.featToChooseDescriptionProperty());
     featsAndFeaturesListView.setItems(FXCollections.observableList(characterCreationViewModel.getFeatsAndFeatures()));
     featOrFeatureDescription.textProperty().bindBidirectional(characterCreationViewModel.featDescriptionProperty());
+    acrobaticsCheckBox.setSelected(characterCreationViewModel.getSkills()[0]);
+    animalHandlingCheckBox.setSelected(characterCreationViewModel.getSkills()[1]);
+    arcanaCheckBox.setSelected(characterCreationViewModel.getSkills()[2]);
+    athleticsCheckBox.setSelected(characterCreationViewModel.getSkills()[3]);
+    deceptionCheckBox.setSelected(characterCreationViewModel.getSkills()[4]);
+    historyCheckBox.setSelected(characterCreationViewModel.getSkills()[5]);
+    insightCheckBox.setSelected(characterCreationViewModel.getSkills()[6]);
+    intimidationCheckBox.setSelected(characterCreationViewModel.getSkills()[7]);
+    investigationCheckBox.setSelected(characterCreationViewModel.getSkills()[8]);
+    medicineCheckBox.setSelected(characterCreationViewModel.getSkills()[9]);
+    natureCheckBox.setSelected(characterCreationViewModel.getSkills()[10]);
+    perceptionCheckBox.setSelected(characterCreationViewModel.getSkills()[11]);
+    performanceCheckBox.setSelected(characterCreationViewModel.getSkills()[12]);
+    persuasionCheckBox.setSelected(characterCreationViewModel.getSkills()[13]);
+    religionCheckBox.setSelected(characterCreationViewModel.getSkills()[14]);
+    sleightOfHandCheckBox.setSelected(characterCreationViewModel.getSkills()[15]);
+    stealthCheckBox.setSelected(characterCreationViewModel.getSkills()[16]);
+    survivalCheckBox.setSelected(characterCreationViewModel.getSkills()[17]);
     //</editor-fold>
 
     //<editor-fold desc="Description">
@@ -525,7 +543,23 @@ public class CharacterCreationController
     tmp[15] = sleightOfHandCheckBox.isSelected();
     tmp[16] = stealthCheckBox.isSelected();
     tmp[17] = survivalCheckBox.isSelected();
-    characterCreationViewModel.setSkills(tmp);
+
+    if(!(languageTextArea.textProperty()==null||languageTextArea.textProperty().getValue()==null||languageTextArea.textProperty().getValue().equalsIgnoreCase("")))
+    {
+      characterCreationViewModel.setLanguage(languageTextArea.textProperty().get());
+      characterCreationViewModel.saveCharacter();
+      characterCreationViewModel.setSkills(tmp);
+    }
+    else
+    {
+      Alert alert = new Alert(Alert.AlertType.ERROR);
+      alert.setTitle("Error Dialog");
+      alert.setHeaderText("An Error Dialog");
+      alert.setContentText("Please set the required values");
+      alert.showAndWait();
+    }
+
+
 
   }
 
