@@ -3,7 +3,6 @@ package system.views.characterSheet;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import system.core.ViewHandler;
 import system.util.logger.Log;
 
@@ -244,15 +243,15 @@ public class CharacterSheetController
   @FXML public CheckBox pactThirdSpellSlot;
   @FXML public CheckBox pactFourthSpellSlot;
   @FXML public CheckBox levelSixThirdSpellSlot;
-  private ViewHandler vh;
+  private ViewHandler viewHandler;
   private CharacterSheetViewModel viewModel;
 
   private Log log;
 
-  public void init(CharacterSheetViewModel vm, ViewHandler vhandler)
+  public void init(CharacterSheetViewModel vm, ViewHandler viewHandler)
   {
     viewModel = vm;
-    vh = vhandler;
+    this.viewHandler = viewHandler;
     log = Log.getLogEntry();
     strengthModifier.textProperty()
         .bindBidirectional(viewModel.getstrengthModifier());
@@ -437,8 +436,9 @@ public class CharacterSheetController
   {
   }
 
-  public void strengthModifierInfo(MouseEvent mouseEvent)
+  public void strengthModifierInfo()
   {
-    System.out.println("asdasdasda");
+
+    viewHandler.openInfoPopupWindow("Strength");
   }
 }

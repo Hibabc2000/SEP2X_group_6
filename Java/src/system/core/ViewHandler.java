@@ -6,6 +6,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import system.model.businessModel.Character;
 import system.views.characterCreation.CharacterCreationController;
+import system.views.characterSheet.CharacterSheetController;
+import system.views.characterSheet.infoPopup.InfoPopupController;
 import system.views.dmCharacterSheetChoosing.DmCharacterChoosingPageController;
 import system.views.login.account.AccountController;
 import system.views.login.changeEmail.ChangeEmailController;
@@ -34,6 +36,8 @@ public class ViewHandler
   private Scene characterSheet;
   private Scene characterCreation;
   private Scene dmStartGamePage;
+  private Scene popupScene;
+
   private Stage stage;
 
   private Stage stage2;
@@ -62,7 +66,7 @@ public class ViewHandler
    */
   public void start()
   {
-    openSystem();
+openSystem();
   }
   // 1* LOGIN VIEWS
 
@@ -231,11 +235,22 @@ public class ViewHandler
     stage.show();
   }
 
-  public void openInfoPopupWindow()
+  public void openInfoPopupWindow(String popupInfo)
   {
     FXMLLoader loader = new FXMLLoader();
+    if (popupScene == null)
+    {
+      Parent root = getRootByPath(
+          "../views/characterSheet/infoPopup/infoPopup.fxml", loader);
+      InfoPopupController infoPopupController = loader.getController();
+     infoPopupController.init(vmf.getInfoPopupViewModel(), popupInfo);
+      popupScene = new Scene(root);
 
+    }
 
+    stage2.setTitle("Info");
+    stage2.setScene(popupScene);
+    stage2.show();
   }
 
 
@@ -319,10 +334,10 @@ public class ViewHandler
     FXMLLoader loader = new FXMLLoader();
     if (characterSheet == null)
     {
-      Parent root = getRootByPath("../views/characterSheet/ChangeEmail.fxml",
+      Parent root = getRootByPath("../views/characterSheet/CharacterSheet.fxml",
           loader);
-      ChangeEmailController controller = loader.getController();
-      controller.init(vmf.getChangeEmailVM(), this);
+      CharacterSheetController controller = loader.getController();
+      controller.init(vmf.getCharacterSheetViewModel, this);
       characterSheet = new Scene(root);
     }
     stage4.setTitle("DnDAS");

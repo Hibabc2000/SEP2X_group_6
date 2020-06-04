@@ -36,6 +36,7 @@ public class OpenSystemController
   public void init(OpenSystemViewModel openSystemViewModel,
       ViewHandler viewHandler)
   {
+
     this.openSystemViewModel = openSystemViewModel;
     userNameField.textProperty()
         .bindBidirectional(openSystemViewModel.getUserNameProperty());
@@ -97,4 +98,8 @@ public class OpenSystemController
   {
     viewHandler.openPasswordRecovery();
   }
+
+
+
+
 }

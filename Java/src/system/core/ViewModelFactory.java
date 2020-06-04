@@ -15,6 +15,7 @@ import system.views.login.playerAccount.PlayerAccountViewModel;
 
 public class ViewModelFactory
 {
+  public CharacterSheetViewModel getCharacterSheetViewModel;
   //  LOGIN
   private ModelFactory model;
   private AccountViewModel accountModel;
@@ -57,7 +58,7 @@ public class ViewModelFactory
         model.getChangePasswordModel());
     changeEmailViewModel = new ChangeEmailViewModel(model.getChangeEmailModel());
     dmcscv = new DMCharacterSheetChoosingViewModel(model.getCharacterManagementModel());
-
+    characterSheetViewModel=new CharacterSheetViewModel(model.getCharacterManagementModel());
 
   }
 
@@ -195,5 +196,15 @@ public class ViewModelFactory
       characterCreationViewModel = new CharacterCreationViewModel(model.getCharacterManagementModel());
     }
     return characterCreationViewModel;
+  }
+
+  public InfoPopupViewModel getInfoPopupViewModel()
+  {
+
+    if(infoPopupViewModel == null)
+    {
+      infoPopupViewModel = new InfoPopupViewModel(model.getCharacterManagementModel());
+    }
+    return infoPopupViewModel;
   }
 }
