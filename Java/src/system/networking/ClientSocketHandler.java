@@ -280,7 +280,7 @@ public class ClientSocketHandler implements Runnable
    * @param email   String containing the email
    * @throws IOException exceptions produced by failed or interrupted I/O operations
    */
-  public void changeEmail( String email,String username) throws IOException
+  public synchronized  void changeEmail( String email,String username) throws IOException
   {
     ArrayList<Object> objs = new ArrayList<>();
 

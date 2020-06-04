@@ -1,11 +1,15 @@
 package system.transferobjects.login;
 
 import system.model.businessModel.DiceRoll;
-
+/**
+ * @author Oliver Izsák, 293131
+ * @version 1.2.0
+ * this class is the DM, stores information about the DM
+ */
 public class DM implements User
 {
   private String nameDM;
-  private Group groupDM;
+
 
   public DM(String name)
   {

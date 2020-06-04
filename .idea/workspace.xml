@@ -5,8 +5,14 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/model/loginModel/AccountModelImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java/src/system/networking/ClientSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/networking/ClientSocketHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/networking/SocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/networking/SocketClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/transferobjects/login/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/transferobjects/login/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/transferobjects/login/DM.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/transferobjects/login/DM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/transferobjects/login/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/transferobjects/login/Group.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java/src/system/transferobjects/login/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java/src/system/transferobjects/login/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/Database/GetAllAccountData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/GetAllAccountData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/networking/ServerSocketHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Database/InsertCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Database/InsertCharacter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/AccountModelImplTest.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,7 +55,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15332031" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -80,7 +86,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.RunServer">
+  <component name="RunManager" selected="Application.Start">
     <configuration name="EnumTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="networking.EnumTest" />
       <module name="SEP2X_group_6" />
@@ -503,7 +509,21 @@
       <option name="project" value="LOCAL" />
       <updated>1591109842241</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="small changes and bugfixes">
+      <created>1591125054983</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1591125054983</updated>
+    </task>
+    <task id="LOCAL-00048" summary="binding charactersheet controller - viewmodel">
+      <created>1591170142383</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1591170142383</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -520,8 +540,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Join group finished" />
-    <MESSAGE value="Something got overwritten so i put back like 2 methods in connection pool and one in serversockethandler" />
     <MESSAGE value="Fixed InsertCharacter" />
     <MESSAGE value="Worked on CharacterSheetViewModel and relevant changes" />
     <MESSAGE value="Worked on CharacterSheetViewModel and class feat classes were moved" />
@@ -545,7 +563,9 @@
     <MESSAGE value="some update for charactersheet creation. I don't understand the rollednumber listeners and whats wrong with them" />
     <MESSAGE value="the scenes work now" />
     <MESSAGE value="small ui change" />
-    <option name="LAST_COMMIT_MESSAGE" value="small ui change" />
+    <MESSAGE value="small changes and bugfixes" />
+    <MESSAGE value="binding charactersheet controller - viewmodel" />
+    <option name="LAST_COMMIT_MESSAGE" value="binding charactersheet controller - viewmodel" />
   </component>
   <component name="WindowStateProjectService">
     <state width="901" height="305" key="GridCell.Tab.0.bottom" timestamp="1591102609309">

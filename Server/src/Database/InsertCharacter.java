@@ -27,7 +27,7 @@ public InsertCharacter()
       Class.forName("org.postgresql.Driver");
       c = DriverManager
           .getConnection("jdbc:postgresql://localhost:5432/SEP2", "postgres",
-              "123456");
+              "almafast325");
     }
     catch (SQLException | ClassNotFoundException e)
     {

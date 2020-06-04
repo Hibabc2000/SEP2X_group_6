@@ -3,23 +3,24 @@ package system.transferobjects.login;
 import system.model.businessModel.Character;
 import system.model.businessModel.DiceRoll;
 
+/**
+ * @author Oliver Izsák, 293131
+ * @version 1.1.0
+ * this class is the Player stores information about the player.
+ */
 public class Player implements User
 {
   private Character character;
 
   private String playerName;
-  private Group playerGroup;
+
  private Integer characterID;
-  public Player(String name)                   // more information needed about player class
+  public Player(String name)
   {
     playerName = name;
   characterID=null;
   }
 
-  public void createCharacter()    //
-  {
-
-  }
   /**
  * Sets a character.
  * @param ch Character

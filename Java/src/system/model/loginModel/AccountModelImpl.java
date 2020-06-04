@@ -12,20 +12,27 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.io.IOException;
 import java.util.ArrayList;
-
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+/**
+ * @author Oliver Izsák, 293131
+ * @version 1.2.0
+ * this class is the model for all the functionalities of the Account system and Create group, Join group, Start game.
+ */
 public class AccountModelImpl
     implements AccountModel, OpenSystemModel, ChangeEmailModel,
     ChangePasswordModel, CreateAccountModel,DMAccountModel,PasswordRecoveryModel,PlayerAccountModel
 {
 
-  private ArrayList<Group> groupsForDm; // This will be replaced, this will store the groups that the account already manages but only for the DM
-  private ArrayList<Group> tempGroups; //This will be replaced, this will store the groups that the account already knows but only for the Player
+  private ArrayList<Group> groupsForDm;
+  private ArrayList<Group> groupsForPlayer;
 
   private PropertyChangeSupport support;
-  private Account usersAccount;                     // this is the users account, we will store the information about the user's account here.
-  // like names,groups etc.. so we don't need to constantly ask the db for information.
-           // this is for testing
+
+  private Account usersAccount;
+
   private Client client;
+  private static final Lock lock = new ReentrantLock();
 
   public AccountModelImpl(Client client)
   {
@@ -40,7 +47,7 @@ public class AccountModelImpl
     }
     support = new PropertyChangeSupport(this);
 
-    tempGroups = new ArrayList<>();
+    groupsForPlayer = new ArrayList<>();
     groupsForDm = new ArrayList<>();
 
 
@@ -53,21 +60,29 @@ public class AccountModelImpl
     client.addListener("addDMGroup", this::addDMGroup);
     client.addListener("answerToEmailChange", this::answerToEmailChange);
   }
-
+  /**
+   * Converts the Property Change Event to an boolean and fires an event containing {@param answer}
+   *If the email change was successful it fires true, otherwise false.
+   * @param propertyChangeEvent Container contains a boolean
+   */
   private void answerToEmailChange(PropertyChangeEvent propertyChangeEvent)
   {
     Object obj = ((Container) propertyChangeEvent.getNewValue()).getObject();
     boolean answer = (boolean) obj;
     if (answer)
     {
-      support.firePropertyChange("emailChange", null, true);
+      support.firePropertyChange("emailChange", null, answer);
     }
     else
     {
-      support.firePropertyChange("emailChange", null, false);
+      support.firePropertyChange("emailChange", null, answer);
     }
   }
-
+  /**
+   * Converts the Property Change Event to an ArrayList and fires an event containing {@param gp}
+   * Adds the new  group to the groupForDM group list and updates the viewmodel.
+   * @param propertyChangeEvent Container contains an ArrayList of 1 object(Group)
+   */
   private void addDMGroup(PropertyChangeEvent propertyChangeEvent)
   {
     Group gp = (Group) ((ArrayList<Object>) ((Container) propertyChangeEvent
@@ -87,26 +102,30 @@ public class AccountModelImpl
   {
     ArrayList<Object> objs = (ArrayList<Object>) ((Container) propertyChangeEvent
         .getNewValue()).getObject();
-    System.out.println("almamatarastrigo");
+
     support.firePropertyChange("recoverPassword", null, objs);
 
   }
-
+  /**
+   * Converts the Property Change Event to a Group and fires an event containing {@param groupsForPlayer}
+   * Gets id of the Group and searches the groupsForPlayer and GroupForDM group list for group that matches the ID then updates it, and sends
+   * the update to the viewmodel.
+   * @param propertyChangeEvent Container contains an Group object
+   */
   private void updateGroups(PropertyChangeEvent propertyChangeEvent)
   {
     Group grp = (Group) ((Container) propertyChangeEvent.getNewValue())
         .getObject();
 
     int idOfTheGroupToAddThePlayer = grp.getId();
-    Group oldGroup = null;
-    Group newGroup = grp;
-    System.out.println("******************************");
-    for (int i = 0; i < tempGroups.size(); i++)
+
+
+    for (int i = 0; i < groupsForPlayer.size(); i++)
     {
-      if (tempGroups.get(i).getId() == idOfTheGroupToAddThePlayer)
+      if (groupsForPlayer.get(i).getId() == idOfTheGroupToAddThePlayer)
       {
-        tempGroups.set(i, grp);
-        support.firePropertyChange("PlayerAddedToGroup", null, tempGroups);
+        groupsForPlayer.set(i, grp);
+        support.firePropertyChange("PlayerAddedToGroup", null, groupsForPlayer);
       }
     }
     for (int i = 0; i < groupsForDm.size(); i++)
@@ -114,24 +133,31 @@ public class AccountModelImpl
     {
       if (groupsForDm.get(i).getId() == idOfTheGroupToAddThePlayer)
       {
-        System.out.println("alm alm alma  csapat ");
+
         groupsForDm.set(i, grp);
         support.firePropertyChange("PlayerAddedToDMGroup", null, groupsForDm);
       }
     }
   }
-
+  /**
+   * Converts the Property Change Event to a Arraylist and fires an event containing {@param groupsWithTheIDWeFound or isIDValid}
+   * If the boolean is true, a group was found, in this case the group is added to the groupsForPlayer group list,
+   * and an update is fired for the view model with the group in it.
+   * Otherwise only a boolean is sent to the view model stating that the group ID does not exist.
+   * @param propertyChangeEvent Container contains an ArrayList of 2 objects(First one is a boolean, if the first one
+   *  has the value true, then it also contains a second object which is a group, if the value of the boolean is false, then it does not)
+   *
+   */
   private void searchGroupInfo(PropertyChangeEvent propertyChangeEvent)
   {
     Container info = (Container) propertyChangeEvent.getNewValue();
     ArrayList<Object> objs = (ArrayList<Object>) info.getObject();
     boolean isIDValid = (boolean) objs.get(0);
 
-    System.out.println("id :" + isIDValid);
     if (isIDValid)
     {
       Group groupWithTheIDWeFound = (Group) objs.get(1);
-      tempGroups.add(
+      groupsForPlayer.add(
           groupWithTheIDWeFound);   //I'm not sure about this one, maybe it will cause problems.
       support.firePropertyChange("GroupAdded", null, groupWithTheIDWeFound);
     }
@@ -140,14 +166,20 @@ public class AccountModelImpl
       support.firePropertyChange("searchFailed", null, isIDValid);
     }
   }
-
+  /**
+   * Converts the Property Change Event to an Arraylist and fires an event containing {@param isLoginValid}
+   * If the boolean is true then the distributeAccountInfo method is called and the viewmodel is updated with a successful login.
+   * else the viewmodel is only updated with an unsuccessful login.
+   * @param propertyChangeEvent Container contains an ArrayList of 2 objects(First one is a boolean, if the first one
+   *    *  has the value true, then it also contains a second object which is an account, if the value of the boolean is false, then it does not)
+   */
   private void loginInfo(PropertyChangeEvent propertyChangeEvent)
   {
-    System.out.println("verything is fine");
+
     Container info = (Container) propertyChangeEvent.getNewValue();
     ArrayList<Object> objs = (ArrayList<Object>) info.getObject();
     boolean isLoginValid = (boolean) objs.get(0);
-    System.out.println("log response:" + isLoginValid);
+
 
     if (isLoginValid)
     {
@@ -161,18 +193,25 @@ public class AccountModelImpl
       support.firePropertyChange("acceptLogin", null, isLoginValid);
     }
   }
-
+  /**
+   *Gets an Arraylist from the loginInfo listener method, and initializes the user's account, set's the user to player
+   * and distributes the groups the User is part of, depending on whether he is the DM of a group or just a player.
+   * @param o Container contains an ArrayList of 2 objects(First one is a boolean, if the first one
+   *    *  has the value true, then it also contains a second object which is an account and
+   *      a third which is a Arraylist of groups , if the value of the boolean is false, then it does not)
+   * @throws IndexOutOfBoundsException if the user is not part of any group.
+   */
   public void distributeAccountInfo(ArrayList<Object> o)
   {
 
     usersAccount = (Account) o.get(1);
     usersAccount.setUserToPlayer();
-    System.out.println(usersAccount.getUsername());
+
     try
     {
       if (o.get(2) != null)
       {
-        System.out.println("nézem agroupokat");
+
         ArrayList<Group> groups = (ArrayList<Group>) o.get(2);
 
         for (int i = 0; i < groups.size(); i++)
@@ -183,27 +222,32 @@ public class AccountModelImpl
             groupsForDm.add(groups.get(i));
           }
           else
-            tempGroups.add(groups.get(i));
+            groupsForPlayer.add(groups.get(i));
         }
       }
     }
     catch (IndexOutOfBoundsException e)
     {
-      System.out.println("no groups");
+
     }
 
   }
-
+  /**
+   * Passes on the {@param propertyChangeEvent} containing a boolean to the create account view model.
+   * @param propertyChangeEvent Container contains boolean
+   */
   private void createAccountInfoBackFromServer(
       PropertyChangeEvent propertyChangeEvent)
   {
-    System.out.println("modelimplistener");
+
     support.firePropertyChange("createAccount", null,
         propertyChangeEvent.getNewValue());
-    System.out.println("modelimplistener2");
+
 
   }
-
+  /**
+   * Removes the account from the server after the client exits the system.
+   */
   public void removeAccount()
   {
     client.removeUser(usersAccount);
@@ -234,7 +278,7 @@ public class AccountModelImpl
   {
     if (usersAccount.getUser() instanceof Player)
     {
-      return tempGroups;
+      return groupsForPlayer;
     }
     else if (usersAccount.getUser() instanceof DM)
     {
@@ -253,9 +297,9 @@ public class AccountModelImpl
   {
     String temp = "Searching...";
 
-    for (int i = 0; i < tempGroups.size(); i++)
+    for (int i = 0; i < groupsForPlayer.size(); i++)
     {
-      if (tempGroups.get(i).getId() == id)
+      if (groupsForPlayer.get(i).getId() == id)
       {
         temp = "You already have this group in your group list";
         break;
@@ -288,17 +332,17 @@ public class AccountModelImpl
     String temp = "Connecting...";
 
     // server
-    for (int i = 0; i < tempGroups.size(); i++)
+    for (int i = 0; i < groupsForPlayer.size(); i++)
     {
-      if (tempGroups.get(i).toString().equals(groupName) && (!tempGroups.get(i)
+      if (groupsForPlayer.get(i).toString().equals(groupName) && (!groupsForPlayer.get(i)
           .isContainsUsername(usersAccount.getUsername())))
       {
-        Group oldGroup = tempGroups.get(i);
+        Group oldGroup = groupsForPlayer.get(i);
 
         temp = "You have been added to the group";
 
-        tempGroups.get(i).addPlayer(usersAccount.getPlayer());
-        client.joinGroupAsAPlayer(usersAccount, tempGroups.get(i));
+        groupsForPlayer.get(i).addPlayer(usersAccount.getPlayer());
+        client.joinGroupAsAPlayer(usersAccount, groupsForPlayer.get(i));
 
         break;
       }
@@ -308,9 +352,9 @@ public class AccountModelImpl
       }
     }
 
-    for (int i = 0; i < tempGroups.size(); i++)
+    for (int i = 0; i < groupsForPlayer.size(); i++)
     {
-      if (tempGroups.get(i).isPlayerPartOfGroup(usersAccount.getPlayer()))
+      if (groupsForPlayer.get(i).isPlayerPartOfGroup(usersAccount.getPlayer()))
       {
         temp = "You are already part of that group";
       }
@@ -453,7 +497,7 @@ public class AccountModelImpl
    * @param passNewAgain String containing the new password confirmation
    * @return a String message if there is an error
    */
-  @Override public String checkPasswordChangeInformation(String username,
+  @Override  public  synchronized String checkPasswordChangeInformation(String username,
       String passOld, String passNew, String passNewAgain)
   {
     String temp = "Error";
@@ -472,7 +516,7 @@ public class AccountModelImpl
     {
       temp = "Wrong old password";
     }
-    else
+    else synchronized (lock)
     {
       System.out.println("BÜDÖSKÖCSÖKG");
       usersAccount.setPassword(passNew);

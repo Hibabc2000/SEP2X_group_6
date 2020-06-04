@@ -265,6 +265,11 @@ public class SocketClient implements Client
     support.firePropertyChange("recoverPassword", null, inDataPack);
 
   }
+  /**
+   * Fires an event containing {@param inDataPack}
+   *
+   * @param inDataPack Container contains an ArrayList of two objects(boolean and the recovered password)
+   */
 
   public void addDMGroup(Container inDataPack)
   {

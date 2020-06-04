@@ -3,6 +3,11 @@ package system.transferobjects.login;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * @author Oliver Izsák, 293131
+ * @version 1.1.0
+ * this class is the Group which stores the DM and players who are part of the group
+ */
 public class Group implements Serializable
 {
   private String groupName;
@@ -24,7 +29,7 @@ public class Group implements Serializable
   public int getId()
   {
     return id;
-  } // returns ID of group
+  }
   /**
    * Returns the DM of the group
    * @return  variable dm
@@ -32,7 +37,7 @@ public class Group implements Serializable
   public DM getDM()
   {
     return dm;
-  } // returns the DM  of the group
+  }
   /**
    * Sets the ArrayList of players.
    * @param plys ArrayList<Player>
@@ -55,7 +60,7 @@ public class Group implements Serializable
    * @return  Player
    */
   public Player getPlayer(
-      String player) // returns the Player from the group by searching for him by name
+      String player)
   {
     Player temp = null;
     for (int i = 0; i < players.size(); i++)
@@ -72,7 +77,7 @@ public class Group implements Serializable
    * @param player Player
    */
     public void addPlayer(
-      Player player)               // adds a player to the group
+      Player player)
   {
     players.add(player);
   }
@@ -80,12 +85,12 @@ public class Group implements Serializable
    * Adds a DM to the group.
    * @param d DM
    */
-  public void addDM(DM d)                      //adds a DM to the group
+  public void addDM(DM d)
   {
     dm = d;
   }
 
-  public String toString()               // toString method for the GroupList in the UI, its all String, subject to change -
+  public String toString()
   {
     String m = "";
     if(dm == null) {

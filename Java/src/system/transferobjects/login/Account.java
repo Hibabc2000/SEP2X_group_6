@@ -2,6 +2,11 @@ package system.transferobjects.login;
 
 import java.io.Serializable;
 
+/**
+ * @author Oliver Izsák, 293131
+ * @version 1.1.0
+ * this class is the Account stores information about the User's account.
+ */
 public class Account implements Serializable
 {
 
@@ -10,8 +15,6 @@ public class Account implements Serializable
   private String email;
   private User user;
 
-  //private User userPlayer;
-  //private User userDM;
   public Account(String un, String pass, String ema)
   {
     username = un;
@@ -19,20 +22,20 @@ public class Account implements Serializable
     email = ema;
   }
   /**
-   * Sets the user to instance of DM
+   * Sets the user to instance of DM if it is not already set to DM.
    */
-  public void setUserToDm()           // if the user is not instance of DM then creates a new DM instance.
+  public void setUserToDm()
   {
-    if (!(user instanceof DM))          // This means if the user keeps switching between player and DM new instances get created everytime.
+    if (!(user instanceof DM))
     {
       user = new DM(username);
-    }          // this needs to be talked about, if we are fine with this or not.
+    }
 
   }
   /**
-   * Sets the user to instance of Player.
+   * Sets the user to instance of Player if it is not already set to Player
    */
-  public void setUserToPlayer()                //same thing
+  public void setUserToPlayer()
   {
     if (!(user instanceof Player))
     {
