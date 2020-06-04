@@ -25,7 +25,7 @@ public class LoadCharacterClasses
       Class.forName("org.postgresql.Driver");
       connection = DriverManager
           .getConnection("jdbc:postgresql://localhost:5432/SEP2", "postgres",
-              "almafast325");
+              "Aoe3tadtwc-2000");
       classList = new ArrayList<>();
     }
     catch (SQLException | ClassNotFoundException e)

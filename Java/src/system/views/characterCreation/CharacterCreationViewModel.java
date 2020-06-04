@@ -1410,9 +1410,17 @@ temporaryCharacter.setProficiencies(tmp);
   {
     temporaryCharacter.setBackstory(backstoryF.getValue());
     //add lang here
-    temporaryCharacter.setArmorClass(Integer.parseInt(armorClass.getValue()));
+    if(armorClass.getValue() == null)
+    {
+      temporaryCharacter.setArmorClass(0);
+    }
+    else temporaryCharacter.setArmorClass(Integer.parseInt(armorClass.getValue()));
     //Speed here:temporaryCharacter.setspeed
-    temporaryCharacter.setXp(Integer.parseInt(xp.getValue()));
+    if(xp.getValue() == null)
+    {
+      temporaryCharacter.setXp(0);
+    }
+    else temporaryCharacter.setXp(Integer.parseInt(xp.getValue()));
 
 
 
