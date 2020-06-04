@@ -15,7 +15,7 @@ import system.views.login.playerAccount.PlayerAccountViewModel;
 
 public class ViewModelFactory
 {
-  public CharacterSheetViewModel getCharacterSheetViewModel;
+  private CharacterSheetViewModel getCharacterSheetViewModel;
   //  LOGIN
   private ModelFactory model;
   private AccountViewModel accountModel;
@@ -84,6 +84,15 @@ public class ViewModelFactory
       dmcscv = new DMCharacterSheetChoosingViewModel(model.getCharacterManagementModel());
     }
     return dmcscv;
+  }
+
+  public CharacterSheetViewModel getCharacterSheetViewModel()
+  {
+    if(getCharacterSheetViewModel == null)
+    {
+      getCharacterSheetViewModel = new CharacterSheetViewModel(model.getCharacterManagementModel());
+    }
+    return getCharacterSheetViewModel;
   }
 
   /**
