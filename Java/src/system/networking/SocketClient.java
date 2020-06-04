@@ -135,6 +135,17 @@ public class SocketClient implements Client
 
   }
 
+  public void getStaticModel()
+  {
+    try
+    {
+      socketHandler.getStaticModelAndClasses();
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
+  }
 
   /**
    * Sends the username and password to the Socket Handler

@@ -438,7 +438,7 @@ public class AccountModelImpl
     {
       client.checkLogin(username, password);}
     // put it into server
-
+    client.getStaticModel();
     return temp;
 
   }
