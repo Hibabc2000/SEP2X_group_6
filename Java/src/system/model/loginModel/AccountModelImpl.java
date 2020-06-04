@@ -468,7 +468,7 @@ public class AccountModelImpl
 
   /**
    *
-   * @throws IndexOutOfBoundsException if the user is not part of any group.
+   * Changes the User of the account to DM instance
    */
   @Override public void changeToDm()
   {
@@ -478,7 +478,10 @@ public class AccountModelImpl
 
 
   }
-
+  /**
+   *
+   * Changes the User of the account to Player instance
+   */
   @Override public void changeToPlayer()
   {
 
@@ -600,12 +603,20 @@ public class AccountModelImpl
   {
     support.removePropertyChangeListener(eventName, listener);
   }
-
+  /**
+   * Returns the account of the user.
+   *
+   * @return usersAccount Account.
+   */
   @Override public Account getAccount()
   {
     return usersAccount;
   }
 
+  /**
+   * DM starts the game with his chosen group.
+   * @param group contains the group which the DM will start the game with containing the users.
+   */
   @Override public void startGame(String group)
   {
     for (int i = 0; i < groupsForDm.size(); i++)
