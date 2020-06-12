@@ -29,5 +29,4 @@ public interface Client extends Subject
 
   void submitCharacter(Character character);
   void startGame(Group groupToPlayWith);
-  void getStaticModel();
 }
