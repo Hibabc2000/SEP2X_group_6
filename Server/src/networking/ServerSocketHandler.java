@@ -360,7 +360,7 @@ public class ServerSocketHandler implements Runnable
                     .loadCharacter(playersOnline.get(i).getCharacterID());
                 Player playerWithChar = playersOnline.get(i);
                 playerWithChar.setCharacter(characterFromDBS);
-
+                System.out.println(characterFromDBS.getUsername() + " kibaszot merges vok");
                 Container data = new Container(characterFromDBS, ClassName.CHARACTER);
 
                 pool.sendDataToUser(playersOnline.get(i).getName(), data);
@@ -377,9 +377,7 @@ public class ServerSocketHandler implements Runnable
           }
           case CHARACTER:
           { // HAS 2 parts,  first part when a character is created, and the second if it is just an update to an already existing one.
-             ArrayList wtf = (ArrayList) inDataPack.getObject();
-            System.out.println("ez most komolyan mi? "+wtf.get(0) +"\n ez mi?");
-            System.out.println("hm?");
+
             Character character = (Character) inDataPack.getObject();
 
             Integer id = null;
@@ -431,10 +429,13 @@ public class ServerSocketHandler implements Runnable
             {
 
               try
-              {
+              {ich.insertCharacterWithID(character);
                 ich.updateCharacter(character);
+              ich.addIdToChar(character);
+
+
                 Character charToDM = loch.loadCharacter(character.getId());
-                String dmOfTheGroup = database.getDMofAGroup(character.getGroup());
+                String dmOfTheGroup = database.getDMofAGroup(character.getGroupID());
                 Container charToDMData = new Container(charToDM, ClassName.CHARACTER);
                 pool.sendDataToUser(dmOfTheGroup, charToDMData);
 

@@ -155,40 +155,50 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
   public void receiveCharacter(PropertyChangeEvent propertyChangeEvent)
   {
     System.out.println("lehetetlen");
-
+    boolean isItAnUpdate = false;
     Character temporaryCharacter = (Character) ((Container) propertyChangeEvent
         .getNewValue()).getObject();
     if (account.getUser() instanceof DM)
     {
       if (characters.size() == 0)
       {
+        System.out.println("EZ FUT LE");
+        System.out.println("shangrila . + " +temporaryCharacter.getUsername()  );
         characters.add(temporaryCharacter);
+        support.firePropertyChange("characterReady", null, temporaryCharacter);
       }
       else
       {
         for (int i = 0; i < characters.size(); i++)
         {
           if (characters.get(i).getId() == temporaryCharacter.getId())
-          {
+          { isItAnUpdate=true;
             characters.remove(characters.get(i));
             characters.add(i, temporaryCharacter);
+            support.firePropertyChange("updateCharacterDM", null, temporaryCharacter);
+            break;
           }
-          else
-          {
-            characters.add(temporaryCharacter);
-          }
+
         }
+        if(!isItAnUpdate)
+      {
+        characters.add(temporaryCharacter);
+        support.firePropertyChange("characterReady", null, temporaryCharacter);
+      }
+
       }
     }
     else
     {
-      if (!(temporaryCharacter.equals(characters.get(0))))
-      {
+      if(characters.size()==0){ characters.add(temporaryCharacter);
+      support.firePropertyChange("characterToSheetViewModel", null,
+          characters.get(0));}
+      else
         characters.remove(0);
         characters.add(temporaryCharacter);
         support.firePropertyChange("characterToSheetViewModel", null,
             characters.get(0));
-      }
+
     }
     sendCharacterList();
   }

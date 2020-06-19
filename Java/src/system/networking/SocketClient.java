@@ -19,11 +19,11 @@ public class SocketClient implements Client
   private Socket socket;
 
 
-  private PropertyChangeSupport support;
+  private PropertyChangeSupport support = new PropertyChangeSupport(this);
 
   @Override public void start() throws IOException
   {
-    support = new PropertyChangeSupport(this);
+
     socket = new Socket(SERVER_IP, SERVER_PORT);
     socketHandler = new ClientSocketHandler(socket, this);
     Thread thread = new Thread(socketHandler);

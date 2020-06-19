@@ -1,8 +1,8 @@
 package system.model.businessModel;
 
 import system.model.businessModel.staticModel.Ability;
-import system.model.characterClasses.CharacterClass;
 import system.model.businessModel.staticModel.StaticModel;
+import system.model.characterClasses.CharacterClass;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -83,6 +83,7 @@ public class Character implements Serializable
     treasures = new ArrayList<>();
     backstory = "";
   }
+
   //equals method
 /*
   public boolean equals(Object object)

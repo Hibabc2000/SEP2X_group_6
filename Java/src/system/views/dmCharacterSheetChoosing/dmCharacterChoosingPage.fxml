@@ -4,28 +4,36 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="427.0" prefWidth="600.0" style="-fx-background-color: #898888;" stylesheets="@../../../../../CSS/common/css.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.views.dmCharacterSheetChoosing.DmCharacterChoosingPageController">
    <children>
-      <Label layoutX="30.0" layoutY="14.0" prefHeight="53.0" prefWidth="249.0" text="Destiny decider console">
+      <Label layoutX="30.0" layoutY="14.0" prefHeight="53.0" prefWidth="249.0" text="Edit characters">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TableView layoutX="30.0" layoutY="67.0" prefHeight="314.0" prefWidth="541.0">
+      <TableView fx:id="tableDM" layoutX="30.0" layoutY="67.0" prefHeight="314.0" prefWidth="541.0">
         <columns>
-          <TableColumn prefWidth="41.0" text="C1" />
-          <TableColumn prefWidth="153.0" text="C2" />
-            <TableColumn prefWidth="181.0" text="C3" />
-            <TableColumn prefWidth="197.0" text="C4" />
+          <TableColumn fx:id="lvl" prefWidth="41.0" text="lvl" />
+          <TableColumn fx:id="play" prefWidth="153.0" text="player" />
+            <TableColumn fx:id="charname" prefWidth="181.0" text="character name" />
+            <TableColumn fx:id="curXP" prefWidth="197.0" text="Current XP" />
         </columns>
       </TableView>
-      <Button layoutX="403.0" layoutY="28.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="168.0" style="-fx-background-color: #7cc987;" text="Ali's magic button">
+      <Button fx:id="enableLevelingButton" layoutX="459.0" layoutY="28.0" mnemonicParsing="false" onAction="#enableLevelForPlayer" prefHeight="26.0" prefWidth="112.0" style="-fx-background-color: #7cc987;" text="Enable leveling">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
+      <Button fx:id="giveXPButton" layoutX="364.0" layoutY="28.0" mnemonicParsing="false" onAction="#giveXPToCharacter" prefHeight="17.0" prefWidth="75.0" style="-fx-background-color: #7cc987;" text="Give XP">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <TextField fx:id="giveXPField" layoutX="187.0" layoutY="29.0" promptText="Give XP to Character" />
+      <Label fx:id="errorMessage" layoutX="165.0" layoutY="381.0" prefHeight="35.0" prefWidth="305.0" text="Choose a player in the table to give edit their character" />
    </children>
 </AnchorPane>
