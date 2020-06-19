@@ -27,7 +27,7 @@ public class GetAllAccountData
       Class.forName("org.postgresql.Driver");
       c = DriverManager
           .getConnection("jdbc:postgresql://localhost:5432/SEP2", "postgres",
-              "Aoe3tadtwc-2000");
+              "almafast325");
 //      almafast325
     }
     catch (SQLException | ClassNotFoundException e)
@@ -708,7 +708,7 @@ String curry = "";
   {
     Statement st = c.createStatement();
     String query =
-        "SELECT FROM \"Groups\".\"Groups\" WHERE id = "+ group + " ;";
+        "SELECT * FROM \"Groups\".\"Groups\" WHERE id = "+ group + " ;";
     ResultSet rs = st.executeQuery(query);
     String dmName = "";
     while(rs.next())

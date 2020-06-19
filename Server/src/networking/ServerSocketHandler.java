@@ -426,18 +426,39 @@ public class ServerSocketHandler implements Runnable
               }
             }
             else if (character.getId() != null)
-            {
+            { Character checkCharacterLvlAndXPToDecideWtherThisIsDMUpdate = loch.loadCharacter(character.getId());
+                  if(checkCharacterLvlAndXPToDecideWtherThisIsDMUpdate.getLevel()!=character.getLevel() ||
+                      checkCharacterLvlAndXPToDecideWtherThisIsDMUpdate.getXp()!=character.getXp())
+                  {
+                    try
+                    {
+                      ich.insertCharacterUpdateXP(character);
+                      ich.insertCharacterUpdateLevel(character);
 
+                      Character charToDM = loch.loadCharacter(character.getId());
+                      String dmOfTheGroup = database.getDMofAGroup(character.getGroupID());
+                      Container charToDMData = new Container(charToDM, ClassName.CHARACTER);
+                      pool.sendDataToUser(dmOfTheGroup, charToDMData);
+                      pool.sendDataToUser(character.getUsername(),charToDMData);
+                    } catch (SQLException e)
+                    {
+                      e.printStackTrace();
+                    }
+                  }
+                  else
               try
-              {ich.insertCharacterWithID(character);
-                ich.updateCharacter(character);
-              ich.addIdToChar(character);
+              {
+                ich.deleteCharacter(character.getId());
+                ich.insertCharacter(character);
+
+
 
 
                 Character charToDM = loch.loadCharacter(character.getId());
                 String dmOfTheGroup = database.getDMofAGroup(character.getGroupID());
                 Container charToDMData = new Container(charToDM, ClassName.CHARACTER);
                 pool.sendDataToUser(dmOfTheGroup, charToDMData);
+                pool.sendDataToUser(character.getUsername(),charToDMData);
 
               }
               catch (SQLException e)
