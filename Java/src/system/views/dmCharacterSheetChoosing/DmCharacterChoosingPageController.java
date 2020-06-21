@@ -92,7 +92,7 @@ public class DmCharacterChoosingPageController
       int test= Integer.parseInt(giveXPField.getText());
 
       ObservableList<DM_hardcode_data> data = FXCollections.observableArrayList(
-          new DM_hardcode_data(test, "Marin", "Marin's character", 0));
+          new DM_hardcode_data(test, "marin", "TestCharacter", 0));
       tableDM.setItems(data);
 
     }
@@ -113,7 +113,7 @@ public class DmCharacterChoosingPageController
   public void hardcode()
   {
     ObservableList<DM_hardcode_data> data = FXCollections.observableArrayList(
-        new DM_hardcode_data(0, "Marin", "Marin's character", 1));
+        new DM_hardcode_data(0, "marin", "TestCharacter", 1));
     tableDM.setItems(data);
 
 
