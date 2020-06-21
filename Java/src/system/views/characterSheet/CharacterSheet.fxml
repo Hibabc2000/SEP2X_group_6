@@ -24,7 +24,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <ScrollPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.views.characterSheet.CharacterSheetController">
    <content>
       <AnchorPane id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="912.0" prefWidth="1920.0">
@@ -32,37 +31,37 @@
             <VBox fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="912.0" prefWidth="1920.0">
                <children>
                   <MenuBar maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="1920.0">
-                    <menus>
-                      <Menu mnemonicParsing="false" text="Encounter Map" />
-                      <Menu mnemonicParsing="false" text="Character View" />
-                      <Menu mnemonicParsing="false" text="Character Editor" />
+                     <menus>
+                        <Menu mnemonicParsing="false" text="Encounter Map" />
+                        <Menu mnemonicParsing="false" text="Character View" />
+                        <Menu mnemonicParsing="false" text="Character Editor" />
                         <Menu mnemonicParsing="false" text="Logs" />
                         <Menu mnemonicParsing="false" text="Games">
                            <items>
                               <MenuItem mnemonicParsing="false" text="Log Out" />
                            </items>
                         </Menu>
-                    </menus>
+                     </menus>
                   </MenuBar>
                   <GridPane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="882.0" prefWidth="1920.0" stylesheets="@../../../../../CSS/characterSheet/css%20(1).css">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="635.2000122070312" minWidth="0.0" prefWidth="129.0" />
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="635.2000122070312" minWidth="0.0" prefWidth="129.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="1649.1999969482422" minWidth="10.0" prefWidth="373.8" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="1649.1999969482422" minWidth="10.0" prefWidth="213.7999877929687" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="1649.1999969482422" minWidth="10.0" prefWidth="329.0000122070312" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="1649.1999969482422" minWidth="10.0" prefWidth="337.20002441406245" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="1649.1999969482422" minWidth="10.0" prefWidth="447.5999755859375" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints maxHeight="330.4" minHeight="10.0" prefHeight="144.19998779296873" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="737.6000122070312" minHeight="10.0" prefHeight="737.6000122070312" vgrow="SOMETIMES" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="330.4" minHeight="10.0" prefHeight="144.19998779296873" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="737.6000122070312" minHeight="10.0" prefHeight="737.6000122070312" vgrow="SOMETIMES" />
                         <RowConstraints />
-                    </rowConstraints>
+                     </rowConstraints>
                      <children>
                         <VBox maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="100.0" GridPane.rowSpan="3">
                            <children>
-                              <Label fx:id="strengthModifier" minWidth="-Infinity" onMouseClicked="#strengthModifierInfo" prefHeight="0.0" prefWidth="62.0" text="+10">
+                              <Label fx:id="strengthModifier" minWidth="-Infinity" onMouseClicked="#strengthModifierInfo" prefHeight="0.0" prefWidth="62.0" text="+4">
                                  <VBox.margin>
                                     <Insets left="28.0" top="70.0" />
                                  </VBox.margin>
@@ -70,7 +69,7 @@
                                     <Font size="34.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="strength" minWidth="-Infinity" text="20" translateY="3.0">
+                              <Label fx:id="strength" minWidth="-Infinity" text="18" translateY="3.0">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -78,7 +77,7 @@
                                     <Insets left="53.0" top="2.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label fx:id="dexterityModifier" minWidth="-Infinity" prefHeight="50.0" prefWidth="65.0" text="+10">
+                              <Label fx:id="dexterityModifier" minWidth="-Infinity" prefHeight="50.0" prefWidth="65.0" text="+3">
                                  <font>
                                     <Font size="34.0" />
                                  </font>
@@ -86,7 +85,7 @@
                                     <Insets left="28.0" top="50.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label fx:id="dexterity" minWidth="-Infinity" text="20" translateY="4.0">
+                              <Label fx:id="dexterity" minWidth="-Infinity" text="16" translateY="4.0">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -94,7 +93,7 @@
                                     <Insets left="53.0" top="3.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label fx:id="constitutionModifier" minWidth="-Infinity" text="+10">
+                              <Label fx:id="constitutionModifier" minWidth="-Infinity" text="+2">
                                  <VBox.margin>
                                     <Insets left="28.0" top="50.0" />
                                  </VBox.margin>
@@ -102,7 +101,7 @@
                                     <Font size="34.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="constitution" minWidth="-Infinity" text="20" translateY="5.0">
+                              <Label fx:id="constitution" minWidth="-Infinity" text="15" translateY="5.0">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -110,7 +109,7 @@
                                     <Insets left="53.0" top="3.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label fx:id="intelligenceModifier" minWidth="-Infinity" text="+10" translateY="8.0">
+                              <Label fx:id="intelligenceModifier" minWidth="-Infinity" text="+2" translateY="8.0">
                                  <VBox.margin>
                                     <Insets left="28.0" top="50.0" />
                                  </VBox.margin>
@@ -118,7 +117,7 @@
                                     <Font size="34.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="intelligence" minWidth="-Infinity" text="20" translateY="8.0">
+                              <Label fx:id="intelligence" minWidth="-Infinity" text="15" translateY="8.0">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -126,7 +125,7 @@
                                     <Insets left="53.0" top="12.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label fx:id="wisdomModifier" minWidth="-Infinity" text="+10" translateY="7.0">
+                              <Label fx:id="wisdomModifier" minWidth="-Infinity" text="+3" translateY="7.0">
                                  <VBox.margin>
                                     <Insets left="28.0" top="50.0" />
                                  </VBox.margin>
@@ -134,7 +133,7 @@
                                     <Font size="34.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="wisdom" minWidth="-Infinity" text="20" translateY="9.0">
+                              <Label fx:id="wisdom" minWidth="-Infinity" text="16" translateY="9.0">
                                  <VBox.margin>
                                     <Insets left="53.0" top="8.0" />
                                  </VBox.margin>
@@ -142,7 +141,7 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="charismaModifier" minWidth="-Infinity" text="+10" translateY="9.0">
+                              <Label fx:id="charismaModifier" minWidth="-Infinity" text="+2" translateY="9.0">
                                  <VBox.margin>
                                     <Insets left="28.0" top="50.0" />
                                  </VBox.margin>
@@ -150,7 +149,7 @@
                                     <Font size="34.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="charisma" minWidth="-Infinity" text="20" translateY="10.0">
+                              <Label fx:id="charisma" minWidth="-Infinity" text="15" translateY="10.0">
                                  <VBox.margin>
                                     <Insets left="53.0" top="8.0" />
                                  </VBox.margin>
@@ -164,12 +163,12 @@
                            <children>
                               <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="884.0" prefWidth="66.0">
                                  <children>
-                                    <CheckBox fx:id="acrobaticsCheckBox" disable="true" mnemonicParsing="false">
+                                    <CheckBox fx:id="acrobaticsCheckBox" disable="true" mnemonicParsing="false" selected="true">
                                        <VBox.margin>
                                           <Insets left="33.5" top="51.5" />
                                        </VBox.margin>
                                     </CheckBox>
-                                    <CheckBox fx:id="animalHandlingCheckBox" disable="true" mnemonicParsing="false">
+                                    <CheckBox fx:id="animalHandlingCheckBox" disable="true" mnemonicParsing="false" selected="true">
                                        <VBox.margin>
                                           <Insets left="33.5" top="26.0" />
                                        </VBox.margin>
@@ -258,7 +257,7 @@
                               </VBox>
                               <VBox prefHeight="882.0" prefWidth="55.0">
                                  <children>
-                                    <Label fx:id="acrobaticsModifier" prefHeight="18.0" prefWidth="57.0" text="+9">
+                                    <Label fx:id="acrobaticsModifier" prefHeight="18.0" prefWidth="57.0" text="+5">
                                        <VBox.margin>
                                           <Insets top="40.0" />
                                        </VBox.margin>
@@ -266,7 +265,7 @@
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="animalHandlingModifier" text="+9">
+                                    <Label fx:id="animalHandlingModifier" text="+5">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
@@ -274,7 +273,7 @@
                                           <Insets top="10.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <Label fx:id="arcanaModifier" text="+9">
+                                    <Label fx:id="arcanaModifier" text="+2">
                                        <VBox.margin>
                                           <Insets top="10.0" />
                                        </VBox.margin>
@@ -282,7 +281,7 @@
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="athleticsModifier" text="+9">
+                                    <Label fx:id="athleticsModifier" text="+6">
                                        <VBox.margin>
                                           <Insets top="10.0" />
                                        </VBox.margin>
@@ -290,7 +289,7 @@
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="deceptionModifier" text="+9">
+                                    <Label fx:id="deceptionModifier" text="+2">
                                        <VBox.margin>
                                           <Insets top="10.0" />
                                        </VBox.margin>
@@ -298,7 +297,7 @@
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="historyModifier" text="+9">
+                                    <Label fx:id="historyModifier" text="+2">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
@@ -306,7 +305,7 @@
                                           <Insets top="6.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <Label fx:id="insightModifier" text="+9">
+                                    <Label fx:id="insightModifier" text="+3">
                                        <VBox.margin>
                                           <Insets top="8.0" />
                                        </VBox.margin>
@@ -314,7 +313,7 @@
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="intimidationModifier" text="+9">
+                                    <Label fx:id="intimidationModifier" text="+2">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
@@ -322,7 +321,7 @@
                                           <Insets top="8.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <Label fx:id="investigationModifier" text="+9">
+                                    <Label fx:id="investigationModifier" text="+2">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
@@ -330,7 +329,7 @@
                                           <Insets top="8.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <Label fx:id="medicineModifier" text="+9">
+                                    <Label fx:id="medicineModifier" text="+3">
                                        <VBox.margin>
                                           <Insets top="8.0" />
                                        </VBox.margin>
@@ -338,7 +337,7 @@
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="natureModifier" text="+9">
+                                    <Label fx:id="natureModifier" text="+2">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
@@ -346,7 +345,7 @@
                                           <Insets top="8.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <Label fx:id="perceptionModifier" text="+9">
+                                    <Label fx:id="perceptionModifier" text="+3">
                                        <VBox.margin>
                                           <Insets top="8.0" />
                                        </VBox.margin>
@@ -354,7 +353,7 @@
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="performanceModifier" text="+9">
+                                    <Label fx:id="performanceModifier" text="+2">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
@@ -362,7 +361,7 @@
                                           <Insets top="8.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <Label fx:id="persuasionModifier" text="+9">
+                                    <Label fx:id="persuasionModifier" text="+2">
                                        <VBox.margin>
                                           <Insets top="9.0" />
                                        </VBox.margin>
@@ -370,7 +369,7 @@
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="religionModifier" text="+9">
+                                    <Label fx:id="religionModifier" text="+2">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
@@ -378,7 +377,7 @@
                                           <Insets top="9.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <Label fx:id="sleightOfHandModifier" text="+9">
+                                    <Label fx:id="sleightOfHandModifier" text="+3">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
@@ -386,7 +385,7 @@
                                           <Insets top="9.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <Label fx:id="stealthModifier" text="+9">
+                                    <Label fx:id="stealthModifier" text="+3">
                                        <VBox.margin>
                                           <Insets top="9.0" />
                                        </VBox.margin>
@@ -394,7 +393,7 @@
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="survivalModifier" text="+9">
+                                    <Label fx:id="survivalModifier" text="+2">
                                        <VBox.margin>
                                           <Insets top="9.0" />
                                        </VBox.margin>
@@ -409,17 +408,17 @@
                         <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.columnSpan="3">
                            <children>
                               <GridPane prefHeight="130.0" prefWidth="805.0">
-                                <columnConstraints>
-                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="279.20001220703125" minWidth="10.0" prefWidth="273.60003662109375" />
-                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="310.39996337890625" minWidth="10.0" prefWidth="310.39996337890625" />
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="279.20001220703125" minWidth="10.0" prefWidth="273.60003662109375" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="310.39996337890625" minWidth="10.0" prefWidth="310.39996337890625" />
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="286.2000732421875" minWidth="10.0" prefWidth="282.2000732421875" />
-                                </columnConstraints>
-                                <rowConstraints>
-                                  <RowConstraints maxHeight="84.4" minHeight="10.0" prefHeight="75.20000305175782" vgrow="SOMETIMES" />
-                                  <RowConstraints maxHeight="59.600012207031256" minHeight="10.0" prefHeight="54.399996948242205" vgrow="SOMETIMES" />
-                                </rowConstraints>
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints maxHeight="84.4" minHeight="10.0" prefHeight="75.20000305175782" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="59.600012207031256" minHeight="10.0" prefHeight="54.399996948242205" vgrow="SOMETIMES" />
+                                 </rowConstraints>
                                  <children>
-                                    <Label fx:id="characterClass" prefHeight="28.0" prefWidth="143.0" text="namennnn">
+                                    <Label fx:id="characterClass" prefHeight="28.0" prefWidth="333.0" text="system.model.characterClasses.Fighter" GridPane.columnSpan="2">
                                        <font>
                                           <Font size="19.0" />
                                        </font>
@@ -427,7 +426,7 @@
                                           <Insets left="130.0" top="20.0" />
                                        </GridPane.margin>
                                     </Label>
-                                    <Label fx:id="characterName" prefHeight="28.0" prefWidth="151.0" text="nameeeeee" GridPane.rowIndex="1">
+                                    <Label fx:id="characterName" prefHeight="28.0" prefWidth="151.0" text="TestCharacter" GridPane.rowIndex="1">
                                        <font>
                                           <Font size="19.0" />
                                        </font>
@@ -443,7 +442,7 @@
                                           <Insets left="140.0" top="24.0" />
                                        </GridPane.margin>
                                     </Label>
-                                    <Label fx:id="characterRace" text="water genasi" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <Label fx:id="characterRace" text="Orc" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                        <font>
                                           <Font size="19.0" />
                                        </font>
@@ -452,17 +451,17 @@
                                        </GridPane.margin>
                                     </Label>
                                     <GridPane GridPane.columnIndex="2" GridPane.rowSpan="2">
-                                      <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.199951171875" minWidth="10.0" prefWidth="51.9999755859375" />
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.199951171875" minWidth="10.0" prefWidth="51.9999755859375" />
                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="124.80007705688476" minWidth="10.0" prefWidth="68.200048828125" />
                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="158.19992675781253" minWidth="10.0" prefWidth="52.99995117187498" />
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="158.19992675781253" minWidth="10.0" prefWidth="117.39997558593751" />
-                                      </columnConstraints>
-                                      <rowConstraints>
-                                        <RowConstraints maxHeight="63.20000305175781" minHeight="10.0" prefHeight="63.20000305175781" vgrow="SOMETIMES" />
-                                        <RowConstraints maxHeight="73.59998931884766" minHeight="10.0" prefHeight="32.79999694824219" vgrow="SOMETIMES" />
-                                        <RowConstraints maxHeight="40.80000152587891" minHeight="10.0" prefHeight="35.00000915527343" vgrow="SOMETIMES" />
-                                      </rowConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="158.19992675781253" minWidth="10.0" prefWidth="117.39997558593751" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints maxHeight="63.20000305175781" minHeight="10.0" prefHeight="63.20000305175781" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="73.59998931884766" minHeight="10.0" prefHeight="32.79999694824219" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="40.80000152587891" minHeight="10.0" prefHeight="35.00000915527343" vgrow="SOMETIMES" />
+                                       </rowConstraints>
                                        <children>
                                           <TextField fx:id="hpChangeAmount" prefHeight="26.0" prefWidth="37.0" GridPane.rowIndex="1">
                                              <GridPane.margin>
@@ -475,7 +474,7 @@
                                              </GridPane.margin>
                                           </Button>
                                           <Button fx:id="hpMinusButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="26.0" text="-" GridPane.rowIndex="2" />
-                                          <Label fx:id="hpMax" text="180+10" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                          <Label fx:id="hpMax" text="8+0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                              <font>
                                                 <Font size="17.0" />
                                              </font>
@@ -483,7 +482,7 @@
                                                 <Insets bottom="10.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="hp" style="-fx-underline: true;" text="180+10" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <Label fx:id="hp" style="-fx-underline: true;" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <font>
                                                 <Font size="17.0" />
                                              </font>
@@ -505,7 +504,7 @@
                                              </font>
                                           </Label>
                                           <Label GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                                          <Label fx:id="levelDisplay" GridPane.columnIndex="3">
+                                          <Label fx:id="levelDisplay" text="1" GridPane.columnIndex="3">
                                              <font>
                                                 <Font size="15.0" />
                                              </font>
@@ -513,7 +512,7 @@
                                                 <Insets top="40.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label GridPane.columnIndex="3" GridPane.rowIndex="1" fx:id="xpCount">
+                                          <Label text="0" GridPane.columnIndex="3" GridPane.rowIndex="1" fx:id="xpCount">
                                              <font>
                                                 <Font size="15.0" />
                                              </font>
@@ -539,7 +538,7 @@
                                     <Insets left="10.0" right="140.0" />
                                  </VBox.margin>
                                  <children>
-                                    <Label fx:id="strengthSavingThrow" text="+5">
+                                    <Label fx:id="strengthSavingThrow" text="+7">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
@@ -547,7 +546,7 @@
                                           <Insets left="17.0" top="28.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <Label fx:id="dexteritySavingThrow" text="+5">
+                                    <Label fx:id="dexteritySavingThrow" text="+3">
                                        <VBox.margin>
                                           <Insets left="17.0" top="5.0" />
                                        </VBox.margin>
@@ -555,7 +554,7 @@
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="constitutionSavingThrow" text="+5">
+                                    <Label fx:id="constitutionSavingThrow" text="+2">
                                        <VBox.margin>
                                           <Insets left="17.0" top="5.0" />
                                        </VBox.margin>
@@ -563,7 +562,7 @@
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="intelligenceSavingThrow" text="+5">
+                                    <Label fx:id="intelligenceSavingThrow" text="+2">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
@@ -571,7 +570,7 @@
                                           <Insets left="17.0" top="5.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <Label fx:id="wisdomSavingThrow" text="+5">
+                                    <Label fx:id="wisdomSavingThrow" text="+3">
                                        <VBox.margin>
                                           <Insets left="17.0" top="6.0" />
                                        </VBox.margin>
@@ -579,7 +578,7 @@
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="charismaSavingThrow" text="+5">
+                                    <Label fx:id="charismaSavingThrow" text="+2">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
@@ -587,7 +586,7 @@
                                           <Insets left="17.0" top="5.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <Label fx:id="proficiencyBonus" text="+9">
+                                    <Label fx:id="proficiencyBonus" text="+12">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
@@ -606,16 +605,16 @@
                                  </children>
                               </VBox>
                               <GridPane prefHeight="299.0" prefWidth="213.0">
-                                <columnConstraints>
-                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                </columnConstraints>
-                                <rowConstraints>
-                                  <RowConstraints maxHeight="92.00003662109376" minHeight="10.0" prefHeight="92.00003662109376" vgrow="SOMETIMES" />
-                                  <RowConstraints maxHeight="69.60001220703126" minHeight="10.0" prefHeight="56.799963378906256" vgrow="SOMETIMES" />
-                                  <RowConstraints maxHeight="62.599951171875006" minHeight="10.0" prefHeight="57.799963378906256" vgrow="SOMETIMES" />
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints maxHeight="92.00003662109376" minHeight="10.0" prefHeight="92.00003662109376" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="69.60001220703126" minHeight="10.0" prefHeight="56.799963378906256" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="62.599951171875006" minHeight="10.0" prefHeight="57.799963378906256" vgrow="SOMETIMES" />
                                     <RowConstraints maxHeight="77.00003662109376" minHeight="10.0" prefHeight="77.00003662109376" vgrow="SOMETIMES" />
-                                </rowConstraints>
+                                 </rowConstraints>
                                  <children>
                                     <Label fx:id="speed" prefHeight="35.0" prefWidth="47.0" text="30">
                                        <font>
@@ -625,7 +624,7 @@
                                           <Insets left="45.0" top="20.0" />
                                        </GridPane.margin>
                                     </Label>
-                                    <Label fx:id="armorClass" prefHeight="35.0" prefWidth="39.0" text="25" GridPane.columnIndex="1">
+                                    <Label fx:id="armorClass" prefHeight="35.0" prefWidth="39.0" text="13" GridPane.columnIndex="1">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
@@ -633,7 +632,7 @@
                                           <Insets left="48.0" top="10.0" />
                                        </GridPane.margin>
                                     </Label>
-                                    <Label fx:id="initiativeModifier" prefHeight="35.0" prefWidth="44.0" text="+5" GridPane.rowIndex="1">
+                                    <Label fx:id="initiativeModifier" prefHeight="35.0" prefWidth="44.0" text="+3" GridPane.rowIndex="1">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
@@ -641,7 +640,7 @@
                                           <Insets left="40.0" />
                                        </GridPane.margin>
                                     </Label>
-                                    <Label fx:id="platinumPiece" prefHeight="18.0" prefWidth="59.0" text="1000" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <Label fx:id="platinumPiece" prefHeight="18.0" prefWidth="59.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font>
@@ -649,7 +648,7 @@
                                           <Insets left="32.0" top="10.0" />
                                        </GridPane.margin>
                                     </Label>
-                                    <Label fx:id="copperPiece" prefHeight="18.0" prefWidth="53.0" text="10000" GridPane.rowIndex="2">
+                                    <Label fx:id="copperPiece" prefHeight="18.0" prefWidth="53.0" text="0" GridPane.rowIndex="2">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font>
@@ -657,7 +656,7 @@
                                           <Insets left="38.0" />
                                        </GridPane.margin>
                                     </Label>
-                                    <Label fx:id="electrumPiece" prefHeight="18.0" prefWidth="58.0" text="10000" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                    <Label fx:id="electrumPiece" prefHeight="18.0" prefWidth="58.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                        <GridPane.margin>
                                           <Insets left="30.0" />
                                        </GridPane.margin>
@@ -665,7 +664,7 @@
                                           <Font name="System Bold" size="12.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="silverPiece" prefHeight="18.0" prefWidth="52.0" text="10000" GridPane.rowIndex="3">
+                                    <Label fx:id="silverPiece" prefHeight="18.0" prefWidth="52.0" text="0" GridPane.rowIndex="3">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font>
@@ -673,7 +672,7 @@
                                           <Insets bottom="12.0" left="41.0" />
                                        </GridPane.margin>
                                     </Label>
-                                    <Label fx:id="goldPiece" prefHeight="18.0" prefWidth="58.0" text="10000" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                    <Label fx:id="goldPiece" prefHeight="18.0" prefWidth="58.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font>
@@ -691,22 +690,22 @@
                            </GridPane.margin>
                            <children>
                               <TableView fx:id="attacksAndSpellCastingTable" prefHeight="321.0" prefWidth="295.0">
-                                <columns>
-                                  <TableColumn fx:id="attackAndSpellCastingTableNameColumn" prefWidth="126.39996355772018" text="Name" />
-                                  <TableColumn fx:id="attacksAndSpellCastingTableDamageColumn" prefWidth="54.4000244140625" text="Damage" />
+                                 <columns>
+                                    <TableColumn fx:id="attackAndSpellCastingTableNameColumn" prefWidth="126.39996355772018" text="Name" />
+                                    <TableColumn fx:id="attacksAndSpellCastingTableDamageColumn" prefWidth="54.4000244140625" text="Damage" />
                                     <TableColumn fx:id="attacksAndSpellCastingTableRangeColumn" prefWidth="46.4000244140625" text="Range" />
                                     <TableColumn fx:id="attacksAndSpellCastingTableDamageTypeColumn" prefWidth="67.199951171875" style="-fx-font-size: 9;" text="Damage Type" />
-                                </columns>
+                                 </columns>
                                  <VBox.margin>
                                     <Insets left="7.0" right="7.0" top="7.0" />
                                  </VBox.margin>
                               </TableView>
                               <TableView fx:id="equipmentTable" prefHeight="319.0" prefWidth="295.0">
-                                <columns>
-                                  <TableColumn fx:id="equipmentTableEquippedColumn" prefWidth="27.199951350688934" text="EQ" />
-                                  <TableColumn fx:id="equipmentTableAmountColumn" prefWidth="40.800048828125" text="#" />
+                                 <columns>
+                                    <TableColumn fx:id="equipmentTableEquippedColumn" prefWidth="27.199951350688934" text="EQ" />
+                                    <TableColumn fx:id="equipmentTableAmountColumn" prefWidth="40.800048828125" text="#" />
                                     <TableColumn fx:id="equipmentTableNameColumn" prefWidth="228.0" text="Name" />
-                                </columns>
+                                 </columns>
                                  <VBox.margin>
                                     <Insets left="7.0" right="7.0" top="35.0" />
                                  </VBox.margin>
@@ -714,12 +713,12 @@
                            </children>
                         </VBox>
                         <SplitPane fx:id="inventoryAndSpellsSideBarSplitPane" dividerPositions="0.005535055350553505" prefHeight="160.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.columnSpan="2" GridPane.rowIndex="1">
-                          <items>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <items>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                                  <children>
                                     <Accordion prefHeight="737.0" prefWidth="536.0">
-                                      <panes>
-                                        <TitledPane fx:id="spellSlotsTitledPane" expanded="false" prefHeight="438.0" prefWidth="536.0" text="Spell Slots">
+                                       <panes>
+                                          <TitledPane fx:id="spellSlotsTitledPane" expanded="false" prefHeight="438.0" prefWidth="536.0" text="Spell Slots">
                                              <content>
                                                 <GridPane gridLinesVisible="true" prefHeight="298.0" prefWidth="319.0">
                                                    <columnConstraints>
@@ -1022,21 +1021,21 @@
                                                 </GridPane>
                                              </content>
                                           </TitledPane>
-                                        <TitledPane fx:id="knownSpellsTitledPane" prefWidth="536.0" text="Known Spells">
+                                          <TitledPane fx:id="knownSpellsTitledPane" prefWidth="536.0" text="Known Spells">
                                              <content>
                                                 <VBox prefHeight="200.0" prefWidth="100.0">
                                                    <children>
                                                       <TableView fx:id="knownSpellsTable" prefHeight="562.0" prefWidth="515.0">
-                                                        <columns>
-                                                          <TableColumn fx:id="knownSpellsTableNameColumn" prefWidth="147.99998819828033" style="-fx-font-size: 9;" text="Name" />
-                                                          <TableColumn fx:id="knownSpellsTableRangeAndAreaColumn" prefWidth="63.199951171875" style="-fx-font-size: 9;" text="Range/Area" />
+                                                         <columns>
+                                                            <TableColumn fx:id="knownSpellsTableNameColumn" prefWidth="147.99998819828033" style="-fx-font-size: 9;" text="Name" />
+                                                            <TableColumn fx:id="knownSpellsTableRangeAndAreaColumn" prefWidth="63.199951171875" style="-fx-font-size: 9;" text="Range/Area" />
                                                             <TableColumn fx:id="knownSpellsTableDamageColumn" prefWidth="53.600006103515625" style="-fx-font-size: 9;" text="Damage" />
                                                             <TableColumn fx:id="knownSpellsTableComponentsColumn" prefWidth="38.400146484375" style="-fx-font-size: 9;" text="COMPS" />
                                                             <TableColumn fx:id="knownSpellsTableLevelColumn" minWidth="0.0" prefWidth="25.5999755859375" style="-fx-font-size: 9;" text="Lvl" />
                                                             <TableColumn fx:id="knownSpellsTableCastTimeColumn" prefWidth="53.5999755859375" style="-fx-font-size: 9;" text="Cast Time" />
                                                             <TableColumn fx:id="knownSpellsTableDurationColumn" prefWidth="52.7999267578125" style="-fx-font-size: 9;" text="Duration" />
                                                             <TableColumn fx:id="knownSpellsTableSavingThrowColumn" prefWidth="82.40005493164062" style="-fx-font-size: 9;" text="Saving throw" />
-                                                        </columns>
+                                                         </columns>
                                                       </TableView>
                                                       <HBox prefHeight="100.0" prefWidth="200.0">
                                                          <children>
@@ -1148,28 +1147,28 @@
                                                 </VBox>
                                              </content>
                                           </TitledPane>
-                                      </panes>
+                                       </panes>
                                     </Accordion>
                                  </children>
                               </AnchorPane>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                                  <children>
                                     <VBox prefHeight="738.0" prefWidth="536.0">
                                        <children>
                                           <Accordion>
-                                            <panes>
-                                              <TitledPane fx:id="inventoryTitledPane" expanded="false" prefHeight="501.0" prefWidth="536.0" text="Inventory">
+                                             <panes>
+                                                <TitledPane fx:id="inventoryTitledPane" expanded="false" prefHeight="501.0" prefWidth="536.0" text="Inventory">
                                                    <content>
                                                       <VBox prefHeight="586.0" prefWidth="534.0">
                                                          <children>
                                                             <Accordion prefHeight="486.0" prefWidth="515.0">
-                                                              <panes>
-                                                                <TitledPane fx:id="inventoryWeaponsTitledPane" expanded="false" prefHeight="284.0" prefWidth="485.0" text="Weapons">
+                                                               <panes>
+                                                                  <TitledPane fx:id="inventoryWeaponsTitledPane" expanded="false" prefHeight="284.0" prefWidth="485.0" text="Weapons">
                                                                      <content>
                                                                         <TableView fx:id="inventoryWeaponsTable" prefHeight="200.0" prefWidth="200.0">
-                                                                          <columns>
+                                                                           <columns>
                                                                               <TableColumn fx:id="inventoryWeaponsTableEquippedColumn" prefWidth="20.0" text="eq" />
-                                                                            <TableColumn fx:id="inventoryWeaponsTableAmountColumn" maxWidth="18.39990234375" prefWidth="18.39990234375" text="#" />
+                                                                              <TableColumn fx:id="inventoryWeaponsTableAmountColumn" maxWidth="18.39990234375" prefWidth="18.39990234375" text="#" />
                                                                               <TableColumn fx:id="inventoryWeaponsTableNameColumn" prefWidth="134.4000129699707" style="-fx-font-size: 9;" text="Name" />
                                                                               <TableColumn fx:id="inventoryWeaponsTableDamageColumn" prefWidth="46.39990234375" style="-fx-font-size: 9;" text="Damage" />
                                                                               <TableColumn fx:id="inventoryWeaponsTableDamageTypeColumn" prefWidth="64.79994201660156" style="-fx-font-size: 9;" text="Damage type" />
@@ -1177,11 +1176,11 @@
                                                                               <TableColumn fx:id="inventoryWeaponsTableValueColumn" prefWidth="44.800048828125" style="-fx-font-size: 9;" text="Value" />
                                                                               <TableColumn fx:id="inventoryWeaponsTableRangeColumn" prefWidth="31.199951171875" style="-fx-font-size: 9;" text="Range" />
                                                                               <TableColumn fx:id="inventoryWeaponsTableTypeColumn" prefWidth="80.800048828125" style="-fx-font-size: 9;" text="Type" />
-                                                                          </columns>
+                                                                           </columns>
                                                                         </TableView>
                                                                      </content>
                                                                   </TitledPane>
-                                                                <TitledPane fx:id="inventoryArmorTitledPane" text="Armor">
+                                                                  <TitledPane fx:id="inventoryArmorTitledPane" text="Armor">
                                                                      <content>
                                                                         <TableView fx:id="inventoryArmorTable" prefHeight="200.0" prefWidth="200.0">
                                                                            <columns>
@@ -1208,7 +1207,7 @@
                                                                         </TableView>
                                                                      </content>
                                                                   </TitledPane>
-                                                              </panes>
+                                                               </panes>
                                                                <padding>
                                                                   <Insets left="20.0" right="10.0" />
                                                                </padding>
@@ -1255,7 +1254,7 @@
                                                       </VBox>
                                                    </content>
                                                 </TitledPane>
-                                              <TitledPane fx:id="addItemTitledPane" expanded="false" prefHeight="500.0" prefWidth="536.0" text="Add Item">
+                                                <TitledPane fx:id="addItemTitledPane" expanded="false" prefHeight="500.0" prefWidth="536.0" text="Add Item">
                                                    <content>
                                                       <VBox prefHeight="615.0" prefWidth="534.0">
                                                          <children>
@@ -1338,17 +1337,17 @@
                                                       <VBox prefHeight="503.0" prefWidth="534.0">
                                                          <children>
                                                             <GridPane prefHeight="298.0" prefWidth="515.0">
-                                                              <columnConstraints>
-                                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                              </columnConstraints>
-                                                              <rowConstraints>
-                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                               <columnConstraints>
+                                                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                               </columnConstraints>
+                                                               <rowConstraints>
                                                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                              </rowConstraints>
+                                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                               </rowConstraints>
                                                                <children>
                                                                   <Label text="Platinum">
                                                                      <GridPane.margin>
@@ -1383,18 +1382,18 @@
                                                                </children>
                                                             </GridPane>
                                                             <GridPane>
-                                                              <columnConstraints>
-                                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                               <columnConstraints>
                                                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                              </columnConstraints>
-                                                              <rowConstraints>
-                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                              </rowConstraints>
+                                                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                               </columnConstraints>
+                                                               <rowConstraints>
+                                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                               </rowConstraints>
                                                                <children>
                                                                   <Label text="Platinum">
                                                                      <GridPane.margin>
@@ -1467,13 +1466,13 @@
                                                       </VBox>
                                                    </content>
                                                 </TitledPane>
-                                            </panes>
+                                             </panes>
                                           </Accordion>
                                        </children>
                                     </VBox>
                                  </children>
                               </AnchorPane>
-                          </items>
+                           </items>
                         </SplitPane>
                         <TextArea fx:id="featuresAndTraitsTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
                            <GridPane.margin>
