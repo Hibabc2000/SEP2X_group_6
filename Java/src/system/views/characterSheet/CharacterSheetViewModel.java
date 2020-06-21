@@ -534,7 +534,7 @@ public class CharacterSheetViewModel
   private void setCharacter(PropertyChangeEvent propertyChangeEvent)
   {
     sheetCharacter = (Character) propertyChangeEvent.getNewValue();
-    String valveplsfix = sheetCharacter.getName() + sheetCharacter.getAbilities()[1];
+    String valveplsfix = sheetCharacter.getName() + sheetCharacter.getAbilities()[1]+"AAAAAAAAAAAAAAAAAAA";
     System.out.println(valveplsfix);
     calculateValues();
   }

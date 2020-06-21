@@ -346,8 +346,14 @@ public class CharacterCreationViewModel implements Subject
 
   public void setTemporaryCharacterRace(Race race)
   {
-    temporaryCharacter.setRace(race);
-    raceDes = new SimpleStringProperty(temporaryCharacter.getRace().getInfo());
+    for(int x = 0; x < staticModel.getRaces().size();x++)
+    {
+      if(staticModel.getRaces().get(x).getName().equalsIgnoreCase(race.getName()))
+      {
+        raceDes = new SimpleStringProperty(temporaryCharacter.getRace().getInfo());
+        temporaryCharacter.setRace(staticModel.getRaces().get(x));
+      }
+    }
   }
 
   //<editor-fold desc="immense pain">
@@ -1090,6 +1096,12 @@ public class CharacterCreationViewModel implements Subject
         abilityImprovement[4] + insertedRolledAbilities[4] + racialModifiers[4];
     finalAbilities[5] =
         abilityImprovement[5] + insertedRolledAbilities[5] + racialModifiers[5];
+    strengthImprovement.set(String.valueOf(abilityImprovement[0]));
+    dexterityImprovement.set(String.valueOf(abilityImprovement[1]));
+    constitutionImprovement.set(String.valueOf(abilityImprovement[2]));
+    intelligenceAbilityImprovement.set(String.valueOf(abilityImprovement[3]));
+    wisdomImprovement.set(String.valueOf(abilityImprovement[4]));
+    charismaImprovement.set(String.valueOf(abilityImprovement[5]));
     strengthFinal.setValue(String.valueOf(finalAbilities[0]));
     dexterityFinal.setValue(String.valueOf(finalAbilities[1]));
     constitutionFinal.setValue(String.valueOf(finalAbilities[2]));
@@ -1475,6 +1487,7 @@ public class CharacterCreationViewModel implements Subject
     else
       temporaryCharacter.setXp(Integer.parseInt(xp.getValue()));
     temporaryCharacter.setName(nameF.getName());
+    System.out.println(temporaryCharacter.getName()+"BBBBBBBBBB"+nameF.getValue());
     temporaryCharacter.setPhysicalCharacteristics(physicalCharacteristicsF.toString());
     temporaryCharacter.setBackstory(backstoryF.toString());
     temporaryCharacter.setAlliesAndOrganizations(alliesAndOrganizationsF.toString());
