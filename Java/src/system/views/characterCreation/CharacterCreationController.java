@@ -503,6 +503,7 @@ public class CharacterCreationController
 
   public void setSubClass(ActionEvent actionEvent)
   {
+
   }
 
   public void setFeatFromCB(ActionEvent actionEvent)

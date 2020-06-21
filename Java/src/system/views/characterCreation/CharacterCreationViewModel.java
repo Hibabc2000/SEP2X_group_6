@@ -104,7 +104,11 @@ public class CharacterCreationViewModel implements Subject
    // allClasses = new ArrayList<>();
     backgrounds = new ArrayList<>();
     characterClasses = new ArrayList<>();
+    Subclass battleMaster = new Subclass("Battle master", "Fighter","BM desc");
+    Subclass arcaneArcher = new Subclass("Arcane Archer", "Fighter", "AA desc");
     relatedSubClasses = new ArrayList<>();
+    relatedSubClasses.add(battleMaster);
+    relatedSubClasses.add(arcaneArcher);
     relatedFeats = new ArrayList<>();
     raceDes = new SimpleStringProperty();
     intelligenceProperty = new SimpleStringProperty();

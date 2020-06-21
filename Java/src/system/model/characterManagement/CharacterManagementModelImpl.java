@@ -34,6 +34,10 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
   {characters = new ArrayList<>();
     characterClasses = new ArrayList<>();
     ArrayList<Feat> fts = new ArrayList();
+    Feat testFeat1 = new Feat("Orc","test feat1","bruh");
+    Feat testFeat2 = new Feat("Orc","test feat2","bruh");
+    fts.add(testFeat1);
+    fts.add(testFeat2);
     ArrayList<Integer> featlvls = new ArrayList<>();
     ArrayList<Proficiency> ftmdf = new ArrayList<>();
     Fighter testclass = new Fighter(6,fts,featlvls,"fat","AAA",ftmdf);
