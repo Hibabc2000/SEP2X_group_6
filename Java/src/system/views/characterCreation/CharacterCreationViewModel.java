@@ -1486,7 +1486,7 @@ public class CharacterCreationViewModel implements Subject
     }
     else
       temporaryCharacter.setXp(Integer.parseInt(xp.getValue()));
-    temporaryCharacter.setName(nameF.getName());
+    temporaryCharacter.setName(nameF.getValue());
     System.out.println(temporaryCharacter.getName()+"BBBBBBBBBB"+nameF.getValue());
     temporaryCharacter.setPhysicalCharacteristics(physicalCharacteristicsF.toString());
     temporaryCharacter.setBackstory(backstoryF.toString());

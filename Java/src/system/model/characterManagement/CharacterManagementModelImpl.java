@@ -109,7 +109,7 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
       System.out.println("grouup name, id, :" + account.getUsername()+ " id: "+group.getId() );
       support.firePropertyChange("openTheCreation",null,temporaryCharacter);
      // support.firePropertyChange("displayCharacterCreationScene",null,k);
-    support.firePropertyChange("characterToSheetViewModel", null,temporaryCharacter);
+    //support.firePropertyChange("characterToSheetViewModel", null,temporaryCharacter);
       System.out.println("what?");
     }
   }
@@ -221,6 +221,7 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
     {
       if (characters.size() == 0)
       {
+        System.out.println(character.getName()+character.getAbilities()[0]+"!!!!!!!");
         characters.add(character);
         support.firePropertyChange("characterToSheetViewModel", null,
             character);
@@ -231,6 +232,7 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
         {
           if (characters.get(i).getId() == character.getId())
           {
+            System.out.println(character.getName()+character.getAbilities()[0]+"!!!!!!!");
             characters.remove(characters.get(i));
             characters.add(i, character);
             transmitCharacter(character);
@@ -239,6 +241,7 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
           }
           else
           {
+            System.out.println(character.getName()+character.getAbilities()[0]+"!!!!!!!");
             characters.add(character);
             transmitCharacter(character);
             support.firePropertyChange("characterToSheetViewModel", null,
@@ -249,6 +252,7 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
     }
     else if(characters.size() > 0)
     {
+      System.out.println(character.getName()+character.getAbilities()[0]+"!!!!!!!");
       characters.remove(0);
       characters.add(character);
       transmitCharacter(character);
