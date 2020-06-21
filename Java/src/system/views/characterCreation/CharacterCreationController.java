@@ -550,7 +550,14 @@ public class CharacterCreationController
       characterCreationViewModel.setSkills(tmp);
       characterCreationViewModel.saveCharacter();
 
-      Thread.sleep(1000);
+      try
+      {
+        Thread.sleep(1000);
+      }
+      catch (InterruptedException e)
+      {
+        e.printStackTrace();
+      }
 
       viewHandler.openCharacterSheet();
     }
