@@ -217,11 +217,12 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
    */
   @Override public void setCharacter(Character character)
   {
+    System.out.println(character.getName()+character.getAbilities()[0]+"!!!!!!!");
     if (account.getUser() instanceof DM)
     {
       if (characters.size() == 0)
       {
-        System.out.println(character.getName()+character.getAbilities()[0]+"!!!!!!!");
+        System.out.println(character.getName()+character.getAbilities()[0]+"!!!!!!!"+1);
         characters.add(character);
         support.firePropertyChange("characterToSheetViewModel", null,
             character);
@@ -232,7 +233,7 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
         {
           if (characters.get(i).getId() == character.getId())
           {
-            System.out.println(character.getName()+character.getAbilities()[0]+"!!!!!!!");
+            System.out.println(character.getName()+character.getAbilities()[0]+"!!!!!!!"+2);
             characters.remove(characters.get(i));
             characters.add(i, character);
             transmitCharacter(character);
@@ -241,7 +242,7 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
           }
           else
           {
-            System.out.println(character.getName()+character.getAbilities()[0]+"!!!!!!!");
+            System.out.println(character.getName()+character.getAbilities()[0]+"!!!!!!!"+3);
             characters.add(character);
             transmitCharacter(character);
             support.firePropertyChange("characterToSheetViewModel", null,
@@ -252,8 +253,16 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
     }
     else if(characters.size() > 0)
     {
-      System.out.println(character.getName()+character.getAbilities()[0]+"!!!!!!!");
+      System.out.println(character.getName()+character.getAbilities()[0]+"!!!!!!!"+4);
       characters.remove(0);
+      characters.add(character);
+      transmitCharacter(character);
+      support.firePropertyChange("characterToSheetViewModel", null,
+          character);
+    }
+    else if(characters.size() == 0)
+    {
+      System.out.println(character.getName()+character.getAbilities()[0]+"!!!!!!!"+5);
       characters.add(character);
       transmitCharacter(character);
       support.firePropertyChange("characterToSheetViewModel", null,
