@@ -2,47 +2,36 @@ package system.views.dmCharacterSheetChoosing;
 
 public class DM_hardcode_data
 {
-  private int XP;
-  private String playerName;
-  private String charName;
+  private int xp;
+  private String username;
+  private String name;
   private int level;
 
-  public DM_hardcode_data(int XP, String playerName, String charName, int level)
+  public DM_hardcode_data(int xp, String username, String name, int level)
   {
-    this.XP = XP;
-    this.playerName = playerName;
-    this.charName = charName;
+    this.xp = xp;
+    this.username = username;
+    this.name = name;
     this.level = level;
   }
 
-  public int getXP()
+  public int getXp()
   {
-    return XP;
+    return xp;
   }
 
-  public void setXP(int XP)
+  public void setXp(int xp)
   {
-    this.XP = XP;
+    this.xp = xp;
   }
 
-  public String getPlayerName()
+  public String getUsername()
   {
-    return playerName;
+    return username;
   }
-
-  public void setPlayerName(String playerName)
+  public String getName()
   {
-    this.playerName = playerName;
-  }
-
-  public String getCharName()
-  {
-    return charName;
-  }
-
-  public void setCharName(String charName)
-  {
-    this.charName = charName;
+    return name;
   }
 
   public int getLevel()

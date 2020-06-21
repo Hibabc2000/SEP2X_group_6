@@ -8,69 +8,19 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import system.core.ViewHandler;
-import system.model.businessModel.Character;
 
 public class DmCharacterChoosingPageController
 {
   private ViewHandler vh;
   private DMCharacterSheetChoosingViewModel model;
-  @FXML private TableView<Character> tableDM;
-  @FXML private TableColumn<Character, Integer> lvl;
-  @FXML private TableColumn<Character, String> charname;
-  @FXML private TableColumn<Character, String> play;
-  @FXML private TableColumn<Character, Integer> curXP;
+  @FXML private TableView<DM_hardcode_data> tableDM;
+  @FXML private TableColumn<DM_hardcode_data, Integer> lvl;
+  @FXML private TableColumn<DM_hardcode_data, String> charname;
+  @FXML private TableColumn<DM_hardcode_data, String> play;
+  @FXML private TableColumn<DM_hardcode_data, Integer> curXP;
   @FXML private TextField giveXPField;
   @FXML private Label errorMessage;
 
-  public TableView<Character> getTableDM()
-  {
-    return tableDM;
-  }
-
-  public void setTableDM(TableView<Character> tableDM)
-  {
-    this.tableDM = tableDM;
-  }
-
-  public TableColumn<Character, Integer> getLvl()
-  {
-    return lvl;
-  }
-
-  public void setLvl(TableColumn<Character, Integer> lvl)
-  {
-    this.lvl = lvl;
-  }
-
-  public TableColumn<Character, String> getCharname()
-  {
-    return charname;
-  }
-
-  public void setCharname(TableColumn<Character, String> charname)
-  {
-    this.charname = charname;
-  }
-
-  public TableColumn<Character, String> getPlay()
-  {
-    return play;
-  }
-
-  public void setPlay(TableColumn<Character, String> play)
-  {
-    this.play = play;
-  }
-
-  public TableColumn<Character, Integer> getCurXP()
-  {
-    return curXP;
-  }
-
-  public void setCurXP(TableColumn<Character, Integer> curXP)
-  {
-    this.curXP = curXP;
-  }
 
   public TextField getGiveXPField()
   {
@@ -98,13 +48,13 @@ public class DmCharacterChoosingPageController
     vh = viewHandler;
     model = viewModel;
     lvl.setCellValueFactory(
-        new PropertyValueFactory<Character, Integer>("level"));
+        new PropertyValueFactory<DM_hardcode_data, Integer>("level"));
     charname.setCellValueFactory(
-        new PropertyValueFactory<Character, String>("name"));
+        new PropertyValueFactory<DM_hardcode_data, String>("name"));
     play.setCellValueFactory(
-        new PropertyValueFactory<Character, String>("username"));
+        new PropertyValueFactory<DM_hardcode_data, String>("username"));
     curXP.setCellValueFactory(
-        new PropertyValueFactory<Character, Integer>("xp"));
+        new PropertyValueFactory<DM_hardcode_data, Integer>("xp"));
    // tableDM.setItems(model.getCharacterList());
  //   giveXPField.textProperty().bindBidirectional(model.getXpFieldProperty());
     errorMessage.textProperty().bind(model.getErrorProperty());
@@ -116,16 +66,21 @@ public class DmCharacterChoosingPageController
   {
     if (tableDM.getSelectionModel().getSelectedItems().isEmpty())
     {
-      Text message = new Text(errorMessage.getText());
+      int test= Integer.parseInt(giveXPField.getText());
+
+      ObservableList<DM_hardcode_data> data = FXCollections.observableArrayList(
+          new DM_hardcode_data(50, "Marin", "Marin's character", 1));
+      tableDM.setItems(data);
+
 
     }
     else
     {
       TablePosition tp = tableDM.getSelectionModel().getSelectedCells().get(0);
       int row = tp.getRow();
-      Character ch = tableDM.getItems().get(row);
+      DM_hardcode_data ch = tableDM.getItems().get(row);
 
-      model.enableLVL(ch);
+     // model.enableLVL(ch);
 
     }
   }
@@ -134,18 +89,22 @@ public class DmCharacterChoosingPageController
   {
     if (tableDM.getSelectionModel().getSelectedItems().isEmpty())
     {
-      Text message = new Text(errorMessage.getText());
+      int test= Integer.parseInt(giveXPField.getText());
+
+      ObservableList<DM_hardcode_data> data = FXCollections.observableArrayList(
+          new DM_hardcode_data(test, "Marin", "Marin's character", 0));
+      tableDM.setItems(data);
 
     }
     else
     {
       TablePosition tp = tableDM.getSelectionModel().getSelectedCells().get(0);
       int row = tp.getRow();
-      Character ch = tableDM.getItems().get(row);
-      int amount = ch.getXp();
-
-      model.giveXP(ch.getUsername(), amount);
-      Text message = new Text(errorMessage.getText());
+//      Character ch = tableDM.getItems().get(row);
+//      int amount = ch.getXp();
+//
+//      model.giveXP(ch.getUsername(), amount);
+//      Text message = new Text(errorMessage.getText());
 
     }
 
@@ -153,14 +112,10 @@ public class DmCharacterChoosingPageController
 
   public void hardcode()
   {
-    ObservableList data = FXCollections.observableArrayList(
+    ObservableList<DM_hardcode_data> data = FXCollections.observableArrayList(
         new DM_hardcode_data(0, "Marin", "Marin's character", 1));
-    tableDM.getColumns().removeAll();
     tableDM.setItems(data);
-    tableDM.getColumns().add(lvl);
-    tableDM.getColumns().add(play);
-    tableDM.getColumns().add(charname);
-    tableDM.getColumns().add(curXP);
+
 
 
 
@@ -176,17 +131,17 @@ public class DmCharacterChoosingPageController
     {
       TablePosition tp = tableDM.getSelectionModel().getSelectedCells().get(0);
       int row = tp.getRow();
-      Character ch = tableDM.getItems().get(row);
-      int amount = ch.getXp();
-      int setAmount = amount + Integer.parseInt(giveXPField.getText());
-      ObservableList data = FXCollections.observableArrayList(
-          new DM_hardcode_data(setAmount, "Marin", "Marin's character", 1));
-      tableDM.getColumns().removeAll();
-      tableDM.setItems(data);
-      tableDM.getColumns().add(curXP);
-      tableDM.getColumns().add(play);
-      tableDM.getColumns().add(charname);
-      tableDM.getColumns().add(lvl);
+//      Character ch = tableDM.getItems().get(row);
+//      int amount = ch.getXp();
+//      int setAmount = amount + Integer.parseInt(giveXPField.getText());
+//      ObservableList data = FXCollections.observableArrayList(
+//          new DM_hardcode_data(setAmount, "Marin", "Marin's character", 1));
+//      tableDM.getColumns().removeAll();
+//      tableDM.setItems(data);
+//      tableDM.getColumns().add(curXP);
+//      tableDM.getColumns().add(play);
+//      tableDM.getColumns().add(charname);
+//      tableDM.getColumns().add(lvl);
     }
   }
 
@@ -198,18 +153,18 @@ public class DmCharacterChoosingPageController
     }
     else
     {
-      TablePosition tp = tableDM.getSelectionModel().getSelectedCells().get(0);
-      int row = tp.getRow();
-      Character ch = tableDM.getItems().get(row);
-      int level_original = ch.getLevel();
-      ObservableList data = FXCollections.observableArrayList(
-          new DM_hardcode_data(0, "Marin", "Marin's character", level_original++));
-      tableDM.getColumns().removeAll();
-      tableDM.setItems(data);
-      tableDM.getColumns().add(curXP);
-      tableDM.getColumns().add(play);
-      tableDM.getColumns().add(charname);
-      tableDM.getColumns().add(lvl);
+//      TablePosition tp = tableDM.getSelectionModel().getSelectedCells().get(0);
+//      int row = tp.getRow();
+//      Character ch = tableDM.getItems().get(row);
+//      int level_original = ch.getLevel();
+//      ObservableList data = FXCollections.observableArrayList(
+//          new DM_hardcode_data(0, "Marin", "Marin's character", level_original++));
+//      tableDM.getColumns().removeAll();
+//      tableDM.setItems(data);
+//      tableDM.getColumns().add(curXP);
+//      tableDM.getColumns().add(play);
+//      tableDM.getColumns().add(charname);
+//      tableDM.getColumns().add(lvl);
     }
   }
 }
