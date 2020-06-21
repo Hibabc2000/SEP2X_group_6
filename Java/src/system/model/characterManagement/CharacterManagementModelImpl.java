@@ -31,14 +31,14 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
    * @param client Client, to receive the incoming data from the sockets implementations
    */
   public CharacterManagementModelImpl(Client client)
-  {
-    characters = new ArrayList<>();
+  {characters = new ArrayList<>();
     characterClasses = new ArrayList<>();
     ArrayList<Feat> fts = new ArrayList();
     ArrayList<Integer> featlvls = new ArrayList<>();
     ArrayList<Proficiency> ftmdf = new ArrayList<>();
     Fighter testclass = new Fighter(6,fts,featlvls,"fat","AAA",ftmdf);
     characterClasses.add(testclass);
+
     this.client = client;
     support = new PropertyChangeSupport(this);
     client.addListener("incomingCharacter", this::receiveCharacter);
@@ -224,8 +224,6 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
       {
         System.out.println(character.getName()+character.getAbilities()[0]+"!!!!!!!"+1);
         characters.add(character);
-        support.firePropertyChange("characterToSheetViewModel", null,
-            character);
       }
       else
       {
@@ -237,16 +235,12 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
             characters.remove(characters.get(i));
             characters.add(i, character);
             transmitCharacter(character);
-            support.firePropertyChange("characterToSheetViewModel", null,
-                character);
           }
           else
           {
             System.out.println(character.getName()+character.getAbilities()[0]+"!!!!!!!"+3);
             characters.add(character);
             transmitCharacter(character);
-            support.firePropertyChange("characterToSheetViewModel", null,
-                character);
           }
         }
       }
@@ -257,16 +251,6 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
       characters.remove(0);
       characters.add(character);
       transmitCharacter(character);
-      support.firePropertyChange("characterToSheetViewModel", null,
-          character);
-    }
-    else if(characters.size() == 0)
-    {
-      System.out.println(character.getName()+character.getAbilities()[0]+"!!!!!!!"+5);
-      characters.add(character);
-      transmitCharacter(character);
-      support.firePropertyChange("characterToSheetViewModel", null,
-          character);
     }
 
   }
