@@ -9,7 +9,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import system.core.ViewHandler;
 import system.model.businessModel.Character;
-import system.model.businessModel.staticModel.StaticModel;
 
 public class DmCharacterChoosingPageController
 {
@@ -106,9 +105,10 @@ public class DmCharacterChoosingPageController
         new PropertyValueFactory<Character, String>("username"));
     curXP.setCellValueFactory(
         new PropertyValueFactory<Character, Integer>("xp"));
-    tableDM.setItems(model.getCharacterList());
-    giveXPField.textProperty().bindBidirectional(model.getXpFieldProperty());
+   // tableDM.setItems(model.getCharacterList());
+ //   giveXPField.textProperty().bindBidirectional(model.getXpFieldProperty());
     errorMessage.textProperty().bind(model.getErrorProperty());
+    hardcode();
 
   }
 
@@ -157,10 +157,13 @@ public class DmCharacterChoosingPageController
         new DM_hardcode_data(0, "Marin", "Marin's character", 1));
     tableDM.getColumns().removeAll();
     tableDM.setItems(data);
-    tableDM.getColumns().add(curXP);
+    tableDM.getColumns().add(lvl);
     tableDM.getColumns().add(play);
     tableDM.getColumns().add(charname);
-    tableDM.getColumns().add(lvl);
+    tableDM.getColumns().add(curXP);
+
+
+
   }
 
   public void hardcode_giveXP()

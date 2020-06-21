@@ -48,7 +48,7 @@ public class GetCoreFromDatabase
       Class.forName("org.postgresql.Driver");
       c = DriverManager
           .getConnection("jdbc:postgresql://localhost:5432/SEP2", "postgres",
-              "almafast325");
+              "123456");
     }
     catch (SQLException | ClassNotFoundException e)
     {

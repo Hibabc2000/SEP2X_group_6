@@ -28,7 +28,7 @@ public class LoadCharacter
       Class.forName("org.postgresql.Driver");
       c = DriverManager
           .getConnection("jdbc:postgresql://localhost:5432/SEP2", "postgres",
-              "almafast325");
+              "123456");
       GetCoreFromDatabase getCore = new GetCoreFromDatabase();
       staticModel = getCore.loadStaticModel();
     }

@@ -409,7 +409,7 @@ public class CharacterCreationController
       Alert alert = new Alert(Alert.AlertType.ERROR);
       alert.setTitle("Error Dialog");
       alert.setHeaderText("An Error Dialog");
-      alert.setContentText("Please Choose an option");
+      alert.setContentText("Please Choose an option1");
       alert.showAndWait();
     }
 
@@ -426,7 +426,7 @@ public class CharacterCreationController
       Alert alert = new Alert(Alert.AlertType.ERROR);
       alert.setTitle("Error Dialog");
       alert.setHeaderText("An Error Dialog");
-      alert.setContentText("Please Choose an option");
+      alert.setContentText("Please Choose an option2");
       alert.showAndWait();
     }
   }
@@ -444,7 +444,7 @@ public class CharacterCreationController
       Alert alert = new Alert(Alert.AlertType.ERROR);
       alert.setTitle("Error Dialog");
       alert.setHeaderText("An Error Dialog");
-      alert.setContentText("Please Choose an option");
+      alert.setContentText("Please Choose an option3");
       alert.showAndWait();
     }
 
@@ -461,7 +461,7 @@ public class CharacterCreationController
       Alert alert = new Alert(Alert.AlertType.ERROR);
       alert.setTitle("Error Dialog");
       alert.setHeaderText("An Error Dialog");
-      alert.setContentText("Please Choose an option");
+      alert.setContentText("Please Choose an option4");
       alert.showAndWait();
     }
 
@@ -478,7 +478,7 @@ public class CharacterCreationController
       Alert alert = new Alert(Alert.AlertType.ERROR);
       alert.setTitle("Error Dialog");
       alert.setHeaderText("An Error Dialog");
-      alert.setContentText("Please Choose an option");
+      alert.setContentText("Please Choose an option5");
       alert.showAndWait();
     }
 
@@ -495,7 +495,7 @@ public class CharacterCreationController
       Alert alert = new Alert(Alert.AlertType.ERROR);
       alert.setTitle("Error Dialog");
       alert.setHeaderText("An Error Dialog");
-      alert.setContentText("Please Choose an option");
+      alert.setContentText("Please Choose an option6");
       alert.showAndWait();
     }
 
@@ -516,7 +516,7 @@ public class CharacterCreationController
       Alert alert = new Alert(Alert.AlertType.ERROR);
       alert.setTitle("Error Dialog");
       alert.setHeaderText("An Error Dialog");
-      alert.setContentText("Please Choose an option");
+      alert.setContentText("Please Choose an option7");
       alert.showAndWait();
     }
 
@@ -556,7 +556,7 @@ public class CharacterCreationController
       Alert alert = new Alert(Alert.AlertType.ERROR);
       alert.setTitle("Error Dialog");
       alert.setHeaderText("An Error Dialog");
-      alert.setContentText("Please set the required values");
+      alert.setContentText("Please set the required values8");
       alert.showAndWait();
     }
 
@@ -580,7 +580,7 @@ public class CharacterCreationController
       Alert alert = new Alert(Alert.AlertType.ERROR);
       alert.setTitle("Error Dialog");
       alert.setHeaderText("An Error Dialog");
-      alert.setContentText("Please Choose an option");
+      alert.setContentText("Please Choose an option9");
       alert.showAndWait();
     }
   }
@@ -596,7 +596,7 @@ public class CharacterCreationController
       Alert alert = new Alert(Alert.AlertType.ERROR);
       alert.setTitle("Error Dialog");
       alert.setHeaderText("An Error Dialog");
-      alert.setContentText("Please Choose an option");
+      alert.setContentText("Please Choose an option10");
       alert.showAndWait();
     }
   }
@@ -612,7 +612,7 @@ public class CharacterCreationController
       Alert alert = new Alert(Alert.AlertType.ERROR);
       alert.setTitle("Error Dialog");
       alert.setHeaderText("An Error Dialog");
-      alert.setContentText("Please Choose an option");
+      alert.setContentText("Please Choose an option11");
       alert.showAndWait();
     }
 
@@ -629,7 +629,7 @@ public class CharacterCreationController
       Alert alert = new Alert(Alert.AlertType.ERROR);
       alert.setTitle("Error Dialog");
       alert.setHeaderText("An Error Dialog");
-      alert.setContentText("Please Choose an option");
+      alert.setContentText("Please Choose an option12");
       alert.showAndWait();
     }
   }
@@ -645,7 +645,7 @@ public class CharacterCreationController
       Alert alert = new Alert(Alert.AlertType.ERROR);
       alert.setTitle("Error Dialog");
       alert.setHeaderText("An Error Dialog");
-      alert.setContentText("Please Choose an option");
+      alert.setContentText("Please Choose an option13");
       alert.showAndWait();
     }
   }
@@ -662,7 +662,7 @@ public class CharacterCreationController
       Alert alert = new Alert(Alert.AlertType.ERROR);
       alert.setTitle("Error Dialog");
       alert.setHeaderText("An Error Dialog");
-      alert.setContentText("Please Choose an option");
+      alert.setContentText("Please Choose an option14");
       alert.showAndWait();
     }
 
@@ -679,7 +679,7 @@ public class CharacterCreationController
       Alert alert = new Alert(Alert.AlertType.ERROR);
       alert.setTitle("Error Dialog");
       alert.setHeaderText("An Error Dialog");
-      alert.setContentText("Please Choose an option");
+      alert.setContentText("Please Choose an option15");
       alert.showAndWait();
     }
   }
@@ -695,7 +695,7 @@ public class CharacterCreationController
       Alert alert = new Alert(Alert.AlertType.ERROR);
       alert.setTitle("Error Dialog");
       alert.setHeaderText("An Error Dialog");
-      alert.setContentText("Please Choose an option");
+      alert.setContentText("Please Choose an option16");
       alert.showAndWait();
     }
   }
@@ -711,7 +711,7 @@ public class CharacterCreationController
       Alert alert = new Alert(Alert.AlertType.ERROR);
       alert.setTitle("Error Dialog");
       alert.setHeaderText("An Error Dialog");
-      alert.setContentText("Please Choose an option");
+      alert.setContentText("Please Choose an option17");
       alert.showAndWait();
     }
   }
@@ -727,7 +727,7 @@ public class CharacterCreationController
       Alert alert = new Alert(Alert.AlertType.ERROR);
       alert.setTitle("Error Dialog");
       alert.setHeaderText("An Error Dialog");
-      alert.setContentText("Please Choose an option");
+      alert.setContentText("Please Choose an option18");
       alert.showAndWait();
     }
   }
@@ -743,7 +743,7 @@ public class CharacterCreationController
       Alert alert = new Alert(Alert.AlertType.ERROR);
       alert.setTitle("Error Dialog");
       alert.setHeaderText("An Error Dialog");
-      alert.setContentText("Please Choose an option");
+      alert.setContentText("Please Choose an option19");
       alert.showAndWait();
     }
   }

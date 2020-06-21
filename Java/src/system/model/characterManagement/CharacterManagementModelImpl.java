@@ -213,6 +213,8 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
       if (characters.size() == 0)
       {
         characters.add(character);
+        support.firePropertyChange("characterToSheetViewModel", null,
+            character);
       }
       else
       {
@@ -223,11 +225,15 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
             characters.remove(characters.get(i));
             characters.add(i, character);
             transmitCharacter(character);
+            support.firePropertyChange("characterToSheetViewModel", null,
+                character);
           }
           else
           {
             characters.add(character);
             transmitCharacter(character);
+            support.firePropertyChange("characterToSheetViewModel", null,
+                character);
           }
         }
       }
@@ -237,6 +243,8 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
       characters.remove(0);
       characters.add(character);
       transmitCharacter(character);
+      support.firePropertyChange("characterToSheetViewModel", null,
+          character);
     }
 
   }

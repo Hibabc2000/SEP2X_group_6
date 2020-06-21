@@ -43,6 +43,7 @@ public class ViewHandler
   private Stage stage2;
   private Stage stage3;
   private Stage stage4;
+  private Stage characterSheetStage;
 
   /**
    * Initializes the stages
@@ -56,6 +57,7 @@ public class ViewHandler
     stage2 = new Stage();
     stage3 = new Stage();
     stage4 = new Stage();
+    characterSheetStage=new Stage();
     //bruh
      vmf.getModel().getCharacterManagementModel().addListener("openTheCreation",this::openCharacterCreation);
 
@@ -340,9 +342,9 @@ openSystem();
       controller.init(vmf.getCharacterSheetViewModel(), this);
       characterSheet = new Scene(root);
     }
-    stage4.setTitle("DnDAS");
-    stage4.setScene(emailChange);
-    stage4.show();
+    characterSheetStage.setTitle("DnDAS");
+    characterSheetStage.setScene(characterSheet);
+    characterSheetStage.show();
   }
  /* public void openCharacterCreation()
   {
