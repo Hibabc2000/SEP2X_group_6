@@ -150,7 +150,7 @@ public class CharacterCreationController
         characterCreationViewModel.
             getCharacter().
             getRace());
-    raceDescription.textProperty().bind(characterCreationViewModel.raceDesProperty());
+    raceDescription.textProperty().bindBidirectional(characterCreationViewModel.raceDesProperty());
     //<editor-fold desc="intelligenceRolledNumber">
     intelligenceRolledNumber.textProperty().addListener(new ChangeListener<String>() {
       @Override
