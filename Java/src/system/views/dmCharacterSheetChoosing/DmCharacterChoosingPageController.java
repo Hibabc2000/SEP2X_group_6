@@ -64,56 +64,54 @@ public class DmCharacterChoosingPageController
 
   public void enableLevelForPlayer(ActionEvent actionEvent)
   {
-    if (tableDM.getSelectionModel().getSelectedItems().isEmpty())
-    {
+
       int test= Integer.parseInt(giveXPField.getText());
 
       ObservableList<DM_hardcode_data> data = FXCollections.observableArrayList(
-          new DM_hardcode_data(50, "Marin", "Marin's character", 1));
+          new DM_hardcode_data(50, "marin", "Marin's character", 1));
       tableDM.setItems(data);
 
 
-    }
-    else
-    {
-      TablePosition tp = tableDM.getSelectionModel().getSelectedCells().get(0);
-      int row = tp.getRow();
-      DM_hardcode_data ch = tableDM.getItems().get(row);
 
-     // model.enableLVL(ch);
+//    else
+//    {
+//      TablePosition tp = tableDM.getSelectionModel().getSelectedCells().get(0);
+//      int row = tp.getRow();
+//      DM_hardcode_data ch = tableDM.getItems().get(row);
+//
+//     // model.enableLVL(ch);
 
-    }
+
   }
 
   public void giveXPToCharacter(ActionEvent actionEvent)
   {
-    if (tableDM.getSelectionModel().getSelectedItems().isEmpty())
-    {
+
       int test= Integer.parseInt(giveXPField.getText());
 
       ObservableList<DM_hardcode_data> data = FXCollections.observableArrayList(
           new DM_hardcode_data(test, "marin", "TestCharacter", 0));
       tableDM.setItems(data);
 
-    }
-    else
-    {
-      TablePosition tp = tableDM.getSelectionModel().getSelectedCells().get(0);
-      int row = tp.getRow();
+//    }
+//    else
+//    {
+//      TablePosition tp = tableDM.getSelectionModel().getSelectedCells().get(0);
+//      int row = tp.getRow();
 //      Character ch = tableDM.getItems().get(row);
 //      int amount = ch.getXp();
 //
 //      model.giveXP(ch.getUsername(), amount);
 //      Text message = new Text(errorMessage.getText());
 
-    }
+
 
   }
 
   public void hardcode()
   {
     ObservableList<DM_hardcode_data> data = FXCollections.observableArrayList(
-        new DM_hardcode_data(0, "marin", "TestCharacter", 1));
+        new DM_hardcode_data(0, "marin", "TestCharacter", 0));
     tableDM.setItems(data);
 
 
