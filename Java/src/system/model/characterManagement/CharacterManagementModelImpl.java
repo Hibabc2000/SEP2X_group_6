@@ -32,14 +32,13 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
    */
   public CharacterManagementModelImpl(Client client)
   {
+    characters = new ArrayList<>();
     characterClasses = new ArrayList<>();
     ArrayList<Feat> fts = new ArrayList();
     ArrayList<Integer> featlvls = new ArrayList<>();
     ArrayList<Proficiency> ftmdf = new ArrayList<>();
     Fighter testclass = new Fighter(6,fts,featlvls,"fat","AAA",ftmdf);
     characterClasses.add(testclass);
-
-    characters = new ArrayList<>();
     this.client = client;
     support = new PropertyChangeSupport(this);
     client.addListener("incomingCharacter", this::receiveCharacter);

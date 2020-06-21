@@ -181,6 +181,7 @@ public class CharacterCreationViewModel implements Subject
     ideals.addAll(character.getIdeals());
     flaws.addAll(character.getFlaws());
     bonds.addAll(character.getBonds());
+    nameF.setValue(temporaryCharacter.getName());
     for (int i = 0; i < allClasses.size(); i++)
     {
       allCharacterClassesNames.add(allClasses.get(i).getClassName());
@@ -1206,6 +1207,10 @@ public class CharacterCreationViewModel implements Subject
     temporaryCharacter.setBackground(((Background) object).toString());
     backgroundDescription.setValue(characterBackground.getDescription());
   }
+  public void setAlignment(Object object)
+  {
+    temporaryCharacter.setAlignment((String) object);
+  }
 
   public ArrayList<Background> getBackgrounds()
   {
@@ -1469,7 +1474,10 @@ public class CharacterCreationViewModel implements Subject
     }
     else
       temporaryCharacter.setXp(Integer.parseInt(xp.getValue()));
-
+    temporaryCharacter.setName(nameF.getName());
+    temporaryCharacter.setPhysicalCharacteristics(physicalCharacteristicsF.toString());
+    temporaryCharacter.setBackstory(backstoryF.toString());
+    temporaryCharacter.setAlliesAndOrganizations(alliesAndOrganizationsF.toString());
     //these are the last
     character = temporaryCharacter;
     model.setCharacter(character);

@@ -307,7 +307,7 @@ public class CharacterCreationController
     //</editor-fold>
 
     //<editor-fold desc="Description">
-    nameTextField.setText(characterCreationViewModel.getCharacter().getName());
+    nameTextField.textProperty().bindBidirectional(characterCreationViewModel.nameFProperty());
     languageTextArea.textProperty().bindBidirectional(characterCreationViewModel.languageFProperty());
     physicalCharacteristicsTextArea.textProperty().bindBidirectional(characterCreationViewModel.physicalCharacteristicsFProperty());
     treasuresListView.setItems(characterCreationViewModel.getTreasures());
@@ -750,6 +750,11 @@ public class CharacterCreationController
 
   public void changeSelectedClassForLevelEditing(ActionEvent actionEvent)
   {
+  }
+
+  public void setAlignmentFN(ActionEvent actionEvent)
+  {
+    characterCreationViewModel.setAlignment(alignmentComboBox.getValue());
   }
   /*
   public Button addFeatButton;

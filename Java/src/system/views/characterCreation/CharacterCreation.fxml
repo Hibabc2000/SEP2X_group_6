@@ -22,7 +22,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <ScrollPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.views.characterCreation.CharacterCreationController">
    <content>
       <AnchorPane prefHeight="912.0" prefWidth="1920.0">
@@ -1165,7 +1164,7 @@
                                                 <Insets top="30.0" />
                                              </VBox.margin>
                                           </HBox>
-                                          <ComboBox fx:id="alignmentComboBox" prefHeight="50.0" prefWidth="440.0" promptText="Alignment">
+                                          <ComboBox fx:id="alignmentComboBox" onAction="#setAlignmentFN" prefHeight="50.0" prefWidth="440.0" promptText="Alignment">
                                              <VBox.margin>
                                                 <Insets left="20.0" right="20.0" top="30.0" />
                                              </VBox.margin>
