@@ -1,8 +1,11 @@
 package system.model.characterManagement;
 
 import system.model.businessModel.Character;
+import system.model.businessModel.Feat;
+import system.model.businessModel.Proficiency;
 import system.model.businessModel.staticModel.StaticModel;
 import system.model.characterClasses.CharacterClass;
+import system.model.characterClasses.Fighter;
 import system.networking.Client;
 import system.transferobjects.Container;
 import system.transferobjects.login.Account;
@@ -29,6 +32,13 @@ public class CharacterManagementModelImpl implements CharacterManagementModel
    */
   public CharacterManagementModelImpl(Client client)
   {
+    characterClasses = new ArrayList<>();
+    ArrayList<Feat> fts = new ArrayList();
+    ArrayList<Integer> featlvls = new ArrayList<>();
+    ArrayList<Proficiency> ftmdf = new ArrayList<>();
+    Fighter testclass = new Fighter(6,fts,featlvls,"fat","AAA",ftmdf);
+    characterClasses.add(testclass);
+
     characters = new ArrayList<>();
     this.client = client;
     support = new PropertyChangeSupport(this);

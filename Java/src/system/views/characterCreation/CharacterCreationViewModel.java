@@ -101,7 +101,7 @@ public class CharacterCreationViewModel implements Subject
     allClasses = model.getAllCharacterClasses();
     characterEditorAccountDmStatus = model.getAccountDmStatus();
     //changes, some initialization
-    allClasses = new ArrayList<>();
+   // allClasses = new ArrayList<>();
     backgrounds = new ArrayList<>();
     characterClasses = new ArrayList<>();
     relatedSubClasses = new ArrayList<>();
